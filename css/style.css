@@ -357,3 +357,24 @@ p  { color: var(--text-mid); }
   .club-hero__stats { gap: 20px; }
   .quick-facts { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Newsletter ── */
+.newsletter-section { background: var(--green-dark); padding: 72px 0; }
+.newsletter-section p { color: rgba(255,255,255,.8); }
+.newsletter-inner { display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: center; }
+.newsletter-eyebrow { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gold) !important; margin-bottom: 14px; }
+.newsletter-section h2 { color: #fff; margin-bottom: 18px; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.newsletter-lead { font-size: 1rem; line-height: 1.75; margin-bottom: 24px; }
+.newsletter-benefits { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 0; }
+.newsletter-benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: .95rem; color: rgba(255,255,255,.88); }
+.nl-check { color: var(--gold); font-weight: 900; flex-shrink: 0; font-size: 1rem; }
+.newsletter-form-wrap { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-lg); padding: 40px 36px; }
+.newsletter-form-headline { color: #fff !important; font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+.newsletter-form-sub { font-size: .88rem; margin-bottom: 24px; }
+.newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+.newsletter-input { padding: 14px 18px; border: 2px solid rgba(255,255,255,.25); border-radius: var(--radius-md); background: rgba(255,255,255,.1); color: #fff; font-size: 1rem; font-family: var(--font-main); outline: none; transition: border-color var(--transition); width: 100%; }
+.newsletter-input::placeholder { color: rgba(255,255,255,.45); }
+.newsletter-input:focus { border-color: var(--gold); }
+.newsletter-btn { width: 100%; padding: 15px; font-size: 1rem; font-weight: 800; letter-spacing: .02em; }
+.newsletter-fine { font-size: .76rem; color: rgba(255,255,255,.4) !important; margin-top: 12px; text-align: center; }
+@media (max-width: 860px) { .newsletter-inner { grid-template-columns: 1fr; gap: 36px; } }
