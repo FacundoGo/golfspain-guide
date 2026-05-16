@@ -176,4 +176,22 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/ifach/"/>
   </url>
 
+  <!-- Masia de las Estrellas Golf -->
+  <url>
+    <loc>https://golfspain.guide/en/valencia/masia-estrellas/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/masia-estrellas/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/valencia/masia-estrellas/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/masia-estrellas/"/>
+  </url>
+
 </urlset>
