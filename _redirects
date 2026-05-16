@@ -1,0 +1,7 @@
+# Language-based redirect at root
+/  /es/  302  Language=es
+/  /en/  302
+
+# Redirect old URLs to English (in case anyone bookmarked them)
+/valencia/*  /en/valencia/:splat  301
+/about/*     /en/about/:splat     301
