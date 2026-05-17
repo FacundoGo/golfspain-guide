@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Courses in Spain — Green Fees, Membership &amp; Club Directory 2026 | golfspain.guide</title>
+  <meta name="description" content="Browse every golf club in Spain. Compare green fees and membership prices at a glance. Valencia courses verified May 2026 — more regions coming soon.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://golfspain.guide/en/courses/">
+  <link rel="alternate" hreflang="en" href="https://golfspain.guide/en/courses/">
+  <link rel="alternate" hreflang="es" href="https://golfspain.guide/es/courses/">
+  <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/courses/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://golfspain.guide/en/courses/">
+  <meta property="og:title" content="Golf Courses in Spain — Green Fees &amp; Membership Directory 2026">
+  <meta property="og:description" content="Browse every golf club in Spain. Compare green fees and membership prices at a glance.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Golf Courses in Spain — Directory","url":"https://golfspain.guide/en/courses/","description":"Browse every golf club in Spain with green fees and membership prices.","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"All Courses","item":"https://golfspain.guide/en/courses/"}]}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="/en/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <ul class="nav__links">
+      <li><a href="/en/valencia/">Valencia</a></li>
+      <li><a href="/en/about/">About</a></li>
+      <li><a href="/en/courses/" class="nav__cta" style="background:var(--gold);color:var(--green-dark);">All Courses</a></li>
+    </ul>
+    <div class="nav__lang">
+      <span class="nav__lang-active">EN</span>
+      <a href="/es/courses/">ES</a>
+    </div>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="dir-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span>›</span>All Courses</nav>
+    <h1>Golf Courses in Spain</h1>
+    <p class="dir-hero__sub">Green fees and membership prices, verified. Find where to play — and what it costs — before you show up.</p>
+    <div class="dir-stats">
+      <span id="stat-total">⛳ 8 courses listed</span>
+      <span>📍 Valencia · Costa Blanca</span>
+      <span>📅 Updated May 2026</span>
+    </div>
+  </div>
+</section>
+
+<div class="dir-toolbar" role="search">
+  <div class="container">
+    <div class="dir-toolbar-inner">
+      <input type="search" id="dir-search" class="dir-search" placeholder="Search club name or city…" aria-label="Search courses" autocomplete="off">
+      <select id="filter-region" class="dir-select" aria-label="Filter by region">
+        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
+        <option value="all">🇪🇸 All Spain</option>
+      </select>
+      <select id="filter-holes" class="dir-select" aria-label="Filter by number of holes">
+        <option value="any">Holes: Any</option>
+        <option value="9">9 holes</option>
+        <option value="18">18 holes</option>
+        <option value="27">27+ holes</option>
+      </select>
+      <select id="filter-fee" class="dir-select" aria-label="Filter by green fee">
+        <option value="any">Green fee: Any</option>
+        <option value="under30">Under €30</option>
+        <option value="30-60">€30 – €60</option>
+        <option value="60-100">€60 – €100</option>
+        <option value="100plus">€100+</option>
+      </select>
+      <select id="filter-membership" class="dir-select" aria-label="Filter by membership status">
+        <option value="any">Membership: Any</option>
+        <option value="open">Open to join</option>
+        <option value="share">Share required</option>
+        <option value="closed">Closed</option>
+      </select>
+      <span id="dir-count" class="dir-count" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div id="dir-grid" class="dir-grid" aria-label="Course results"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
+        <p>Independent guide to golf club membership and green fees in Spain.</p>
+      </div>
+      <div class="footer__col"><h4>Valencia clubs</h4><ul>
+        <li><a href="/en/valencia/el-saler/">El Saler</a></li>
+        <li><a href="/en/valencia/escorpion/">Escorpión</a></li>
+        <li><a href="/en/valencia/foressos/">Foressos</a></li>
+        <li><a href="/en/valencia/el-bosque/">El Bosque</a></li>
+        <li><a href="/en/valencia/la-galiana/">La Galiana</a></li>
+        <li><a href="/en/valencia/requena/">Requena</a></li>
+        <li><a href="/en/valencia/ifach/">Ifach Golf</a></li>
+        <li><a href="/en/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Info</h4><ul>
+        <li><a href="/en/">Home</a></li>
+        <li><a href="/en/courses/">All Courses</a></li>
+        <li><a href="/en/about/">About</a></li>
+        <li><a href="/en/about/#contact">Corrections</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide — Independent guide, not affiliated with any club.</p></div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+(function () {
+  var CLUBS = [
+    {
+      id: 'el-saler',
+      name: 'El Saler — Parador de Golf',
+      city: 'El Saler', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Public · Parador',
+      visitorStatus: 'open',
+      greenFeeMin: 60, greenFeeDisplay: '€60 (guest) · public rate TBC',
+      membershipMin: 2400, membershipDisplay: 'From €2,400/yr',
+      membershipStatus: 'open',
+      phone: '+34 961 610 384',
+      website: 'golfenparadores.es', websiteUrl: 'https://golfenparadores.es',
+      url: '/en/valencia/el-saler/',
+      highlight: 'Top 5 Europe · Javier Arana 1968 · Bucket-list round'
+    },
+    {
+      id: 'escorpion',
+      name: 'Club de Golf Escorpión',
+      city: 'Bétera', province: 'Valencia', region: 'valencia',
+      holes: 27, par: null, type: 'Private',
+      visitorStatus: 'guests',
+      greenFeeMin: 160, greenFeeDisplay: '~€160 (invited guests only)',
+      membershipMin: 1500, membershipDisplay: '~€20,000 share + ~€1,500/yr',
+      membershipStatus: 'share',
+      phone: null,
+      website: 'clubescorpion.com', websiteUrl: 'https://www.clubescorpion.com',
+      url: '/en/valencia/escorpion/',
+      highlight: '27 holes · Most prestigious private club in Valencia'
+    },
+    {
+      id: 'foressos',
+      name: 'Foressos Golf',
+      city: 'Picassent', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Semi-public',
+      visitorStatus: 'open',
+      greenFeeMin: 70, greenFeeDisplay: '€70 weekday / €80 weekend',
+      membershipMin: 600, membershipDisplay: 'From €600/yr — no entry fee',
+      membershipStatus: 'open',
+      phone: '+34 961 221 660',
+      website: 'foressosclubgolf.com', websiteUrl: 'https://www.foressosclubgolf.com',
+      url: '/en/valencia/foressos/',
+      highlight: 'No joining fee · Kids under 17 play free · Verified 2026'
+    },
+    {
+      id: 'el-bosque',
+      name: 'El Bosque Golf',
+      city: 'Chiva', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Semi-public',
+      visitorStatus: 'open',
+      greenFeeMin: 105, greenFeeDisplay: '€105 weekday / €125 weekend (18H)',
+      membershipMin: 1692, membershipDisplay: 'From €1,692/yr',
+      membershipStatus: 'open',
+      phone: null,
+      website: 'elbosquegolf.com', websiteUrl: 'https://www.elbosquegolf.com',
+      url: '/en/valencia/el-bosque/',
+      highlight: 'Book online · 18 holes Par 72 · Verified 2026'
+    },
+    {
+      id: 'la-galiana',
+      name: 'La Galiana Golf Resort',
+      city: 'Cofrentes', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Resort',
+      visitorStatus: 'open',
+      greenFeeMin: 75, greenFeeDisplay: '€75 (18H) / €45 (9H)',
+      membershipMin: null, membershipDisplay: 'Closed to new members',
+      membershipStatus: 'closed',
+      phone: null,
+      website: 'lagalianagolfresort.com', websiteUrl: 'https://www.lagalianagolfresort.com',
+      url: '/en/valencia/la-galiana/',
+      highlight: 'Best Course Spain 2019 — World Golf Awards'
+    },
+    {
+      id: 'requena',
+      name: 'Requena Golf Club',
+      city: 'Requena', province: 'Valencia', region: 'valencia',
+      holes: 9, par: 35, type: 'Semi-public',
+      visitorStatus: 'open',
+      greenFeeMin: 10, greenFeeDisplay: '~€10',
+      membershipMin: null, membershipDisplay: 'TBC',
+      membershipStatus: 'open',
+      phone: '+34 667 101 240',
+      website: null, websiteUrl: null,
+      url: '/en/valencia/requena/',
+      highlight: 'Most affordable round · 9 holes · Artificial greens'
+    },
+    {
+      id: 'ifach',
+      name: 'Club de Golf Ifach',
+      city: 'Benissa', province: 'Alicante', region: 'valencia',
+      holes: 9, par: 30, type: 'Semi-public',
+      visitorStatus: 'open',
+      greenFeeMin: 49.5, greenFeeDisplay: '€49.50 (18H) / €33.50 (9H)',
+      membershipMin: null, membershipDisplay: 'Transferable share — open to new members',
+      membershipStatus: 'open',
+      phone: '+34 966 497 114',
+      website: 'golfifach.com', websiteUrl: 'https://www.golfifach.com',
+      url: '/en/valencia/ifach/',
+      highlight: 'Members pay €18/round · Pool · Restaurant · Tennis · Verified 2026'
+    },
+    {
+      id: 'masia-estrellas',
+      name: 'Masia de las Estrellas',
+      city: 'Benissa', province: 'Alicante', region: 'valencia',
+      holes: 9, par: 30, type: 'Public · Pitch &amp; Putt',
+      visitorStatus: 'open',
+      greenFeeMin: 24, greenFeeDisplay: '~€24 (18H) — no handicap needed',
+      membershipMin: 800, membershipDisplay: '~€800/yr — waitlist',
+      membershipStatus: 'waitlist',
+      phone: null, website: null, websiteUrl: null,
+      url: '/en/valencia/masia-estrellas/',
+      highlight: 'Best-value 18H in Valencia · Practice from €8'
+    }
+  ];
+
+  var BADGES = {
+    open:   '<span class="badge badge--open">✓ Open to visitors</span>',
+    guests: '<span class="badge badge--partial">Members &amp; guests</span>',
+    members:'<span class="badge badge--members">Members only</span>'
+  };
+
+  var state = { region: 'valencia', holes: 'any', fee: 'any', membership: 'any', q: '' };
+
+  function parseURL() {
+    var p = new URLSearchParams(window.location.search);
+    state.region     = p.get('region')     || 'valencia';
+    state.holes      = p.get('holes')      || 'any';
+    state.fee        = p.get('fee')        || 'any';
+    state.membership = p.get('membership') || 'any';
+    state.q          = p.get('q')          || '';
+  }
+
+  function syncInputs() {
+    document.getElementById('filter-region').value     = state.region;
+    document.getElementById('filter-holes').value      = state.holes;
+    document.getElementById('filter-fee').value        = state.fee;
+    document.getElementById('filter-membership').value = state.membership;
+    document.getElementById('dir-search').value        = state.q;
+  }
+
+  function pushURL() {
+    var p = new URLSearchParams();
+    if (state.region !== 'valencia') p.set('region', state.region);
+    if (state.holes  !== 'any')      p.set('holes',  state.holes);
+    if (state.fee    !== 'any')      p.set('fee',    state.fee);
+    if (state.membership !== 'any')  p.set('membership', state.membership);
+    if (state.q)                     p.set('q', state.q);
+    var qs = p.toString();
+    history.replaceState(null, '', qs ? ('?' + qs) : window.location.pathname);
+  }
+
+  function applyFilters() {
+    return CLUBS.filter(function (c) {
+      if (state.region !== 'all' && c.region !== state.region) return false;
+      if (state.holes !== 'any') {
+        if (state.holes === '9'  && c.holes !== 9)  return false;
+        if (state.holes === '18' && c.holes !== 18) return false;
+        if (state.holes === '27' && c.holes < 27)   return false;
+      }
+      if (state.fee !== 'any') {
+        var f = c.greenFeeMin;
+        if (f === null) return true; // can't filter on unknown price
+        if (state.fee === 'under30'  && f >= 30)             return false;
+        if (state.fee === '30-60'    && (f < 30 || f > 60))  return false;
+        if (state.fee === '60-100'   && (f < 60 || f > 100)) return false;
+        if (state.fee === '100plus'  && f < 100)             return false;
+      }
+      if (state.membership !== 'any') {
+        var ms = c.membershipStatus;
+        if (state.membership === 'open'   && ms !== 'open' && ms !== 'waitlist') return false;
+        if (state.membership === 'share'  && ms !== 'share')   return false;
+        if (state.membership === 'closed' && ms !== 'closed')  return false;
+      }
+      if (state.q) {
+        var q = state.q.toLowerCase();
+        var match = c.name.toLowerCase().indexOf(q) > -1 ||
+                    c.city.toLowerCase().indexOf(q) > -1 ||
+                    c.province.toLowerCase().indexOf(q) > -1;
+        if (!match) return false;
+      }
+      return true;
+    });
+  }
+
+  function cardHTML(c) {
+    var actions = '';
+    if (c.phone)      actions += '<a href="tel:' + c.phone.replace(/\s/g,'') + '" class="dir-card__phone">📞 ' + c.phone + '</a>';
+    if (c.websiteUrl) actions += '<a href="' + c.websiteUrl + '" target="_blank" rel="noopener" class="btn btn--outline" style="font-size:.8rem;text-align:center;">' + c.website + ' ↗</a>';
+    actions += '<a href="' + c.url + '" class="btn btn--primary" style="text-align:center;">Full details →</a>';
+
+    return '<article class="dir-card">' +
+      '<div class="dir-card__top">' +
+        (BADGES[c.visitorStatus] || '') +
+        '<span class="dir-card__type">' + c.holes + ' holes' + (c.par ? ' · Par ' + c.par : '') + ' · ' + c.type + '</span>' +
+      '</div>' +
+      '<div class="dir-card__body">' +
+        '<div class="dir-card__main">' +
+          '<div class="dir-card__name"><a href="' + c.url + '">' + c.name + '</a></div>' +
+          '<div class="dir-card__location">📍 ' + c.city + ', ' + c.province + '</div>' +
+          (c.highlight ? '<div class="dir-card__highlight">' + c.highlight + '</div>' : '') +
+          '<div class="dir-card__fees">' +
+            '<div class="dir-card__fee-item"><span class="dir-card__fee-label">Green fee</span><span class="dir-card__fee-val">' + (c.greenFeeDisplay || '<span style="color:var(--text-light)">Verifying…</span>') + '</span></div>' +
+            '<div class="dir-card__fee-item"><span class="dir-card__fee-label">Membership</span><span class="dir-card__fee-val">' + (c.membershipDisplay || '<span style="color:var(--text-light)">Verifying…</span>') + '</span></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="dir-card__actions">' + actions + '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function render() {
+    var results = applyFilters();
+    var grid  = document.getElementById('dir-grid');
+    var count = document.getElementById('dir-count');
+    count.textContent = results.length + ' course' + (results.length !== 1 ? 's' : '');
+    grid.innerHTML = results.length
+      ? results.map(cardHTML).join('')
+      : '<p class="dir-empty">No courses match your filters. <a href="/en/courses/">Reset filters</a></p>';
+  }
+
+  function onChange(key, val) {
+    state[key] = val;
+    pushURL();
+    render();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    parseURL();
+    syncInputs();
+
+    document.getElementById('dir-search').addEventListener('input', function (e) { onChange('q', e.target.value); });
+    document.getElementById('filter-region').addEventListener('change',     function (e) { onChange('region', e.target.value); });
+    document.getElementById('filter-holes').addEventListener('change',      function (e) { onChange('holes', e.target.value); });
+    document.getElementById('filter-fee').addEventListener('change',        function (e) { onChange('fee', e.target.value); });
+    document.getElementById('filter-membership').addEventListener('change', function (e) { onChange('membership', e.target.value); });
+
+    render();
+  });
+})();
+</script>
+</body>
+</html>
