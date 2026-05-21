@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:title" content="Golf Handicap Calculator Spain — Estimate Your Index Free">
   <meta property="og:description" content="Enter your last rounds and get your estimated handicap index in seconds. See which Valencia courses suit your level.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator. Enter your rounds and get an estimated WHS handicap index.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Enter your rounds and get an estimated handicap index.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span>›</span>Handicap Calculator</nav>
     <h1>Golf Handicap Calculator</h1>
-    <p class="calc-hero__sub">Enter your last rounds and get an estimated handicap index in seconds — then see which courses in Spain suit your level.</p>
+    <p class="calc-hero__sub">Enter your last rounds, pick the course played, and get an estimated WHS Handicap Index in seconds — then see which courses in Spain suit your level.</p>
   </div>
 </section>
 
@@ -60,12 +60,13 @@
           <h2>Enter your rounds</h2>
           <div class="round-header">
             <span>Score</span>
-            <span>Par</span>
-            <span>Course (optional)</span>
+            <span>Course</span>
+            <span>Rating</span>
+            <span>Slope</span>
             <span></span>
           </div>
           <div class="rounds-list" id="rounds-list"></div>
-          <button class="add-round-btn" id="add-round-btn" type="button">+ Add another round (up to 10)</button>
+          <button class="add-round-btn" id="add-round-btn" type="button">+ Add another round (up to 20)</button>
           <button class="btn btn--primary" style="width:100%;padding:16px;font-size:1.05rem;" id="calc-btn" type="button">Calculate my handicap →</button>
           <p class="calc-error" id="calc-error"></p>
         </div>
@@ -76,7 +77,10 @@
           <p class="hcp-sublabel" id="hcp-sublabel">Estimated Handicap Index</p>
           <span class="level-pill" id="level-pill"></span>
           <p class="result-based" id="result-based"></p>
-          <p class="result-note">⚠️ This is an estimate based on a simplified WHS formula (score − par). An official handicap index requires registration with a recognised club and uses Course Rating and Slope. Use this as a guide only.</p>
+          <div class="simple-mode-note" id="simple-mode-note">
+            ⚠️ <strong>Simple estimate used for one or more rounds</strong> — Course Rating and Slope were not available, so we used <em>Score − Par</em> for those rounds. Enter Rating &amp; Slope for a more accurate result.
+          </div>
+          <p class="result-note">This is an estimate based on WHS methodology. For an official Handicap Index, register your rounds with a club affiliated with the <strong>Real Federación Española de Golf (RFEG)</strong> → <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es</a></p>
         </div>
 
         <!-- Recommendations — hidden until calculated -->
@@ -94,10 +98,10 @@
         <div class="calc-howto">
           <h3>How it works</h3>
           <ol>
-            <li>Enter your gross score and the course par for each round.</li>
-            <li>We calculate a <strong>differential</strong> for each round (score − par).</li>
-            <li>We take your best differentials (fewest strokes over par) and average them.</li>
-            <li>Apply the WHS 96% adjustment to get your estimated index.</li>
+            <li>Enter your gross score for each round and select the course played.</li>
+            <li>We calculate a <strong>Handicap Differential</strong>: <em>(Score − Course Rating) × (113 ÷ Slope)</em></li>
+            <li>We take your best differentials based on how many rounds you've entered (WHS table).</li>
+            <li>Apply the WHS <strong>96% factor</strong> to get your estimated Handicap Index.</li>
           </ol>
         </div>
         <div class="calc-official">
@@ -108,9 +112,11 @@
         <div style="margin-top:20px;" class="info-card">
           <h3 style="font-size:.95rem;margin-bottom:10px;">Handicap levels explained</h3>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:.85rem;">
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--low" style="margin:0;font-size:.68rem;">Low</span><span style="color:var(--text-mid);">Under 10 — experienced player, single figures</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--mid" style="margin:0;font-size:.68rem;">Mid</span><span style="color:var(--text-mid);">10–17 — confident player, most courses accessible</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--beginner" style="margin:0;font-size:.68rem;">Beginner</span><span style="color:var(--text-mid);">18+ — still developing, shorter/relaxed courses best</span></div>
+            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--scratch"  style="margin:0;font-size:.65rem;padding:3px 10px;">Scratch</span><span style="color:var(--text-mid);">Under 0 — elite level</span></div>
+            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--low"      style="margin:0;font-size:.65rem;padding:3px 10px;">Low</span><span style="color:var(--text-mid);">0–9 — experienced, single figures</span></div>
+            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--mid"      style="margin:0;font-size:.65rem;padding:3px 10px;">Mid</span><span style="color:var(--text-mid);">10–20 — confident, most courses playable</span></div>
+            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--high"     style="margin:0;font-size:.65rem;padding:3px 10px;">High</span><span style="color:var(--text-mid);">21–36 — developing, shorter courses easier</span></div>
+            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--beginner" style="margin:0;font-size:.65rem;padding:3px 10px;">Beginner</span><span style="color:var(--text-mid);">36+ — just starting out</span></div>
           </div>
         </div>
       </div>
@@ -149,24 +155,47 @@
 <script src="/js/main.js"></script>
 <script>
 (function () {
-  var MAX_ROUNDS = 10;
+  var MAX_ROUNDS = 20;
+
+  var COURSES = [
+    { name: 'El Bosque Golf',           par: 71, rating: 75.5, slope: 148 },
+    { name: 'La Galiana',               par: 72, rating: 74.1, slope: 148 },
+    { name: 'Foressos Golf',            par: 72, rating: 74.1, slope: 140 },
+    { name: 'El Saler (Parador)',        par: 72, rating: 74.2, slope: 136 },
+    { name: 'Club de Golf Escorpión',   par: 72, rating: null,  slope: 128 },
+    { name: 'Requena Golf',             par: 35, rating: 34.3, slope: 117 },
+    { name: 'Ifach Golf',               par: 30, rating: null,  slope: null },
+    { name: 'Other course',             par: 72, rating: null,  slope: null },
+  ];
+
+  var OTHER_IDX = COURSES.length - 1;
 
   var RECOMMENDATIONS = {
-    beginner: [
-      { name: 'Requena Golf Club',        sub: '9 holes · Par 35 · ~€10',          why: 'Affordable, low pressure, perfect to build confidence', url: '/en/valencia/requena/' },
-      { name: 'Masia de las Estrellas',   sub: 'Pitch & Putt · 9 holes · ~€24',    why: 'No handicap required, relaxed atmosphere',              url: '/en/valencia/masia-estrellas/' },
-      { name: 'Club de Golf Ifach',       sub: '9 holes · Par 30 · €49.50',        why: 'Short course, great views, forgiving for beginners',   url: '/en/valencia/ifach/' }
-    ],
-    mid: [
-      { name: 'Foressos Golf',            sub: '18 holes · Par 72 · €70–80',       why: 'Great value, varied layout, suits all mid-handicappers', url: '/en/valencia/foressos/' },
-      { name: 'La Galiana Golf Resort',   sub: '18 holes · Par 72 · €75',          why: 'Best Course Spain 2019 — a proper challenge',           url: '/en/valencia/la-galiana/' },
-      { name: 'El Bosque Golf',           sub: '18 holes · Par 72 · €105–125',     why: 'Traditional club, well-maintained, book online',        url: '/en/valencia/el-bosque/' }
+    scratch: [
+      { name: 'El Saler — Parador',       sub: '18 holes · Par 72 · Top 5 Europe',   why: 'Top 5 Europe — the ultimate test',                        url: '/en/valencia/el-saler/' },
+      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · Slope 148',      why: 'Slope 148 — most technically demanding in Valencia',      url: '/en/valencia/el-bosque/' },
+      { name: 'Club de Golf Escorpión',   sub: '27 holes · Private · guest only',    why: '27 holes, European Tour standard',                        url: '/en/valencia/escorpion/' },
     ],
     low: [
-      { name: 'El Saler — Parador',       sub: '18 holes · Par 72 · Top 5 Europe', why: 'The bucket-list round — Javier Arana masterpiece',      url: '/en/valencia/el-saler/' },
-      { name: 'Club de Golf Escorpión',   sub: '27 holes · Private · guest only',  why: 'Most prestigious course in Valencia — find a member',   url: '/en/valencia/escorpion/' },
-      { name: 'La Galiana Golf Resort',   sub: '18 holes · Par 72 · €75',          why: 'Best Course Spain 2019 — rewarding for low handicaps',  url: '/en/valencia/la-galiana/' }
-    ]
+      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · Slope 148',      why: 'Slope 148 — rewarding for low handicappers',              url: '/en/valencia/el-bosque/' },
+      { name: 'La Galiana',               sub: '18 holes · Par 72 · Slope 148 · €75', why: 'Best Course Spain 2019 — spectacular mountain course',  url: '/en/valencia/la-galiana/' },
+      { name: 'El Saler — Parador',       sub: '18 holes · Par 72 · Top 5 Europe',   why: 'Bucket-list course near Valencia',                        url: '/en/valencia/el-saler/' },
+    ],
+    mid: [
+      { name: 'Foressos Golf',            sub: '18 holes · Par 72 · €70–80',         why: 'Slope 140 — great challenge, open to visitors',           url: '/en/valencia/foressos/' },
+      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Best Course Spain 2019 — stunning layout',                url: '/en/valencia/la-galiana/' },
+      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · €105–125',       why: 'Classic RTJ design, members & visitors welcome',          url: '/en/valencia/el-bosque/' },
+    ],
+    high: [
+      { name: 'Foressos Golf',            sub: '18 holes · Par 72 · €70–80',         why: 'Slope 140 but forgiving layout, great value',             url: '/en/valencia/foressos/' },
+      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Beautiful resort, open to all visitors',                  url: '/en/valencia/la-galiana/' },
+      { name: 'Club de Golf Ifach',       sub: '9 holes · Par 30 · €49.50',          why: '9 holes, relaxed atmosphere, perfect halfway step',       url: '/en/valencia/ifach/' },
+    ],
+    beginner: [
+      { name: 'Requena Golf Club',        sub: '9 holes · Par 35 · ~€10',            why: 'Slope 117 — most forgiving course in Valencia',           url: '/en/valencia/requena/' },
+      { name: 'Club de Golf Ifach',       sub: '9 holes · Par 30 · €49.50',          why: '9 holes, Par 30 — perfect for developing your game',      url: '/en/valencia/ifach/' },
+      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Open to all, buggy recommended',                          url: '/en/valencia/la-galiana/' },
+    ],
   };
 
   var rounds = [];
@@ -182,7 +211,7 @@
 
   function addRound() {
     if (rounds.length >= MAX_ROUNDS) return;
-    rounds.push({ score: '', par: '72', course: '' });
+    rounds.push({ score: '', courseIdx: OTHER_IDX, rating: '', slope: '', par: 72, customName: '' });
     renderRounds();
   }
 
@@ -193,30 +222,104 @@
 
   function updateRound(i, field, val) {
     rounds[i][field] = val;
+    if (field === 'courseIdx') {
+      var idx = parseInt(val, 10);
+      var c = COURSES[idx];
+      rounds[i].courseIdx = idx;
+      rounds[i].par    = c.par;
+      rounds[i].rating = c.rating !== null ? String(c.rating) : '';
+      rounds[i].slope  = c.slope  !== null ? String(c.slope)  : '';
+      renderRounds();
+    }
   }
 
   function renderRounds() {
-    var list = document.getElementById('rounds-list');
+    var list   = document.getElementById('rounds-list');
     var addBtn = document.getElementById('add-round-btn');
+
     list.innerHTML = rounds.map(function (r, i) {
-      return '<div class="round-row">' +
-        '<input type="number" class="round-input" placeholder="e.g. 82" min="40" max="150" value="' + r.score + '" ' +
-          'aria-label="Score for round ' + (i+1) + '" ' +
+      var opts = COURSES.map(function (c, ci) {
+        return '<option value="' + ci + '"' + (r.courseIdx === ci ? ' selected' : '') + '>' + esc(c.name) + '</option>';
+      }).join('');
+
+      var isOther = (r.courseIdx === OTHER_IDX);
+      var rRating = esc(r.rating);
+      var rSlope  = esc(r.slope);
+
+      var html = '<div class="round-row">' +
+        '<input type="number" class="round-input" placeholder="e.g. 85" min="40" max="180" value="' + esc(r.score) + '" ' +
+          'aria-label="Score for round ' + (i + 1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'score\',this.value)">' +
-        '<input type="number" class="round-input" placeholder="72" min="27" max="74" value="' + r.par + '" ' +
-          'aria-label="Par for round ' + (i+1) + '" ' +
-          'oninput="window._calcApp.update(' + i + ',\'par\',this.value)">' +
-        '<input type="text" class="round-input round-input--course" placeholder="Course (optional)" value="' + esc(r.course) + '" ' +
-          'aria-label="Course name for round ' + (i+1) + '" ' +
-          'oninput="window._calcApp.update(' + i + ',\'course\',this.value)">' +
-        '<button type="button" class="round-remove" aria-label="Remove round ' + (i+1) + '" ' +
+        '<select class="round-select" aria-label="Course for round ' + (i + 1) + '" ' +
+          'onchange="window._calcApp.update(' + i + ',\'courseIdx\',this.value)">' + opts + '</select>' +
+        '<input type="number" class="round-input round-input--sm" step="0.1" min="20" max="90" ' +
+          'placeholder="' + (isOther ? 'Rating' : '') + '" value="' + rRating + '" ' +
+          'aria-label="Course rating for round ' + (i + 1) + '" ' +
+          'oninput="window._calcApp.update(' + i + ',\'rating\',this.value)">' +
+        '<input type="number" class="round-input round-input--sm" min="55" max="155" ' +
+          'placeholder="' + (isOther ? 'Slope' : '') + '" value="' + rSlope + '" ' +
+          'aria-label="Slope for round ' + (i + 1) + '" ' +
+          'oninput="window._calcApp.update(' + i + ',\'slope\',this.value)">' +
+        '<button type="button" class="round-remove" aria-label="Remove round ' + (i + 1) + '" ' +
           'onclick="window._calcApp.remove(' + i + ')">×</button>' +
       '</div>';
+
+      if (isOther) {
+        html += '<div class="round-other-name">' +
+          '<input type="text" class="round-input round-input--course" ' +
+            'placeholder="Course name (optional)" value="' + esc(r.customName) + '" ' +
+            'aria-label="Course name for round ' + (i + 1) + '" ' +
+            'oninput="window._calcApp.update(' + i + ',\'customName\',this.value)">' +
+        '</div>';
+      }
+
+      return html;
     }).join('');
+
     addBtn.disabled = rounds.length >= MAX_ROUNDS;
     addBtn.textContent = rounds.length >= MAX_ROUNDS
-      ? 'Maximum 10 rounds'
-      : '+ Add another round (' + rounds.length + '/10)';
+      ? 'Maximum 20 rounds'
+      : '+ Add another round (' + rounds.length + '/20)';
+  }
+
+  function getDifferential(r) {
+    var score  = parseFloat(r.score);
+    var rating = parseFloat(r.rating);
+    var slope  = parseFloat(r.slope);
+    var par    = parseFloat(r.par);
+    if (!isNaN(rating) && !isNaN(slope) && slope > 0) {
+      return (score - rating) * (113 / slope);
+    }
+    return score - par; // simple fallback
+  }
+
+  function isSimpleMode(r) {
+    return isNaN(parseFloat(r.rating)) || isNaN(parseFloat(r.slope)) || parseFloat(r.slope) <= 0;
+  }
+
+  function getBestDifferentials(diffs) {
+    var n      = diffs.length;
+    var sorted = diffs.slice().sort(function (a, b) { return a - b; });
+    if (n === 1)  return { best: sorted.slice(0, 1),  adj: -2.0 };
+    if (n === 2)  return { best: sorted.slice(0, 1),  adj: -1.0 };
+    if (n <= 5)   return { best: sorted.slice(0, 1),  adj:  0 };
+    if (n <= 8)   return { best: sorted.slice(0, 2),  adj:  0 };
+    if (n <= 10)  return { best: sorted.slice(0, 3),  adj:  0 };
+    if (n <= 12)  return { best: sorted.slice(0, 4),  adj:  0 };
+    if (n <= 14)  return { best: sorted.slice(0, 5),  adj:  0 };
+    if (n <= 16)  return { best: sorted.slice(0, 6),  adj:  0 };
+    if (n === 17) return { best: sorted.slice(0, 7),  adj:  0 };
+    if (n === 18) return { best: sorted.slice(0, 8),  adj:  0 };
+    if (n === 19) return { best: sorted.slice(0, 9),  adj:  0 };
+    return           { best: sorted.slice(0, 10), adj:  0 };
+  }
+
+  function getLevel(hcp) {
+    if (hcp < 0)   return 'scratch';
+    if (hcp <= 9)  return 'low';
+    if (hcp <= 20) return 'mid';
+    if (hcp <= 36) return 'high';
+    return 'beginner';
   }
 
   function calculate() {
@@ -224,48 +327,45 @@
     errEl.textContent = '';
 
     var filled = rounds.filter(function (r) {
-      return r.score !== '' && r.par !== '' && !isNaN(parseInt(r.score)) && !isNaN(parseInt(r.par));
+      return r.score !== '' && !isNaN(parseFloat(r.score));
     });
 
     if (filled.length === 0) {
-      errEl.textContent = 'Please enter at least one round (score + par).';
+      errEl.textContent = 'Please enter at least one round score.';
       return;
     }
 
-    var diffs = filled.map(function (r) { return parseInt(r.score) - parseInt(r.par); });
-    var sorted = diffs.slice().sort(function (a, b) { return a - b; });
+    var diffs    = filled.map(getDifferential);
+    var result   = getBestDifferentials(diffs);
+    var avg      = result.best.reduce(function (a, b) { return a + b; }, 0) / result.best.length;
+    var hcp      = Math.round(Math.min((avg * 0.96) + result.adj, 54.0) * 10) / 10;
+    var simple   = filled.some(isSimpleMode);
+    var level    = getLevel(hcp);
 
-    var n = filled.length;
-    var count = n <= 2 ? 1 : n <= 6 ? 2 : n <= 9 ? 3 : 4;
-    var best = sorted.slice(0, count);
-    var avg = best.reduce(function (a, b) { return a + b; }, 0) / best.length;
-    var hcp = Math.round(avg * 0.96 * 10) / 10;
-    hcp = Math.max(-10, Math.min(54, hcp));
-
-    var level = hcp >= 18 ? 'beginner' : hcp >= 10 ? 'mid' : 'low';
-    showResult(hcp, n, count, level);
+    showResult(hcp, filled.length, result.best.length, level, simple);
   }
 
-  function showResult(hcp, totalRounds, bestUsed, level) {
-    var levelLabels = { beginner: 'High handicapper (18+)', mid: 'Mid-handicapper (10–17)', low: 'Low handicapper (under 10)' };
-    var levelClasses = { beginner: 'level-pill--beginner', mid: 'level-pill--mid', low: 'level-pill--low' };
+  function showResult(hcp, totalRounds, bestUsed, level, hasSimple) {
+    var labels  = { scratch: 'Scratch or better',  low: 'Low handicapper (0–9)',   mid: 'Mid-handicapper (10–20)', high: 'High handicapper (21–36)', beginner: 'Beginner (36+)' };
+    var classes = { scratch: 'level-pill--scratch', low: 'level-pill--low',        mid: 'level-pill--mid',         high: 'level-pill--high',         beginner: 'level-pill--beginner' };
 
-    var sign = hcp > 0 ? '' : (hcp < 0 ? '+' : '');
-    document.getElementById('hcp-number').textContent = sign + Math.abs(hcp).toFixed(1);
+    document.getElementById('hcp-number').textContent   = hcp < 0 ? '+' + Math.abs(hcp).toFixed(1) : hcp.toFixed(1);
     document.getElementById('hcp-sublabel').textContent = 'Estimated Handicap Index';
 
     var pill = document.getElementById('level-pill');
-    pill.textContent = levelLabels[level];
-    pill.className = 'level-pill ' + levelClasses[level];
+    pill.textContent = labels[level];
+    pill.className   = 'level-pill ' + classes[level];
 
     document.getElementById('result-based').textContent =
       'Based on ' + totalRounds + ' round' + (totalRounds > 1 ? 's' : '') +
       ' — using best ' + bestUsed + ' differential' + (bestUsed > 1 ? 's' : '');
 
+    document.getElementById('simple-mode-note').style.display = hasSimple ? 'block' : 'none';
+
     var card = document.getElementById('result-card');
-    card.style.display = 'block';
+    card.style.display   = 'block';
     card.style.animation = 'none';
-    card.offsetHeight; // reflow
+    card.offsetHeight; // trigger reflow
     card.style.animation = '';
 
     showRecs(level);
@@ -273,15 +373,20 @@
   }
 
   function showRecs(level) {
-    var recs = RECOMMENDATIONS[level];
-    var titles = { beginner: 'Courses to try at your level', mid: 'Courses that suit your level', low: 'Courses worthy of your game' };
+    var titles = {
+      scratch:  'Courses worthy of a scratch player',
+      low:      'Courses worthy of your game',
+      mid:      'Courses that suit your level',
+      high:     'Great courses for your level',
+      beginner: 'Courses to try at your level',
+    };
     document.getElementById('rec-title').textContent = titles[level];
-    document.getElementById('rec-grid').innerHTML = recs.map(function (r) {
+    document.getElementById('rec-grid').innerHTML = RECOMMENDATIONS[level].map(function (r) {
       return '<a href="' + r.url + '" class="rec-card">' +
         '<div>' +
-          '<div class="rec-card__name">' + r.name + '</div>' +
-          '<div class="rec-card__sub">' + r.sub + '</div>' +
-          '<div class="rec-card__why">' + r.why + '</div>' +
+          '<div class="rec-card__name">'  + r.name + '</div>' +
+          '<div class="rec-card__sub">'   + r.sub  + '</div>' +
+          '<div class="rec-card__why">'   + r.why  + '</div>' +
         '</div>' +
         '<span class="rec-card__arrow">→</span>' +
       '</a>';
@@ -289,14 +394,9 @@
     document.getElementById('rec-section').style.display = 'block';
   }
 
-  // Expose to inline handlers
-  window._calcApp = {
-    update: updateRound,
-    remove: removeRound
-  };
+  window._calcApp = { update: updateRound, remove: removeRound };
 
   document.addEventListener('DOMContentLoaded', function () {
-    // Start with 3 empty rows
     addRound(); addRound(); addRound();
     document.getElementById('add-round-btn').addEventListener('click', addRound);
     document.getElementById('calc-btn').addEventListener('click', calculate);
