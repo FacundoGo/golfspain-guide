@@ -212,4 +212,22 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/courses/"/>
   </url>
 
+  <!-- Handicap Calculator -->
+  <url>
+    <loc>https://golfspain.guide/en/handicap-calculator/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/handicap-calculator/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
+  </url>
+
 </urlset>
