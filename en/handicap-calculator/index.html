@@ -103,7 +103,7 @@
         <div class="calc-official">
           <strong>Want an official handicap?</strong><br>
           This tool gives you an estimate — useful to know which tee boxes to play from and which courses suit your level. For an official WHS Handicap Index, join a golf club affiliated with the <strong>Real Federación Española de Golf (RFEG)</strong> and register your rounds.<br><br>
-          <a href="https://www.rfegolf.es" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">rfegolf.es →</a>
+          <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es →</a>
         </div>
         <div style="margin-top:20px;" class="info-card">
           <h3 style="font-size:.95rem;margin-bottom:10px;">Handicap levels explained</h3>
@@ -171,6 +171,15 @@
 
   var rounds = [];
 
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   function addRound() {
     if (rounds.length >= MAX_ROUNDS) return;
     rounds.push({ score: '', par: '72', course: '' });
@@ -197,7 +206,7 @@
         '<input type="number" class="round-input" placeholder="72" min="27" max="74" value="' + r.par + '" ' +
           'aria-label="Par for round ' + (i+1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'par\',this.value)">' +
-        '<input type="text" class="round-input round-input--course" placeholder="Course (optional)" value="' + r.course + '" ' +
+        '<input type="text" class="round-input round-input--course" placeholder="Course (optional)" value="' + esc(r.course) + '" ' +
           'aria-label="Course name for round ' + (i+1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'course\',this.value)">' +
         '<button type="button" class="round-remove" aria-label="Remove round ' + (i+1) + '" ' +

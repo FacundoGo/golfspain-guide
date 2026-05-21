@@ -103,7 +103,7 @@
         <div class="calc-official">
           <strong>¿Quieres un hándicap oficial?</strong><br>
           Esta herramienta te da un estimado — útil para saber desde qué tees jugar y qué campos se adaptan a tu nivel. Para un Índice de Hándicap WHS oficial, únete a un club afiliado a la <strong>Real Federación Española de Golf (RFEG)</strong> y registra tus rondas.<br><br>
-          <a href="https://www.rfegolf.es" target="_blank" rel="noopener" style="color:var(--green-dark);font-weight:700;">rfegolf.es →</a>
+          <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es →</a>
         </div>
         <div style="margin-top:20px;" class="info-card">
           <h3 style="font-size:.95rem;margin-bottom:10px;">Niveles de hándicap explicados</h3>
@@ -171,6 +171,15 @@
 
   var rounds = [];
 
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   function addRound() {
     if (rounds.length >= MAX_ROUNDS) return;
     rounds.push({ score: '', par: '72', course: '' });
@@ -197,7 +206,7 @@
         '<input type="number" class="round-input" placeholder="72" min="27" max="74" value="' + r.par + '" ' +
           'aria-label="Par de la ronda ' + (i+1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'par\',this.value)">' +
-        '<input type="text" class="round-input round-input--course" placeholder="Campo (opcional)" value="' + r.course + '" ' +
+        '<input type="text" class="round-input round-input--course" placeholder="Campo (opcional)" value="' + esc(r.course) + '" ' +
           'aria-label="Nombre del campo para la ronda ' + (i+1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'course\',this.value)">' +
         '<button type="button" class="round-remove" aria-label="Eliminar ronda ' + (i+1) + '" ' +
