@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golf Handicap Calculator Spain — Estimate Your Index Free 2026 | golfspain.guide</title>
-  <meta name="description" content="Free golf handicap estimator for Spain. Enter your last rounds, get your estimated handicap index and see which Valencia courses match your level. No signup needed.">
+  <meta name="description" content="Free golf handicap estimator for Spain. Enter your last rounds — including 9-hole rounds — get your estimated WHS Handicap Index with a full formula breakdown. No signup needed.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://golfspain.guide/en/handicap-calculator/">
@@ -13,15 +13,188 @@
   <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/en/handicap-calculator/">
-  <meta property="og:title" content="Golf Handicap Calculator Spain — Estimate Your Index Free">
-  <meta property="og:description" content="Enter your last rounds and get your estimated handicap index in seconds. See which Valencia courses suit your level.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Enter your rounds and get an estimated handicap index.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
+  <meta property="og:title" content="Golf Handicap Calculator Spain — Estimate Your WHS Index Free">
+  <meta property="og:description" content="Enter your last rounds and get your estimated handicap index in seconds. Supports 9-hole rounds. See which Valencia courses suit your level.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Supports 9-hole rounds with correct ×2 scaling. Enter your rounds and get an estimated Handicap Index.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ─── Calculator extras (not in style.css) ─── */
+
+    /* 9H badge */
+    .nine-badge {
+      display: inline-block;
+      background: #fff3cd;
+      color: #7a5a00;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    /* Course info strip under course select */
+    .course-strip {
+      font-size: 11px;
+      color: var(--text-mid);
+      margin-top: 3px;
+      min-height: 14px;
+      line-height: 1.4;
+    }
+    .course-strip strong { color: var(--green-mid); }
+
+    /* Breakdown table */
+    .breakdown-section { margin-top: 20px; }
+    .breakdown-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .breakdown-header {
+      background: #f2f7f4;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .breakdown-table th {
+      padding: 9px 14px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      background: #f8faf8;
+      border-bottom: 1px solid var(--border);
+    }
+    .breakdown-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0ede6;
+      vertical-align: top;
+    }
+    .breakdown-table tr:last-child td { border-bottom: none; }
+    .breakdown-table tr.used-row td { background: #f0f9f3; }
+    .breakdown-table tr.used-row td:first-child { border-left: 3px solid var(--green-light); }
+    .diff-val { font-weight: 700; color: var(--green-mid); }
+    .formula-cell { color: var(--text-mid); font-size: 11px; line-height: 1.6; }
+    .eq {
+      font-family: 'Courier New', monospace;
+      background: #f0ede6;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+    .scale-note { color: #b45309; font-size: 10px; font-weight: 700; }
+
+    /* Step-by-step */
+    .step-summary {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .step-summary h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+    }
+    .step-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--green-mid);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-text { font-size: 13px; line-height: 1.5; padding-top: 2px; }
+    .step-text .mono {
+      font-family: 'Courier New', monospace;
+      background: #f0ede6;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    /* FAQ */
+    .faq-section { border-top: 1px solid var(--border); padding-top: 40px; margin-top: 48px; }
+    .faq-section h2 { font-size: 1.3rem; margin-bottom: 20px; color: var(--green-dark); }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 8px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-q:hover { background: #f8faf8; }
+    .faq-q .faq-arrow { font-size: 11px; color: var(--text-mid); transition: transform 0.2s; }
+    .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 18px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a p { margin-bottom: 10px; }
+    .faq-a p:last-child { margin-bottom: 0; }
+
+    /* Warning row */
+    .row-warning {
+      grid-column: 1 / -1;
+      background: #fff8e6;
+      border: 1px solid #e8c840;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #7a5a00;
+      display: none;
+      margin-top: -8px;
+    }
+    .row-warning.visible { display: block; }
+
+    @media (max-width: 620px) {
+      .breakdown-table th:nth-child(4),
+      .breakdown-table td:nth-child(4) { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,7 +204,8 @@
     <ul class="nav__links">
       <li><a href="/en/valencia/">Valencia</a></li>
       <li><a href="/en/about/">About</a></li>
-      <li><a href="/en/handicap-calculator/">Handicap</a></li>
+      <li><a href="/en/handicap-calculator/" aria-current="page">Handicap</a></li>
+      <li><a href="/en/blog/">Blog</a></li>
       <li><a href="/en/courses/" class="nav__cta">All Courses</a></li>
     </ul>
     <div class="nav__lang">
@@ -46,7 +220,7 @@
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a><span>›</span>Handicap Calculator</nav>
     <h1>Golf Handicap Calculator</h1>
-    <p class="calc-hero__sub">Enter your last rounds, pick the course played, and get an estimated WHS Handicap Index in seconds — then see which courses in Spain suit your level.</p>
+    <p class="calc-hero__sub">Enter your last rounds — including 9-hole rounds — and get an estimated WHS Handicap Index with a full step-by-step formula breakdown. Then see which courses in Valencia suit your level.</p>
   </div>
 </section>
 
@@ -83,6 +257,28 @@
           <p class="result-note">This is an estimate based on WHS methodology. For an official Handicap Index, register your rounds with a club affiliated with the <strong>Real Federación Española de Golf (RFEG)</strong> → <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es</a></p>
         </div>
 
+        <!-- Breakdown — hidden until calculated -->
+        <div class="breakdown-section" id="breakdown-section" style="display:none;">
+          <div class="breakdown-card">
+            <div class="breakdown-header">Round-by-round breakdown</div>
+            <table class="breakdown-table">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>Score</th>
+                  <th>Differential</th>
+                  <th>How it's calculated</th>
+                </tr>
+              </thead>
+              <tbody id="breakdown-tbody"></tbody>
+            </table>
+          </div>
+          <div class="step-summary">
+            <h4>How your index was calculated</h4>
+            <div class="step-list" id="step-list"></div>
+          </div>
+        </div>
+
         <!-- Recommendations — hidden until calculated -->
         <div class="rec-section" id="rec-section" style="display:none;">
           <h3 id="rec-title">Courses that suit your level</h3>
@@ -100,6 +296,7 @@
           <ol>
             <li>Enter your gross score for each round and select the course played.</li>
             <li>We calculate a <strong>Handicap Differential</strong>: <em>(Score − Course Rating) × (113 ÷ Slope)</em></li>
+            <li>For <strong>9-hole rounds</strong>, the differential is multiplied by ×2 to convert it to an 18-hole equivalent before comparing — that's the correct WHS treatment.</li>
             <li>We take your best differentials based on how many rounds you've entered (WHS table).</li>
             <li>Apply the WHS <strong>96% factor</strong> to get your estimated Handicap Index.</li>
           </ol>
@@ -118,6 +315,73 @@
             <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--high"     style="margin:0;font-size:.65rem;padding:3px 10px;">High</span><span style="color:var(--text-mid);">21–36 — developing, shorter courses easier</span></div>
             <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--beginner" style="margin:0;font-size:.65rem;padding:3px 10px;">Beginner</span><span style="color:var(--text-mid);">36+ — just starting out</span></div>
           </div>
+        </div>
+        <div style="margin-top:20px;" class="info-card">
+          <h3 style="font-size:.95rem;margin-bottom:10px;">Valencia courses in this calculator</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--text-mid);">
+            <div><strong style="color:var(--green-dark);">El Bosque</strong> — Rating 75.5 · Slope 148 · Par 71</div>
+            <div><strong style="color:var(--green-dark);">La Galiana (18H)</strong> — Rating 74.1 · Slope 148 · Par 72</div>
+            <div><strong style="color:var(--green-dark);">Foressos</strong> — Rating 74.1 · Slope 140 · Par 72</div>
+            <div><strong style="color:var(--green-dark);">El Saler</strong> — Rating 74.2 · Slope 136 · Par 72</div>
+            <div><strong style="color:var(--green-dark);">Escorpión</strong> — Slope 128 · Rating not public</div>
+            <div><strong style="color:var(--green-dark);">Requena (9H)</strong> <span class="nine-badge">9H</span> — Rating 34.3 · Slope 117 · Par 35</div>
+            <div><strong style="color:var(--green-dark);">La Galiana (9H)</strong> <span class="nine-badge">9H</span> — Rating 37.0 · Slope 148 · Par 36</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--text-light);margin-top:10px;">Ratings from master club data · Whites tees. 9H differentials are scaled ×2 per WHS rules.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Frequently asked questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is a Handicap Differential? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p>A Handicap Differential measures how your score compares to the expected score for a scratch golfer on that specific course. The WHS formula is:</p>
+          <p><strong>Differential = (Score − Course Rating) × (113 ÷ Slope)</strong></p>
+          <p>The "113" is the standard Slope for an average course. If the Slope is higher than 113 (like La Galiana or El Bosque at 148), the formula shrinks your differential — harder courses are rewarded with a more generous calculation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How do 9-hole rounds work in WHS? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p>Under WHS rules, a 9-hole round produces a raw differential using the 9-hole Rating and Slope (e.g. Rating 34.3, Slope 117 for Requena). That raw differential must then be <strong>multiplied by 2</strong> to convert it into an 18-hole equivalent before it can be compared against other rounds or averaged.</p>
+          <p>Without this scaling, a 9H raw differential of ~4.0 would compete against 18H differentials of ~12.0 and completely skew your index downward. This calculator applies the ×2 scaling automatically — you'll see the step shown explicitly in the breakdown table.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between Course Rating and Par? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p><strong>Par</strong> is the number of strokes expected for an expert player — it's a round number (e.g. 72) used for scoring on the day.</p>
+          <p><strong>Course Rating</strong> is the score a scratch golfer (handicap 0) would realistically shoot in normal conditions — it's more precise (e.g. 74.1) and accounts for course layout, hazards, and actual playing conditions.</p>
+          <p><strong>Par is not used in the WHS handicap formula</strong> — only Rating and Slope are. If you enter a course where Rating/Slope are unknown, this calculator falls back to <em>Score − Par</em> as a rough estimate.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What does the Slope rating mean? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p>Slope measures how much harder a course plays for a bogey golfer (around handicap 20) compared to a scratch golfer. The baseline is <strong>113</strong> — an "average" course. A Slope of 148 (La Galiana, El Bosque) means the course punishes inconsistency significantly more than average. A Slope of 117 (Requena) is more forgiving for higher handicappers.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why multiply by 0.96? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p>The 0.96 is the WHS "playing conditions adjustment factor." It ensures the Handicap Index reflects your <em>potential</em>, not your average — the assumption being that on your best rounds you played close to your true ability. Multiplying by 0.96 trims the index by about 4%, nudging it slightly lower so you're challenged to repeat your best performances.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How many rounds do I need for an official handicap? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">
+          <p>Under WHS rules, you need a minimum of <strong>54 holes</strong> (typically 3 × 18-hole rounds, or equivalent 9-hole combinations) submitted through an RFEG-affiliated club for an official Handicap Index. This calculator gives you an estimate for planning purposes — to get an official index, join a club affiliated with the Real Federación Española de Golf.</p>
+          <p><a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer">rfegolf.es →</a></p>
         </div>
       </div>
 
@@ -144,6 +408,7 @@
       <div class="footer__col"><h4>Tools</h4><ul>
         <li><a href="/en/courses/">All Courses</a></li>
         <li><a href="/en/handicap-calculator/">Handicap Calculator</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
         <li><a href="/en/about/">About</a></li>
         <li><a href="/en/about/#contact">Corrections</a></li>
       </ul></div>
@@ -155,46 +420,54 @@
 <script src="/js/main.js"></script>
 <script>
 (function () {
+  'use strict';
+
   var MAX_ROUNDS = 20;
 
+  // ─── Course data ───
+  // holes: 9 = 9-hole course. For 9H rounds the raw differential is scaled ×2
+  // to produce an 18H-equivalent before WHS comparison/averaging.
+  // Ratings from master club data (whites tees). Escorpión rating is not
+  // publicly published — null triggers simple (Score − Par) fallback.
   var COURSES = [
-    { name: 'El Bosque Golf',           par: 71, rating: 75.5, slope: 148 },
-    { name: 'La Galiana',               par: 72, rating: 74.1, slope: 148 },
-    { name: 'Foressos Golf',            par: 72, rating: 74.1, slope: 140 },
-    { name: 'El Saler (Parador)',        par: 72, rating: 74.2, slope: 136 },
-    { name: 'Club de Golf Escorpión',   par: 72, rating: null,  slope: 128 },
-    { name: 'Requena Golf',             par: 35, rating: 34.3, slope: 117 },
-    { name: 'Ifach Golf',               par: 30, rating: null,  slope: null },
-    { name: 'Other course',             par: 72, rating: null,  slope: null },
+    { name: 'El Bosque Golf',           par: 71, rating: 75.5, slope: 148, holes: 18 },
+    { name: 'La Galiana (18H)',         par: 72, rating: 74.1, slope: 148, holes: 18 },
+    { name: 'La Galiana (9H)',          par: 36, rating: 37.0, slope: 148, holes: 9  },
+    { name: 'Foressos Golf',            par: 72, rating: 74.1, slope: 140, holes: 18 },
+    { name: 'El Saler (Parador)',       par: 72, rating: 74.2, slope: 136, holes: 18 },
+    { name: 'Club de Golf Escorpión',   par: 72, rating: null,  slope: 128, holes: 18 },
+    { name: 'Requena Golf (9H)',        par: 35, rating: 34.3, slope: 117, holes: 9  },
+    { name: 'Ifach Golf (9H)',          par: 30, rating: null,  slope: null, holes: 9  },
+    { name: 'Other course',             par: 72, rating: null,  slope: null, holes: 18 },
   ];
 
   var OTHER_IDX = COURSES.length - 1;
 
   var RECOMMENDATIONS = {
     scratch: [
-      { name: 'El Saler — Parador',       sub: '18 holes · Par 72 · Top 5 Europe',   why: 'Top 5 Europe — the ultimate test',                        url: '/en/valencia/el-saler/' },
-      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · Slope 148',      why: 'Slope 148 — most technically demanding in Valencia',      url: '/en/valencia/el-bosque/' },
-      { name: 'Club de Golf Escorpión',   sub: '27 holes · Private · guest only',    why: '27 holes, European Tour standard',                        url: '/en/valencia/escorpion/' },
+      { name: 'El Saler — Parador',     sub: '18 holes · Par 72 · Top 5 Europe',        why: 'Top 5 Europe — the ultimate test',                     url: '/en/valencia/el-saler/' },
+      { name: 'El Bosque Golf',         sub: '18 holes · Par 71 · Slope 148',           why: 'Slope 148 — most technically demanding in Valencia',   url: '/en/valencia/el-bosque/' },
+      { name: 'Club de Golf Escorpión', sub: '27 holes · Private · guest only',         why: '27 holes, European Tour standard',                     url: '/en/valencia/escorpion/' },
     ],
     low: [
-      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · Slope 148',      why: 'Slope 148 — rewarding for low handicappers',              url: '/en/valencia/el-bosque/' },
-      { name: 'La Galiana',               sub: '18 holes · Par 72 · Slope 148 · €75', why: 'Best Course Spain 2019 — spectacular mountain course',  url: '/en/valencia/la-galiana/' },
-      { name: 'El Saler — Parador',       sub: '18 holes · Par 72 · Top 5 Europe',   why: 'Bucket-list course near Valencia',                        url: '/en/valencia/el-saler/' },
+      { name: 'El Bosque Golf',         sub: '18 holes · Par 71 · Slope 148',           why: 'Slope 148 — rewarding for low handicappers',           url: '/en/valencia/el-bosque/' },
+      { name: 'La Galiana',             sub: '18 holes · Par 72 · Slope 148 · from €80', why: 'Best Course Spain 2019 — spectacular layout',         url: '/en/valencia/la-galiana/' },
+      { name: 'El Saler — Parador',     sub: '18 holes · Par 72 · Top 5 Europe',        why: 'Bucket-list course near Valencia',                     url: '/en/valencia/el-saler/' },
     ],
     mid: [
-      { name: 'Foressos Golf',            sub: '18 holes · Par 72 · €70–80',         why: 'Slope 140 — great challenge, open to visitors',           url: '/en/valencia/foressos/' },
-      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Best Course Spain 2019 — stunning layout',                url: '/en/valencia/la-galiana/' },
-      { name: 'El Bosque Golf',           sub: '18 holes · Par 71 · €105–125',       why: 'Classic RTJ design, members & visitors welcome',          url: '/en/valencia/el-bosque/' },
+      { name: 'Foressos Golf',          sub: '18 holes · Par 72 · from €70',            why: 'Slope 140 — great challenge, open to visitors',        url: '/en/valencia/foressos/' },
+      { name: 'La Galiana',             sub: '18 holes · Par 72 · from €80',            why: 'Best Course Spain 2019 — stunning layout',             url: '/en/valencia/la-galiana/' },
+      { name: 'El Bosque Golf',         sub: '18 holes · Par 71 · Slope 148',           why: 'Classic RTJ design — verify status post-DANA',         url: '/en/valencia/el-bosque/' },
     ],
     high: [
-      { name: 'Foressos Golf',            sub: '18 holes · Par 72 · €70–80',         why: 'Slope 140 but forgiving layout, great value',             url: '/en/valencia/foressos/' },
-      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Beautiful resort, open to all visitors',                  url: '/en/valencia/la-galiana/' },
-      { name: 'Club de Golf Ifach',       sub: '9 holes · Par 30 · €49.50',          why: '9 holes, relaxed atmosphere, perfect halfway step',       url: '/en/valencia/ifach/' },
+      { name: 'Foressos Golf',          sub: '18 holes · Par 72 · from €70',            why: 'Slope 140 but forgiving layout, great value',          url: '/en/valencia/foressos/' },
+      { name: 'La Galiana',             sub: '18 holes · Par 72 · from €80',            why: 'Beautiful resort, open to all visitors',               url: '/en/valencia/la-galiana/' },
+      { name: 'Club de Golf Ifach',     sub: '9 holes · Par 30 · €49.50',               why: '9 holes, relaxed atmosphere — perfect halfway step',   url: '/en/valencia/ifach/' },
     ],
     beginner: [
-      { name: 'Requena Golf Club',        sub: '9 holes · Par 35 · ~€10',            why: 'Slope 117 — most forgiving course in Valencia',           url: '/en/valencia/requena/' },
-      { name: 'Club de Golf Ifach',       sub: '9 holes · Par 30 · €49.50',          why: '9 holes, Par 30 — perfect for developing your game',      url: '/en/valencia/ifach/' },
-      { name: 'La Galiana',               sub: '18 holes · Par 72 · €75',            why: 'Open to all, buggy recommended',                          url: '/en/valencia/la-galiana/' },
+      { name: 'Requena Golf Club',      sub: '9 holes · Par 35 · from €10',             why: 'Slope 117 — most forgiving course in Valencia',        url: '/en/valencia/requena/' },
+      { name: 'Club de Golf Ifach',     sub: '9 holes · Par 30 · €49.50',               why: '9 holes, Par 30 — perfect for developing your game',   url: '/en/valencia/ifach/' },
+      { name: 'La Galiana',             sub: '18 holes · Par 72 · from €80',            why: 'Open to all, buggy recommended',                       url: '/en/valencia/la-galiana/' },
     ],
   };
 
@@ -202,16 +475,13 @@
 
   function esc(s) {
     return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function addRound() {
     if (rounds.length >= MAX_ROUNDS) return;
-    rounds.push({ score: '', courseIdx: OTHER_IDX, rating: '', slope: '', par: 72, customName: '' });
+    rounds.push({ score: '', courseIdx: OTHER_IDX, rating: '', slope: '', par: 72, holes: 18, customName: '' });
     renderRounds();
   }
 
@@ -226,9 +496,10 @@
       var idx = parseInt(val, 10);
       var c = COURSES[idx];
       rounds[i].courseIdx = idx;
-      rounds[i].par    = c.par;
-      rounds[i].rating = c.rating !== null ? String(c.rating) : '';
-      rounds[i].slope  = c.slope  !== null ? String(c.slope)  : '';
+      rounds[i].par   = c.par;
+      rounds[i].holes = c.holes || 18;
+      rounds[i].rating = (c.rating !== null && c.rating !== undefined) ? String(c.rating) : '';
+      rounds[i].slope  = (c.slope  !== null && c.slope  !== undefined) ? String(c.slope)  : '';
       renderRounds();
     }
   }
@@ -243,21 +514,40 @@
       }).join('');
 
       var isOther = (r.courseIdx === OTHER_IDX);
+      var is9H    = (r.holes === 9);
       var rRating = esc(r.rating);
       var rSlope  = esc(r.slope);
 
+      // Course info strip: shown for known courses, hidden for Other
+      var stripHTML = '';
+      if (!isOther && r.courseIdx >= 0 && r.courseIdx < COURSES.length) {
+        var c = COURSES[r.courseIdx];
+        if (c && c.rating) {
+          var nineTag = is9H ? ' <span class="nine-badge">9H</span>' : '';
+          stripHTML = '<div class="course-strip"><strong>Rating ' + c.rating + ' · Slope ' + c.slope + ' · Par ' + c.par + '</strong>' + nineTag + ' — differential auto-filled</div>';
+        } else if (c && c.slope) {
+          var nineTag2 = is9H ? ' <span class="nine-badge">9H</span>' : '';
+          stripHTML = '<div class="course-strip">Slope ' + c.slope + ' · Rating not published' + nineTag2 + ' — enter Rating manually or leave blank for Score−Par estimate</div>';
+        }
+      }
+
       var html = '<div class="round-row">' +
-        '<input type="number" class="round-input" placeholder="e.g. 85" min="40" max="180" value="' + esc(r.score) + '" ' +
+        '<input type="number" class="round-input" placeholder="e.g. 85" min="20" max="200" value="' + esc(r.score) + '" ' +
           'aria-label="Score for round ' + (i + 1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'score\',this.value)">' +
-        '<select class="round-select" aria-label="Course for round ' + (i + 1) + '" ' +
-          'onchange="window._calcApp.update(' + i + ',\'courseIdx\',this.value)">' + opts + '</select>' +
+        '<div style="display:flex;flex-direction:column;">' +
+          '<select class="round-select" aria-label="Course for round ' + (i + 1) + '" ' +
+            'onchange="window._calcApp.update(' + i + ',\'courseIdx\',this.value)">' + opts + '</select>' +
+          stripHTML +
+        '</div>' +
         '<input type="number" class="round-input round-input--sm" step="0.1" min="20" max="90" ' +
           'placeholder="' + (isOther ? 'Rating' : '') + '" value="' + rRating + '" ' +
+          (isOther ? '' : 'readonly ') +
           'aria-label="Course rating for round ' + (i + 1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'rating\',this.value)">' +
         '<input type="number" class="round-input round-input--sm" min="55" max="155" ' +
           'placeholder="' + (isOther ? 'Slope' : '') + '" value="' + rSlope + '" ' +
+          (isOther ? '' : 'readonly ') +
           'aria-label="Slope for round ' + (i + 1) + '" ' +
           'oninput="window._calcApp.update(' + i + ',\'slope\',this.value)">' +
         '<button type="button" class="round-remove" aria-label="Remove round ' + (i + 1) + '" ' +
@@ -282,7 +572,27 @@
       : '+ Add another round (' + rounds.length + '/20)';
   }
 
+  // Returns the 18H-equivalent differential used for WHS sorting/averaging.
+  // For 9H rounds: raw = (score - rating) × (113 / slope), then scaled ×2.
   function getDifferential(r) {
+    var score  = parseFloat(r.score);
+    var rating = parseFloat(r.rating);
+    var slope  = parseFloat(r.slope);
+    var par    = parseFloat(r.par);
+    var is9H   = (r.holes === 9);
+    var rawDiff;
+
+    if (!isNaN(rating) && !isNaN(slope) && slope > 0) {
+      rawDiff = (score - rating) * (113 / slope);
+    } else {
+      rawDiff = score - par; // simple fallback (no Rating/Slope)
+    }
+
+    return is9H ? rawDiff * 2 : rawDiff;
+  }
+
+  // Returns the raw differential before 9H scaling (used for breakdown display).
+  function getRawDiff(r) {
     var score  = parseFloat(r.score);
     var rating = parseFloat(r.rating);
     var slope  = parseFloat(r.slope);
@@ -290,7 +600,7 @@
     if (!isNaN(rating) && !isNaN(slope) && slope > 0) {
       return (score - rating) * (113 / slope);
     }
-    return score - par; // simple fallback
+    return score - par;
   }
 
   function isSimpleMode(r) {
@@ -299,19 +609,17 @@
 
   function getBestDifferentials(diffs) {
     var n      = diffs.length;
-    var sorted = diffs.slice().sort(function (a, b) { return a - b; });
-    if (n === 1)  return { best: sorted.slice(0, 1),  adj: -2.0 };
-    if (n === 2)  return { best: sorted.slice(0, 1),  adj: -1.0 };
-    if (n <= 5)   return { best: sorted.slice(0, 1),  adj:  0 };
-    if (n <= 8)   return { best: sorted.slice(0, 2),  adj:  0 };
-    if (n <= 10)  return { best: sorted.slice(0, 3),  adj:  0 };
-    if (n <= 12)  return { best: sorted.slice(0, 4),  adj:  0 };
-    if (n <= 14)  return { best: sorted.slice(0, 5),  adj:  0 };
-    if (n <= 16)  return { best: sorted.slice(0, 6),  adj:  0 };
-    if (n === 17) return { best: sorted.slice(0, 7),  adj:  0 };
-    if (n === 18) return { best: sorted.slice(0, 8),  adj:  0 };
-    if (n === 19) return { best: sorted.slice(0, 9),  adj:  0 };
-    return           { best: sorted.slice(0, 10), adj:  0 };
+    var sorted = diffs.slice().sort(function (a, b) { return a.diff - b.diff; });
+    var count;
+    if      (n <= 4)  count = 1;
+    else if (n <= 8)  count = 2;
+    else if (n <= 11) count = 3;
+    else if (n <= 14) count = 4;
+    else if (n <= 16) count = 5;
+    else if (n <= 18) count = 6;
+    else if (n === 19) count = 7;
+    else               count = 8;
+    return { best: sorted.slice(0, count), count: count };
   }
 
   function getLevel(hcp) {
@@ -335,66 +643,146 @@
       return;
     }
 
-    var diffs    = filled.map(getDifferential);
-    var result   = getBestDifferentials(diffs);
-    var avg      = result.best.reduce(function (a, b) { return a + b; }, 0) / result.best.length;
-    var hcp      = Math.round(Math.min((avg * 0.96) + result.adj, 54.0) * 10) / 10;
-    var simple   = filled.some(isSimpleMode);
+    // Build differential objects for each filled round
+    var diffObjs = filled.map(function (r, i) {
+      var rawDiff = getRawDiff(r);
+      var is9H    = (r.holes === 9);
+      var diff    = is9H ? rawDiff * 2 : rawDiff;
+      var cIdx    = r.courseIdx;
+      var cName   = (cIdx === OTHER_IDX && r.customName)
+        ? r.customName
+        : (COURSES[cIdx] ? COURSES[cIdx].name : 'Other course');
+      return {
+        label:   cName,
+        score:   parseFloat(r.score),
+        rating:  parseFloat(r.rating),
+        slope:   parseFloat(r.slope),
+        par:     parseFloat(r.par),
+        rawDiff: rawDiff,
+        diff:    diff,
+        is9H:    is9H,
+        simple:  isSimpleMode(r),
+      };
+    });
+
+    var result  = getBestDifferentials(diffObjs);
+    var usedSet = new Set(result.best.map(function (d) { return d; }));
+
+    // Mark which rounds are used (match by object reference after sort)
+    var usedIndices = new Set();
+    result.best.forEach(function (bd) {
+      diffObjs.forEach(function (d, idx) {
+        if (d === bd) usedIndices.add(idx);
+      });
+    });
+
+    var avgDiff  = result.best.reduce(function (s, d) { return s + d.diff; }, 0) / result.best.length;
+    var rawIndex = avgDiff * 0.96;
+    var hcp      = Math.min(54, Math.round(rawIndex * 10) / 10);
+    var hasSimple = filled.some(isSimpleMode);
+    var has9H    = diffObjs.some(function (d) { return d.is9H; });
     var level    = getLevel(hcp);
 
-    showResult(hcp, filled.length, result.best.length, level, simple);
-  }
-
-  function showResult(hcp, totalRounds, bestUsed, level, hasSimple) {
-    var labels  = { scratch: 'Scratch or better',  low: 'Low handicapper (0–9)',   mid: 'Mid-handicapper (10–20)', high: 'High handicapper (21–36)', beginner: 'Beginner (36+)' };
-    var classes = { scratch: 'level-pill--scratch', low: 'level-pill--low',        mid: 'level-pill--mid',         high: 'level-pill--high',         beginner: 'level-pill--beginner' };
-
-    document.getElementById('hcp-number').textContent   = hcp < 0 ? '+' + Math.abs(hcp).toFixed(1) : hcp.toFixed(1);
+    // ── Result headline ──
+    document.getElementById('hcp-number').textContent =
+      hcp < 0 ? '+' + Math.abs(hcp).toFixed(1) : hcp.toFixed(1);
     document.getElementById('hcp-sublabel').textContent = 'Estimated Handicap Index';
-
     var pill = document.getElementById('level-pill');
+    var labels  = { scratch: 'Scratch or better', low: 'Low (0–9)', mid: 'Mid (10–20)', high: 'High (21–36)', beginner: 'Beginner (36+)' };
+    var classes = { scratch: 'level-pill--scratch', low: 'level-pill--low', mid: 'level-pill--mid', high: 'level-pill--high', beginner: 'level-pill--beginner' };
     pill.textContent = labels[level];
     pill.className   = 'level-pill ' + classes[level];
-
     document.getElementById('result-based').textContent =
-      'Based on ' + totalRounds + ' round' + (totalRounds > 1 ? 's' : '') +
-      ' — using best ' + bestUsed + ' differential' + (bestUsed > 1 ? 's' : '');
-
+      'Based on ' + filled.length + ' round' + (filled.length > 1 ? 's' : '') +
+      ' — using best ' + result.count + ' differential' + (result.count > 1 ? 's' : '');
     document.getElementById('simple-mode-note').style.display = hasSimple ? 'block' : 'none';
 
-    var card = document.getElementById('result-card');
-    card.style.display   = 'block';
-    card.style.animation = 'none';
-    card.offsetHeight; // trigger reflow
-    card.style.animation = '';
+    var resultCard = document.getElementById('result-card');
+    resultCard.style.display   = 'block';
+    resultCard.style.animation = 'none';
+    resultCard.offsetHeight;
+    resultCard.style.animation = '';
 
-    showRecs(level);
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+    // ── Breakdown table ──
+    var tbody = document.getElementById('breakdown-tbody');
+    tbody.innerHTML = '';
+    diffObjs.forEach(function (d, idx) {
+      var used = usedIndices.has(idx);
+      var tr   = document.createElement('tr');
+      if (used) tr.className = 'used-row';
 
-  function showRecs(level) {
+      var nineTag = d.is9H ? ' <span class="nine-badge">9H</span>' : '';
+      var usedTag = used ? ' <span style="color:var(--green-light);font-size:10px;font-weight:700;">✓ used</span>' : '';
+
+      var formulaHTML;
+      if (d.simple) {
+        formulaHTML = '<span class="eq">' + d.score + ' − ' + d.par + ' (Score − Par, no Rating)</span><br>= <strong>' + d.diff.toFixed(2) + '</strong>';
+        if (d.is9H) formulaHTML += '<br><span class="scale-note">× 2 (9H→18H) = <strong>' + d.diff.toFixed(2) + '</strong></span>';
+      } else if (d.is9H) {
+        formulaHTML =
+          '<span class="eq">(' + d.score + ' − ' + d.rating.toFixed(1) + ') × (113 ÷ ' + d.slope + ')</span><br>' +
+          '= <span class="eq">' + d.rawDiff.toFixed(2) + '</span>' +
+          ' <span class="scale-note">× 2 (9H→18H)</span><br>' +
+          '= <strong>' + d.diff.toFixed(2) + '</strong>';
+      } else {
+        var scoreDiff = (d.score - d.rating).toFixed(1);
+        var factor    = (113 / d.slope).toFixed(3);
+        formulaHTML =
+          '<span class="eq">(' + d.score + ' − ' + d.rating.toFixed(1) + ') × (113 ÷ ' + d.slope + ')</span><br>' +
+          '= <span class="eq">' + scoreDiff + ' × ' + factor + '</span><br>' +
+          '= <strong>' + d.diff.toFixed(2) + '</strong>';
+      }
+
+      tr.innerHTML =
+        '<td>' + esc(d.label) + nineTag + usedTag + '</td>' +
+        '<td>' + d.score + '</td>' +
+        '<td class="diff-val">' + d.diff.toFixed(1) + '</td>' +
+        '<td class="formula-cell">' + formulaHTML + '</td>';
+      tbody.appendChild(tr);
+    });
+
+    // ── Step-by-step ──
+    var step1Extra = has9H
+      ? ' For 9-hole rounds, the raw differential is then <strong>multiplied by ×2</strong> to convert to an 18-hole equivalent before comparing — you can see this step in the breakdown above.'
+      : '';
+    var usedVals = result.best.map(function (d) { return d.diff.toFixed(1); }).join(' + ');
+    var steps = [
+      'Calculated a <strong>Handicap Differential</strong> for each round: <span class="mono">(Score − Rating) × (113 ÷ Slope)</span>.' + step1Extra,
+      'With ' + filled.length + ' round' + (filled.length > 1 ? 's' : '') + ', WHS rules say to use the <strong>best ' + result.count + ' differential' + (result.count > 1 ? 's' : '') + '</strong> (shown in green above).',
+      'Averaged: <span class="mono">(' + usedVals + ') ÷ ' + result.count + ' = ' + avgDiff.toFixed(2) + '</span>',
+      'Applied the WHS <strong>0.96 factor</strong>: <span class="mono">' + avgDiff.toFixed(2) + ' × 0.96 = ' + rawIndex.toFixed(2) + '</span>',
+      'Rounded to one decimal, capped at 54.0 → <strong>' + hcp.toFixed(1) + '</strong>',
+    ];
+    document.getElementById('step-list').innerHTML = steps.map(function (s, i) {
+      return '<div class="step-item"><div class="step-num">' + (i + 1) + '</div><div class="step-text">' + s + '</div></div>';
+    }).join('');
+
+    document.getElementById('breakdown-section').style.display = 'block';
+
+    // ── Recommendations ──
     var titles = {
-      scratch:  'Courses worthy of a scratch player',
-      low:      'Courses worthy of your game',
-      mid:      'Courses that suit your level',
-      high:     'Great courses for your level',
-      beginner: 'Courses to try at your level',
+      scratch: 'Courses worthy of a scratch player', low: 'Courses worthy of your game',
+      mid: 'Courses that suit your level', high: 'Great courses for your level', beginner: 'Courses to try at your level',
     };
     document.getElementById('rec-title').textContent = titles[level];
     document.getElementById('rec-grid').innerHTML = RECOMMENDATIONS[level].map(function (r) {
       return '<a href="' + r.url + '" class="rec-card">' +
-        '<div>' +
-          '<div class="rec-card__name">'  + r.name + '</div>' +
-          '<div class="rec-card__sub">'   + r.sub  + '</div>' +
-          '<div class="rec-card__why">'   + r.why  + '</div>' +
-        '</div>' +
-        '<span class="rec-card__arrow">→</span>' +
-      '</a>';
+        '<div><div class="rec-card__name">' + r.name + '</div>' +
+        '<div class="rec-card__sub">' + r.sub + '</div>' +
+        '<div class="rec-card__why">' + r.why + '</div></div>' +
+        '<span class="rec-card__arrow">→</span></a>';
     }).join('');
     document.getElementById('rec-section').style.display = 'block';
+
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  window._calcApp = { update: updateRound, remove: removeRound };
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+
+  window.toggleFaq = toggleFaq;
+  window._calcApp  = { update: updateRound, remove: removeRound };
 
   document.addEventListener('DOMContentLoaded', function () {
     addRound(); addRound(); addRound();
@@ -403,5 +791,6 @@
   });
 })();
 </script>
+
 </body>
 </html>
