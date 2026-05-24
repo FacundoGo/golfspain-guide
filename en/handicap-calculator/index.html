@@ -29,7 +29,7 @@
       --gold:        #c9a84c;
       --gold-light:  #e0c068;
       --cream:       #f9f6ef;
-      --text-muted:  #5a6b5a;   /* alias — style.css uses --text-mid */
+      --text-muted:  #5a6b5a;
       --warn-bg:     #fff8e6;
       --warn-border: #e8c840;
       --calc-radius: 8px;
@@ -92,7 +92,7 @@
     }
     .round-row {
       display: grid;
-      grid-template-columns: 80px 1fr 64px auto;
+      grid-template-columns: 80px 1fr auto;
       gap: 10px;
       align-items: start;
     }
@@ -141,6 +141,68 @@
       line-height: 1.4;
     }
     .course-info-strip strong { color: var(--green-mid); }
+
+    /* ── Custom course group ── */
+    .custom-group {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .custom-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .custom-group input {
+      font-size: 15px;
+      font-family: inherit;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.15s;
+    }
+    .custom-group input:focus { border-color: var(--green-light); }
+
+    /* Holes toggle buttons */
+    .holes-toggle { display: flex; gap: 6px; }
+    .holes-btn {
+      flex: 1;
+      padding: 8px 4px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      border: 2px solid var(--border);
+      background: var(--white);
+      color: var(--text-muted);
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+    }
+    .holes-btn.active {
+      border-color: var(--green-mid);
+      background: var(--green-mid);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* Advanced RS toggle link */
+    .rs-toggle-link {
+      background: none;
+      border: none;
+      color: var(--green-light);
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-align: left;
+    }
 
     /* ── Remove button ── */
     .btn-remove {
@@ -203,7 +265,10 @@
     .btn-calc:active { transform: scale(0.99); }
 
     /* ── Result section ── */
-    #result-section { display: none; }
+    #result-section {
+      display: none;
+      margin-top: 28px;
+    }
 
     .result-headline {
       background: var(--green-dark);
@@ -328,7 +393,7 @@
       font-size: 12px;
     }
 
-    /* ── Course recommendation ── */
+    /* ── Recommendation ── */
     .recommendation {
       background: var(--cream);
       border: 1px solid var(--border);
@@ -358,6 +423,7 @@
       line-height: 1.6;
       padding: 14px 0;
       border-top: 1px solid var(--border);
+      margin-top: 8px;
     }
 
     /* ── 9H badge ── */
@@ -415,11 +481,8 @@
     .faq-item.open .faq-a { display: block; }
 
     @media (max-width: 560px) {
-      .round-row {
-        grid-template-columns: 1fr 1fr;
-      }
-      .field-group:nth-child(2) { grid-column: 1 / -1; }
-      .field-group:nth-child(3) { grid-column: 1 / -1; }
+      .round-row { grid-template-columns: 1fr auto; }
+      .field-group:first-child { grid-column: 1 / -1; }
       .btn-remove { margin-top: 0; }
       .row-warning { grid-column: 1 / -1; }
     }
@@ -534,13 +597,6 @@
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">How are 9-hole rounds handled? <span class="arrow">▼</span></div>
-      <div class="faq-a">
-        For 9-hole rounds, the differential calculated from your score is <strong>multiplied by 2</strong> to convert it into an 18-hole equivalent. This is the correct WHS treatment — it lets you combine 9H and 18H rounds fairly in the same calculation. The breakdown table shows this step explicitly for any 9-hole round you enter.
-      </div>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">Why multiply by 0.96? <span class="arrow">▼</span></div>
       <div class="faq-a">
         The 0.96 is the WHS "playing conditions adjustment factor". It ensures that the Handicap Index reflects your potential, not your average — the assumption being that on your best rounds you played close to your true ability. Multiplying by 0.96 trims the index by about 4%, nudging it slightly lower so you're challenged to repeat your best performances.
@@ -550,7 +606,7 @@
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">How many rounds do I need for an official handicap? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        Under WHS rules, you need a minimum of <strong>54 holes</strong> (typically 3 × 18-hole rounds, or equivalent) submitted through an RFEG-affiliated club for an official Handicap Index. This calculator gives you an estimate for planning purposes — to get an official index, join a club affiliated with the Royal Spanish Golf Federation (<a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es</a>).
+        Under WHS rules, you need a minimum of 54 holes (typically 3 × 18-hole rounds, or equivalent) submitted through an RFEG-affiliated club for an official Handicap Index. This calculator gives you an estimate for planning purposes — to get an official index, join a club affiliated with the Royal Spanish Golf Federation (<a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es</a>).
       </div>
     </div>
 
@@ -590,7 +646,7 @@
 <script>
   // ── Course data (Valencia + custom) ──
   // Rating/Slope from master club data (whites tees).
-  // Escorpión's rating is not publicly published — null shows advisory text.
+  // Escorpión's rating is not publicly published — null triggers par-only fallback.
   // 9-hole rounds: differential is scaled ×2 before WHS comparison/averaging.
   const COURSES = [
     { value: '',          label: 'Select a course…',                   rating: null,  slope: null,  par: null, holes: 18 },
@@ -606,6 +662,8 @@
   ];
 
   let roundCount = 0;
+  // Track chosen holes for each custom-course row (default 18)
+  const customHoles = {};
 
   function buildCourseOptions() {
     return COURSES.map(c =>
@@ -616,6 +674,8 @@
   function addRound() {
     roundCount++;
     const id = roundCount;
+    customHoles[id] = 18; // default
+
     const row = document.createElement('div');
     row.className = 'round-row';
     row.dataset.id = id;
@@ -631,11 +691,30 @@
           ${buildCourseOptions()}
         </select>
         <div class="course-info-strip" id="strip-${id}"></div>
-      </div>
-      <div class="field-group" id="custom-group-${id}" style="display:none">
-        <label>Rating / Slope</label>
-        <input type="text" placeholder="74.1 / 148" id="custom-${id}"
-               style="font-size:13px" oninput="checkWarning(${id})">
+
+        <!-- Custom course fields — shown only when "Other course" is selected -->
+        <div class="custom-group" id="custom-group-${id}">
+          <label>Holes played</label>
+          <div class="holes-toggle">
+            <button type="button" id="h18-${id}" class="holes-btn active"
+                    onclick="setCustomHoles(${id}, 18)">18 holes</button>
+            <button type="button" id="h9-${id}"  class="holes-btn"
+                    onclick="setCustomHoles(${id}, 9)">9 holes</button>
+          </div>
+          <label>Par</label>
+          <input type="number" min="18" max="80" placeholder="72" id="custom-par-${id}"
+                 oninput="checkWarning(${id})">
+          <div style="margin-top:2px">
+            <button type="button" class="rs-toggle-link" onclick="toggleAdvancedRS(${id})">
+              I know Rating &amp; Slope (optional, more accurate)
+            </button>
+          </div>
+          <div id="advanced-rs-${id}" style="display:none;margin-top:4px">
+            <label>Rating / Slope</label>
+            <input type="text" placeholder="e.g. 74.1 / 148" id="custom-rs-${id}"
+                   style="font-size:13px" oninput="checkWarning(${id})">
+          </div>
+        </div>
       </div>
       <button class="btn-remove" onclick="removeRound(${id})" aria-label="Remove round">✕</button>
       <div class="row-warning" id="warn-${id}"></div>
@@ -646,26 +725,49 @@
   function removeRound(id) {
     const row = document.querySelector(`.round-row[data-id="${id}"]`);
     if (row) row.remove();
+    delete customHoles[id];
+  }
+
+  function setCustomHoles(id, h) {
+    customHoles[id] = h;
+    const btn18 = document.getElementById(`h18-${id}`);
+    const btn9  = document.getElementById(`h9-${id}`);
+    if (!btn18 || !btn9) return;
+    btn18.classList.toggle('active', h === 18);
+    btn9.classList.toggle('active',  h === 9);
+    // Update par placeholder
+    const parEl = document.getElementById(`custom-par-${id}`);
+    if (parEl && !parEl.value) parEl.placeholder = h === 9 ? '36' : '72';
+    checkWarning(id);
+  }
+
+  function toggleAdvancedRS(id) {
+    const div = document.getElementById(`advanced-rs-${id}`);
+    if (!div) return;
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
   }
 
   function onCourseChange(id) {
-    const sel = document.getElementById(`course-${id}`).value;
+    const sel    = document.getElementById(`course-${id}`).value;
     const course = COURSES.find(c => c.value === sel);
-    const strip = document.getElementById(`strip-${id}`);
-    const customGroup = document.getElementById(`custom-group-${id}`);
+    const strip  = document.getElementById(`strip-${id}`);
+    const cg     = document.getElementById(`custom-group-${id}`);
 
-    if (!course || (!course.rating && sel !== 'escorpion')) {
+    if (sel === 'custom') {
       strip.innerHTML = '';
-      customGroup.style.display = (sel === 'custom') ? 'flex' : 'none';
-    } else if (sel === 'escorpion') {
-      strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating not publicly available`;
-      customGroup.style.display = 'none';
+      cg.style.display = 'flex';
+    } else if (!course || !course.rating) {
+      // No Rating data (Escorpión)
+      if (course && course.slope) {
+        strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating not publicly available`;
+      } else {
+        strip.innerHTML = '';
+      }
+      cg.style.display = 'none';
     } else {
-      const holesTag = course.holes === 9
-        ? ` <span class="nine-tag">9H</span>`
-        : '';
-      strip.innerHTML = `<strong>${course.par ? 'Par ' + course.par + ' · ' : ''}Rating ${course.rating} · Slope ${course.slope}</strong>${holesTag}`;
-      customGroup.style.display = 'none';
+      const holesTag = course.holes === 9 ? ` <span class="nine-tag">9H</span>` : '';
+      strip.innerHTML = `<strong>Par ${course.par} · Rating ${course.rating} · Slope ${course.slope}</strong>${holesTag}`;
+      cg.style.display = 'none';
     }
     checkWarning(id);
   }
@@ -673,24 +775,42 @@
   function getRatingSlope(id) {
     const sel = document.getElementById(`course-${id}`).value;
     if (!sel) return null;
+
     if (sel === 'custom') {
-      const raw = (document.getElementById(`custom-${id}`)?.value || '').trim();
-      const parts = raw.split(/[\s\/,]+/);
-      if (parts.length < 2) return null;
-      const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
-      if (isNaN(r) || isNaN(s)) return null;
-      return { rating: r, slope: s, holes: 18 };
+      const holes = customHoles[id] || 18;
+      // Did they reveal and fill the Rating/Slope section?
+      const rsDiv = document.getElementById(`advanced-rs-${id}`);
+      const rsRaw = (rsDiv && rsDiv.style.display !== 'none')
+        ? (document.getElementById(`custom-rs-${id}`)?.value || '').trim()
+        : '';
+      if (rsRaw) {
+        const parts = rsRaw.split(/[\s\/,]+/);
+        if (parts.length >= 2) {
+          const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
+          if (!isNaN(r) && !isNaN(s)) {
+            return { rating: r, slope: s, holes, parOnly: false };
+          }
+        }
+      }
+      // Par-only fallback: Rating = Par, Slope = 113 (world average)
+      // → differential simplifies to Score − Par
+      const parVal = parseFloat(document.getElementById(`custom-par-${id}`)?.value);
+      const par    = isNaN(parVal) ? (holes === 9 ? 36 : 72) : parVal;
+      return { rating: par, slope: 113, holes, parOnly: true, par };
     }
+
     const course = COURSES.find(c => c.value === sel);
-    if (!course) return null;
-    // Escorpión: slope known, rating null — use slope for fallback warning only
-    if (!course.rating) return null;
-    return { rating: course.rating, slope: course.slope, holes: course.holes || 18 };
+    if (!course || !course.rating) return null;
+    return { rating: course.rating, slope: course.slope, holes: course.holes || 18, parOnly: false };
   }
 
   function getCourseLabel(id) {
     const sel = document.getElementById(`course-${id}`).value;
-    if (sel === 'custom') return 'Other course';
+    if (sel === 'custom') {
+      const h      = customHoles[id] || 18;
+      const parVal = document.getElementById(`custom-par-${id}`)?.value;
+      return parVal ? `Other course (${h}H, par ${parVal})` : `Other course (${h}H)`;
+    }
     const c = COURSES.find(x => x.value === sel);
     return c ? c.label : '—';
   }
@@ -700,9 +820,7 @@
     const warnEl  = document.getElementById(`warn-${id}`);
     const score   = parseFloat(scoreEl?.value);
     const rs      = getRatingSlope(id);
-    const sel     = document.getElementById(`course-${id}`).value;
-    const course  = COURSES.find(c => c.value === sel);
-    const is9H    = course?.holes === 9;
+    const is9H    = rs?.holes === 9;
     let msg = '';
 
     if (!isNaN(score)) {
@@ -716,7 +834,7 @@
       if (rs && !msg) {
         const rawDiff = (score - rs.rating) * (113 / rs.slope);
         if (rawDiff > 54) msg = '⚠️ Differential is unusually high — check score, rating and slope.';
-        if (rawDiff < -5) msg = '⚠️ Negative differential — did you enter total strokes (e.g. 85) rather than a score to par (e.g. +3)?';
+        if (rawDiff < -5) msg = '⚠️ Negative differential — did you enter total strokes (e.g. 85) rather than score to par (e.g. +3)?';
       }
     }
 
@@ -739,41 +857,36 @@
       const score = parseFloat(document.getElementById(`score-${id}`)?.value);
       const rs    = getRatingSlope(id);
       const sel   = document.getElementById(`course-${id}`).value;
-      const course = COURSES.find(c => c.value === sel);
-      const label  = getCourseLabel(id);
+      const label = getCourseLabel(id);
 
-      if (!sel) { hasIncomplete = true; return; }
-      if (isNaN(score)) { hasIncomplete = true; return; }
-      if (!rs) {
-        // Escorpión or custom without rating — skip with note
-        hasIncomplete = true; return;
-      }
+      if (!sel || isNaN(score)) { hasIncomplete = true; return; }
+      if (!rs) { hasIncomplete = true; return; }
 
-      const is9H    = (course?.holes === 9) || (rs.holes === 9);
+      const is9H    = rs.holes === 9;
       const rawDiff = (score - rs.rating) * (113 / rs.slope);
       const diff    = is9H ? rawDiff * 2 : rawDiff;
-      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label });
+      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label, parOnly: rs.parOnly || false, par: rs.par || null });
     });
 
     if (diffs.length === 0) {
-      alert('Please add at least one complete round (score + course with Rating/Slope data).');
+      alert('Please add at least one complete round (score + course selected).');
       return;
     }
     if (hasIncomplete) {
-      if (!confirm('Some rounds are incomplete or missing Rating/Slope and will be skipped. Continue with ' + diffs.length + ' valid round(s)?')) return;
+      if (!confirm('Some rounds are incomplete and will be skipped. Continue with ' + diffs.length + ' valid round(s)?')) return;
     }
 
     // WHS: sort ascending, take best differentials per round count
-    const sorted  = [...diffs].sort((a, b) => a.diff - b.diff);
-    const n       = diffs.length;
+    const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
+    const n      = diffs.length;
     let numUsed;
-    if      (n <= 4)  numUsed = 1;
-    else if (n <= 6)  numUsed = 2;
-    else if (n <= 8)  numUsed = 2;
-    else if (n <= 11) numUsed = 3;
-    else if (n <= 14) numUsed = 4;
-    else if (n <= 16) numUsed = 5;
-    else if (n <= 18) numUsed = 6;
+    if      (n <= 4)   numUsed = 1;
+    else if (n <= 6)   numUsed = 2;
+    else if (n <= 8)   numUsed = 2;
+    else if (n <= 11)  numUsed = 3;
+    else if (n <= 14)  numUsed = 4;
+    else if (n <= 16)  numUsed = 5;
+    else if (n <= 18)  numUsed = 6;
     else if (n === 19) numUsed = 7;
     else               numUsed = 8;
 
@@ -796,7 +909,21 @@
       if (used) tr.className = 'used';
 
       let formulaHTML;
-      if (d.is9H) {
+      if (d.parOnly && d.is9H) {
+        formulaHTML = `
+          <span class="eq">(${d.score} − par ${d.par})</span><br>
+          = <span class="eq">${d.rawDiff.toFixed(2)}</span>
+          <span style="color:#b45309;font-size:11px;font-weight:700"> × 2 (9H→18H)</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong><br>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">par-based estimate (Slope 113)</span>
+        `;
+      } else if (d.parOnly) {
+        formulaHTML = `
+          <span class="eq">${d.score} − par ${d.par}</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong><br>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">par-based estimate (Slope 113)</span>
+        `;
+      } else if (d.is9H) {
         formulaHTML = `
           <span class="eq">(${d.score} − ${d.rating}) × (113 ÷ ${d.slope})</span><br>
           = <span class="eq">${d.rawDiff.toFixed(2)}</span>
@@ -824,16 +951,20 @@
     });
 
     // ── Step-by-step explanation ──
-    const has9H     = diffs.some(d => d.is9H);
-    const usedLabel = numUsed === 1 ? 'best 1 differential' : `best ${numUsed} differentials`;
-    const usedVals  = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
+    const has9H      = diffs.some(d => d.is9H);
+    const hasParOnly = diffs.some(d => d.parOnly);
+    const usedLabel  = numUsed === 1 ? 'best 1 differential' : `best ${numUsed} differentials`;
+    const usedVals   = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
 
-    const step1Extra = has9H
+    const step1Extra   = has9H
       ? ` For 9-hole rounds, the differential is then <strong>multiplied by 2</strong> to convert it to an 18-hole equivalent — so a 9H differential of 4.5 becomes 9.0.`
+      : '';
+    const step1ParNote = hasParOnly
+      ? ` <em style="color:var(--text-muted)">For courses where only par is known, Rating is treated as Par and Slope as 113 (the worldwide average) — differential ≈ Score − Par.</em>`
       : '';
 
     const steps = [
-      `Calculated a <strong>Handicap Differential</strong> for each round using: <span class="mono">(Score − Rating) × (113 ÷ Slope)</span>.${step1Extra}`,
+      `Calculated a <strong>Handicap Differential</strong> for each round using: <span class="mono">(Score − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `With ${n} round${n > 1 ? 's' : ''}, WHS rules say to use the <strong>${usedLabel}</strong> — highlighted in green above.`,
       `Averaged the ${usedLabel}: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
       `Applied the WHS <strong>0.96 factor</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0.96 = ${rawIndex.toFixed(2)}</span>`,

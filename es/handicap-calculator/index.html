@@ -24,7 +24,6 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    /* ── Extra tokens para la página de la calculadora ── */
     :root {
       --gold:        #c9a84c;
       --gold-light:  #e0c068;
@@ -88,7 +87,7 @@
     }
     .round-row {
       display: grid;
-      grid-template-columns: 80px 1fr 64px auto;
+      grid-template-columns: 80px 1fr auto;
       gap: 10px;
       align-items: start;
     }
@@ -136,6 +135,65 @@
       line-height: 1.4;
     }
     .course-info-strip strong { color: var(--green-mid); }
+
+    .custom-group {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .custom-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .custom-group input {
+      font-size: 15px;
+      font-family: inherit;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.15s;
+    }
+    .custom-group input:focus { border-color: var(--green-light); }
+
+    .holes-toggle { display: flex; gap: 6px; }
+    .holes-btn {
+      flex: 1;
+      padding: 8px 4px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      border: 2px solid var(--border);
+      background: var(--white);
+      color: var(--text-muted);
+      transition: background 0.12s, border-color 0.12s, color 0.12s;
+    }
+    .holes-btn.active {
+      border-color: var(--green-mid);
+      background: var(--green-mid);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .rs-toggle-link {
+      background: none;
+      border: none;
+      color: var(--green-light);
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-align: left;
+    }
 
     .btn-remove {
       background: none;
@@ -193,7 +251,10 @@
     .btn-calc:hover { background: var(--gold-light); }
     .btn-calc:active { transform: scale(0.99); }
 
-    #result-section { display: none; }
+    #result-section {
+      display: none;
+      margin-top: 28px;
+    }
 
     .result-headline {
       background: var(--green-dark);
@@ -344,6 +405,7 @@
       line-height: 1.6;
       padding: 14px 0;
       border-top: 1px solid var(--border);
+      margin-top: 8px;
     }
 
     .nine-tag {
@@ -399,9 +461,8 @@
     .faq-item.open .faq-a { display: block; }
 
     @media (max-width: 560px) {
-      .round-row { grid-template-columns: 1fr 1fr; }
-      .field-group:nth-child(2) { grid-column: 1 / -1; }
-      .field-group:nth-child(3) { grid-column: 1 / -1; }
+      .round-row { grid-template-columns: 1fr auto; }
+      .field-group:first-child { grid-column: 1 / -1; }
       .btn-remove { margin-top: 0; }
       .row-warning { grid-column: 1 / -1; }
     }
@@ -511,21 +572,14 @@
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">¿Qué significa el Slope? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo "promedio". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio. Un Slope de 113 indica que la diferencia de dificultad entre expertos y aficionados es típica.
-      </div>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Cómo se tratan las rondas de 9 hoyos? <span class="arrow">▼</span></div>
-      <div class="faq-a">
-        Para las rondas de 9 hoyos, el diferencial calculado a partir de tu puntuación se <strong>multiplica por 2</strong> para convertirlo en un equivalente de 18 hoyos. Este es el tratamiento WHS correcto — permite combinar rondas de 9H y 18H de forma justa en el mismo cálculo. La tabla de desglose muestra este paso explícitamente para cada ronda de 9 hoyos que introduzcas.
+        El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo "promedio". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">¿Por qué se multiplica por 0,96? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El 0,96 es el "factor de ajuste de condiciones de juego" del WHS. Garantiza que el Índice de Hándicap refleje tu potencial, no tu promedio — la idea es que en tus mejores rondas jugaste cerca de tu verdadero nivel. Multiplicar por 0,96 recorta el índice aproximadamente un 4%, empujándolo ligeramente hacia abajo para que tengas el reto de repetir tus mejores actuaciones.
+        El 0,96 es el "factor de ajuste de condiciones de juego" del WHS. Garantiza que el Índice de Hándicap refleje tu potencial, no tu promedio — la idea es que en tus mejores rondas jugaste cerca de tu verdadero nivel. Multiplicar por 0,96 recorta el índice aproximadamente un 4%, empujándolo ligeramente hacia abajo.
       </div>
     </div>
 
@@ -572,7 +626,7 @@
 <script>
   // ── Datos de campos (Valencia + personalizado) ──
   // Rating/Slope del master de datos de clubes (tees blancos).
-  // El Rating de Escorpión no es público — null activa texto informativo.
+  // El Rating de Escorpión no es público — null activa el modo par.
   // Rondas de 9 hoyos: el diferencial se escala ×2 antes de promediar (WHS).
   const COURSES = [
     { value: '',          label: 'Selecciona un campo…',                rating: null,  slope: null,  par: null, holes: 18 },
@@ -588,6 +642,7 @@
   ];
 
   let roundCount = 0;
+  const customHoles = {};
 
   function buildCourseOptions() {
     return COURSES.map(c =>
@@ -598,6 +653,8 @@
   function addRound() {
     roundCount++;
     const id = roundCount;
+    customHoles[id] = 18;
+
     const row = document.createElement('div');
     row.className = 'round-row';
     row.dataset.id = id;
@@ -613,11 +670,30 @@
           ${buildCourseOptions()}
         </select>
         <div class="course-info-strip" id="strip-${id}"></div>
-      </div>
-      <div class="field-group" id="custom-group-${id}" style="display:none">
-        <label>Rating / Slope</label>
-        <input type="text" placeholder="74.1 / 148" id="custom-${id}"
-               style="font-size:13px" oninput="checkWarning(${id})">
+
+        <!-- Campos para campo personalizado -->
+        <div class="custom-group" id="custom-group-${id}">
+          <label>Hoyos jugados</label>
+          <div class="holes-toggle">
+            <button type="button" id="h18-${id}" class="holes-btn active"
+                    onclick="setCustomHoles(${id}, 18)">18 hoyos</button>
+            <button type="button" id="h9-${id}"  class="holes-btn"
+                    onclick="setCustomHoles(${id}, 9)">9 hoyos</button>
+          </div>
+          <label>Par</label>
+          <input type="number" min="18" max="80" placeholder="72" id="custom-par-${id}"
+                 oninput="checkWarning(${id})">
+          <div style="margin-top:2px">
+            <button type="button" class="rs-toggle-link" onclick="toggleAdvancedRS(${id})">
+              Conozco Rating y Slope (opcional, más preciso)
+            </button>
+          </div>
+          <div id="advanced-rs-${id}" style="display:none;margin-top:4px">
+            <label>Rating / Slope</label>
+            <input type="text" placeholder="ej. 74.1 / 148" id="custom-rs-${id}"
+                   style="font-size:13px" oninput="checkWarning(${id})">
+          </div>
+        </div>
       </div>
       <button class="btn-remove" onclick="removeRound(${id})" aria-label="Eliminar ronda">✕</button>
       <div class="row-warning" id="warn-${id}"></div>
@@ -628,26 +704,47 @@
   function removeRound(id) {
     const row = document.querySelector(`.round-row[data-id="${id}"]`);
     if (row) row.remove();
+    delete customHoles[id];
+  }
+
+  function setCustomHoles(id, h) {
+    customHoles[id] = h;
+    const btn18 = document.getElementById(`h18-${id}`);
+    const btn9  = document.getElementById(`h9-${id}`);
+    if (!btn18 || !btn9) return;
+    btn18.classList.toggle('active', h === 18);
+    btn9.classList.toggle('active',  h === 9);
+    const parEl = document.getElementById(`custom-par-${id}`);
+    if (parEl && !parEl.value) parEl.placeholder = h === 9 ? '36' : '72';
+    checkWarning(id);
+  }
+
+  function toggleAdvancedRS(id) {
+    const div = document.getElementById(`advanced-rs-${id}`);
+    if (!div) return;
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
   }
 
   function onCourseChange(id) {
     const sel    = document.getElementById(`course-${id}`).value;
     const course = COURSES.find(c => c.value === sel);
     const strip  = document.getElementById(`strip-${id}`);
-    const customGroup = document.getElementById(`custom-group-${id}`);
+    const cg     = document.getElementById(`custom-group-${id}`);
 
-    if (!course || (!course.rating && sel !== 'escorpion')) {
+    if (sel === 'custom') {
       strip.innerHTML = '';
-      customGroup.style.display = (sel === 'custom') ? 'flex' : 'none';
-    } else if (sel === 'escorpion') {
-      strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating no disponible públicamente`;
-      customGroup.style.display = 'none';
+      cg.style.display = 'flex';
+    } else if (!course || !course.rating) {
+      if (course && course.slope) {
+        strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating no disponible públicamente`;
+      } else {
+        strip.innerHTML = '';
+      }
+      cg.style.display = 'none';
     } else {
-      const holesTag = course.holes === 9
-        ? ` <span class="nine-tag">9H</span>`
-        : '';
-      strip.innerHTML = `<strong>${course.par ? 'Par ' + course.par + ' · ' : ''}Rating ${course.rating} · Slope ${course.slope}</strong>${holesTag}`;
-      customGroup.style.display = 'none';
+      const holesTag = course.holes === 9 ? ` <span class="nine-tag">9H</span>` : '';
+      strip.innerHTML = `<strong>Par ${course.par} · Rating ${course.rating} · Slope ${course.slope}</strong>${holesTag}`;
+      cg.style.display = 'none';
     }
     checkWarning(id);
   }
@@ -655,22 +752,38 @@
   function getRatingSlope(id) {
     const sel = document.getElementById(`course-${id}`).value;
     if (!sel) return null;
+
     if (sel === 'custom') {
-      const raw   = (document.getElementById(`custom-${id}`)?.value || '').trim();
-      const parts = raw.split(/[\s\/,]+/);
-      if (parts.length < 2) return null;
-      const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
-      if (isNaN(r) || isNaN(s)) return null;
-      return { rating: r, slope: s, holes: 18 };
+      const holes  = customHoles[id] || 18;
+      const rsDiv  = document.getElementById(`advanced-rs-${id}`);
+      const rsRaw  = (rsDiv && rsDiv.style.display !== 'none')
+        ? (document.getElementById(`custom-rs-${id}`)?.value || '').trim()
+        : '';
+      if (rsRaw) {
+        const parts = rsRaw.split(/[\s\/,]+/);
+        if (parts.length >= 2) {
+          const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
+          if (!isNaN(r) && !isNaN(s)) return { rating: r, slope: s, holes, parOnly: false };
+        }
+      }
+      // Solo par: Rating = Par, Slope = 113 (promedio mundial)
+      const parVal = parseFloat(document.getElementById(`custom-par-${id}`)?.value);
+      const par    = isNaN(parVal) ? (holes === 9 ? 36 : 72) : parVal;
+      return { rating: par, slope: 113, holes, parOnly: true, par };
     }
+
     const course = COURSES.find(c => c.value === sel);
     if (!course || !course.rating) return null;
-    return { rating: course.rating, slope: course.slope, holes: course.holes || 18 };
+    return { rating: course.rating, slope: course.slope, holes: course.holes || 18, parOnly: false };
   }
 
   function getCourseLabel(id) {
     const sel = document.getElementById(`course-${id}`).value;
-    if (sel === 'custom') return 'Otro campo';
+    if (sel === 'custom') {
+      const h      = customHoles[id] || 18;
+      const parVal = document.getElementById(`custom-par-${id}`)?.value;
+      return parVal ? `Otro campo (${h}H, par ${parVal})` : `Otro campo (${h}H)`;
+    }
     const c = COURSES.find(x => x.value === sel);
     return c ? c.label : '—';
   }
@@ -680,9 +793,7 @@
     const warnEl  = document.getElementById(`warn-${id}`);
     const score   = parseFloat(scoreEl?.value);
     const rs      = getRatingSlope(id);
-    const sel     = document.getElementById(`course-${id}`).value;
-    const course  = COURSES.find(c => c.value === sel);
-    const is9H    = course?.holes === 9;
+    const is9H    = rs?.holes === 9;
     let msg = '';
 
     if (!isNaN(score)) {
@@ -715,27 +826,26 @@
     let hasIncomplete = false;
 
     rows.forEach(row => {
-      const id     = row.dataset.id;
-      const score  = parseFloat(document.getElementById(`score-${id}`)?.value);
-      const rs     = getRatingSlope(id);
-      const sel    = document.getElementById(`course-${id}`).value;
-      const course = COURSES.find(c => c.value === sel);
-      const label  = getCourseLabel(id);
+      const id    = row.dataset.id;
+      const score = parseFloat(document.getElementById(`score-${id}`)?.value);
+      const rs    = getRatingSlope(id);
+      const sel   = document.getElementById(`course-${id}`).value;
+      const label = getCourseLabel(id);
 
       if (!sel || isNaN(score) || !rs) { hasIncomplete = true; return; }
 
-      const is9H    = (course?.holes === 9) || (rs.holes === 9);
+      const is9H    = rs.holes === 9;
       const rawDiff = (score - rs.rating) * (113 / rs.slope);
       const diff    = is9H ? rawDiff * 2 : rawDiff;
-      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label });
+      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label, parOnly: rs.parOnly || false, par: rs.par || null });
     });
 
     if (diffs.length === 0) {
-      alert('Añade al menos una ronda completa (golpes + campo con datos de Rating/Slope).');
+      alert('Añade al menos una ronda completa (golpes + campo seleccionado).');
       return;
     }
     if (hasIncomplete) {
-      if (!confirm('Algunas rondas están incompletas o sin Rating/Slope y se omitirán. ¿Continuar con ' + diffs.length + ' ronda(s) válida(s)?')) return;
+      if (!confirm('Algunas rondas están incompletas y se omitirán. ¿Continuar con ' + diffs.length + ' ronda(s) válida(s)?')) return;
     }
 
     const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
@@ -768,7 +878,21 @@
       if (used) tr.className = 'used';
 
       let formulaHTML;
-      if (d.is9H) {
+      if (d.parOnly && d.is9H) {
+        formulaHTML = `
+          <span class="eq">(${d.score} − par ${d.par})</span><br>
+          = <span class="eq">${d.rawDiff.toFixed(2)}</span>
+          <span style="color:#b45309;font-size:11px;font-weight:700"> × 2 (9H→18H)</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong><br>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">estimación por par (Slope 113)</span>
+        `;
+      } else if (d.parOnly) {
+        formulaHTML = `
+          <span class="eq">${d.score} − par ${d.par}</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong><br>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">estimación por par (Slope 113)</span>
+        `;
+      } else if (d.is9H) {
         formulaHTML = `
           <span class="eq">(${d.score} − ${d.rating}) × (113 ÷ ${d.slope})</span><br>
           = <span class="eq">${d.rawDiff.toFixed(2)}</span>
@@ -795,16 +919,20 @@
       tbody.appendChild(tr);
     });
 
-    const has9H     = diffs.some(d => d.is9H);
-    const usedLabel = numUsed === 1 ? 'el mejor diferencial' : `los ${numUsed} mejores diferenciales`;
-    const usedVals  = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
+    const has9H      = diffs.some(d => d.is9H);
+    const hasParOnly = diffs.some(d => d.parOnly);
+    const usedLabel  = numUsed === 1 ? 'el mejor diferencial' : `los ${numUsed} mejores diferenciales`;
+    const usedVals   = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
 
-    const step1Extra = has9H
+    const step1Extra   = has9H
       ? ` Para las rondas de 9 hoyos, el diferencial se <strong>multiplica por 2</strong> para convertirlo al equivalente de 18 hoyos — un diferencial de 9H de 4,5 se convierte en 9,0.`
+      : '';
+    const step1ParNote = hasParOnly
+      ? ` <em style="color:var(--text-muted)">Para campos donde solo se conoce el par, el Rating se trata como el Par y el Slope como 113 (promedio mundial) — diferencial ≈ Golpes − Par.</em>`
       : '';
 
     const steps = [
-      `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}`,
+      `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `Con ${n} ronda${n > 1 ? 's' : ''}, las reglas WHS indican usar <strong>${usedLabel}</strong> — marcados en verde arriba.`,
       `Se promediaron los diferenciales: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
       `Se aplicó el <strong>factor 0,96 del WHS</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0,96 = ${rawIndex.toFixed(2)}</span>`,
@@ -839,7 +967,6 @@
     item.classList.toggle('open');
   }
 
-  // Inicializar con 2 rondas en blanco
   addRound();
   addRound();
 </script>
