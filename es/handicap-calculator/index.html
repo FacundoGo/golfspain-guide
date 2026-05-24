@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Hándicap de Golf España — Estima tu Índice Gratis 2026 | golfspain.guide</title>
-  <meta name="description" content="Calculadora de hándicap de golf gratis para España. Introduce tus últimas rondas, obtén tu índice estimado y descubre qué campos de Valencia se adaptan a tu nivel. Sin registro.">
+  <title>Calculadora de Hándicap de Golf España — Estimación WHS | golfspain.guide</title>
+  <meta name="description" content="Calcula tu Índice de Hándicap WHS a partir de rondas jugadas en Valencia, España. Gratis, sencillo y con explicación paso a paso de cada cálculo.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://golfspain.guide/es/handicap-calculator/">
@@ -13,15 +13,399 @@
   <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/es/handicap-calculator/">
-  <meta property="og:title" content="Calculadora de Hándicap de Golf España — Estima tu Índice Gratis">
-  <meta property="og:description" content="Introduce tus últimas rondas y obtén tu índice de hándicap estimado en segundos. Descubre qué campos de Valencia se adaptan a tu nivel.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Hándicap de Golf España","url":"https://golfspain.guide/es/handicap-calculator/","description":"Calculadora de hándicap de golf gratis usando metodología WHS. Introduce tus rondas y obtén un índice estimado.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de Hándicap","item":"https://golfspain.guide/es/handicap-calculator/"}]}}</script>
+  <meta property="og:title" content="Calculadora de Hándicap de Golf España — Estimación WHS Gratis">
+  <meta property="og:description" content="Introduce tus últimas rondas y obtén tu índice de hándicap estimado con una explicación completa paso a paso. Compatible con rondas de 9 hoyos.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Hándicap de Golf España","url":"https://golfspain.guide/es/handicap-calculator/","description":"Calculadora de hándicap de golf gratis usando metodología WHS. Compatible con rondas de 9 hoyos con escala ×2 correcta.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de Hándicap","item":"https://golfspain.guide/es/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ── Extra tokens para la página de la calculadora ── */
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e0c068;
+      --cream:       #f9f6ef;
+      --text-muted:  #5a6b5a;
+      --warn-bg:     #fff8e6;
+      --warn-border: #e8c840;
+      --calc-radius: 8px;
+    }
+
+    body { background: var(--cream); }
+
+    .page-header {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      color: #aec8b8;
+      font-size: 15px;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .calc-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .calc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--calc-radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .calc-card-header {
+      background: var(--green-mid);
+      color: var(--white);
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .calc-card-body { padding: 24px; }
+
+    .rounds-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .round-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 64px auto;
+      gap: 10px;
+      align-items: start;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .field-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .field-group input,
+    .field-group select {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--white);
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235a6b5a'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 28px;
+    }
+    .field-group input:focus,
+    .field-group select:focus { border-color: var(--green-light); }
+
+    .course-info-strip {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      min-height: 16px;
+      line-height: 1.4;
+    }
+    .course-info-strip strong { color: var(--green-mid); }
+
+    .btn-remove {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: inherit;
+      margin-top: 20px;
+      white-space: nowrap;
+    }
+    .btn-remove:hover { background: #fdf2f2; border-color: #e8b4b4; color: #a33; }
+
+    .btn-add {
+      background: none;
+      border: 1px dashed var(--green-light);
+      color: var(--green-light);
+      border-radius: var(--calc-radius);
+      padding: 11px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .btn-add:hover { background: #eaf4ed; }
+
+    .row-warning {
+      grid-column: 1 / -1;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: #7a5a00;
+      display: none;
+    }
+    .row-warning.visible { display: block; }
+
+    .btn-calc {
+      background: var(--gold);
+      color: var(--green-dark);
+      border: none;
+      border-radius: var(--calc-radius);
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      width: 100%;
+    }
+    .btn-calc:hover { background: var(--gold-light); }
+    .btn-calc:active { transform: scale(0.99); }
+
+    #result-section { display: none; }
+
+    .result-headline {
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: var(--calc-radius);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .result-headline .result-label {
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #aec8b8;
+      margin-bottom: 6px;
+    }
+    .result-headline .result-value {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .result-headline .result-sublabel {
+      font-size: 13px;
+      color: #7aab8a;
+    }
+
+    .breakdown-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--calc-radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .breakdown-header {
+      background: #f2f7f4;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .breakdown-table th {
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: #f8faf8;
+      border-bottom: 1px solid var(--border);
+    }
+    .breakdown-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid #f0ede6;
+      vertical-align: top;
+    }
+    .breakdown-table tr:last-child td { border-bottom: none; }
+    .breakdown-table tr.used td { background: #f0f9f3; }
+    .breakdown-table tr.used td:first-child { border-left: 3px solid var(--green-light); }
+    .breakdown-table .diff-val { font-weight: 700; color: var(--green-mid); }
+    .breakdown-table .formula-cell {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .breakdown-table .formula-cell .eq {
+      font-family: 'Courier New', monospace;
+      background: #f0ede6;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .step-summary {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--calc-radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .step-summary h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .step-list { display: flex; flex-direction: column; gap: 10px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num {
+      width: 24px; height: 24px; min-width: 24px;
+      background: var(--green-mid);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-main);
+      padding-top: 2px;
+    }
+    .step-text .mono {
+      font-family: 'Courier New', monospace;
+      background: #f0ede6;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    .recommendation {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--calc-radius);
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .recommendation .rec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .recommendation .rec-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+    .recommendation .rec-text a { color: var(--green-light); text-decoration: underline; }
+
+    .disclaimer {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .nine-tag {
+      display: inline-block;
+      background: #fff3cd;
+      color: #7a5a00;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    .faq { margin-top: 40px; }
+    .faq h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--calc-radius);
+      margin-bottom: 8px;
+      background: var(--white);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-q:hover { background: #f8faf8; }
+    .faq-q .arrow { font-size: 12px; color: var(--text-muted); transition: transform 0.2s; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 18px 14px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+      border-top: 1px solid var(--border);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    @media (max-width: 560px) {
+      .round-row { grid-template-columns: 1fr 1fr; }
+      .field-group:nth-child(2) { grid-column: 1 / -1; }
+      .field-group:nth-child(3) { grid-column: 1 / -1; }
+      .btn-remove { margin-top: 0; }
+      .row-warning { grid-column: 1 / -1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,7 +415,7 @@
     <ul class="nav__links">
       <li><a href="/es/valencia/">Valencia</a></li>
       <li><a href="/es/about/">Sobre nosotros</a></li>
-      <li><a href="/es/handicap-calculator/">Hándicap</a></li>
+      <li><a href="/es/handicap-calculator/" aria-current="page">Hándicap</a></li>
       <li><a href="/es/blog/">Blog</a></li>
       <li><a href="/es/courses/" class="nav__cta">Todos los campos</a></li>
     </ul>
@@ -39,101 +423,131 @@
       <a href="/en/handicap-calculator/">EN</a>
       <span class="nav__lang-active">ES</span>
     </div>
-    <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav__burger" aria-label="Alternar menú" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<section class="calc-hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/es/">Inicio</a><span>›</span>Calculadora de Hándicap</nav>
-    <h1>Calculadora de Hándicap de Golf</h1>
-    <p class="calc-hero__sub">Introduce tus últimas rondas, elige el campo jugado y obtén tu Índice de Hándicap WHS estimado en segundos — luego descubre qué campos de España se adaptan a tu nivel.</p>
-  </div>
-</section>
+<header class="page-header">
+  <h1>Calculadora de Hándicap WHS</h1>
+  <p>Introduce tus rondas recientes y obtén un Índice de Hándicap estimado — con una explicación completa de cada paso del cálculo.</p>
+</header>
 
-<section class="section">
-  <div class="container">
-    <div class="calc-layout">
+<div class="calc-wrap">
 
-      <!-- LEFT: Calculator -->
-      <div>
-        <div class="calc-card">
-          <h2>Introduce tus rondas</h2>
-          <div class="round-header">
-            <span>Golpes</span>
-            <span>Campo</span>
-            <span>Rating</span>
-            <span>Slope</span>
-            <span></span>
-          </div>
-          <div class="rounds-list" id="rounds-list"></div>
-          <button class="add-round-btn" id="add-round-btn" type="button">+ Añadir otra ronda (hasta 20)</button>
-          <button class="btn btn--primary" style="width:100%;padding:16px;font-size:1.05rem;" id="calc-btn" type="button">Calcular mi hándicap →</button>
-          <p class="calc-error" id="calc-error"></p>
-        </div>
-
-        <!-- Result — hidden until calculated -->
-        <div class="result-card" id="result-card" style="display:none;">
-          <span class="hcp-number" id="hcp-number">—</span>
-          <p class="hcp-sublabel" id="hcp-sublabel">Índice de Hándicap Estimado</p>
-          <span class="level-pill" id="level-pill"></span>
-          <p class="result-based" id="result-based"></p>
-          <div class="simple-mode-note" id="simple-mode-note">
-            ⚠️ <strong>Estimación simple usada en una o más rondas</strong> — El Course Rating y el Slope no estaban disponibles, por lo que se usó <em>Golpes − Par</em> en esas rondas. Introduce Rating y Slope para un resultado más preciso.
-          </div>
-          <p class="result-note">Este es un estimado basado en metodología WHS. Para un Índice de Hándicap oficial, regístralo en un club afiliado a la <strong>Real Federación Española de Golf (RFEG)</strong> → <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es</a></p>
-        </div>
-
-        <!-- Recommendations — hidden until calculated -->
-        <div class="rec-section" id="rec-section" style="display:none;">
-          <h3 id="rec-title">Campos que se adaptan a tu nivel</h3>
-          <div class="rec-grid" id="rec-grid"></div>
-          <div style="margin-top:20px;">
-            <a href="/es/courses/" class="btn btn--green" style="display:inline-flex;">Ver todos los campos →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Sidebar -->
-      <div>
-        <div class="calc-howto">
-          <h3>Cómo funciona</h3>
-          <ol>
-            <li>Introduce tu puntuación bruta para cada ronda y selecciona el campo jugado.</li>
-            <li>Calculamos un <strong>Diferencial de Hándicap</strong>: <em>(Golpes − Course Rating) × (113 ÷ Slope)</em></li>
-            <li>Tomamos tus mejores diferenciales según el número de rondas introducidas (tabla WHS oficial).</li>
-            <li>Aplicamos el <strong>factor del 96%</strong> WHS para obtener tu Índice de Hándicap estimado.</li>
-          </ol>
-        </div>
-        <div class="calc-official">
-          <strong>¿Quieres un hándicap oficial?</strong><br>
-          Esta herramienta te da un estimado — útil para saber desde qué tees jugar y qué campos se adaptan a tu nivel. Para un Índice de Hándicap WHS oficial, únete a un club afiliado a la <strong>Real Federación Española de Golf (RFEG)</strong> y registra tus rondas.<br><br>
-          <a href="https://www.rfegolf.es" target="_blank" rel="noopener noreferrer" style="color:var(--green-dark);font-weight:700;">rfegolf.es →</a>
-        </div>
-        <div style="margin-top:20px;" class="info-card">
-          <h3 style="font-size:.95rem;margin-bottom:10px;">Niveles de hándicap explicados</h3>
-          <div style="display:flex;flex-direction:column;gap:8px;font-size:.85rem;">
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--scratch"  style="margin:0;font-size:.65rem;padding:3px 10px;">Scratch</span><span style="color:var(--text-mid);">Menos de 0 — nivel élite</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--low"      style="margin:0;font-size:.65rem;padding:3px 10px;">Bajo</span><span style="color:var(--text-mid);">0–9 — experimentado, cifra simple</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--mid"      style="margin:0;font-size:.65rem;padding:3px 10px;">Medio</span><span style="color:var(--text-mid);">10–20 — solvente, mayoría de campos accesibles</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--high"     style="margin:0;font-size:.65rem;padding:3px 10px;">Alto</span><span style="color:var(--text-mid);">21–36 — en desarrollo, campos cortos más fáciles</span></div>
-            <div style="display:flex;gap:10px;align-items:center;"><span class="level-pill level-pill--beginner" style="margin:0;font-size:.65rem;padding:3px 10px;">Principiante</span><span style="color:var(--text-mid);">36+ — empezando</span></div>
-          </div>
-        </div>
-      </div>
-
+  <!-- TARJETA DE LA CALCULADORA -->
+  <div class="calc-card">
+    <div class="calc-card-header">Tus rondas</div>
+    <div class="calc-card-body">
+      <div class="rounds-list" id="rounds-list"></div>
+      <button class="btn-add" id="btn-add" onclick="addRound()">+ Añadir otra ronda</button>
+      <button class="btn-calc" onclick="calculate()">Calcular mi hándicap →</button>
     </div>
   </div>
-</section>
+
+  <!-- SECCIÓN DE RESULTADOS -->
+  <div id="result-section">
+
+    <div class="result-headline">
+      <div class="result-label">Índice de Hándicap Estimado</div>
+      <div class="result-value" id="result-value">—</div>
+      <div class="result-sublabel">Estimación WHS · para inscripción oficial únete a un club federado RFEG</div>
+    </div>
+
+    <!-- TABLA DESGLOSE -->
+    <div class="breakdown-card">
+      <div class="breakdown-header">Desglose ronda a ronda</div>
+      <table class="breakdown-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Golpes</th>
+            <th>Diferencial</th>
+            <th>Cómo se calcula</th>
+          </tr>
+        </thead>
+        <tbody id="breakdown-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- PASO A PASO -->
+    <div class="step-summary">
+      <h4>Cómo se calculó tu índice</h4>
+      <div class="step-list" id="step-list"></div>
+    </div>
+
+    <!-- RECOMENDACIÓN -->
+    <div class="recommendation" id="rec-box">
+      <div class="rec-label">Campos para tu nivel</div>
+      <div class="rec-text" id="rec-text"></div>
+    </div>
+
+    <div class="disclaimer">
+      Esto es una <strong>estimación</strong> basada en la fórmula WHS. Un Índice de Hándicap oficial requiere al menos 54 hoyos jugados en un club federado RFEG y registro a través de su sistema. <a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es →</a>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>¿Cómo funciona?</h2>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Qué es un Diferencial de Hándicap? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        El Diferencial de Hándicap mide cómo se compara tu puntuación con la esperada para un golfista de scratch en ese campo específico. La fórmula WHS es:<br><br>
+        <strong>Diferencial = (Golpes − Course Rating) × (113 ÷ Slope)</strong><br><br>
+        El "113" es el Slope estándar de un campo promedio. Si el Slope es mayor que 113 (como La Galiana con 148), la fórmula reduce tu diferencial — los campos difíciles se recompensan.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cuál es la diferencia entre Course Rating y Par? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        <strong>El Par</strong> es el número de golpes esperados para un jugador experto — es un número redondo (p.ej. 72) que se usa para la puntuación del día.<br><br>
+        <strong>El Course Rating</strong> es la puntuación que haría un golfista de scratch (hándicap 0) en condiciones normales — es más preciso (p.ej. 74.1) y tiene en cuenta el diseño del campo, obstáculos y condiciones. <strong>El Par no se usa en la fórmula WHS</strong> — solo se usan el Rating y el Slope.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Qué significa el Slope? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo "promedio". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio. Un Slope de 113 indica que la diferencia de dificultad entre expertos y aficionados es típica.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cómo se tratan las rondas de 9 hoyos? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        Para las rondas de 9 hoyos, el diferencial calculado a partir de tu puntuación se <strong>multiplica por 2</strong> para convertirlo en un equivalente de 18 hoyos. Este es el tratamiento WHS correcto — permite combinar rondas de 9H y 18H de forma justa en el mismo cálculo. La tabla de desglose muestra este paso explícitamente para cada ronda de 9 hoyos que introduzcas.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Por qué se multiplica por 0,96? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        El 0,96 es el "factor de ajuste de condiciones de juego" del WHS. Garantiza que el Índice de Hándicap refleje tu potencial, no tu promedio — la idea es que en tus mejores rondas jugaste cerca de tu verdadero nivel. Multiplicar por 0,96 recorta el índice aproximadamente un 4%, empujándolo ligeramente hacia abajo para que tengas el reto de repetir tus mejores actuaciones.
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cuántas rondas necesito para un hándicap oficial? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        Bajo las reglas WHS, necesitas un mínimo de <strong>54 hoyos</strong> (normalmente 3 rondas de 18 hoyos, o equivalente) registrados a través de un club federado RFEG para un Índice de Hándicap oficial. Esta calculadora te da una estimación con fines de planificación — para obtener un índice oficial, únete a un club afiliado a la Real Federación Española de Golf (<a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es</a>).
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /.calc-wrap -->
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
-        <p>Guía independiente de cuotas de membresía y green fees en España.</p>
+        <p>Guía independiente de membresías y green fees en campos de golf de España.</p>
       </div>
-      <div class="footer__col"><h4>Campos en Valencia</h4><ul>
+      <div class="footer__col"><h4>Campos de Valencia</h4><ul>
         <li><a href="/es/valencia/el-saler/">El Saler</a></li>
         <li><a href="/es/valencia/foressos/">Foressos</a></li>
         <li><a href="/es/valencia/el-bosque/">El Bosque</a></li>
@@ -145,6 +559,7 @@
       <div class="footer__col"><h4>Herramientas</h4><ul>
         <li><a href="/es/courses/">Todos los campos</a></li>
         <li><a href="/es/handicap-calculator/">Calculadora de Hándicap</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
         <li><a href="/es/about/">Sobre nosotros</a></li>
         <li><a href="/es/about/#contact">Correcciones</a></li>
       </ul></div>
@@ -155,254 +570,278 @@
 
 <script src="/js/main.js"></script>
 <script>
-(function () {
-  var MAX_ROUNDS = 20;
-
-  var COURSES = [
-    { name: 'El Bosque Golf',           par: 71, rating: 75.5, slope: 148 },
-    { name: 'La Galiana',               par: 72, rating: 74.1, slope: 148 },
-    { name: 'Foressos Golf',            par: 72, rating: 74.1, slope: 140 },
-    { name: 'El Saler (Parador)',        par: 72, rating: 74.2, slope: 136 },
-    { name: 'Club de Golf Escorpión',   par: 72, rating: null,  slope: 128 },
-    { name: 'Requena Golf',             par: 35, rating: 34.3, slope: 117 },
-    { name: 'Ifach Golf',               par: 30, rating: null,  slope: null },
-    { name: 'Otro campo',               par: 72, rating: null,  slope: null },
+  // ── Datos de campos (Valencia + personalizado) ──
+  // Rating/Slope del master de datos de clubes (tees blancos).
+  // El Rating de Escorpión no es público — null activa texto informativo.
+  // Rondas de 9 hoyos: el diferencial se escala ×2 antes de promediar (WHS).
+  const COURSES = [
+    { value: '',          label: 'Selecciona un campo…',                rating: null,  slope: null,  par: null, holes: 18 },
+    { value: 'foressos',  label: 'Foressos Golf (18H)',                  rating: 74.1,  slope: 140,   par: 72,   holes: 18 },
+    { value: 'galiana18', label: 'La Galiana Golf Resort (18H)',         rating: 74.1,  slope: 148,   par: 72,   holes: 18 },
+    { value: 'galiana9',  label: 'La Galiana Golf Resort (9H)',          rating: 37.0,  slope: 148,   par: 36,   holes: 9  },
+    { value: 'saler',     label: 'El Saler (Parador) (18H)',             rating: 74.2,  slope: 136,   par: 72,   holes: 18 },
+    { value: 'bosque',    label: 'El Bosque Golf (18H)',                 rating: 75.5,  slope: 148,   par: 71,   holes: 18 },
+    { value: 'escorpion', label: 'Escorpión — Club Med (18H)',           rating: null,  slope: 128,   par: 72,   holes: 18 },
+    { value: 'manises',   label: 'Golf Manises (18H)',                   rating: 70.0,  slope: 120,   par: 70,   holes: 18 },
+    { value: 'requena9',  label: 'Golf Requena (9H)',                    rating: 34.3,  slope: 117,   par: 35,   holes: 9  },
+    { value: 'custom',    label: 'Otro campo (introducir manualmente)',  rating: null,  slope: null,  par: null, holes: 18 },
   ];
 
-  var OTHER_IDX = COURSES.length - 1;
+  let roundCount = 0;
 
-  var RECOMMENDATIONS = {
-    scratch: [
-      { name: 'El Saler — Parador',       sub: '18 hoyos · Par 72 · Top 5 Europa',   why: 'Top 5 Europa — la prueba definitiva',                      url: '/es/valencia/el-saler/' },
-      { name: 'El Bosque Golf',           sub: '18 hoyos · Par 71 · Slope 148',      why: 'Slope 148 — el campo más exigente de Valencia',            url: '/es/valencia/el-bosque/' },
-      { name: 'Club de Golf Escorpión',   sub: '27 hoyos · Privado · solo invitados', why: '27 hoyos, estándar de Tour Europeo',                       url: '/es/valencia/escorpion/' },
-    ],
-    low: [
-      { name: 'El Bosque Golf',           sub: '18 hoyos · Par 71 · Slope 148',      why: 'Slope 148 — gratificante para hándicap bajo',              url: '/es/valencia/el-bosque/' },
-      { name: 'La Galiana',               sub: '18 hoyos · Par 72 · Slope 148 · €75', why: 'Mejor Campo España 2019 — espectacular campo de montaña', url: '/es/valencia/la-galiana/' },
-      { name: 'El Saler — Parador',       sub: '18 hoyos · Par 72 · Top 5 Europa',   why: 'La ronda soñada cerca de Valencia',                        url: '/es/valencia/el-saler/' },
-    ],
-    mid: [
-      { name: 'Foressos Golf',            sub: '18 hoyos · Par 72 · €70–80',         why: 'Slope 140 — gran reto, abierto a visitantes',              url: '/es/valencia/foressos/' },
-      { name: 'La Galiana',               sub: '18 hoyos · Par 72 · €75',            why: 'Mejor Campo España 2019 — trazado espectacular',           url: '/es/valencia/la-galiana/' },
-      { name: 'El Bosque Golf',           sub: '18 hoyos · Par 71 · €105–125',       why: 'Diseño clásico RTJ, socios y visitantes',                  url: '/es/valencia/el-bosque/' },
-    ],
-    high: [
-      { name: 'Foressos Golf',            sub: '18 hoyos · Par 72 · €70–80',         why: 'Slope 140 pero trazado perdonador, gran precio',           url: '/es/valencia/foressos/' },
-      { name: 'La Galiana',               sub: '18 hoyos · Par 72 · €75',            why: 'Resort precioso, abierto a todos los visitantes',          url: '/es/valencia/la-galiana/' },
-      { name: 'Club de Golf Ifach',       sub: '9 hoyos · Par 30 · €49.50',          why: '9 hoyos, ambiente relajado, paso intermedio ideal',        url: '/es/valencia/ifach/' },
-    ],
-    beginner: [
-      { name: 'Requena Golf Club',        sub: '9 hoyos · Par 35 · ~€10',            why: 'Slope 117 — el campo más perdonador de Valencia',          url: '/es/valencia/requena/' },
-      { name: 'Club de Golf Ifach',       sub: '9 hoyos · Par 30 · €49.50',          why: '9 hoyos, Par 30 — perfecto para desarrollar el juego',     url: '/es/valencia/ifach/' },
-      { name: 'La Galiana',               sub: '18 hoyos · Par 72 · €75',            why: 'Abierto a todos, buggy recomendado',                       url: '/es/valencia/la-galiana/' },
-    ],
-  };
-
-  var rounds = [];
-
-  function esc(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+  function buildCourseOptions() {
+    return COURSES.map(c =>
+      `<option value="${c.value}">${c.label}</option>`
+    ).join('');
   }
 
   function addRound() {
-    if (rounds.length >= MAX_ROUNDS) return;
-    rounds.push({ score: '', courseIdx: OTHER_IDX, rating: '', slope: '', par: 72, customName: '' });
-    renderRounds();
+    roundCount++;
+    const id = roundCount;
+    const row = document.createElement('div');
+    row.className = 'round-row';
+    row.dataset.id = id;
+    row.innerHTML = `
+      <div class="field-group">
+        <label>Golpes</label>
+        <input type="number" min="20" max="200" placeholder="ej. 85"
+               id="score-${id}" oninput="checkWarning(${id})">
+      </div>
+      <div class="field-group">
+        <label>Campo</label>
+        <select id="course-${id}" onchange="onCourseChange(${id})">
+          ${buildCourseOptions()}
+        </select>
+        <div class="course-info-strip" id="strip-${id}"></div>
+      </div>
+      <div class="field-group" id="custom-group-${id}" style="display:none">
+        <label>Rating / Slope</label>
+        <input type="text" placeholder="74.1 / 148" id="custom-${id}"
+               style="font-size:13px" oninput="checkWarning(${id})">
+      </div>
+      <button class="btn-remove" onclick="removeRound(${id})" aria-label="Eliminar ronda">✕</button>
+      <div class="row-warning" id="warn-${id}"></div>
+    `;
+    document.getElementById('rounds-list').appendChild(row);
   }
 
-  function removeRound(i) {
-    rounds.splice(i, 1);
-    renderRounds();
+  function removeRound(id) {
+    const row = document.querySelector(`.round-row[data-id="${id}"]`);
+    if (row) row.remove();
   }
 
-  function updateRound(i, field, val) {
-    rounds[i][field] = val;
-    if (field === 'courseIdx') {
-      var idx = parseInt(val, 10);
-      var c = COURSES[idx];
-      rounds[i].courseIdx = idx;
-      rounds[i].par    = c.par;
-      rounds[i].rating = c.rating !== null ? String(c.rating) : '';
-      rounds[i].slope  = c.slope  !== null ? String(c.slope)  : '';
-      renderRounds();
+  function onCourseChange(id) {
+    const sel    = document.getElementById(`course-${id}`).value;
+    const course = COURSES.find(c => c.value === sel);
+    const strip  = document.getElementById(`strip-${id}`);
+    const customGroup = document.getElementById(`custom-group-${id}`);
+
+    if (!course || (!course.rating && sel !== 'escorpion')) {
+      strip.innerHTML = '';
+      customGroup.style.display = (sel === 'custom') ? 'flex' : 'none';
+    } else if (sel === 'escorpion') {
+      strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating no disponible públicamente`;
+      customGroup.style.display = 'none';
+    } else {
+      const holesTag = course.holes === 9
+        ? ` <span class="nine-tag">9H</span>`
+        : '';
+      strip.innerHTML = `<strong>${course.par ? 'Par ' + course.par + ' · ' : ''}Rating ${course.rating} · Slope ${course.slope}</strong>${holesTag}`;
+      customGroup.style.display = 'none';
     }
+    checkWarning(id);
   }
 
-  function renderRounds() {
-    var list   = document.getElementById('rounds-list');
-    var addBtn = document.getElementById('add-round-btn');
+  function getRatingSlope(id) {
+    const sel = document.getElementById(`course-${id}`).value;
+    if (!sel) return null;
+    if (sel === 'custom') {
+      const raw   = (document.getElementById(`custom-${id}`)?.value || '').trim();
+      const parts = raw.split(/[\s\/,]+/);
+      if (parts.length < 2) return null;
+      const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
+      if (isNaN(r) || isNaN(s)) return null;
+      return { rating: r, slope: s, holes: 18 };
+    }
+    const course = COURSES.find(c => c.value === sel);
+    if (!course || !course.rating) return null;
+    return { rating: course.rating, slope: course.slope, holes: course.holes || 18 };
+  }
 
-    list.innerHTML = rounds.map(function (r, i) {
-      var opts = COURSES.map(function (c, ci) {
-        return '<option value="' + ci + '"' + (r.courseIdx === ci ? ' selected' : '') + '>' + esc(c.name) + '</option>';
-      }).join('');
+  function getCourseLabel(id) {
+    const sel = document.getElementById(`course-${id}`).value;
+    if (sel === 'custom') return 'Otro campo';
+    const c = COURSES.find(x => x.value === sel);
+    return c ? c.label : '—';
+  }
 
-      var isOther = (r.courseIdx === OTHER_IDX);
-      var rRating = esc(r.rating);
-      var rSlope  = esc(r.slope);
+  function checkWarning(id) {
+    const scoreEl = document.getElementById(`score-${id}`);
+    const warnEl  = document.getElementById(`warn-${id}`);
+    const score   = parseFloat(scoreEl?.value);
+    const rs      = getRatingSlope(id);
+    const sel     = document.getElementById(`course-${id}`).value;
+    const course  = COURSES.find(c => c.value === sel);
+    const is9H    = course?.holes === 9;
+    let msg = '';
 
-      var html = '<div class="round-row">' +
-        '<input type="number" class="round-input" placeholder="ej. 85" min="40" max="180" value="' + esc(r.score) + '" ' +
-          'aria-label="Golpes de la ronda ' + (i + 1) + '" ' +
-          'oninput="window._calcApp.update(' + i + ',\'score\',this.value)">' +
-        '<select class="round-select" aria-label="Campo para la ronda ' + (i + 1) + '" ' +
-          'onchange="window._calcApp.update(' + i + ',\'courseIdx\',this.value)">' + opts + '</select>' +
-        '<input type="number" class="round-input round-input--sm" step="0.1" min="20" max="90" ' +
-          'placeholder="' + (isOther ? 'Rating' : '') + '" value="' + rRating + '" ' +
-          'aria-label="Course rating de la ronda ' + (i + 1) + '" ' +
-          'oninput="window._calcApp.update(' + i + ',\'rating\',this.value)">' +
-        '<input type="number" class="round-input round-input--sm" min="55" max="155" ' +
-          'placeholder="' + (isOther ? 'Slope' : '') + '" value="' + rSlope + '" ' +
-          'aria-label="Slope de la ronda ' + (i + 1) + '" ' +
-          'oninput="window._calcApp.update(' + i + ',\'slope\',this.value)">' +
-        '<button type="button" class="round-remove" aria-label="Eliminar ronda ' + (i + 1) + '" ' +
-          'onclick="window._calcApp.remove(' + i + ')">×</button>' +
-      '</div>';
-
-      if (isOther) {
-        html += '<div class="round-other-name">' +
-          '<input type="text" class="round-input round-input--course" ' +
-            'placeholder="Nombre del campo (opcional)" value="' + esc(r.customName) + '" ' +
-            'aria-label="Nombre del campo para la ronda ' + (i + 1) + '" ' +
-            'oninput="window._calcApp.update(' + i + ',\'customName\',this.value)">' +
-        '</div>';
+    if (!isNaN(score)) {
+      if (is9H) {
+        if (score < 25) msg = '⚠️ Puntuación muy baja para 9 hoyos — comprueba que has introducido el total de golpes.';
+        else if (score > 80) msg = '⚠️ Puntuación alta para 9 hoyos — ¿has jugado 18 y elegido el campo incorrecto?';
+      } else {
+        if (score < 50) msg = '⚠️ Puntuación muy baja — ¿estás seguro de que es el total de golpes de la ronda?';
+        else if (score > 150) msg = '⚠️ Puntuación muy alta — comprueba que has introducido el total de golpes.';
       }
-
-      return html;
-    }).join('');
-
-    addBtn.disabled = rounds.length >= MAX_ROUNDS;
-    addBtn.textContent = rounds.length >= MAX_ROUNDS
-      ? 'Máximo 20 rondas'
-      : '+ Añadir otra ronda (' + rounds.length + '/20)';
-  }
-
-  function getDifferential(r) {
-    var score  = parseFloat(r.score);
-    var rating = parseFloat(r.rating);
-    var slope  = parseFloat(r.slope);
-    var par    = parseFloat(r.par);
-    if (!isNaN(rating) && !isNaN(slope) && slope > 0) {
-      return (score - rating) * (113 / slope);
+      if (rs && !msg) {
+        const rawDiff = (score - rs.rating) * (113 / rs.slope);
+        if (rawDiff > 54) msg = '⚠️ Diferencial inusualmente alto — revisa los golpes, el rating y el slope.';
+        if (rawDiff < -5) msg = '⚠️ Diferencial negativo — ¿has introducido el total de golpes (p.ej. 85) en vez del resultado respecto al par (p.ej. +3)?';
+      }
     }
-    return score - par;
-  }
 
-  function isSimpleMode(r) {
-    return isNaN(parseFloat(r.rating)) || isNaN(parseFloat(r.slope)) || parseFloat(r.slope) <= 0;
-  }
-
-  function getBestDifferentials(diffs) {
-    var n      = diffs.length;
-    var sorted = diffs.slice().sort(function (a, b) { return a - b; });
-    if (n === 1)  return { best: sorted.slice(0, 1),  adj: -2.0 };
-    if (n === 2)  return { best: sorted.slice(0, 1),  adj: -1.0 };
-    if (n <= 5)   return { best: sorted.slice(0, 1),  adj:  0 };
-    if (n <= 8)   return { best: sorted.slice(0, 2),  adj:  0 };
-    if (n <= 10)  return { best: sorted.slice(0, 3),  adj:  0 };
-    if (n <= 12)  return { best: sorted.slice(0, 4),  adj:  0 };
-    if (n <= 14)  return { best: sorted.slice(0, 5),  adj:  0 };
-    if (n <= 16)  return { best: sorted.slice(0, 6),  adj:  0 };
-    if (n === 17) return { best: sorted.slice(0, 7),  adj:  0 };
-    if (n === 18) return { best: sorted.slice(0, 8),  adj:  0 };
-    if (n === 19) return { best: sorted.slice(0, 9),  adj:  0 };
-    return           { best: sorted.slice(0, 10), adj:  0 };
-  }
-
-  function getLevel(hcp) {
-    if (hcp < 0)   return 'scratch';
-    if (hcp <= 9)  return 'low';
-    if (hcp <= 20) return 'mid';
-    if (hcp <= 36) return 'high';
-    return 'beginner';
+    if (msg) {
+      warnEl.textContent = msg;
+      warnEl.classList.add('visible');
+    } else {
+      warnEl.textContent = '';
+      warnEl.classList.remove('visible');
+    }
   }
 
   function calculate() {
-    var errEl = document.getElementById('calc-error');
-    errEl.textContent = '';
+    const rows = document.querySelectorAll('.round-row');
+    const diffs = [];
+    let hasIncomplete = false;
 
-    var filled = rounds.filter(function (r) {
-      return r.score !== '' && !isNaN(parseFloat(r.score));
+    rows.forEach(row => {
+      const id     = row.dataset.id;
+      const score  = parseFloat(document.getElementById(`score-${id}`)?.value);
+      const rs     = getRatingSlope(id);
+      const sel    = document.getElementById(`course-${id}`).value;
+      const course = COURSES.find(c => c.value === sel);
+      const label  = getCourseLabel(id);
+
+      if (!sel || isNaN(score) || !rs) { hasIncomplete = true; return; }
+
+      const is9H    = (course?.holes === 9) || (rs.holes === 9);
+      const rawDiff = (score - rs.rating) * (113 / rs.slope);
+      const diff    = is9H ? rawDiff * 2 : rawDiff;
+      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label });
     });
 
-    if (filled.length === 0) {
-      errEl.textContent = 'Introduce al menos una puntuación.';
+    if (diffs.length === 0) {
+      alert('Añade al menos una ronda completa (golpes + campo con datos de Rating/Slope).');
       return;
     }
+    if (hasIncomplete) {
+      if (!confirm('Algunas rondas están incompletas o sin Rating/Slope y se omitirán. ¿Continuar con ' + diffs.length + ' ronda(s) válida(s)?')) return;
+    }
 
-    var diffs  = filled.map(getDifferential);
-    var result = getBestDifferentials(diffs);
-    var avg    = result.best.reduce(function (a, b) { return a + b; }, 0) / result.best.length;
-    var hcp    = Math.round(Math.min((avg * 0.96) + result.adj, 54.0) * 10) / 10;
-    var simple = filled.some(isSimpleMode);
-    var level  = getLevel(hcp);
+    const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
+    const n      = diffs.length;
+    let numUsed;
+    if      (n <= 4)   numUsed = 1;
+    else if (n <= 6)   numUsed = 2;
+    else if (n <= 8)   numUsed = 2;
+    else if (n <= 11)  numUsed = 3;
+    else if (n <= 14)  numUsed = 4;
+    else if (n <= 16)  numUsed = 5;
+    else if (n <= 18)  numUsed = 6;
+    else if (n === 19) numUsed = 7;
+    else               numUsed = 8;
 
-    showResult(hcp, filled.length, result.best.length, level, simple);
+    const usedDiffs = sorted.slice(0, numUsed);
+    const avgDiff   = usedDiffs.reduce((s, d) => s + d.diff, 0) / numUsed;
+    const rawIndex  = avgDiff * 0.96;
+    const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
+
+    document.getElementById('result-value').textContent = index.toFixed(1);
+
+    const tbody   = document.getElementById('breakdown-tbody');
+    tbody.innerHTML = '';
+    const usedIds = new Set(usedDiffs.map(d => d.id));
+
+    diffs.forEach(d => {
+      const used = usedIds.has(d.id);
+      const tr   = document.createElement('tr');
+      if (used) tr.className = 'used';
+
+      let formulaHTML;
+      if (d.is9H) {
+        formulaHTML = `
+          <span class="eq">(${d.score} − ${d.rating}) × (113 ÷ ${d.slope})</span><br>
+          = <span class="eq">${d.rawDiff.toFixed(2)}</span>
+          <span style="color:#b45309;font-size:11px;font-weight:700"> × 2 (9H→18H)</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong>
+        `;
+      } else {
+        formulaHTML = `
+          <span class="eq">(${d.score} − ${d.rating}) × (113 ÷ ${d.slope})</span><br>
+          = <span class="eq">${(d.score - d.rating).toFixed(1)} × ${(113/d.slope).toFixed(3)}</span><br>
+          = <strong>${d.diff.toFixed(2)}</strong>
+        `;
+      }
+
+      const nineTag  = d.is9H ? ` <span class="nine-tag">9H</span>` : '';
+      const usedMark = used   ? ` <span style="color:var(--green-light);font-size:11px;font-weight:700">✓ usada</span>` : '';
+
+      tr.innerHTML = `
+        <td>${d.label}${nineTag}${usedMark}</td>
+        <td>${d.score}</td>
+        <td class="diff-val">${d.diff.toFixed(1)}</td>
+        <td class="formula-cell">${formulaHTML}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const has9H     = diffs.some(d => d.is9H);
+    const usedLabel = numUsed === 1 ? 'el mejor diferencial' : `los ${numUsed} mejores diferenciales`;
+    const usedVals  = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
+
+    const step1Extra = has9H
+      ? ` Para las rondas de 9 hoyos, el diferencial se <strong>multiplica por 2</strong> para convertirlo al equivalente de 18 hoyos — un diferencial de 9H de 4,5 se convierte en 9,0.`
+      : '';
+
+    const steps = [
+      `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}`,
+      `Con ${n} ronda${n > 1 ? 's' : ''}, las reglas WHS indican usar <strong>${usedLabel}</strong> — marcados en verde arriba.`,
+      `Se promediaron los diferenciales: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
+      `Se aplicó el <strong>factor 0,96 del WHS</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0,96 = ${rawIndex.toFixed(2)}</span>`,
+      `Redondeado a un decimal y limitado a 54,0: <strong>${index.toFixed(1)}</strong>`
+    ];
+
+    document.getElementById('step-list').innerHTML = steps.map((s, i) => `
+      <div class="step-item">
+        <div class="step-num">${i + 1}</div>
+        <div class="step-text">${s}</div>
+      </div>
+    `).join('');
+
+    let recHTML = '';
+    if (index <= 10) {
+      recHTML = `Eres un jugador sólido. Cualquier campo de Valencia está a tu alcance — <a href="/es/valencia/el-bosque/">El Bosque</a> (Slope 148, Par 71) y <a href="/es/valencia/la-galiana/">La Galiana</a> (Slope 148) te pondrán a prueba. <a href="/es/valencia/el-saler/">El Saler</a> (top 5 de Europa) es el objetivo definitivo.`;
+    } else if (index <= 20) {
+      recHTML = `Buen rango de hándicap. <a href="/es/valencia/foressos/">Foressos</a> (Slope 140) es un reto justo y muy buena relación calidad-precio (70–80 €). <a href="/es/valencia/el-saler/">El Saler</a> (Slope 136) es alcanzable en un buen día. Guarda El Bosque para cuando estés en forma.`;
+    } else if (index <= 30) {
+      recHTML = `Gana confianza en <a href="/es/valencia/foressos/">Foressos</a> (Slope 140) — uno de los recorridos de 18 hoyos más accesibles de Valencia. Evita El Bosque y La Galiana (ambos Slope 148) hasta ser más consistente. <a href="/es/courses/">Ver todos los campos →</a>`;
+    } else {
+      recHTML = `Empieza con opciones más cortas o de menor Slope — <a href="/es/valencia/requena/">Requena</a> (9H, Slope 117) es el campo más asequible de Valencia y un lugar ideal para desarrollar tu juego. <a href="/es/courses/">Ver todos los campos →</a>`;
+    }
+    document.getElementById('rec-text').innerHTML = recHTML;
+
+    const resultSection = document.getElementById('result-section');
+    resultSection.style.display = 'block';
+    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function showResult(hcp, totalRounds, bestUsed, level, hasSimple) {
-    var labels  = { scratch: 'Scratch o mejor', low: 'Hándicap bajo (0–9)', mid: 'Hándicap medio (10–20)', high: 'Hándicap alto (21–36)', beginner: 'Principiante (36+)' };
-    var classes = { scratch: 'level-pill--scratch', low: 'level-pill--low', mid: 'level-pill--mid', high: 'level-pill--high', beginner: 'level-pill--beginner' };
-
-    document.getElementById('hcp-number').textContent   = hcp < 0 ? '+' + Math.abs(hcp).toFixed(1) : hcp.toFixed(1);
-    document.getElementById('hcp-sublabel').textContent = 'Índice de Hándicap Estimado';
-
-    var pill = document.getElementById('level-pill');
-    pill.textContent = labels[level];
-    pill.className   = 'level-pill ' + classes[level];
-
-    document.getElementById('result-based').textContent =
-      'Basado en ' + totalRounds + ' ronda' + (totalRounds > 1 ? 's' : '') +
-      ' — usando ' + (bestUsed > 1 ? 'los mejores ' : 'el mejor ') + bestUsed + ' diferencial' + (bestUsed > 1 ? 'es' : '');
-
-    document.getElementById('simple-mode-note').style.display = hasSimple ? 'block' : 'none';
-
-    var card = document.getElementById('result-card');
-    card.style.display   = 'block';
-    card.style.animation = 'none';
-    card.offsetHeight;
-    card.style.animation = '';
-
-    showRecs(level);
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  function toggleFaq(item) {
+    item.classList.toggle('open');
   }
 
-  function showRecs(level) {
-    var titles = {
-      scratch:  'Campos a la altura de un jugador scratch',
-      low:      'Campos a la altura de tu juego',
-      mid:      'Campos que se adaptan a tu nivel',
-      high:     'Grandes campos para tu nivel',
-      beginner: 'Campos para empezar a tu nivel',
-    };
-    document.getElementById('rec-title').textContent = titles[level];
-    document.getElementById('rec-grid').innerHTML = RECOMMENDATIONS[level].map(function (r) {
-      return '<a href="' + r.url + '" class="rec-card">' +
-        '<div>' +
-          '<div class="rec-card__name">' + r.name + '</div>' +
-          '<div class="rec-card__sub">'  + r.sub  + '</div>' +
-          '<div class="rec-card__why">'  + r.why  + '</div>' +
-        '</div>' +
-        '<span class="rec-card__arrow">→</span>' +
-      '</a>';
-    }).join('');
-    document.getElementById('rec-section').style.display = 'block';
-  }
-
-  window._calcApp = { update: updateRound, remove: removeRound };
-
-  document.addEventListener('DOMContentLoaded', function () {
-    addRound(); addRound(); addRound();
-    document.getElementById('add-round-btn').addEventListener('click', addRound);
-    document.getElementById('calc-btn').addEventListener('click', calculate);
-  });
-})();
+  // Inicializar con 2 rondas en blanco
+  addRound();
+  addRound();
 </script>
 </body>
 </html>
