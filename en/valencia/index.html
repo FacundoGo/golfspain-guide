@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golf in Valencia, Spain — Green Fees &amp; Where to Play 2026 | golfspain.guide</title>
-  <meta name="description" content="Where to play golf in Valencia and how much it costs. Regulation 18-hole courses from €80. Compare all courses — El Saler, Ifach, La Galiana, Foressos and more.">
+  <meta name="description" content="Where to play golf in Valencia and how much it costs. Regulation 18-hole courses from €70 (Foressos). Compare all courses by type — 18H, 9H and Pitch &amp; Putt — with verified 2026 green fees.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.svg">
@@ -15,20 +15,120 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/en/valencia/">
   <meta property="og:title" content="Golf in Valencia, Spain — Green Fees &amp; Where to Play 2026">
-  <meta property="og:description" content="Where to play golf in Valencia and how much it costs. Compare green fees and memberships — 8 clubs with full details.">
+  <meta property="og:description" content="Compare green fees across all Valencia golf courses. Regulation 18H from €70, 9H from €10, Pitch &amp; Putt from €24. Verified May 2026.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Golf Courses in Valencia, Spain","url":"https://golfspain.guide/en/valencia/","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Valencia","item":"https://golfspain.guide/en/valencia/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DXK0NZW1LH');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ── Course-table tabs ── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 0;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn {
+      padding: 12px 22px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 700;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      background: none;
+      cursor: pointer;
+      color: var(--text-mid);
+      white-space: nowrap;
+      min-height: 44px;
+      transition: color .15s, border-color .15s;
+    }
+    .tab-btn:hover { color: var(--green-dark); background: var(--green-pale, #f0f9f4); }
+    .tab-btn.active { color: var(--green-dark); border-bottom-color: var(--green-mid); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Difficulty badges ── */
+    .diff { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+    .diff--very       { background: #fce8e8; color: #9b1c1c; }
+    .diff--challenging{ background: #fef3e2; color: #92400e; }
+    .diff--moderate   { background: #fef9c3; color: #854d0e; }
+    .diff--beginner   { background: #dcfce7; color: #166534; }
+    .diff--none       { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Book CTA in table ── */
+    .book-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-mid);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .book-link:hover { text-decoration: underline; color: var(--green-dark); }
+
+    /* ── Best-value label ── */
+    .best-val {
+      display: inline-block;
+      background: var(--gold);
+      color: #111;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ── DANA warning inline ── */
+    .dana-badge {
+      display: inline-block;
+      background: #fff7ed;
+      color: #c2410c;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 4px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ── Table footnotes ── */
+    .table-footnotes {
+      font-size: .78rem;
+      color: var(--text-light);
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      line-height: 1.5;
+    }
+    .table-footnotes sup { font-size: .7rem; }
+
+    /* ── P&P note banner ── */
+    .pp-note {
+      background: #f0f9f4;
+      border: 1px solid var(--green-light, #2e6349);
+      border-radius: var(--radius-md, 8px);
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+
+    /* ── Compare-wrap tweak: allow horizontal scroll on small screens ── */
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table th, .compare-table td { white-space: nowrap; }
+    .compare-table td:first-child { white-space: normal; min-width: 160px; }
+  </style>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
@@ -41,10 +141,7 @@
       <li><a href="/en/blog/">Blog</a></li>
       <li><a href="/en/courses/" class="nav__cta">All Courses</a></li>
     </ul>
-    <div class="nav__lang">
-      <span class="nav__lang-active">EN</span>
-      <a href="/es/valencia/">ES</a>
-    </div>
+    <div class="nav__lang"><span class="nav__lang-active">EN</span><a href="/es/valencia/">ES</a></div>
     <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -53,54 +150,214 @@
   <div class="container">
     <div class="club-hero__eyebrow"><a href="/en/">Home</a> › Valencia</div>
     <h1>Golf in Valencia</h1>
-    <p class="club-hero__sub">8 courses published · 2 verifying — Valencia Community golf from €10 a round to Top 5 Europe. Find where to play and exactly what it costs.</p>
+    <p class="club-hero__sub">8 courses published — from a €10 9-hole round to a Top 5 Europe bucket-list layout. Find where to play and exactly what it costs.</p>
     <div class="club-hero__stats">
-      <div class="club-stat"><span class="club-stat__val">8+</span><span class="club-stat__lbl">Courses</span></div>
+      <div class="club-stat"><span class="club-stat__val">8</span><span class="club-stat__lbl">Courses published</span></div>
       <div class="club-stat"><span class="club-stat__val">€10</span><span class="club-stat__lbl">Cheapest round</span></div>
-      <div class="club-stat"><span class="club-stat__val">€24</span><span class="club-stat__lbl">Cheapest 18-lap P&amp;P round</span></div>
-      <div class="club-stat"><span class="club-stat__val">2026</span><span class="club-stat__lbl">Prices verified</span></div>
+      <div class="club-stat"><span class="club-stat__val">€70</span><span class="club-stat__lbl">Cheapest regulation 18H</span></div>
+      <div class="club-stat"><span class="club-stat__val">€24</span><span class="club-stat__lbl">Cheapest P&amp;P round</span></div>
     </div>
   </div>
 </section>
 
 <div class="container"><nav class="breadcrumb"><a href="/en/">Home</a><span>›</span>Valencia</nav></div>
 
+<!-- ── TABBED TABLE ── -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section-header"><h2>Where to play — green fees at a glance</h2><p>Visitor green fees for all courses. Click any club for full details, directions and membership info.</p></div>
-    <div class="compare-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Club</th>
-            <th>Holes</th>
-            <th>Green fee 18h</th>
-            <th>Green fee 9h</th>
-            <th>Annual fee</th>
-            <th>Open to visitors</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="/en/valencia/requena/">Requena Golf</a></td><td>9</td><td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light)">(club members)</small></td><td class="price-highlight">€10</td><td>TBC — very low</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr><td><a href="/en/valencia/ifach/">Ifach Golf</a></td><td>9</td><td class="price-highlight">€49.50</td><td class="price-highlight">€33.50</td><td>Título de uso (share)</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr class="popular"><td><a href="/en/valencia/masia-estrellas/">Masia de las Estrellas</a> <span class="popular-label">Best value 18h</span><br><small style="color:var(--text-light);font-weight:400;">Pitch &amp; Putt · 9 holes</small></td><td>9</td><td class="price-highlight">€24 <small style="font-weight:400;color:var(--text-light)">(18 laps P&amp;P)</small></td><td class="na">—</td><td>€800/yr ⏳ waitlist</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr><td><a href="/en/valencia/foressos/">Foressos Golf</a></td><td>18</td><td class="price-highlight">€70–80</td><td>—</td><td>From €1,860/yr (adults) · €600/yr (juniors)</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr><td><a href="/en/valencia/la-galiana/">La Galiana</a></td><td>18</td><td class="price-highlight">€80–€105 (seasonal)</td><td class="na">€45 — verify</td><td>No membership · Pay-and-play</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr class="popular"><td><a href="/en/valencia/el-saler/">El Saler (Parador)</a></td><td>18</td><td class="price-highlight">€60 <small style="font-weight:400;color:var(--text-light)">(guest)</small></td><td>—</td><td>From €2,400/yr</td><td><span class="badge badge--open">✓ Yes</span></td></tr>
-          <tr><td><a href="/en/valencia/escorpion/">Club de Golf Escorpión</a></td><td>27</td><td class="price-highlight">~€160 <small style="font-weight:400;color:var(--text-light)">(guests only)</small></td><td>—</td><td>€1,500/yr + €20k share</td><td><span class="badge badge--partial">Members &amp; guests</span></td></tr>
-          <tr><td><a href="/en/valencia/el-bosque/">El Bosque Golf</a> <small style="color:#9A3412;font-weight:600;">⚠️ DANA</small></td><td>18</td><td class="price-highlight">€105–125 <small style="font-weight:400;color:var(--text-light)">(pre-DANA)</small></td><td class="price-highlight">€73–87 <small style="font-weight:400;color:var(--text-light)">(pre-DANA)</small></td><td>From €1,692/yr (pre-DANA)</td><td><span class="badge badge--partial">⚠️ Verify</span></td></tr>
-          <tr><td>Club de Golf Manises</td><td>—</td><td class="na">Verifying</td><td class="na">Verifying</td><td>Verifying</td><td><span class="badge badge--partial">Pending</span></td></tr>
-          <tr><td>Costa de Azahar</td><td>—</td><td class="na">Verifying</td><td class="na">Verifying</td><td>Verifying</td><td><span class="badge badge--partial">Pending</span></td></tr>
-        </tbody>
-      </table>
+    <div class="section-header">
+      <h2>Where to play — green fees at a glance</h2>
+      <p>Visitor green fees, sorted by course type. Click any club name for full details, directions and booking info.</p>
     </div>
-    <p style="margin-top:14px;font-size:.85rem;color:var(--text-light);">Prices verified May 2026. Always confirm directly with the club before visiting.</p>
+
+    <div class="tab-bar" role="tablist" aria-label="Course type">
+      <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-18h" data-tab="18h" onclick="switchTab('18h')">18 Holes</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-9h"  data-tab="9h"  onclick="switchTab('9h')">9 Holes</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-pp"  data-tab="pp"  onclick="switchTab('pp')">Pitch &amp; Putt</button>
+    </div>
+
+    <!-- TAB 1: 18 HOLES -->
+    <div class="tab-panel active" id="tab-18h" role="tabpanel">
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Weekday 18H</th>
+              <th>Weekend 18H</th>
+              <th>Slope</th>
+              <th>Difficulty</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/en/valencia/foressos/">Foressos Golf</a> <span class="best-val">🏆 Best Value 18H</span></td>
+              <td class="price-highlight">€70</td>
+              <td class="price-highlight">€80</td>
+              <td>140</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="/en/valencia/foressos/" class="book-link">Details →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Page coming soon</small></td>
+              <td class="price-highlight">€57</td>
+              <td class="price-highlight">€68</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verifying</span></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/la-galiana/">La Galiana Golf Resort</a></td>
+              <td class="price-highlight">€80–€105 <small style="font-weight:400;color:var(--text-light);">seasonal ¹</small></td>
+              <td class="price-highlight">€80–€105 <small style="font-weight:400;color:var(--text-light);">seasonal ¹</small></td>
+              <td>148</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Book →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/el-bosque/">El Bosque Golf</a> <span class="dana-badge">⚠️ DANA</span></td>
+              <td class="price-highlight">€105–€125 <small style="font-weight:400;color:var(--text-light);">pre-DANA ³</small></td>
+              <td class="price-highlight">€105–€125 <small style="font-weight:400;color:var(--text-light);">pre-DANA ³</small></td>
+              <td>148</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="tel:+34961808009" class="book-link">📞 Call first</a></td>
+            </tr>
+            <tr class="popular">
+              <td><a href="/en/valencia/el-saler/">El Saler (Parador)</a></td>
+              <td class="price-highlight">€115–€150 <small style="font-weight:400;color:var(--text-light);">²</small></td>
+              <td class="price-highlight">€115–€150 <small style="font-weight:400;color:var(--text-light);">²</small></td>
+              <td>136</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="https://paradores.es/en/campo-de-golf-de-el-saler" target="_blank" rel="noopener noreferrer" class="book-link">Book →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/escorpion/">Club de Golf Escorpión</a> <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Guests via agency only</small></td>
+              <td class="price-highlight">~€160 <small style="font-weight:400;color:var(--text-light);">⁴</small></td>
+              <td class="na">—</td>
+              <td>128</td>
+              <td><span class="diff diff--challenging">Challenging</span></td>
+              <td><a href="https://clgolf.es" target="_blank" rel="noopener noreferrer" class="book-link">Campbell Lamont →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span><sup>1</sup> La Galiana seasonal pricing: <strong>€80</strong> winter (Dec) · <strong>€85</strong> summer (15 Jun–20 Sep) · <strong>€105</strong> shoulder (2 Mar–14 Jun, 21 Sep–30 Nov). No confirmed 9H rate — contact the resort.</span>
+        <span><sup>2</sup> El Saler: €115 advance online booking / €150 standard walk-up. Hotel guest and member-guest rates differ — see <a href="/en/valencia/el-saler/">individual page</a>.</span>
+        <span><sup>3</sup> <strong>El Bosque</strong>: October 2024 DANA flood damage. Rates listed are pre-flood 2024 figures — <strong>call before booking</strong>: <a href="tel:+34961808009">+34 96 180 80 09</a>. Full info: <a href="/en/blog/el-bosque-golf-dana-recovery-2026/">DANA recovery article →</a></span>
+        <span><sup>4</sup> Escorpión: guest play via invitation or authorised agency only. Rate is an unconfirmed estimate.</span>
+        <span style="margin-top:4px;">Prices verified May 2026. Always confirm directly with the club before booking.</span>
+      </div>
+    </div>
+
+    <!-- TAB 2: 9 HOLES -->
+    <div class="tab-panel" id="tab-9h" role="tabpanel">
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Weekday 9H</th>
+              <th>Weekend 9H</th>
+              <th>Slope</th>
+              <th>Difficulty</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/en/valencia/requena/">Requena Golf Club</a></td>
+              <td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light);">Masía members ⁵</small></td>
+              <td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light);">public TBC</small></td>
+              <td>117</td>
+              <td><span class="diff diff--moderate">Moderate</span></td>
+              <td><a href="tel:+34667101240" class="book-link">📞 Call</a></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/ifach/">Ifach Golf</a></td>
+              <td class="price-highlight">€33.50</td>
+              <td class="price-highlight">€33.50</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><a href="/en/valencia/ifach/" class="book-link">Details →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Page coming soon</small></td>
+              <td class="price-highlight">€35</td>
+              <td class="price-highlight">€52</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verifying</span></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/foressos/">Foressos Golf</a></td>
+              <td class="price-highlight">€55</td>
+              <td class="price-highlight">€65</td>
+              <td>140</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="/en/valencia/foressos/" class="book-link">Details →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/en/valencia/la-galiana/">La Galiana Golf Resort</a></td>
+              <td class="na">TBC — verify</td>
+              <td class="na">TBC — verify</td>
+              <td>148</td>
+              <td><span class="diff diff--very">Very challenging</span></td>
+              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Book →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span><sup>5</sup> Requena's €10 rate applies to <em>abonados</em> (subscribers) of Masía de las Estrellas via a partner-course agreement. The public green fee is not published — call to confirm: <a href="tel:+34667101240">+34 667 101 240</a>.</span>
+        <span>Prices verified May 2026. Always confirm directly with the club before booking.</span>
+      </div>
+    </div>
+
+    <!-- TAB 3: PITCH & PUTT -->
+    <div class="tab-panel" id="tab-pp" role="tabpanel">
+      <div class="pp-note">
+        ℹ️ <strong>Pitch &amp; Putt courses use a 9-hole Par 3 layout played twice</strong> for an 18-hole round. They are not comparable to regulation 18-hole courses — no handicap certificate required at most venues.
+      </div>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Green fee</th>
+              <th>Notes</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="popular">
+              <td><a href="/en/valencia/masia-estrellas/">Masía de las Estrellas</a> <span class="best-val">🏆 Best Value P&amp;P</span></td>
+              <td class="price-highlight">€24 <small style="font-weight:400;color:var(--text-light);">(18-lap)</small></td>
+              <td style="font-size:.85rem;">9-hole Par 3, double tees. No handicap required. Practice (range + putting) €8.</td>
+              <td><a href="/en/valencia/masia-estrellas/" class="book-link">Details →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">P&amp;P separate from main course</small></td>
+              <td class="price-highlight">€14</td>
+              <td style="font-size:.85rem;">Pitch &amp; Putt area adjacent to main course. Full page coming soon.</td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verifying</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span>Prices verified May 2026. Always confirm directly with the club before booking.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- ── CLUB CARDS GRID ── -->
 <section class="section">
   <div class="container">
-    <div class="section-header"><h2>All courses</h2><p>Click any course for green fees, directions, facilities and membership details. Or <a href="/en/courses/">search and filter all courses →</a></p></div>
+    <div class="section-header"><h2>All published courses</h2><p>Click any course for green fees, directions, facilities and membership details. Or <a href="/en/courses/">search and filter all courses →</a></p></div>
     <div class="clubs-grid">
 
       <div class="club-card">
@@ -108,8 +365,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
           <div class="club-card__name">Requena Golf Club</div>
-          <div class="club-card__meta"><span>🕳️ 9 holes · Par 35</span><span>📍 Requena</span></div>
-          <p class="club-card__price">The cheapest round in Valencia. Green fee from <strong>€10</strong>. Artificial greens, no-fuss public course.</p>
+          <div class="club-card__meta"><span>🕳️ 9 holes · Par 35 · Slope 117</span><span>📍 Requena</span></div>
+          <p class="club-card__price">The most forgiving course in Valencia. Green fee from <strong>€10</strong> (Masía members). Artificial greens, no-fuss public course.</p>
           <div class="club-card__footer"><a href="/en/valencia/requena/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -119,8 +376,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
           <div class="club-card__name">Ifach Golf</div>
-          <div class="club-card__meta"><span>🕳️ 9 holes</span><span>📍 Benissa, Alicante</span></div>
-          <p class="club-card__price"><strong>€49.50 for 18 holes</strong> (visitor). 9 holes €33.50. Restaurant, pool, tennis courts. Members save 64% at €18/round.</p>
+          <div class="club-card__meta"><span>🕳️ 9 holes · Par 30</span><span>📍 Benissa, Alicante</span></div>
+          <p class="club-card__price"><strong>€33.50 for 9 holes</strong> · €49.50 for 18 holes (visitor). Restaurant, pool, tennis. Members pay just €18/round.</p>
           <div class="club-card__footer"><a href="/en/valencia/ifach/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -129,9 +386,9 @@
         <div class="club-card__img" style="background:linear-gradient(135deg,#1a4a2a,#2D7A4A);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
-          <div class="club-card__name">Masia de las Estrellas <small style="font-size:.7em;font-weight:600;opacity:.7;">Pitch &amp; Putt</small></div>
-          <div class="club-card__meta"><span>🕳️ 9 holes (P&amp;P)</span><span>📍 Catarroja, Valencia</span></div>
-          <p class="club-card__price"><strong>€24 for 18 holes</strong> — no handicap required. Practice (range + putting + pitch &amp; putt) <strong>€8</strong>. Annual abono €800/yr — waiting list.</p>
+          <div class="club-card__name">Masía de las Estrellas <small style="font-size:.7em;font-weight:600;opacity:.7;">Pitch &amp; Putt</small></div>
+          <div class="club-card__meta"><span>🕳️ 9 holes · Par 3</span><span>📍 Catarroja, Valencia</span></div>
+          <p class="club-card__price"><strong>€24 for 18-lap P&amp;P</strong> — no handicap required. Practice (range + putting + P&amp;P) <strong>€8</strong>. Annual abono €800/yr — waiting list.</p>
           <div class="club-card__footer"><a href="/en/valencia/masia-estrellas/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -140,9 +397,9 @@
         <div class="club-card__img" style="background:linear-gradient(135deg,#2D5A1E,#3D7A2D);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
-          <div class="club-card__name">Foressos Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72</span><span>📍 Picassent</span></div>
-          <p class="club-card__price">Green fee <strong>€70 weekday / €80 weekend</strong>. Membership from <strong>€600/yr</strong> — no entry fee, no share. Kids under 17 play free. 2026 verified.</p>
+          <div class="club-card__name">Foressos Golf <span class="best-val" style="font-size:.65rem;">🏆 Best Value 18H</span></div>
+          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72 · Slope 140</span><span>📍 Picassent</span></div>
+          <p class="club-card__price">Green fee <strong>€70 weekday / €80 weekend</strong>. 9H €55/€65. No entry fee. Memberships from €1,860/yr (adults) · €600/yr (juniors). Kids under 17 free.</p>
           <div class="club-card__footer"><a href="/en/valencia/foressos/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -152,8 +409,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
           <div class="club-card__name">La Galiana Golf Resort</div>
-          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72</span><span>📍 Carcaixent</span></div>
-          <p class="club-card__price">Best Course Spain 2019. Green fee <strong>€75</strong> (18h) / <strong>€45</strong> (9h). Membership currently closed.</p>
+          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72 · Slope 148</span><span>📍 Carcaixent</span></div>
+          <p class="club-card__price">Best Course Spain 2019. <strong>Pay-and-play</strong> — no membership needed. Green fee <strong>€80–€105</strong> depending on season.</p>
           <div class="club-card__footer"><a href="/en/valencia/la-galiana/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -163,8 +420,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Open to visitors</span></div>
           <div class="club-card__name">El Saler — Parador de Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72</span><span>📍 El Saler</span></div>
-          <p class="club-card__price">Top 5 Europe. Guest green fee <strong>€60</strong> (verified). Public rate TBC — call the club. Membership from €2,400/yr.</p>
+          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72 · Slope 136</span><span>📍 El Saler</span></div>
+          <p class="club-card__price">Top 5 Europe. Green fee <strong>€115 advance / €150 standard</strong>. Handicap certificate required. Managed by Paradores.</p>
           <div class="club-card__footer"><a href="/en/valencia/el-saler/" class="club-card__link">See green fees &amp; info →</a></div>
         </div>
       </div>
@@ -174,20 +431,20 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--partial">Members &amp; invited guests</span></div>
           <div class="club-card__name">Club de Golf Escorpión</div>
-          <div class="club-card__meta"><span>🕳️ 27 holes</span><span>📍 Bétera</span></div>
-          <p class="club-card__price">Exclusive private club. Share ~<strong>€20,000</strong> + <strong>€1,500/yr</strong>. Guest green fee ~€160.</p>
+          <div class="club-card__meta"><span>🕳️ 27 holes · Slope 128</span><span>📍 Bétera</span></div>
+          <p class="club-card__price">Exclusive private club. Share ~<strong>€20,000</strong> + <strong>€1,500/yr</strong>. Guest green fee ~€160 via authorised agency.</p>
           <div class="club-card__footer"><a href="/en/valencia/escorpion/" class="club-card__link">See full details →</a></div>
         </div>
       </div>
 
-      <div class="club-card">
+      <div class="club-card" style="border-color:#FB923C;">
         <div class="club-card__img" style="background:linear-gradient(135deg,#1E3A5F,#2D5A8F);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
-          <div class="club-card__status"><span class="badge badge--partial">Members only</span></div>
-          <div class="club-card__name">El Bosque Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 holes · Par 72</span><span>📍 Chiva</span></div>
-          <p class="club-card__price">Visitors welcome. Green fee <strong>€105</strong> (weekday 18h) / <strong>€125</strong> (weekend). Membership from <strong>€1,692/yr</strong>.</p>
-          <div class="club-card__footer"><a href="/en/valencia/el-bosque/" class="club-card__link">See green fees &amp; info →</a></div>
+          <div class="club-card__status"><span class="badge badge--partial">⚠️ Verify before booking</span></div>
+          <div class="club-card__name">El Bosque Golf <span style="color:#c2410c;font-size:.75rem;font-weight:700;">⚠️ DANA recovery</span></div>
+          <div class="club-card__meta"><span>🕳️ 18 holes · Par 71 · Slope 148</span><span>📍 Chiva</span></div>
+          <p class="club-card__price">Flood-damaged Oct 2024. Now operating — but <strong>call before booking</strong> to confirm layout, condition and current green fees. Pre-DANA rate was €105–€125.</p>
+          <div class="club-card__footer"><a href="/en/valencia/el-bosque/" class="club-card__link">See details &amp; DANA info →</a></div>
         </div>
       </div>
 
@@ -195,6 +452,7 @@
   </div>
 </section>
 
+<!-- ── NEWSLETTER ── -->
 <section class="newsletter-section">
   <div class="container">
     <div class="newsletter-inner">
@@ -223,16 +481,41 @@
   </div>
 </section>
 
+<!-- ── FAQ ── -->
 <section class="section section--alt">
   <div class="container">
     <div class="section-header"><h2>Frequently asked questions</h2></div>
     <div class="faq-list" style="max-width:720px;">
-      <details class="faq-item"><summary>What is the cheapest way to play 18 holes in Valencia?</summary><p>For a regulation 18-hole course, La Galiana Golf Resort starts from €80 (seasonal). For a budget pitch &amp; putt, Masia de las Estrellas in Catarroja offers 18 laps of their pitch &amp; putt course for €24 — great for beginners or a quick game. Ifach Golf (Benissa, Costa Blanca) is €49.50 for 30-hole visitors.</p></details>
-      <details class="faq-item"><summary>Which courses are open to any visitor without a membership?</summary><p>Requena, Ifach, Foressos, La Galiana, El Bosque and El Saler all accept visitors for a green fee. Escorpión requires a member introduction for guests.</p></details>
-      <details class="faq-item"><summary>What does "acción" mean in Spanish golf clubs?</summary><p>An <em>acción</em> is a share or equity stake in a private club. Clubs like Escorpión require you to purchase one (typically €15,000–€25,000) to become a member. It can sometimes be resold when you leave.</p></details>
-      <details class="faq-item"><summary>Is El Saler really one of the best courses in Europe?</summary><p>It consistently ranks in Top 5–10 Europe lists. Designed by Javier Arana in 1968, it runs through the Albufera Natural Park. If you play one round in Valencia, this is the one.</p></details>
-      <details class="faq-item"><summary>Can I become a member at Ifach Golf?</summary><p>Yes — Ifach is open to new members. Membership requires purchasing a <em>título de uso y disfrute</em> (transferable share). As a member you pay just €18 per round vs €49.50 as a visitor — a 64% saving. Contact the club at +34 966 497 114 or info@golfifach.com.</p></details>
-      <details class="faq-item"><summary>Can I become a member at Masia de las Estrellas?</summary><p>There is currently a waiting list. The annual abono is €800/yr with no share purchase required — one of the most affordable full memberships near Valencia. Contact the club to register your interest; you can play as a visitor for €24 in the meantime.</p></details>
+      <details class="faq-item">
+        <summary>What is the cheapest way to play a full round of golf in Valencia?</summary>
+        <p>It depends on what you mean by a "full round". The cheapest <strong>Pitch &amp; Putt</strong> is Masía de las Estrellas (Catarroja) at <strong>€24 for 18 holes</strong> — no handicap required, but it's a Par 3 course, not a regulation layout.</p>
+        <p>For a <strong>regulation 18-hole course</strong>, the cheapest verified rate is <a href="/en/valencia/foressos/">Foressos Golf</a> at <strong>€70 weekday / €80 weekend</strong>.</p>
+        <p>If budget is the top priority, <a href="/en/valencia/requena/">Requena Golf</a> offers 9 holes for <strong>€10</strong> (partnership rate for Masía members) — the cheapest single round in the province.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which courses are open to any visitor without a membership?</summary>
+        <p>Requena, Ifach, Foressos, La Galiana, El Bosque and El Saler all accept visitors for a green fee. Escorpión requires a member introduction or booking through an authorised agency for guests. El Bosque is operating post-DANA but verify conditions before booking.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the difference between a regulation course and Pitch &amp; Putt?</summary>
+        <p>A <strong>regulation course</strong> has 18 holes of varying length — par 3s, 4s and 5s — and requires a handicap certificate at most clubs. A <strong>Pitch &amp; Putt</strong> course has 9 short Par 3 holes, played twice for an 18-hole round. No handicap is needed, scores are not WHS-eligible, and differentials are not comparable. Masía de las Estrellas is a Pitch &amp; Putt — great for beginners or a quick game, but not a substitute for a regulation round.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does "acción" mean in Spanish golf clubs?</summary>
+        <p>An <em>acción</em> is a share or equity stake in a private club. Clubs like Escorpión require you to purchase one (typically €15,000–€25,000) to become a member. It can sometimes be resold when you leave.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is El Saler really one of the best courses in Europe?</summary>
+        <p>It consistently ranks in Top 5–10 Europe lists. Designed by Javier Arana in 1968, it runs through the Albufera Natural Park. If you play one round in Valencia, this is the one.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I become a member at Ifach Golf?</summary>
+        <p>Yes — Ifach is open to new members. Membership requires purchasing a <em>título de uso y disfrute</em> (transferable share). As a member you pay just €18 per round vs €49.50 as a visitor — a 64% saving. Contact the club at +34 966 497 114 or info@golfifach.com.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I become a member at Masía de las Estrellas?</summary>
+        <p>There is currently a waiting list. The annual abono is €800/yr with no share purchase required — one of the most affordable full memberships near Valencia. Contact the club to register your interest; you can play as a visitor for €24 in the meantime.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -247,11 +530,32 @@
         <li><a href="/en/valencia/la-galiana/">La Galiana</a></li><li><a href="/en/valencia/requena/">Requena</a></li>
         <li><a href="/en/valencia/ifach/">Ifach Golf</a></li><li><a href="/en/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
       </ul></div>
-      <div class="footer__col"><h4>Info</h4><ul><li><a href="/en/">Home</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/about/#contact">Corrections</a></li></ul></div>
+      <div class="footer__col"><h4>Info</h4><ul>
+        <li><a href="/en/">Home</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/about/">About</a></li>
+        <li><a href="/en/about/#contact">Corrections</a></li>
+      </ul></div>
     </div>
     <div class="footer__bottom"><p>© 2026 golfspain.guide — Independent guide, not affiliated with any club.</p></div>
   </div>
 </footer>
+
 <script src="/js/main.js"></script>
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    var btn = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
+    var panel = document.getElementById('tab-' + tabId);
+    if (btn)   { btn.classList.add('active');   btn.setAttribute('aria-selected', 'true'); }
+    if (panel) { panel.classList.add('active'); }
+  }
+</script>
 </body>
 </html>

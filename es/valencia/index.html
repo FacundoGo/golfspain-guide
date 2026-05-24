@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golf en Valencia — Dónde Jugar y Cuánto Cuesta 2026 | golfspain.guide</title>
-  <meta name="description" content="Dónde jugar al golf en Valencia y cuánto cuesta. Campos de 18 hoyos reglamentarios desde €80. Compara todos los campos — El Saler, Ifach, La Galiana, Foressos y más.">
+  <meta name="description" content="Dónde jugar al golf en Valencia y cuánto cuesta. Campos reglamentarios de 18 hoyos desde €70 (Foressos). Compara todos los campos por tipo — 18H, 9H y Pitch &amp; Putt — con green fees verificados 2026.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.svg">
@@ -15,20 +15,120 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/es/valencia/">
   <meta property="og:title" content="Golf en Valencia — Dónde Jugar y Cuánto Cuesta 2026">
-  <meta property="og:description" content="Dónde jugar al golf en Valencia y cuánto cuesta. Compara green fees y membresías — 8 clubes con información completa.">
+  <meta property="og:description" content="Compara green fees en todos los campos de golf de Valencia. 18H reglamentario desde €70, 9H desde €10, Pitch &amp; Putt desde €24. Verificado mayo 2026.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Campos de Golf en Valencia","url":"https://golfspain.guide/es/valencia/","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Valencia","item":"https://golfspain.guide/es/valencia/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DXK0NZW1LH');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ── Pestañas de la tabla ── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 0;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn {
+      padding: 12px 22px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 700;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      background: none;
+      cursor: pointer;
+      color: var(--text-mid);
+      white-space: nowrap;
+      min-height: 44px;
+      transition: color .15s, border-color .15s;
+    }
+    .tab-btn:hover { color: var(--green-dark); background: var(--green-pale, #f0f9f4); }
+    .tab-btn.active { color: var(--green-dark); border-bottom-color: var(--green-mid); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Insignias de dificultad ── */
+    .diff { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+    .diff--very       { background: #fce8e8; color: #9b1c1c; }
+    .diff--challenging{ background: #fef3e2; color: #92400e; }
+    .diff--moderate   { background: #fef9c3; color: #854d0e; }
+    .diff--beginner   { background: #dcfce7; color: #166534; }
+    .diff--none       { background: #f3f4f6; color: #6b7280; }
+
+    /* ── CTA reservar en tabla ── */
+    .book-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-mid);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .book-link:hover { text-decoration: underline; color: var(--green-dark); }
+
+    /* ── Etiqueta mejor precio ── */
+    .best-val {
+      display: inline-block;
+      background: var(--gold);
+      color: #111;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ── Advertencia DANA ── */
+    .dana-badge {
+      display: inline-block;
+      background: #fff7ed;
+      color: #c2410c;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 4px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ── Notas al pie de tabla ── */
+    .table-footnotes {
+      font-size: .78rem;
+      color: var(--text-light);
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      line-height: 1.5;
+    }
+    .table-footnotes sup { font-size: .7rem; }
+
+    /* ── Aviso P&P ── */
+    .pp-note {
+      background: #f0f9f4;
+      border: 1px solid var(--green-light, #2e6349);
+      border-radius: var(--radius-md, 8px);
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+
+    /* ── Scroll horizontal en móvil ── */
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare-table th, .compare-table td { white-space: nowrap; }
+    .compare-table td:first-child { white-space: normal; min-width: 160px; }
+  </style>
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
@@ -41,10 +141,7 @@
       <li><a href="/es/blog/">Blog</a></li>
       <li><a href="/es/courses/" class="nav__cta">Todos los campos</a></li>
     </ul>
-    <div class="nav__lang">
-      <a href="/en/valencia/">EN</a>
-      <span class="nav__lang-active">ES</span>
-    </div>
+    <div class="nav__lang"><a href="/en/valencia/">EN</a><span class="nav__lang-active">ES</span></div>
     <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -53,54 +150,214 @@
   <div class="container">
     <div class="club-hero__eyebrow"><a href="/es/">Inicio</a> › Valencia</div>
     <h1>Golf en Valencia</h1>
-    <p class="club-hero__sub">8 campos publicados · 2 en verificación — golf en la Comunitat Valenciana desde €10 la vuelta hasta el Top 5 de Europa. Encuentra dónde jugar y cuánto cuesta.</p>
+    <p class="club-hero__sub">8 campos publicados — desde €10 la vuelta de 9 hoyos hasta el Top 5 de Europa. Encuentra dónde jugar y exactamente cuánto cuesta.</p>
     <div class="club-hero__stats">
-      <div class="club-stat"><span class="club-stat__val">8+</span><span class="club-stat__lbl">Campos</span></div>
+      <div class="club-stat"><span class="club-stat__val">8</span><span class="club-stat__lbl">Campos publicados</span></div>
       <div class="club-stat"><span class="club-stat__val">€10</span><span class="club-stat__lbl">Vuelta más barata</span></div>
-      <div class="club-stat"><span class="club-stat__val">€24</span><span class="club-stat__lbl">18 vueltas P&amp;P más barato</span></div>
-      <div class="club-stat"><span class="club-stat__val">2026</span><span class="club-stat__lbl">Precios verificados</span></div>
+      <div class="club-stat"><span class="club-stat__val">€70</span><span class="club-stat__lbl">18H reglamentario más barato</span></div>
+      <div class="club-stat"><span class="club-stat__val">€24</span><span class="club-stat__lbl">P&amp;P más barato</span></div>
     </div>
   </div>
 </section>
 
 <div class="container"><nav class="breadcrumb"><a href="/es/">Inicio</a><span>›</span>Valencia</nav></div>
 
+<!-- ── TABLA CON PESTAÑAS ── -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section-header"><h2>Dónde jugar — green fees de un vistazo</h2><p>Green fees para visitantes en todos los campos. Haz clic en cualquier club para ver detalles completos, cómo llegar e información de membresía.</p></div>
-    <div class="compare-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Club</th>
-            <th>Hoyos</th>
-            <th>Green fee 18h</th>
-            <th>Green fee 9h</th>
-            <th>Cuota anual</th>
-            <th>Abierto a visitas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="/es/valencia/requena/">Requena Golf</a></td><td>9</td><td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light)">(socios de otro club)</small></td><td class="price-highlight">€10</td><td>Por confirmar</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr><td><a href="/es/valencia/ifach/">Ifach Golf</a></td><td>9</td><td class="price-highlight">€49,50</td><td class="price-highlight">€33,50</td><td>Título de uso (acción)</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr class="popular"><td><a href="/es/valencia/masia-estrellas/">Masia de las Estrellas</a> <span class="popular-label">Mejor precio 18h</span><br><small style="color:var(--text-light);font-weight:400;">Pitch &amp; Putt · 9 hoyos</small></td><td>9</td><td class="price-highlight">€24 <small style="font-weight:400;color:var(--text-light)">(18 vueltas P&amp;P)</small></td><td class="na">—</td><td>€800/año ⏳ lista espera</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr><td><a href="/es/valencia/foressos/">Foressos Golf</a></td><td>18</td><td class="price-highlight">€70–80</td><td>—</td><td>Desde €1.860/año (adultos) · €600/año (juniors)</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr><td><a href="/es/valencia/la-galiana/">La Galiana</a></td><td>18</td><td class="price-highlight">€80–€105 (temporada)</td><td class="na">€45 — verificar</td><td>Sin membresía · Acceso libre</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr class="popular"><td><a href="/es/valencia/el-saler/">El Saler (Parador)</a></td><td>18</td><td class="price-highlight">€60 <small style="font-weight:400;color:var(--text-light)">(invitado)</small></td><td>—</td><td>Desde €2.400/año</td><td><span class="badge badge--open">✓ Sí</span></td></tr>
-          <tr><td><a href="/es/valencia/escorpion/">Club de Golf Escorpión</a></td><td>27</td><td class="price-highlight">~€160 <small style="font-weight:400;color:var(--text-light)">(solo invitados)</small></td><td>—</td><td>€1.500/año + acción ~€20.000</td><td><span class="badge badge--partial">Socios e invitados</span></td></tr>
-          <tr><td><a href="/es/valencia/el-bosque/">El Bosque Golf</a> <small style="color:#9A3412;font-weight:600;">⚠️ DANA</small></td><td>18</td><td class="price-highlight">€105–125 <small style="font-weight:400;color:var(--text-light)">(pre-DANA)</small></td><td class="price-highlight">€73–87 <small style="font-weight:400;color:var(--text-light)">(pre-DANA)</small></td><td>Desde €1.692/año (pre-DANA)</td><td><span class="badge badge--partial">⚠️ Verificar</span></td></tr>
-          <tr><td>Club de Golf Manises</td><td>—</td><td class="na">Verificando</td><td class="na">Verificando</td><td>Verificando</td><td><span class="badge badge--partial">Pendiente</span></td></tr>
-          <tr><td>Costa de Azahar</td><td>—</td><td class="na">Verificando</td><td class="na">Verificando</td><td>Verificando</td><td><span class="badge badge--partial">Pendiente</span></td></tr>
-        </tbody>
-      </table>
+    <div class="section-header">
+      <h2>Dónde jugar — green fees de un vistazo</h2>
+      <p>Green fees para visitantes, organizados por tipo de campo. Haz clic en el nombre del club para ver todos los detalles y cómo reservar.</p>
     </div>
-    <p style="margin-top:14px;font-size:.85rem;color:var(--text-light);">Precios verificados mayo 2026. Confirma siempre directamente con el club antes de visitar.</p>
+
+    <div class="tab-bar" role="tablist" aria-label="Tipo de campo">
+      <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-18h" data-tab="18h" onclick="switchTab('18h')">18 Hoyos</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-9h"  data-tab="9h"  onclick="switchTab('9h')">9 Hoyos</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-pp"  data-tab="pp"  onclick="switchTab('pp')">Pitch &amp; Putt</button>
+    </div>
+
+    <!-- PESTAÑA 1: 18 HOYOS -->
+    <div class="tab-panel active" id="tab-18h" role="tabpanel">
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Entre semana 18H</th>
+              <th>Fin de semana 18H</th>
+              <th>Slope</th>
+              <th>Dificultad</th>
+              <th>Reservar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/es/valencia/foressos/">Foressos Golf</a> <span class="best-val">🏆 Mejor precio 18H</span></td>
+              <td class="price-highlight">€70</td>
+              <td class="price-highlight">€80</td>
+              <td>140</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="/es/valencia/foressos/" class="book-link">Detalles →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Página próximamente</small></td>
+              <td class="price-highlight">€57</td>
+              <td class="price-highlight">€68</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verificando</span></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/la-galiana/">La Galiana Golf Resort</a></td>
+              <td class="price-highlight">€80–€105 <small style="font-weight:400;color:var(--text-light);">temporada ¹</small></td>
+              <td class="price-highlight">€80–€105 <small style="font-weight:400;color:var(--text-light);">temporada ¹</small></td>
+              <td>148</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/el-bosque/">El Bosque Golf</a> <span class="dana-badge">⚠️ DANA</span></td>
+              <td class="price-highlight">€105–€125 <small style="font-weight:400;color:var(--text-light);">pre-DANA ³</small></td>
+              <td class="price-highlight">€105–€125 <small style="font-weight:400;color:var(--text-light);">pre-DANA ³</small></td>
+              <td>148</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="tel:+34961808009" class="book-link">📞 Llama primero</a></td>
+            </tr>
+            <tr class="popular">
+              <td><a href="/es/valencia/el-saler/">El Saler (Parador)</a></td>
+              <td class="price-highlight">€115–€150 <small style="font-weight:400;color:var(--text-light);">²</small></td>
+              <td class="price-highlight">€115–€150 <small style="font-weight:400;color:var(--text-light);">²</small></td>
+              <td>136</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="https://paradores.es/es/campo-de-golf-de-el-saler" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/escorpion/">Club de Golf Escorpión</a> <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Solo invitados vía agencia</small></td>
+              <td class="price-highlight">~€160 <small style="font-weight:400;color:var(--text-light);">⁴</small></td>
+              <td class="na">—</td>
+              <td>128</td>
+              <td><span class="diff diff--challenging">Exigente</span></td>
+              <td><a href="https://clgolf.es" target="_blank" rel="noopener noreferrer" class="book-link">Campbell Lamont →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span><sup>1</sup> Precios de temporada en La Galiana: <strong>€80</strong> invierno (dic) · <strong>€85</strong> verano (15 jun–20 sep) · <strong>€105</strong> temporada media (2 mar–14 jun, 21 sep–30 nov). Tarifa de 9H no confirmada — contacta con el resort.</span>
+        <span><sup>2</sup> El Saler: €115 con reserva anticipada online / €150 tarifa estándar. Las tarifas de clientes del hotel o invitados de socios difieren — consulta la <a href="/es/valencia/el-saler/">página individual</a>.</span>
+        <span><sup>3</sup> <strong>El Bosque</strong>: daños por las inundaciones de la DANA de octubre de 2024. Las tarifas mostradas son de 2024 previas a la catástrofe — <strong>llama antes de reservar</strong>: <a href="tel:+34961808009">+34 96 180 80 09</a>. Más info: <a href="/es/blog/el-bosque-golf-dana-recovery-2026/">artículo sobre la recuperación →</a></span>
+        <span><sup>4</sup> Escorpión: solo invitados mediante presentación o agencia autorizada. Tarifa estimada, no confirmada oficialmente.</span>
+        <span style="margin-top:4px;">Precios verificados mayo 2026. Confirma siempre directamente con el club antes de reservar.</span>
+      </div>
+    </div>
+
+    <!-- PESTAÑA 2: 9 HOYOS -->
+    <div class="tab-panel" id="tab-9h" role="tabpanel">
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Entre semana 9H</th>
+              <th>Fin de semana 9H</th>
+              <th>Slope</th>
+              <th>Dificultad</th>
+              <th>Reservar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/es/valencia/requena/">Requena Golf Club</a></td>
+              <td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light);">socios Masía ⁵</small></td>
+              <td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light);">público TBC</small></td>
+              <td>117</td>
+              <td><span class="diff diff--moderate">Moderado</span></td>
+              <td><a href="tel:+34667101240" class="book-link">📞 Llamar</a></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/ifach/">Ifach Golf</a></td>
+              <td class="price-highlight">€33,50</td>
+              <td class="price-highlight">€33,50</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><a href="/es/valencia/ifach/" class="book-link">Detalles →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Página próximamente</small></td>
+              <td class="price-highlight">€35</td>
+              <td class="price-highlight">€52</td>
+              <td>—</td>
+              <td><span class="diff diff--none">—</span></td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verificando</span></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/foressos/">Foressos Golf</a></td>
+              <td class="price-highlight">€55</td>
+              <td class="price-highlight">€65</td>
+              <td>140</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="/es/valencia/foressos/" class="book-link">Detalles →</a></td>
+            </tr>
+            <tr>
+              <td><a href="/es/valencia/la-galiana/">La Galiana Golf Resort</a></td>
+              <td class="na">TBC — verificar</td>
+              <td class="na">TBC — verificar</td>
+              <td>148</td>
+              <td><span class="diff diff--very">Muy exigente</span></td>
+              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span><sup>5</sup> La tarifa de €10 en Requena aplica a los <em>abonados</em> de Masía de las Estrellas a través del convenio de campo asociado. El green fee para el público general no está publicado — llama para confirmar: <a href="tel:+34667101240">+34 667 101 240</a>.</span>
+        <span>Precios verificados mayo 2026. Confirma siempre directamente con el club antes de reservar.</span>
+      </div>
+    </div>
+
+    <!-- PESTAÑA 3: PITCH & PUTT -->
+    <div class="tab-panel" id="tab-pp" role="tabpanel">
+      <div class="pp-note">
+        ℹ️ <strong>Los campos de Pitch &amp; Putt tienen un recorrido de 9 hoyos Par 3 que se juega dos veces</strong> para completar una vuelta de 18 hoyos. No son comparables a un campo reglamentario — en la mayoría no se exige certificado de hándicap.
+      </div>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Green fee</th>
+              <th>Notas</th>
+              <th>Reservar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="popular">
+              <td><a href="/es/valencia/masia-estrellas/">Masía de las Estrellas</a> <span class="best-val">🏆 Mejor precio P&amp;P</span></td>
+              <td class="price-highlight">€24 <small style="font-weight:400;color:var(--text-light);">(18 vueltas)</small></td>
+              <td style="font-size:.85rem;">9 hoyos Par 3, doble salida. Sin hándicap obligatorio. Prácticas (campo + putting) €8.</td>
+              <td><a href="/es/valencia/masia-estrellas/" class="book-link">Detalles →</a></td>
+            </tr>
+            <tr>
+              <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">P&amp;P separado del campo principal</small></td>
+              <td class="price-highlight">€14</td>
+              <td style="font-size:.85rem;">Zona de Pitch &amp; Putt adyacente al campo principal. Página completa próximamente.</td>
+              <td><span style="font-size:12px;color:var(--text-light);">Verificando</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footnotes">
+        <span>Precios verificados mayo 2026. Confirma siempre directamente con el club antes de reservar.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- ── TARJETAS DE CAMPOS ── -->
 <section class="section">
   <div class="container">
-    <div class="section-header"><h2>Todos los campos</h2><p>Haz clic en cualquier campo para ver green fees, cómo llegar, instalaciones e información de membresía. O <a href="/es/courses/">busca y filtra todos los campos →</a></p></div>
+    <div class="section-header"><h2>Todos los campos publicados</h2><p>Haz clic en cualquier campo para ver green fees, cómo llegar, instalaciones e información de membresía. O <a href="/es/courses/">busca y filtra todos los campos →</a></p></div>
     <div class="clubs-grid">
 
       <div class="club-card">
@@ -108,8 +365,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
           <div class="club-card__name">Requena Golf Club</div>
-          <div class="club-card__meta"><span>🕳️ 9 hoyos · Par 35</span><span>📍 Requena</span></div>
-          <p class="club-card__price">La vuelta más económica de Valencia. Green fee desde <strong>€10</strong>. Campo público, greens artificiales.</p>
+          <div class="club-card__meta"><span>🕳️ 9 hoyos · Par 35 · Slope 117</span><span>📍 Requena</span></div>
+          <p class="club-card__price">El campo más asequible de Valencia. Green fee desde <strong>€10</strong> (abonados de Masía). Greens artificiales, campo público sin pretensiones.</p>
           <div class="club-card__footer"><a href="/es/valencia/requena/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -119,8 +376,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
           <div class="club-card__name">Ifach Golf</div>
-          <div class="club-card__meta"><span>🕳️ 9 hoyos</span><span>📍 Benissa, Alicante</span></div>
-          <p class="club-card__price"><strong>€49,50 por 18 hoyos</strong> (visitante). 9 hoyos €33,50. Restaurante, piscina, pistas de tenis. Los socios ahorran un 64% pagando solo €18/vuelta.</p>
+          <div class="club-card__meta"><span>🕳️ 9 hoyos · Par 30</span><span>📍 Benissa, Alicante</span></div>
+          <p class="club-card__price"><strong>€33,50 por 9 hoyos</strong> · €49,50 por 18 hoyos (visitante). Restaurante, piscina, tenis. Los socios pagan solo €18/vuelta.</p>
           <div class="club-card__footer"><a href="/es/valencia/ifach/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -129,9 +386,9 @@
         <div class="club-card__img" style="background:linear-gradient(135deg,#1a4a2a,#2D7A4A);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
-          <div class="club-card__name">Masia de las Estrellas <small style="font-size:.7em;font-weight:600;opacity:.7;">Pitch &amp; Putt</small></div>
-          <div class="club-card__meta"><span>🕳️ 9 hoyos (P&amp;P)</span><span>📍 Catarroja, Valencia</span></div>
-          <p class="club-card__price"><strong>€24 por 18 hoyos</strong> — sin handicap obligatorio. Prácticas (campo + putting + pitch &amp; putt) por <strong>€8</strong>. Abono anual €800/año — lista de espera.</p>
+          <div class="club-card__name">Masía de las Estrellas <small style="font-size:.7em;font-weight:600;opacity:.7;">Pitch &amp; Putt</small></div>
+          <div class="club-card__meta"><span>🕳️ 9 hoyos · Par 3</span><span>📍 Catarroja, Valencia</span></div>
+          <p class="club-card__price"><strong>€24 por 18 vueltas de P&amp;P</strong> — sin hándicap obligatorio. Prácticas (campo + putting + P&amp;P) <strong>€8</strong>. Abono anual €800/año — lista de espera.</p>
           <div class="club-card__footer"><a href="/es/valencia/masia-estrellas/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -140,9 +397,9 @@
         <div class="club-card__img" style="background:linear-gradient(135deg,#2D5A1E,#3D7A2D);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
-          <div class="club-card__name">Foressos Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72</span><span>📍 Picassent</span></div>
-          <p class="club-card__price">Green fee <strong>€70 entre semana / €80 fin de semana</strong>. Abono desde <strong>€600/año</strong> — sin cuota de entrada, sin acción. Menores de 17 gratis. Verificado 2026.</p>
+          <div class="club-card__name">Foressos Golf <span class="best-val" style="font-size:.65rem;">🏆 Mejor precio 18H</span></div>
+          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72 · Slope 140</span><span>📍 Picassent</span></div>
+          <p class="club-card__price">Green fee <strong>€70 entre semana / €80 fin de semana</strong>. 9H €55/€65. Sin cuota de entrada. Abonos desde €1.860/año (adultos) · €600/año (juniors). Menores de 17 gratis.</p>
           <div class="club-card__footer"><a href="/es/valencia/foressos/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -152,8 +409,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
           <div class="club-card__name">La Galiana Golf Resort</div>
-          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72</span><span>📍 Carcaixent</span></div>
-          <p class="club-card__price">Mejor Campo de España 2019. Green fee <strong>€75</strong> (18h) / <strong>€45</strong> (9h). Membresía actualmente cerrada.</p>
+          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72 · Slope 148</span><span>📍 Carcaixent</span></div>
+          <p class="club-card__price">Mejor Campo de España 2019. <strong>Acceso libre</strong> — sin membresía. Green fee <strong>€80–€105</strong> según temporada.</p>
           <div class="club-card__footer"><a href="/es/valencia/la-galiana/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -163,8 +420,8 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--open">✓ Abierto a visitantes</span></div>
           <div class="club-card__name">El Saler — Parador de Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72</span><span>📍 El Saler</span></div>
-          <p class="club-card__price">Top 5 Europa. Green fee invitado <strong>€60</strong> (verificado). Tarifa pública TBC — llama al club. Abono desde €2.400/año.</p>
+          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72 · Slope 136</span><span>📍 El Saler</span></div>
+          <p class="club-card__price">Top 5 Europa. Green fee <strong>€115 con reserva / €150 estándar</strong>. Certificado de hándicap obligatorio. Gestionado por Paradores.</p>
           <div class="club-card__footer"><a href="/es/valencia/el-saler/" class="club-card__link">Ver green fees e info →</a></div>
         </div>
       </div>
@@ -174,20 +431,20 @@
         <div class="club-card__body">
           <div class="club-card__status"><span class="badge badge--partial">Socios e invitados</span></div>
           <div class="club-card__name">Club de Golf Escorpión</div>
-          <div class="club-card__meta"><span>🕳️ 27 hoyos</span><span>📍 Bétera</span></div>
-          <p class="club-card__price">Club privado exclusivo. Acción ~<strong>€20.000</strong> + <strong>€1.500/año</strong>. Green fee invitados ~€160.</p>
+          <div class="club-card__meta"><span>🕳️ 27 hoyos · Slope 128</span><span>📍 Bétera</span></div>
+          <p class="club-card__price">Club privado exclusivo. Acción ~<strong>€20.000</strong> + <strong>€1.500/año</strong>. Green fee invitados ~€160 vía agencia autorizada.</p>
           <div class="club-card__footer"><a href="/es/valencia/escorpion/" class="club-card__link">Ver detalles →</a></div>
         </div>
       </div>
 
-      <div class="club-card">
+      <div class="club-card" style="border-color:#FB923C;">
         <div class="club-card__img" style="background:linear-gradient(135deg,#1E3A5F,#2D5A8F);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:4rem;">⛳</div>
         <div class="club-card__body">
-          <div class="club-card__status"><span class="badge badge--partial">Solo socios</span></div>
-          <div class="club-card__name">El Bosque Golf</div>
-          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 72</span><span>📍 Chiva</span></div>
-          <p class="club-card__price">Visitantes bienvenidos. Green fee <strong>€105</strong> (L–V, 18h) / <strong>€125</strong> (Sáb–Dom). Membresía desde <strong>€1.692/año</strong>.</p>
-          <div class="club-card__footer"><a href="/es/valencia/el-bosque/" class="club-card__link">Ver green fees e info →</a></div>
+          <div class="club-card__status"><span class="badge badge--partial">⚠️ Verificar antes de reservar</span></div>
+          <div class="club-card__name">El Bosque Golf <span style="color:#c2410c;font-size:.75rem;font-weight:700;">⚠️ Recuperación DANA</span></div>
+          <div class="club-card__meta"><span>🕳️ 18 hoyos · Par 71 · Slope 148</span><span>📍 Chiva</span></div>
+          <p class="club-card__price">Daños por inundación oct. 2024. Operativo, pero <strong>llama antes de reservar</strong> para confirmar el recorrido, estado y tarifas actuales. Tarifa pre-DANA: €105–€125.</p>
+          <div class="club-card__footer"><a href="/es/valencia/el-bosque/" class="club-card__link">Ver detalles e info DANA →</a></div>
         </div>
       </div>
 
@@ -195,6 +452,7 @@
   </div>
 </section>
 
+<!-- ── NEWSLETTER ── -->
 <section class="newsletter-section">
   <div class="container">
     <div class="newsletter-inner">
@@ -223,16 +481,41 @@
   </div>
 </section>
 
+<!-- ── FAQ ── -->
 <section class="section section--alt">
   <div class="container">
     <div class="section-header"><h2>Preguntas frecuentes</h2></div>
     <div class="faq-list" style="max-width:720px;">
-      <details class="faq-item"><summary>¿Cuál es la forma más barata de jugar 18 hoyos en Valencia?</summary><p>Para un campo reglamentario de 18 hoyos, La Galiana Golf Resort parte desde €80 (según temporada). Para una opción más económica de pitch &amp; putt, Masia de las Estrellas en Catarroja ofrece 18 vueltas a su campo de pitch &amp; putt por €24 — ideal para principiantes o una partida rápida. Ifach Golf (Benissa, Costa Blanca) cuesta €49,50 para visitantes.</p></details>
-      <details class="faq-item"><summary>¿Qué campos están abiertos a cualquier visitante sin membresía?</summary><p>Requena, Ifach, Foressos, La Galiana, El Bosque y El Saler aceptan visitantes con green fee. Escorpión requiere la presentación de un socio para los invitados.</p></details>
-      <details class="faq-item"><summary>¿Qué es una "acción" en un club de golf español?</summary><p>Una <em>acción</em> es una participación en el capital del club privado. Clubes como Escorpión exigen su compra (habitualmente €15.000–€25.000) para hacerse socio. En algunos casos puede revenderse al abandonar el club.</p></details>
-      <details class="faq-item"><summary>¿Es El Saler realmente uno de los mejores campos de Europa?</summary><p>Aparece sistemáticamente en los rankings del Top 5–10 de Europa. Diseñado por Javier Arana en 1968, discurre por el Parque Natural de la Albufera. Si solo vas a jugar una vuelta en Valencia, tiene que ser esta.</p></details>
-      <details class="faq-item"><summary>¿Puedo hacerme socio de Ifach Golf?</summary><p>Sí — Ifach está abierto a nuevos socios. La membresía requiere adquirir un <em>título de uso y disfrute</em> (acción transferible). Como socio pagas solo €18 por vuelta frente a €49,50 de visitante — un ahorro del 64%. Contacta con el club en +34 966 497 114 o info@golfifach.com.</p></details>
-      <details class="faq-item"><summary>¿Puedo hacerme socio de Masia de las Estrellas?</summary><p>Actualmente hay lista de espera. El abono anual es de €800/año sin necesidad de acción — una de las membresías más asequibles del área de Valencia. Contacta con el club para apuntarte; mientras tanto puedes jugar como visitante por €24.</p></details>
+      <details class="faq-item">
+        <summary>¿Cuál es la forma más barata de jugar una vuelta completa de golf en Valencia?</summary>
+        <p>Depende de qué entiendas por "vuelta completa". La opción más económica de <strong>Pitch &amp; Putt</strong> es Masía de las Estrellas (Catarroja) a <strong>€24 por 18 hoyos</strong> — sin hándicap obligatorio, pero es un campo Par 3, no reglamentario.</p>
+        <p>Para un <strong>campo reglamentario de 18 hoyos</strong>, la tarifa verificada más baja es <a href="/es/valencia/foressos/">Foressos Golf</a> a <strong>€70 entre semana / €80 fin de semana</strong>.</p>
+        <p>Si el presupuesto es lo primero, <a href="/es/valencia/requena/">Requena Golf</a> ofrece 9 hoyos por <strong>€10</strong> (tarifa de convenio para abonados de Masía) — la vuelta más barata de la provincia.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué campos están abiertos a cualquier visitante sin membresía?</summary>
+        <p>Requena, Ifach, Foressos, La Galiana, El Bosque y El Saler aceptan visitantes con green fee. Escorpión requiere presentación por un socio o reserva a través de una agencia autorizada. El Bosque está operativo tras la DANA, pero verifica las condiciones antes de reservar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuál es la diferencia entre un campo reglamentario y un Pitch &amp; Putt?</summary>
+        <p>Un <strong>campo reglamentario</strong> tiene 18 hoyos de longitud variable — par 3, 4 y 5 — y en la mayoría de clubes se exige el certificado de hándicap. Un campo de <strong>Pitch &amp; Putt</strong> tiene 9 hoyos Par 3 cortos, que se juegan dos veces para completar la vuelta. No se necesita hándicap, las tarjetas no son válidas para el sistema WHS y los resultados no son comparables. Masía de las Estrellas es un Pitch &amp; Putt — ideal para principiantes o una partida rápida, pero no equivale a una vuelta reglamentaria.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué es una "acción" en un club de golf español?</summary>
+        <p>Una <em>acción</em> es una participación en el capital del club privado. Clubes como Escorpión exigen su compra (habitualmente €15.000–€25.000) para hacerse socio. En algunos casos puede revenderse al abandonar el club.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Es El Saler realmente uno de los mejores campos de Europa?</summary>
+        <p>Aparece sistemáticamente en los rankings del Top 5–10 de Europa. Diseñado por Javier Arana en 1968, discurre por el Parque Natural de la Albufera. Si solo vas a jugar una vuelta en Valencia, tiene que ser esta.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo hacerme socio de Ifach Golf?</summary>
+        <p>Sí — Ifach está abierto a nuevos socios. La membresía requiere adquirir un <em>título de uso y disfrute</em> (acción transferible). Como socio pagas solo €18 por vuelta frente a €49,50 de visitante — un ahorro del 64%. Contacta con el club en +34 966 497 114 o info@golfifach.com.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo hacerme socio de Masía de las Estrellas?</summary>
+        <p>Actualmente hay lista de espera. El abono anual es de €800/año sin necesidad de acción — una de las membresías más asequibles del área de Valencia. Contacta con el club para apuntarte; mientras tanto puedes jugar como visitante por €24.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -247,11 +530,32 @@
         <li><a href="/es/valencia/la-galiana/">La Galiana</a></li><li><a href="/es/valencia/requena/">Requena</a></li>
         <li><a href="/es/valencia/ifach/">Ifach Golf</a></li><li><a href="/es/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
       </ul></div>
-      <div class="footer__col"><h4>Información</h4><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/about/">Sobre nosotros</a></li><li><a href="/es/about/#contact">Correcciones</a></li></ul></div>
+      <div class="footer__col"><h4>Información</h4><ul>
+        <li><a href="/es/">Inicio</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/about/">Sobre nosotros</a></li>
+        <li><a href="/es/about/#contact">Correcciones</a></li>
+      </ul></div>
     </div>
     <div class="footer__bottom"><p>© 2026 golfspain.guide — Guía independiente, sin afiliación con ningún club de golf.</p></div>
   </div>
 </footer>
+
 <script src="/js/main.js"></script>
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    var btn = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
+    var panel = document.getElementById('tab-' + tabId);
+    if (btn)   { btn.classList.add('active');   btn.setAttribute('aria-selected', 'true'); }
+    if (panel) { panel.classList.add('active'); }
+  }
+</script>
 </body>
 </html>
