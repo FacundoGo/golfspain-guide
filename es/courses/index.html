@@ -30,6 +30,7 @@
     <a href="/es/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
     <ul class="nav__links">
       <li><a href="/es/valencia/">Valencia</a></li>
+      <li><a href="/es/barcelona/">Barcelona</a></li>
       <li><a href="/es/about/">Sobre nosotros</a></li>
       <li><a href="/es/handicap-calculator/">Hándicap</a></li>
       <li><a href="/es/blog/">Blog</a></li>
@@ -49,8 +50,8 @@
     <h1>Campos de Golf en España</h1>
     <p class="dir-hero__sub">Green fees y precios de abono verificados. Encuentra dónde jugar y cuánto cuesta — antes de reservar.</p>
     <div class="dir-stats">
-      <span id="stat-total">⛳ 8 campos listados</span>
-      <span>📍 Valencia · Costa Blanca</span>
+      <span id="stat-total">⛳ 9 campos listados</span>
+      <span>📍 Valencia · Barcelona</span>
       <span>📅 Actualizado mayo 2026</span>
     </div>
   </div>
@@ -61,8 +62,9 @@
     <div class="dir-toolbar-inner">
       <input type="search" id="dir-search" class="dir-search" placeholder="Buscar por nombre o ciudad…" aria-label="Buscar campos" autocomplete="off">
       <select id="filter-region" class="dir-select" aria-label="Filtrar por región">
-        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
         <option value="all">🇪🇸 Toda España</option>
+        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
+        <option value="barcelona">📍 Barcelona &amp; Cataluña</option>
       </select>
       <select id="filter-holes" class="dir-select" aria-label="Filtrar por número de hoyos">
         <option value="any">Hoyos: Todos</option>
@@ -101,6 +103,10 @@
         <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
         <p>Guía independiente de cuotas de socio y green fees en España.</p>
       </div>
+      <div class="footer__col"><h4>Clubes en Barcelona</h4><ul>
+        <li><a href="/es/barcelona/el-prat/">Real Club de Golf El Prat</a></li>
+        <li><a href="/es/barcelona/">Todos los clubes →</a></li>
+      </ul></div>
       <div class="footer__col"><h4>Clubs de Valencia</h4><ul>
         <li><a href="/es/valencia/el-saler/">El Saler</a></li>
         <li><a href="/es/valencia/escorpion/">Escorpión</a></li>
@@ -236,6 +242,20 @@
       phone: null, website: null, websiteUrl: null,
       url: '/es/valencia/masia-estrellas/',
       highlight: '18H más baratos de Valencia · Prácticas desde €8'
+    },
+    {
+      id: 'el-prat',
+      name: 'Real Club de Golf El Prat',
+      city: 'Terrassa', province: 'Barcelona', region: 'barcelona',
+      holes: 45, par: 72, type: 'Privado · Real',
+      visitorStatus: 'open',
+      greenFeeMin: 108, greenFeeDisplay: '€108–€156 (según temporada)',
+      membershipMin: null, membershipDisplay: 'Por consulta — admisiones@rcgep.com',
+      membershipStatus: 'open',
+      phone: '+34 937 281 000',
+      website: 'realclubdegolfelprat.com', websiteUrl: 'https://www.realclubdegolfelprat.com',
+      url: '/es/barcelona/el-prat/',
+      highlight: '45 hoyos Greg Norman · Sede DP World Tour · 10× Abierto de España'
     }
   ];
 
@@ -245,11 +265,11 @@
     members: '<span class="badge badge--members">Solo socios</span>'
   };
 
-  var state = { region: 'valencia', holes: 'any', fee: 'any', membership: 'any', q: '' };
+  var state = { region: 'all', holes: 'any', fee: 'any', membership: 'any', q: '' };
 
   function parseURL() {
     var p = new URLSearchParams(window.location.search);
-    state.region     = p.get('region')     || 'valencia';
+    state.region     = p.get('region')     || 'all';
     state.holes      = p.get('holes')      || 'any';
     state.fee        = p.get('fee')        || 'any';
     state.membership = p.get('membership') || 'any';
@@ -266,7 +286,7 @@
 
   function pushURL() {
     var p = new URLSearchParams();
-    if (state.region !== 'valencia') p.set('region', state.region);
+    if (state.region !== 'all') p.set('region', state.region);
     if (state.holes  !== 'any')      p.set('holes',  state.holes);
     if (state.fee    !== 'any')      p.set('fee',    state.fee);
     if (state.membership !== 'any')  p.set('membership', state.membership);

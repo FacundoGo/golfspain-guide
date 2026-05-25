@@ -30,6 +30,7 @@
     <a href="/en/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
     <ul class="nav__links">
       <li><a href="/en/valencia/">Valencia</a></li>
+      <li><a href="/en/barcelona/">Barcelona</a></li>
       <li><a href="/en/about/">About</a></li>
       <li><a href="/en/handicap-calculator/">Handicap</a></li>
       <li><a href="/en/blog/">Blog</a></li>
@@ -49,8 +50,8 @@
     <h1>Golf Courses in Spain</h1>
     <p class="dir-hero__sub">Green fees and membership prices, verified. Find where to play — and what it costs — before you show up.</p>
     <div class="dir-stats">
-      <span id="stat-total">⛳ 8 courses listed</span>
-      <span>📍 Valencia · Costa Blanca</span>
+      <span id="stat-total">⛳ 9 courses listed</span>
+      <span>📍 Valencia · Barcelona</span>
       <span>📅 Updated May 2026</span>
     </div>
   </div>
@@ -61,8 +62,9 @@
     <div class="dir-toolbar-inner">
       <input type="search" id="dir-search" class="dir-search" placeholder="Search club name or city…" aria-label="Search courses" autocomplete="off">
       <select id="filter-region" class="dir-select" aria-label="Filter by region">
-        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
         <option value="all">🇪🇸 All Spain</option>
+        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
+        <option value="barcelona">📍 Barcelona &amp; Catalonia</option>
       </select>
       <select id="filter-holes" class="dir-select" aria-label="Filter by number of holes">
         <option value="any">Holes: Any</option>
@@ -101,6 +103,10 @@
         <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
         <p>Independent guide to golf club membership and green fees in Spain.</p>
       </div>
+      <div class="footer__col"><h4>Barcelona clubs</h4><ul>
+        <li><a href="/en/barcelona/el-prat/">Real Club de Golf El Prat</a></li>
+        <li><a href="/en/barcelona/">All Barcelona clubs →</a></li>
+      </ul></div>
       <div class="footer__col"><h4>Valencia clubs</h4><ul>
         <li><a href="/en/valencia/el-saler/">El Saler</a></li>
         <li><a href="/en/valencia/escorpion/">Escorpión</a></li>
@@ -236,6 +242,20 @@
       phone: null, website: null, websiteUrl: null,
       url: '/en/valencia/masia-estrellas/',
       highlight: 'Best-value 18H in Valencia · Practice from €8'
+    },
+    {
+      id: 'el-prat',
+      name: 'Real Club de Golf El Prat',
+      city: 'Terrassa', province: 'Barcelona', region: 'barcelona',
+      holes: 45, par: 72, type: 'Private · Royal',
+      visitorStatus: 'open',
+      greenFeeMin: 108, greenFeeDisplay: '€108–€156 (seasonal)',
+      membershipMin: null, membershipDisplay: 'By enquiry — admisiones@rcgep.com',
+      membershipStatus: 'open',
+      phone: '+34 937 281 000',
+      website: 'realclubdegolfelprat.com', websiteUrl: 'https://www.realclubdegolfelprat.com',
+      url: '/en/barcelona/el-prat/',
+      highlight: '45 Greg Norman holes · DP World Tour venue · 10× Spanish Open host'
     }
   ];
 
@@ -245,11 +265,11 @@
     members:'<span class="badge badge--members">Members only</span>'
   };
 
-  var state = { region: 'valencia', holes: 'any', fee: 'any', membership: 'any', q: '' };
+  var state = { region: 'all', holes: 'any', fee: 'any', membership: 'any', q: '' };
 
   function parseURL() {
     var p = new URLSearchParams(window.location.search);
-    state.region     = p.get('region')     || 'valencia';
+    state.region     = p.get('region')     || 'all';
     state.holes      = p.get('holes')      || 'any';
     state.fee        = p.get('fee')        || 'any';
     state.membership = p.get('membership') || 'any';
@@ -266,7 +286,7 @@
 
   function pushURL() {
     var p = new URLSearchParams();
-    if (state.region !== 'valencia') p.set('region', state.region);
+    if (state.region !== 'all') p.set('region', state.region);
     if (state.holes  !== 'any')      p.set('holes',  state.holes);
     if (state.fee    !== 'any')      p.set('fee',    state.fee);
     if (state.membership !== 'any')  p.set('membership', state.membership);

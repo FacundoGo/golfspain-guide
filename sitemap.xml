@@ -247,6 +247,61 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/el-bosque-golf-dana-recovery-2026/"/>
   </url>
 
+  <!-- Barcelona region -->
+  <url>
+    <loc>https://golfspain.guide/en/barcelona/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/barcelona/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/barcelona/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/barcelona/el-prat/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/el-prat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/el-prat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/barcelona/el-prat/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/barcelona/el-prat/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/el-prat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/el-prat/"/>
+  </url>
+
+  <!-- El Prat blog posts -->
+  <url>
+    <loc>https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+  </url>
+
   <!-- Handicap Calculator -->
   <url>
     <loc>https://golfspain.guide/en/handicap-calculator/</loc>
