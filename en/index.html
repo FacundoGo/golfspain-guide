@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golf Club Membership &amp; Green Fees in Spain | golfspain.guide</title>
-  <meta name="description" content="The complete guide to golf club membership prices, green fees and contacts across Spain. Real prices, updated regularly. Start with Valencia — 9 clubs compared.">
+  <title>Golf Club Membership &amp; Green Fees in Spain 2026 | golfspain.guide</title>
+  <meta name="description" content="Real membership fees and green fees for golf clubs across Spain — verified prices, updated 2026. Valencia: 8 clubs compared. Barcelona: El Prat from €108. Includes El Saler, Foressos, Escorpión, La Galiana and more.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="l57K-pGjGq_FBsWt3XcKewpKRQKpcTd8DOH1MZ81N34" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -16,11 +16,74 @@
 
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://golfspain.guide/en/">
-  <meta property="og:title"       content="Golf Club Membership &amp; Green Fees in Spain | golfspain.guide">
-  <meta property="og:description" content="The complete guide to golf club membership prices, green fees and contacts across Spain. Real prices, updated regularly.">
+  <meta property="og:title"       content="Golf Club Membership &amp; Green Fees in Spain 2026 | golfspain.guide">
+  <meta property="og:description" content="Real membership fees and green fees for golf clubs across Spain — verified prices, updated 2026.">
 
+  <!-- WebSite schema + sitelinks search box -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"golfspain.guide","url":"https://golfspain.guide/","description":"The complete guide to golf club membership prices, green fees and contacts across Spain."}</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "golfspain.guide",
+    "url": "https://golfspain.guide/en/",
+    "description": "The complete guide to golf club membership fees and green fees across Spain.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://golfspain.guide/en/courses/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- FAQPage schema — powers Google rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does golf club membership cost in Spain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Golf club membership in Spain varies widely. Public and semi-private clubs charge €500–€2,000/year with no entry fee. Mid-range clubs like Foressos Golf in Valencia offer full membership from around €1,860/year. Top private clubs like Escorpión or Real Club de Golf El Prat require an entry share (acción) worth thousands of euros on top of annual fees and do not publish prices publicly — enquiry only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are green fees in Spain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Green fees in Spain range from €24 for a Pitch & Putt round up to €160+ at top private clubs. In Valencia, visitor green fees for a regulation 18-hole round start at €70 (Foressos Golf) and reach €150 at El Saler Parador. In Barcelona, Real Club de Golf El Prat charges €108–€156 per round depending on season."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can visitors play at private golf clubs in Spain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most private clubs in Spain accept visitors with a valid handicap certificate — typically maximum 28–36. Advance booking is essential; walk-ins are rarely accepted. Some clubs like Escorpión are restricted to guests of members or bookings via authorised agencies. Always check the specific club's visitor policy before travelling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an acción in Spanish golf?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An acción is a membership share required to join certain private Spanish golf clubs as a full socio. It is a one-time capital purchase (on top of annual fees) that can range from a few thousand euros to over €50,000 at the most exclusive clubs. Some clubs allow acción holders to sell their share when leaving. Not all clubs require one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What golf regions in Spain are the best for expats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Valencia offers a strong mix of affordable and premium clubs — 8 clubs within an hour of the city, green fees from €10 to €150. Barcelona's Catalonia region has prestige clubs like Real Club de Golf El Prat (from €108) and PGA Catalunya (Ryder Cup 2031 host). The Costa del Sol has the highest density of international-standard courses. We are building out all regions — Valencia and Barcelona are live now."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +97,208 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ── Supplemental homepage variables ── */
+    :root {
+      --cream: #f9f6ef;
+      --text-main: #1c1c1c;
+      --warn-bg: #fff8e6;
+      --warn-border: #e8c840;
+      --hp-radius: 8px;
+    }
+
+    /* ── HERO ── */
+    .hp-hero {
+      background: linear-gradient(150deg, var(--green-dark) 0%, #1f4f35 55%, #224030 100%);
+      color: var(--white);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hp-hero__badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hp-hero h1 {
+      font-size: clamp(24px, 4.5vw, 44px);
+      font-weight: 800; line-height: 1.2;
+      max-width: 700px; margin: 0 auto 18px;
+    }
+    .hp-hero__intro {
+      color: #b8d4c2;
+      font-size: 16px; line-height: 1.7;
+      max-width: 580px; margin: 0 auto 32px;
+    }
+    .hp-hero__ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── STATS BAR ── */
+    .hp-stats {
+      background: var(--green-mid);
+      padding: 20px 24px;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+    }
+    .hp-stat {
+      text-align: center; padding: 8px 32px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .hp-stat:last-child { border-right: none; }
+    .hp-stat__num { font-size: 22px; font-weight: 800; color: var(--gold); display: block; }
+    .hp-stat__lbl { font-size: 12px; color: #aec8b8; margin-top: 2px; }
+
+    /* ── VALUE PROPS ── */
+    .hp-props { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .hp-prop {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--hp-radius); padding: 22px 20px;
+    }
+    .hp-prop__icon { font-size: 24px; margin-bottom: 10px; }
+    .hp-prop h3 { font-size: 15px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+    .hp-prop p { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+
+    /* ── REGION HERO ── */
+    .hp-region-banner {
+      background: linear-gradient(135deg, #0f2a1c 0%, var(--green-dark) 100%);
+      border-radius: 12px;
+      padding: 32px 32px 28px;
+      margin-bottom: 28px;
+      display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+    }
+    .hp-rb-text { flex: 1 1 260px; }
+    .hp-rb-live {
+      display: inline-block; background: #2aad60; color: #fff;
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 10px; letter-spacing: 0.6px; margin-bottom: 12px;
+    }
+    .hp-rb-text h2 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .hp-rb-text p { color: #aec8b8; font-size: 14px; line-height: 1.6; margin-bottom: 18px; }
+    .hp-rb-text a { color: var(--gold); font-weight: 700; text-decoration: none; font-size: 14px; }
+    .hp-rb-text a:hover { color: var(--gold-light); }
+    .hp-rb-stats { display: flex; gap: 20px; flex-wrap: wrap; align-self: center; }
+    .hp-rb-stat { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 16px; min-width: 90px; }
+    .hp-rb-stat__num { font-size: 20px; font-weight: 700; color: var(--gold); }
+    .hp-rb-stat__lbl { font-size: 11px; color: #8ab09a; margin-top: 2px; }
+
+    /* ── COURSE CARDS ── */
+    .hp-courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .hp-cc {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--hp-radius);
+      padding: 18px 18px 16px;
+      transition: box-shadow 0.15s, border-color 0.15s;
+      text-decoration: none; color: inherit;
+      display: block;
+    }
+    .hp-cc:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.10); border-color: var(--green-mid); }
+    .hp-cc__top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+    .hp-cc__name { font-size: 15px; font-weight: 700; color: var(--green-dark); line-height: 1.3; }
+    .hp-cc__badges { display: flex; gap: 5px; flex-wrap: wrap; flex-shrink: 0; }
+    .hp-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 10px; white-space: nowrap; }
+    .hp-badge--value { background: #fff3cd; color: #7a5000; }
+    .hp-badge--9h    { background: #fff0c0; color: #7a5000; }
+    .hp-badge--18h   { background: #e2f0e6; color: #1e5c30; }
+    .hp-badge--pp    { background: #e8e8f8; color: #3a3a8a; }
+    .hp-badge--warn  { background: #fff0e0; color: #a04000; }
+    .hp-cc__prices { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+    .hp-cc__price-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--text-mid); margin-bottom: 2px; }
+    .hp-cc__price-val { font-size: 17px; font-weight: 700; color: var(--green-dark); }
+    .hp-cc__price-sub { font-size: 11px; font-weight: 400; color: var(--text-mid); }
+    .hp-cc__meta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hp-cc__meta span { font-size: 12px; color: var(--text-mid); }
+    .hp-cc__meta span::before { content: "· "; color: var(--border); }
+    .hp-cc__meta span:first-child::before { content: ""; }
+    .hp-cc__note { font-size: 12px; color: #a04000; background: #fff0e0; border-radius: 4px; padding: 5px 9px; margin-top: 10px; }
+    .hp-cc__note--info { color: #3a5a7a; background: #f0f4f8; }
+
+    /* ── REGIONS GRID ── */
+    .hp-regions { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .hp-region {
+      border: 1px solid var(--border); border-radius: var(--hp-radius);
+      padding: 20px 20px 18px; text-decoration: none; color: inherit;
+      display: block;
+    }
+    .hp-region--live { background: var(--white); }
+    .hp-region--live:hover { box-shadow: 0 3px 14px rgba(0,0,0,0.09); border-color: var(--green-mid); }
+    .hp-region--soon { background: #f4f1ec; opacity: 0.75; cursor: default; }
+    .hp-region__status { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px; }
+    .hp-region__status--live { color: #2aad60; }
+    .hp-region__status--live::before { content: "● "; }
+    .hp-region__status--soon { color: var(--text-mid); }
+    .hp-region__status--soon::before { content: "○ "; }
+    .hp-region__name { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+    .hp-region__count { font-size: 13px; color: var(--text-mid); margin-bottom: 12px; }
+    .hp-region__tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .hp-region__tag { font-size: 11px; background: var(--cream, #f9f6ef); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; color: var(--text-mid); }
+    .hp-region__cta { font-size: 13px; font-weight: 700; color: var(--green-mid); }
+    .hp-region--live:hover .hp-region__cta { color: var(--gold); }
+
+    /* ── BLOG CARDS ── */
+    .hp-blog { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .hp-blog-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--hp-radius); overflow: hidden;
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.15s;
+      display: flex; flex-direction: column;
+    }
+    .hp-blog-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.10); }
+    .hp-bc-head { background: var(--green-dark); padding: 24px 20px 20px; }
+    .hp-bc-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .hp-bc-title { font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.35; }
+    .hp-bc-body { padding: 16px 20px; flex: 1; display: flex; flex-direction: column; }
+    .hp-bc-excerpt { font-size: 13px; color: var(--text-mid); line-height: 1.6; flex: 1; margin-bottom: 14px; }
+    .hp-bc-meta { font-size: 12px; color: var(--text-mid); display: flex; justify-content: space-between; }
+    .hp-bc-read { font-size: 13px; font-weight: 700; color: var(--green-mid); }
+
+    /* ── FAQ ── */
+    .hp-faq { border: 1px solid var(--border); border-radius: var(--hp-radius); overflow: hidden; }
+    .hp-faq-item { border-bottom: 1px solid var(--border); }
+    .hp-faq-item:last-child { border-bottom: none; }
+    .hp-faq-q {
+      width: 100%; text-align: left; background: var(--white);
+      padding: 18px 20px; font-size: 15px; font-weight: 700; color: var(--green-dark);
+      border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; font-family: inherit;
+    }
+    .hp-faq-q:hover { background: #f8f5f0; }
+    .hp-faq-q .fq-icon { font-size: 18px; color: var(--text-mid); flex-shrink: 0; transition: transform 0.2s; }
+    .hp-faq-item.open .fq-icon { transform: rotate(45deg); }
+    .hp-faq-a { display: none; padding: 0 20px 18px; font-size: 14px; color: var(--text-mid); line-height: 1.7; background: var(--white); }
+    .hp-faq-item.open .hp-faq-a { display: block; }
+    .hp-faq-a a { color: var(--green-mid); }
+
+    /* ── GLOSSARY ── */
+    .hp-glossary { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .hp-glossary-item { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 16px 18px; }
+    .hp-gl-term { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 5px; }
+    .hp-gl-def { font-size: 13px; color: #aec8b8; line-height: 1.55; }
+
+    /* ── SECTION UTILITIES ── */
+    .hp-section { padding: 56px 24px; }
+    .hp-section--alt { background: var(--white); }
+    .hp-section--dark { background: var(--green-dark); color: var(--white); }
+    .hp-section-inner { max-width: 1060px; margin: 0 auto; }
+    .hp-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .hp-section--dark .hp-label { color: var(--gold); }
+    .hp-h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 800; color: var(--green-dark); margin-bottom: 8px; }
+    .hp-section--dark .hp-h2 { color: var(--white); }
+    .hp-sub { color: var(--text-mid); font-size: 15px; margin-bottom: 36px; max-width: 560px; }
+    .hp-section--dark .hp-sub { color: #8ab09a; }
+    .hp-center-link { text-align: center; margin-top: 28px; }
+    .hp-center-link a { font-weight: 700; color: var(--green-mid); text-decoration: none; font-size: 15px; }
+    .hp-center-link a:hover { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .hp-hero { padding: 44px 16px 40px; }
+      .hp-stat { padding: 8px 18px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 50%; }
+      .hp-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .hp-section { padding: 40px 16px; }
+      .hp-region-banner { padding: 22px 18px 20px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -58,95 +323,460 @@
   </div>
 </nav>
 
-<section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__eyebrow">Spain's Golf Membership Guide</div>
-    <h1>Find your golf club in <span>Spain</span> — real prices, no guesswork</h1>
-    <p class="hero__sub">Membership fees, green fees, and contacts for every major golf club in Spain. Updated regularly. In English, for locals, expats and visitors.</p>
-    <div class="hero__actions">
-      <a href="/en/valencia/" class="btn btn--primary">Explore Valencia Clubs →</a>
-      <a href="/en/about/" class="btn btn--ghost">How we collect data</a>
-    </div>
+<!-- ── HERO ── -->
+<header class="hp-hero">
+  <p class="hp-hero__badge">⛳ Golf in Spain — Independent Guide 2026</p>
+  <h1>Golf Club Membership &amp; Green Fees in Spain</h1>
+  <p class="hp-hero__intro">Real membership fees, green fees, and visitor guides for golf clubs across Spain — independently researched, updated for 2026. No guesswork, no stale PDFs.</p>
+  <div class="hp-hero__ctas">
+    <a class="btn btn--primary" href="/en/valencia/">Explore Valencia Clubs →</a>
+    <a class="btn btn--ghost" href="/en/handicap-calculator/">Calculate My Handicap</a>
   </div>
-</section>
+</header>
 
-<section class="why">
-  <div class="container">
-    <div class="why__grid">
-      <div class="why__item">
-        <div class="why__icon">💰</div>
-        <div><h4>Real membership prices</h4><p>We list actual annual fees, monthly abonos and share purchase costs — the info clubs bury in PDFs.</p></div>
-      </div>
-      <div class="why__item">
-        <div class="why__icon">📅</div>
-        <div><h4>Updated with a date</h4><p>Every price shows when it was last verified. No stale data hidden behind a "2019" footer.</p></div>
-      </div>
-      <div class="why__item">
-        <div class="why__icon">🇬🇧</div>
-        <div><h4>Written for expats &amp; visitors</h4><p>We explain the Spanish club system — acción, transeúnte, abono — so you know what you're paying for.</p></div>
-      </div>
-      <div class="why__item">
-        <div class="why__icon">📍</div>
-        <div><h4>All clubs in one place</h4><p>Compare clubs by price, location and type without visiting 9 different websites.</p></div>
-      </div>
-    </div>
+<!-- ── STATS BAR ── -->
+<div class="hp-stats">
+  <div class="hp-stat">
+    <span class="hp-stat__num">9</span>
+    <span class="hp-stat__lbl">Clubs published</span>
   </div>
-</section>
+  <div class="hp-stat">
+    <span class="hp-stat__num">2</span>
+    <span class="hp-stat__lbl">Regions covered</span>
+  </div>
+  <div class="hp-stat">
+    <span class="hp-stat__num">€70</span>
+    <span class="hp-stat__lbl">Cheapest 18H visitor round</span>
+  </div>
+  <div class="hp-stat">
+    <span class="hp-stat__num">2026</span>
+    <span class="hp-stat__lbl">Prices verified</span>
+  </div>
+</div>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <h2>Regions covered</h2>
-      <p>We're starting with Valencia and expanding region by region. All data is verified before publishing.</p>
-    </div>
-    <div class="clubs-grid">
-      <div class="club-card">
-        <div class="club-card__img" style="background:linear-gradient(135deg,#2D7A4F,#1E5631);color:#fff;font-size:1rem;font-weight:800;flex-direction:column;gap:8px;"><span style="font-size:2.5rem;">⛳</span>Valencia Region</div>
-        <div class="club-card__body">
-          <div class="club-card__status"><span class="badge badge--open">✓ 9 Clubs Listed</span></div>
-          <div class="club-card__name">Valencia</div>
-          <div class="club-card__meta"><span>🏌️ 9 golf clubs</span><span>📍 Valencia province</span></div>
-          <p class="club-card__price">From budget public courses to top-ranked private clubs. Includes <strong>El Saler</strong> (Top 5 Europe) and <strong>Escorpión</strong>.</p>
-          <div class="club-card__footer"><a href="/en/valencia/" class="club-card__link">See all Valencia clubs →</a></div>
-        </div>
+<!-- ── VALUE PROPS ── -->
+<section class="hp-section">
+  <div class="hp-section-inner">
+    <div class="hp-props">
+      <div class="hp-prop">
+        <div class="hp-prop__icon">💰</div>
+        <h3>Real membership prices</h3>
+        <p>We list actual annual fees, monthly abonos and share (acción) costs — the info clubs bury in PDFs or hide behind enquiry forms.</p>
       </div>
-      <div class="club-card" style="opacity:.7;">
-        <div class="club-card__img" style="background:#E8F5EE;color:#2D7A4F;font-size:1rem;font-weight:800;flex-direction:column;gap:8px;"><span style="font-size:2.5rem;">🗺️</span>Coming soon</div>
-        <div class="club-card__body">
-          <div class="club-card__status"><span class="badge badge--partial">Coming soon</span></div>
-          <div class="club-card__name">Costa del Sol / Andalucía</div>
-          <div class="club-card__meta"><span>🏌️ 100+ clubs</span></div>
-          <p class="club-card__price">Marbella, Málaga, Sotogrande — the heartland of golf tourism in Spain.</p>
-          <div class="club-card__footer"><a href="/en/about/" class="club-card__link" style="background:#f3f4f6;color:#6B7280;">Notify me when ready</a></div>
-        </div>
+      <div class="hp-prop">
+        <div class="hp-prop__icon">📅</div>
+        <h3>Dated &amp; verified</h3>
+        <p>Every price shows when it was last confirmed. No stale data. We check club websites and contact clubs directly when needed.</p>
       </div>
-      <div class="club-card">
-        <div class="club-card__img" style="background:linear-gradient(135deg,#1a3326,#2e6349);color:#fff;font-size:1rem;font-weight:800;flex-direction:column;gap:8px;"><span style="font-size:2.5rem;">⛳</span>Barcelona Region</div>
-        <div class="club-card__body">
-          <div class="club-card__status"><span class="badge badge--open">✓ 1 Club Listed</span></div>
-          <div class="club-card__name">Barcelona &amp; Catalonia</div>
-          <div class="club-card__meta"><span>🏌️ 40+ clubs in region</span><span>📍 Catalonia</span></div>
-          <p class="club-card__price">Including <strong>Real Club de Golf El Prat</strong> — 45 Greg Norman holes, DP World Tour venue, from €108 green fee. PGA Catalunya (Ryder Cup 2031) coming soon.</p>
-          <div class="club-card__footer"><a href="/en/barcelona/" class="club-card__link">See all Barcelona clubs →</a></div>
-        </div>
+      <div class="hp-prop">
+        <div class="hp-prop__icon">🇬🇧</div>
+        <h3>Written for expats &amp; visitors</h3>
+        <p>We explain the Spanish club system — acción, transeúnte, abono — so you know exactly what you're paying for before you enquire.</p>
+      </div>
+      <div class="hp-prop">
+        <div class="hp-prop__icon">📍</div>
+        <h3>One place, all clubs</h3>
+        <p>Compare clubs by price, type, location and difficulty without visiting a dozen different websites in Spanish.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--alt">
-  <div class="container">
-    <div class="section-header"><h2>How golf club membership works in Spain</h2></div>
-    <div style="max-width:700px;display:flex;flex-direction:column;gap:16px;">
-      <p>Spanish golf clubs use a range of membership structures that can confuse newcomers. Some clubs — like <a href="/en/valencia/escorpion/">Club de Golf Escorpión</a> — require you to purchase a <strong>acción</strong> (share) worth thousands of euros before joining. Others operate with a simple annual fee called an <strong>abono</strong> or cuota. Public courses like <a href="/en/valencia/el-saler/">El Saler</a> typically only offer green fees.</p>
-      <p>Key terms you'll encounter:</p>
-      <ul style="list-style:disc;padding-left:24px;color:var(--text-mid);display:flex;flex-direction:column;gap:8px;">
-        <li><strong>Socio</strong> — a full member, usually paying a monthly or annual fee</li>
-        <li><strong>Abono / cuota</strong> — the membership fee (monthly or annual)</li>
-        <li><strong>Acción</strong> — a share in the club, required at some private clubs</li>
-        <li><strong>Transeúnte</strong> — a non-shareholder member who pays a higher fee</li>
-        <li><strong>Green fee</strong> — pay-per-round for visitors</li>
-      </ul>
+<!-- ── FEATURED: VALENCIA ── -->
+<section class="hp-section hp-section--alt">
+  <div class="hp-section-inner">
+
+    <div class="hp-region-banner">
+      <div class="hp-rb-text">
+        <span class="hp-rb-live">✓ Live — 8 clubs</span>
+        <h2>Valencia Region</h2>
+        <p>From budget 9-hole public courses to top-ranked private clubs with European Tour history. Includes El Saler (Top 5 in Europe), Escorpión, Foressos, La Galiana, and more.</p>
+        <a href="/en/valencia/">View all Valencia clubs →</a>
+      </div>
+      <div class="hp-rb-stats">
+        <div class="hp-rb-stat">
+          <div class="hp-rb-stat__num">8</div>
+          <div class="hp-rb-stat__lbl">Clubs listed</div>
+        </div>
+        <div class="hp-rb-stat">
+          <div class="hp-rb-stat__num">€70</div>
+          <div class="hp-rb-stat__lbl">From (18H)</div>
+        </div>
+        <div class="hp-rb-stat">
+          <div class="hp-rb-stat__num">117–148</div>
+          <div class="hp-rb-stat__lbl">Slope range</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hp-courses">
+
+      <a class="hp-cc" href="/en/valencia/foressos/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">Foressos Golf</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--value">🏆 Best Value 18H</span>
+            <span class="hp-badge hp-badge--18h">18H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">Weekday</div><div class="hp-cc__price-val">€70</div></div>
+          <div><div class="hp-cc__price-lbl">Weekend</div><div class="hp-cc__price-val">€80</div></div>
+          <div><div class="hp-cc__price-lbl">9H weekday</div><div class="hp-cc__price-val">€55</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 140</span><span>Par 72</span><span>Very challenging</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/ifach/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">Club de Golf Ifach</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--9h">9H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">18H lap</div><div class="hp-cc__price-val">€49.50</div></div>
+          <div><div class="hp-cc__price-lbl">9H</div><div class="hp-cc__price-val">€33.50</div></div>
+          <div><div class="hp-cc__price-lbl">Members</div><div class="hp-cc__price-val">€18</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Par 30</span><span>Benissa · Costa Blanca</span><span>Pool &amp; restaurant</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/la-galiana/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">La Galiana Golf Resort</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--18h">18H</span>
+            <span class="hp-badge hp-badge--9h">9H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">18H</div><div class="hp-cc__price-val">€75</div></div>
+          <div><div class="hp-cc__price-lbl">9H</div><div class="hp-cc__price-val">€45</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 148</span><span>Par 72</span><span>Best Course Spain 2019</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/el-saler/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">El Saler — Parador de Golf</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--18h">18H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">Standard</div><div class="hp-cc__price-val">€150</div></div>
+          <div><div class="hp-cc__price-lbl">Advance</div><div class="hp-cc__price-val">€115</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 136</span><span>Par 72</span><span>Top 5 Europe</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/el-bosque/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">El Bosque Golf</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--18h">18H</span>
+            <span class="hp-badge hp-badge--warn">⚠️ DANA</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">Weekday</div><div class="hp-cc__price-val">€105</div></div>
+          <div><div class="hp-cc__price-lbl">Weekend</div><div class="hp-cc__price-val">€125</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 148</span><span>Par 72</span><span>Very challenging</span>
+        </div>
+        <div class="hp-cc__note">⚠️ Flood damage Oct 2024. Verify status before booking.</div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/escorpion/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">Club de Golf Escorpión</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--18h">27H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">Guest rate</div><div class="hp-cc__price-val">~€160</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 128</span><span>Invitation / agency only</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/masia-estrellas/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">Masía de las Estrellas</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--value">🏆 Best Value P&amp;P</span>
+            <span class="hp-badge hp-badge--pp">Pitch &amp; Putt</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">18-hole lap</div><div class="hp-cc__price-val">~€24</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Par 3 course</span><span>No HCP required</span><span>Benissa</span>
+        </div>
+      </a>
+
+      <a class="hp-cc" href="/en/valencia/requena/">
+        <div class="hp-cc__top">
+          <div class="hp-cc__name">Golf Requena</div>
+          <div class="hp-cc__badges">
+            <span class="hp-badge hp-badge--9h">9H</span>
+          </div>
+        </div>
+        <div class="hp-cc__prices">
+          <div><div class="hp-cc__price-lbl">Public rate</div><div class="hp-cc__price-val" style="font-size:14px;color:var(--text-mid)">~€10</div></div>
+        </div>
+        <div class="hp-cc__meta">
+          <span>Slope 117</span><span>Par 35</span><span>Most affordable round</span>
+        </div>
+        <div class="hp-cc__note hp-cc__note--info">📞 +34 667 101 240 — call to confirm</div>
+      </a>
+
+    </div>
+
+    <div class="hp-center-link">
+      <a href="/en/valencia/">See full Valencia guide with pricing, membership &amp; booking →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ALL REGIONS ── -->
+<section class="hp-section">
+  <div class="hp-section-inner">
+    <p class="hp-label">Full Directory</p>
+    <h2 class="hp-h2">Golf Clubs Across Spain</h2>
+    <p class="hp-sub">Building the most complete golf club directory in Spain, region by region. Valencia and Barcelona are live now — more regions in progress.</p>
+
+    <div class="hp-regions">
+
+      <a class="hp-region hp-region--live" href="/en/valencia/">
+        <div class="hp-region__status hp-region__status--live">Live</div>
+        <div class="hp-region__name">Valencia Region</div>
+        <div class="hp-region__count">8 clubs published</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">El Saler</span>
+          <span class="hp-region__tag">Foressos</span>
+          <span class="hp-region__tag">Escorpión</span>
+          <span class="hp-region__tag">La Galiana</span>
+          <span class="hp-region__tag">+ 4 more</span>
+        </div>
+        <span class="hp-region__cta">Explore Valencia →</span>
+      </a>
+
+      <a class="hp-region hp-region--live" href="/en/barcelona/">
+        <div class="hp-region__status hp-region__status--live">Live</div>
+        <div class="hp-region__name">Barcelona &amp; Catalonia</div>
+        <div class="hp-region__count">1 club published · 40+ in region</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">El Prat</span>
+          <span class="hp-region__tag">PGA Catalunya ↗</span>
+          <span class="hp-region__tag">Terramar ↗</span>
+          <span class="hp-region__tag">Vallromanes ↗</span>
+        </div>
+        <span class="hp-region__cta">Explore Barcelona →</span>
+      </a>
+
+      <div class="hp-region hp-region--soon">
+        <div class="hp-region__status hp-region__status--soon">Coming soon</div>
+        <div class="hp-region__name">Costa del Sol / Andalucía</div>
+        <div class="hp-region__count">100+ clubs in region</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">Valderrama</span>
+          <span class="hp-region__tag">Sotogrande</span>
+          <span class="hp-region__tag">Marbella</span>
+        </div>
+        <span class="hp-region__cta" style="color:var(--text-mid)">Notify me when ready →</span>
+      </div>
+
+      <div class="hp-region hp-region--soon">
+        <div class="hp-region__status hp-region__status--soon">Coming soon</div>
+        <div class="hp-region__name">Madrid &amp; Centre</div>
+        <div class="hp-region__count">40+ clubs in region</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">RACE</span>
+          <span class="hp-region__tag">La Moraleja</span>
+          <span class="hp-region__tag">Real Automóvil</span>
+        </div>
+        <span class="hp-region__cta" style="color:var(--text-mid)">Notify me when ready →</span>
+      </div>
+
+      <div class="hp-region hp-region--soon">
+        <div class="hp-region__status hp-region__status--soon">Coming soon</div>
+        <div class="hp-region__name">Alicante &amp; Murcia</div>
+        <div class="hp-region__count">30+ clubs in region</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">La Manga</span>
+          <span class="hp-region__tag">Alicante GC</span>
+          <span class="hp-region__tag">Altea Hills</span>
+        </div>
+        <span class="hp-region__cta" style="color:var(--text-mid)">Notify me when ready →</span>
+      </div>
+
+      <div class="hp-region hp-region--soon">
+        <div class="hp-region__status hp-region__status--soon">Coming soon</div>
+        <div class="hp-region__name">Balearic Islands</div>
+        <div class="hp-region__count">20+ clubs in region</div>
+        <div class="hp-region__tags">
+          <span class="hp-region__tag">Son Vida (Mallorca)</span>
+          <span class="hp-region__tag">Golf de Ibiza</span>
+        </div>
+        <span class="hp-region__cta" style="color:var(--text-mid)">Notify me when ready →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG ── -->
+<section class="hp-section hp-section--alt">
+  <div class="hp-section-inner">
+    <p class="hp-label">From the blog</p>
+    <h2 class="hp-h2">Latest Golf Guides &amp; News</h2>
+    <p class="hp-sub">In-depth guides for golfers visiting or living in Spain — course conditions, membership advice, and price updates.</p>
+
+    <div class="hp-blog">
+      <a class="hp-blog-card" href="/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/">
+        <div class="hp-bc-head">
+          <div class="hp-bc-tag">Visitor Guide · Barcelona</div>
+          <div class="hp-bc-title">Real Club de Golf El Prat — Green Fees &amp; Membership 2026</div>
+        </div>
+        <div class="hp-bc-body">
+          <p class="hp-bc-excerpt">45 Greg Norman holes, 30 minutes from Barcelona. Green fees from €108 weekday in low season. Membership cost, visitor booking, and everything you need to know before going.</p>
+          <div class="hp-bc-meta">
+            <span>May 2026</span>
+            <span class="hp-bc-read">Read →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="hp-blog-card" href="/en/blog/el-bosque-golf-dana-recovery-2026/">
+        <div class="hp-bc-head">
+          <div class="hp-bc-tag">Course Update · Valencia</div>
+          <div class="hp-bc-title">El Bosque Golf After the DANA Floods: What Visitors Should Know in 2026</div>
+        </div>
+        <div class="hp-bc-body">
+          <p class="hp-bc-excerpt">El Bosque was hit by the October 2024 DANA floods. Here's the current status, what's playable, and how to plan a round responsibly in 2026.</p>
+          <div class="hp-bc-meta">
+            <span>May 2026</span>
+            <span class="hp-bc-read">Read →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="hp-center-link">
+      <a href="/en/blog/">See all golf guides →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="hp-section">
+  <div class="hp-section-inner">
+    <p class="hp-label">Useful to know</p>
+    <h2 class="hp-h2">Golf Membership in Spain — Common Questions</h2>
+    <p class="hp-sub">The Spanish golf club system confuses a lot of expats and visitors. Here are the questions we get most.</p>
+
+    <div class="hp-faq">
+
+      <div class="hp-faq-item">
+        <button class="hp-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How much does golf club membership cost in Spain?
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="hp-faq-a">
+          It varies a lot. Public and semi-private clubs charge roughly €500–€2,000/year. Mid-tier private clubs like <a href="/en/valencia/foressos/">Foressos Golf</a> charge from around €600/year with no share required. Top private clubs like <a href="/en/valencia/escorpion/">Escorpión</a> or Real Club de Golf El Prat require an entry share (<em>acción</em>) worth thousands of euros on top of annual fees — and don't publish prices publicly.
+        </div>
+      </div>
+
+      <div class="hp-faq-item">
+        <button class="hp-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What are green fees in Spain — what should I expect to pay?
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="hp-faq-a">
+          Green fees range from ~€10 for a 9-hole public round (<a href="/en/valencia/requena/">Requena</a>) up to €160+ at top private clubs. The cheapest verified 18-hole visitor rate is €70 at <a href="/en/valencia/foressos/">Foressos Golf</a>. Premium courses like <a href="/en/valencia/el-saler/">El Saler</a> charge €115–€150, and <a href="/en/barcelona/el-prat/">Real Club de Golf El Prat</a> in Barcelona charges €108–€156 depending on season.
+        </div>
+      </div>
+
+      <div class="hp-faq-item">
+        <button class="hp-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Can visitors play at private golf clubs in Spain?
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="hp-faq-a">
+          Most private clubs in Spain welcome visitors with a valid handicap certificate (typically maximum 28–36). Advance booking is essential — walk-ins are rarely accepted. Some clubs like <a href="/en/valencia/escorpion/">Escorpión</a> are restricted to guests of members or bookings via authorised agencies. Always check the specific club's visitor policy before travelling.
+        </div>
+      </div>
+
+      <div class="hp-faq-item">
+        <button class="hp-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What is an <em>acción</em> in Spanish golf — do I need one?
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="hp-faq-a">
+          An <em>acción</em> is a membership share required to join certain private Spanish golf clubs as a full <em>socio</em>. It's a one-time capital purchase (separate from annual fees) that can range from a few thousand euros to over €50,000 at the most exclusive clubs. Some clubs allow you to sell your share when you leave. Not all clubs require one — always ask before enquiring about membership.
+        </div>
+      </div>
+
+      <div class="hp-faq-item">
+        <button class="hp-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What golf regions in Spain are the best for expats?
+          <span class="fq-icon">+</span>
+        </button>
+        <div class="hp-faq-a">
+          <a href="/en/valencia/">Valencia</a> offers a strong mix of affordable and premium clubs within a compact area — 8 clubs verified, green fees from €10 to €150. <a href="/en/barcelona/">Barcelona &amp; Catalonia</a> has prestige clubs including El Prat (DP World Tour) and PGA Catalunya (Ryder Cup 2031 host). The Costa del Sol has the highest density of international-standard courses. We're building out all regions — start with Valencia and Barcelona, both live now.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── GLOSSARY ── -->
+<section class="hp-section hp-section--dark">
+  <div class="hp-section-inner">
+    <p class="hp-label">Glossary</p>
+    <h2 class="hp-h2">Key Terms for Golf in Spain</h2>
+    <p class="hp-sub">Spanish golf clubs use terminology that doesn't translate directly. Here's what you'll encounter.</p>
+
+    <div class="hp-glossary">
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">Socio</div>
+        <div class="hp-gl-def">A full club member, usually paying a monthly or annual fee. Full socios often have priority tee times and voting rights.</div>
+      </div>
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">Acción</div>
+        <div class="hp-gl-def">A membership share required to join some private clubs. A one-time capital outlay, separate from annual fees. Can sometimes be resold.</div>
+      </div>
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">Abono / Cuota</div>
+        <div class="hp-gl-def">The recurring membership fee — monthly (<em>mensual</em>) or annual (<em>anual</em>). The main ongoing cost of belonging to a club.</div>
+      </div>
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">Transeúnte</div>
+        <div class="hp-gl-def">A non-shareholder member who pays higher fees than a full <em>socio</em> but doesn't hold an <em>acción</em>. Common at clubs that allow it.</div>
+      </div>
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">Green fee</div>
+        <div class="hp-gl-def">Pay-per-round rate for visitors. Displayed as weekday (<em>laborable</em>) and weekend (<em>fin de semana / festivo</em>).</div>
+      </div>
+      <div class="hp-glossary-item">
+        <div class="hp-gl-term">HCP / Hándicap</div>
+        <div class="hp-gl-def">Most Spanish clubs require a valid WHS handicap to play. Typically max 28 for men, 36 for women — but varies by club.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -156,24 +786,36 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
-        <p>The complete guide to golf club membership and green fees in Spain. Independent, regularly updated, free to use.</p>
+        <p>The complete independent guide to golf club membership fees and green fees across Spain. Updated for 2026.</p>
       </div>
       <div class="footer__col">
         <h4>Regions</h4>
         <ul>
-          <li><a href="/en/valencia/">Valencia</a></li>
-          <li><a href="/en/barcelona/">Barcelona &amp; Catalonia</a></li>
+          <li><a href="/en/valencia/">Valencia ✓</a></li>
+          <li><a href="/en/barcelona/">Barcelona &amp; Catalonia ✓</a></li>
           <li><a href="/en/courses/">All courses →</a></li>
         </ul>
       </div>
       <div class="footer__col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/en/handicap-calculator/">Handicap Calculator</a></li>
+          <li><a href="/en/courses/">All Courses</a></li>
+          <li><a href="/en/blog/">Golf Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
         <h4>Info</h4>
-        <ul><li><a href="/en/about/">About this guide</a></li><li><a href="/en/about/#contact">Contact / corrections</a></li></ul>
+        <ul>
+          <li><a href="/en/about/">About this guide</a></li>
+          <li><a href="/en/about/#contact">Contact / corrections</a></li>
+          <li><a href="/es/">En español</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2026 golfspain.guide — Independent guide, not affiliated with any club.</p>
-      <p>Prices are updated regularly but always verify directly with the club.</p>
+      <p>© 2026 golfspain.guide — Independent guide, not affiliated with any club or booking agency.</p>
+      <p>Prices verified regularly — always confirm directly with the club before booking.</p>
     </div>
   </div>
 </footer>
