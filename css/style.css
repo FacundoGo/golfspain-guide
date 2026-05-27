@@ -83,10 +83,12 @@ p  { color: var(--text-mid); }
 .nav__links a { color: rgba(255,255,255,.85); font-weight: 600; font-size: .95rem; transition: color var(--transition); }
 .nav__links a:hover { color: #fff; }
 .nav__cta {
-  background: var(--gold); color: #111111 !important;
-  padding: 8px 18px; border-radius: var(--radius-sm); font-weight: 700 !important;
+  background: transparent; color: #fff !important;
+  border: 2px solid rgba(255,255,255,.65);
+  padding: 7px 18px; border-radius: var(--radius-sm); font-weight: 700 !important;
+  transition: background var(--transition), border-color var(--transition);
 }
-.nav__cta:hover { background: #b8942e !important; color: #111111 !important; }
+.nav__cta:hover { background: rgba(255,255,255,.15) !important; border-color: #fff !important; color: #fff !important; }
 .nav__burger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
 .nav__burger span {
   display: block; width: 24px; height: 2px; background: #fff;
@@ -236,7 +238,7 @@ p  { color: var(--text-mid); }
 .club-hero__eyebrow { font-size: .85rem; color: rgba(255,255,255,.7); margin-bottom: 10px; }
 .club-hero__eyebrow a { color: rgba(255,255,255,.7); }
 .club-hero__eyebrow a:hover { color: #fff; }
-.club-hero h1 { margin-bottom: 14px; }
+.club-hero h1 { margin-bottom: 14px; color: #fff; }
 .club-hero__sub { font-size: 1rem; color: rgba(255,255,255,.85); margin-bottom: 28px; max-width: 620px; }
 .club-hero__stats {
   display: flex; gap: 28px; flex-wrap: wrap;
