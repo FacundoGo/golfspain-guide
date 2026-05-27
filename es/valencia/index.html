@@ -64,13 +64,18 @@
     /* ── CTA reservar en tabla ── */
     .book-link {
       display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--green-mid);
+      font-size: 11px;
+      font-weight: 800;
+      background: var(--gold);
+      color: #111 !important;
       text-decoration: none;
       white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 4px;
     }
-    .book-link:hover { text-decoration: underline; color: var(--green-dark); }
+    .book-link:hover { background: #b8942e; color: #111 !important; text-decoration: none; }
+    .book-link--phone { background: transparent !important; color: var(--text-mid) !important; font-weight: 600; padding: 0; font-size: 12px; border-radius: 0; }
+    .book-link--phone:hover { background: transparent !important; text-decoration: underline; color: var(--text-dark) !important; }
 
     /* ── Etiqueta mejor precio ── */
     .best-val {
@@ -197,7 +202,7 @@
               <td class="price-highlight">€80</td>
               <td>140</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="/es/valencia/foressos/" class="book-link">Detalles →</a></td>
+              <td><a href="https://www.ontee.com/en/booking/Foressos%20Golf%20club/TEE%201/" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Página próximamente</small></td>
@@ -205,7 +210,7 @@
               <td class="price-highlight">€68</td>
               <td>—</td>
               <td><span class="diff diff--none">—</span></td>
-              <td><span style="font-size:12px;color:var(--text-light);">Verificando</span></td>
+              <td><a href="https://realclubdegolfmanises.golfmanager.com/consumer/ebookings" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td><a href="/es/valencia/la-galiana/">La Galiana Golf Resort</a></td>
@@ -213,7 +218,7 @@
               <td class="price-highlight">€80–€105 <small style="font-weight:400;color:var(--text-light);">temporada ¹</small></td>
               <td>148</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+              <td><a href="https://www.ontee.com/en/booking/La%20Galiana%20Golf/18-hole%20course/" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td><a href="/es/valencia/el-bosque/">El Bosque Golf</a> <span class="dana-badge">⚠️ DANA</span></td>
@@ -221,7 +226,7 @@
               <td class="price-highlight">€105–€125 <small style="font-weight:400;color:var(--text-light);">pre-DANA ³</small></td>
               <td>148</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="tel:+34961808009" class="book-link">📞 Llama primero</a></td>
+              <td><a href="https://elbosque.golfmanager.com/consumer/ebookings" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr class="popular">
               <td><a href="/es/valencia/el-saler/">El Saler (Parador)</a></td>
@@ -229,15 +234,15 @@
               <td class="price-highlight">€115–€150 <small style="font-weight:400;color:var(--text-light);">²</small></td>
               <td>136</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="https://paradores.es/es/campo-de-golf-de-el-saler" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+              <td><a href="https://open.teeone.golf/es/parador-saler/disponibilidad" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
-              <td><a href="/es/valencia/escorpion/">Club de Golf Escorpión</a> <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Solo invitados vía agencia</small></td>
+              <td><a href="/es/valencia/escorpion/">Club de Golf Escorpión</a> <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Reserva online entre semana</small></td>
               <td class="price-highlight">~€160 <small style="font-weight:400;color:var(--text-light);">⁴</small></td>
               <td class="na">—</td>
               <td>128</td>
               <td><span class="diff diff--challenging">Exigente</span></td>
-              <td><a href="https://clgolf.es" target="_blank" rel="noopener noreferrer" class="book-link">Campbell Lamont →</a></td>
+              <td><a href="https://www.golfinspain.com/scripts/res/steps.php?s=1&amp;package=1000&amp;id_campo=562&amp;date=03%2F06%2F2026&amp;lang=eng" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
           </tbody>
         </table>
@@ -246,7 +251,7 @@
         <span><sup>1</sup> Precios de temporada en La Galiana: <strong>€80</strong> invierno (dic) · <strong>€85</strong> verano (15 jun–20 sep) · <strong>€105</strong> temporada media (2 mar–14 jun, 21 sep–30 nov). Tarifa de 9H no confirmada — contacta con el resort.</span>
         <span><sup>2</sup> El Saler: €115 con reserva anticipada online / €150 tarifa estándar. Las tarifas de clientes del hotel o invitados de socios difieren — consulta la <a href="/es/valencia/el-saler/">página individual</a>.</span>
         <span><sup>3</sup> <strong>El Bosque</strong>: daños por las inundaciones de la DANA de octubre de 2024. Las tarifas mostradas son de 2024 previas a la catástrofe — <strong>llama antes de reservar</strong>: <a href="tel:+34961808009">+34 96 180 80 09</a>. Más info: <a href="/es/blog/el-bosque-golf-dana-recovery-2026/">artículo sobre la recuperación →</a></span>
-        <span><sup>4</sup> Escorpión: solo invitados mediante presentación o agencia autorizada. Tarifa estimada, no confirmada oficialmente.</span>
+        <span><sup>4</sup> Escorpión: los no socios pueden reservar online directamente <strong>solo para partidas entre semana</strong>. Los fines de semana requieren invitación de socio o agencia autorizada. Tarifa estimada, no confirmada oficialmente.</span>
         <span style="margin-top:4px;">Precios verificados mayo 2026. Confirma siempre directamente con el club antes de reservar.</span>
       </div>
     </div>
@@ -272,7 +277,7 @@
               <td class="price-highlight">€10 <small style="font-weight:400;color:var(--text-light);">público TBC</small></td>
               <td>117</td>
               <td><span class="diff diff--moderate">Moderado</span></td>
-              <td><a href="tel:+34667101240" class="book-link">📞 Llamar</a></td>
+              <td><a href="tel:+34667101240" class="book-link book-link--phone">📞 667 10 12 40</a></td>
             </tr>
             <tr>
               <td><a href="/es/valencia/ifach/">Ifach Golf</a></td>
@@ -280,7 +285,7 @@
               <td class="price-highlight">€33,50</td>
               <td>—</td>
               <td><span class="diff diff--none">—</span></td>
-              <td><a href="/es/valencia/ifach/" class="book-link">Detalles →</a></td>
+              <td><a href="/es/valencia/ifach/" class="book-link book-link--phone">Detalles →</a></td>
             </tr>
             <tr>
               <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">Página próximamente</small></td>
@@ -288,7 +293,7 @@
               <td class="price-highlight">€52</td>
               <td>—</td>
               <td><span class="diff diff--none">—</span></td>
-              <td><span style="font-size:12px;color:var(--text-light);">Verificando</span></td>
+              <td><a href="https://realclubdegolfmanises.golfmanager.com/consumer/ebookings" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td><a href="/es/valencia/foressos/">Foressos Golf</a></td>
@@ -296,7 +301,7 @@
               <td class="price-highlight">€65</td>
               <td>140</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="/es/valencia/foressos/" class="book-link">Detalles →</a></td>
+              <td><a href="https://www.ontee.com/en/booking/Foressos%20Golf%20club/TEE%201/" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td><a href="/es/valencia/la-galiana/">La Galiana Golf Resort</a></td>
@@ -304,7 +309,7 @@
               <td class="na">TBC — verificar</td>
               <td>148</td>
               <td><span class="diff diff--very">Muy exigente</span></td>
-              <td><a href="https://www.lagalianagolfresort.com" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
+              <td><a href="https://www.ontee.com/en/booking/La%20Galiana%20Golf/18-hole%20course/" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
           </tbody>
         </table>
@@ -335,7 +340,7 @@
               <td><a href="/es/valencia/masia-estrellas/">Masía de las Estrellas</a> <span class="best-val">🏆 Mejor precio P&amp;P</span></td>
               <td class="price-highlight">€24 <small style="font-weight:400;color:var(--text-light);">(18 vueltas)</small></td>
               <td style="font-size:.85rem;">9 hoyos Par 3, doble salida. Sin hándicap obligatorio. Prácticas (campo + putting) €8.</td>
-              <td><a href="/es/valencia/masia-estrellas/" class="book-link">Detalles →</a></td>
+              <td><a href="https://open.teeone.golf/es/masiadelasestrellas" target="_blank" rel="noopener noreferrer" class="book-link">Reservar →</a></td>
             </tr>
             <tr>
               <td>Club de Golf Manises <small style="color:var(--text-light);font-weight:400;display:block;font-size:.8rem;">P&amp;P separado del campo principal</small></td>
