@@ -50,8 +50,8 @@
     <h1>Golf Courses in Spain</h1>
     <p class="dir-hero__sub">Green fees and membership prices, verified. Find where to play — and what it costs — before you show up.</p>
     <div class="dir-stats">
-      <span id="stat-total">⛳ 9 courses listed</span>
-      <span>📍 Valencia · Barcelona</span>
+      <span id="stat-total">⛳ 12 courses listed</span>
+      <span>📍 Valencia · Barcelona · Alicante · Toledo</span>
       <span>📅 Updated May 2026</span>
     </div>
   </div>
@@ -63,7 +63,9 @@
       <input type="search" id="dir-search" class="dir-search" placeholder="Search club name or city…" aria-label="Search courses" autocomplete="off">
       <select id="filter-region" class="dir-select" aria-label="Filter by region">
         <option value="all">🇪🇸 All Spain</option>
-        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
+        <option value="valencia">📍 Valencia &amp; Costa Blanca Norte</option>
+        <option value="alicante">📍 Alicante &amp; Costa Blanca Sur</option>
+        <option value="toledo">📍 Toledo &amp; Castilla-La Mancha</option>
         <option value="barcelona">📍 Barcelona &amp; Catalonia</option>
       </select>
       <select id="filter-holes" class="dir-select" aria-label="Filter by number of holes">
@@ -107,15 +109,16 @@
         <li><a href="/en/barcelona/el-prat/">Real Club de Golf El Prat</a></li>
         <li><a href="/en/barcelona/">All Barcelona clubs →</a></li>
       </ul></div>
-      <div class="footer__col"><h4>Valencia clubs</h4><ul>
+      <div class="footer__col"><h4>Valencia &amp; more</h4><ul>
         <li><a href="/en/valencia/el-saler/">El Saler</a></li>
         <li><a href="/en/valencia/escorpion/">Escorpión</a></li>
         <li><a href="/en/valencia/foressos/">Foressos</a></li>
         <li><a href="/en/valencia/el-bosque/">El Bosque</a></li>
         <li><a href="/en/valencia/la-galiana/">La Galiana</a></li>
-        <li><a href="/en/valencia/requena/">Requena</a></li>
-        <li><a href="/en/valencia/ifach/">Ifach Golf</a></li>
         <li><a href="/en/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
+        <li><a href="/en/valencia/oliva-nova/">Oliva Nova Golf</a></li>
+        <li><a href="/en/alicante/villamartin/">Villamartín Golf</a></li>
+        <li><a href="/en/toledo/layos/">Layos Golf</a></li>
       </ul></div>
       <div class="footer__col"><h4>Info</h4><ul>
         <li><a href="/en/">Home</a></li>
@@ -242,6 +245,48 @@
       phone: null, website: null, websiteUrl: null,
       url: '/en/valencia/masia-estrellas/',
       highlight: 'Best-value 18H in Valencia · Practice from €8'
+    },
+    {
+      id: 'oliva-nova',
+      name: 'Oliva Nova Golf',
+      city: 'Oliva', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Resort / public',
+      visitorStatus: 'open',
+      greenFeeMin: 79, greenFeeDisplay: '€79 low season / €96 high season',
+      membershipMin: null, membershipDisplay: 'No membership — green fee only',
+      membershipStatus: 'open',
+      phone: null,
+      website: 'open.imaster.golf', websiteUrl: 'https://open.imaster.golf/es/olivanova',
+      url: '/en/valencia/oliva-nova/',
+      highlight: '15 of 18 holes with water · Seve Ballesteros design · Costa Blanca Norte'
+    },
+    {
+      id: 'layos',
+      name: 'Layos Golf',
+      city: 'Layos', province: 'Toledo', region: 'toledo',
+      holes: 18, par: 72, type: 'Public',
+      visitorStatus: 'open',
+      greenFeeMin: 40, greenFeeDisplay: '€40 weekday / €60 weekend (18H)',
+      membershipMin: null, membershipDisplay: 'TBC',
+      membershipStatus: 'open',
+      phone: '+34 925 376 745',
+      website: 'layos-golf.com', websiteUrl: 'https://open.teeone.golf/en/layos',
+      url: '/en/toledo/layos/',
+      highlight: '⚠️ Federation licence required · Olazábal design · Slope 135 · Rating 75.2'
+    },
+    {
+      id: 'villamartin',
+      name: 'Villamartín Golf',
+      city: 'Orihuela Costa', province: 'Alicante', region: 'alicante',
+      holes: 18, par: 72, type: 'Resort / public',
+      visitorStatus: 'open',
+      greenFeeMin: 52, greenFeeDisplay: 'From €52 (dynamic pricing)',
+      membershipMin: null, membershipDisplay: 'No membership — green fee only',
+      membershipStatus: 'open',
+      phone: '+34 96 676 51 70',
+      website: 'villamartingolfclub.com', websiteUrl: 'https://villamartingolfclub.com/book-tee-times',
+      url: '/en/alicante/villamartin/',
+      highlight: 'La Finca Resort · Paul Putman 1972 · Slope 136 · Costa Blanca Sur'
     },
     {
       id: 'el-prat',

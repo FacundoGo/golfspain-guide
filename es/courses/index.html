@@ -50,8 +50,8 @@
     <h1>Campos de Golf en España</h1>
     <p class="dir-hero__sub">Green fees y precios de abono verificados. Encuentra dónde jugar y cuánto cuesta — antes de reservar.</p>
     <div class="dir-stats">
-      <span id="stat-total">⛳ 9 campos listados</span>
-      <span>📍 Valencia · Barcelona</span>
+      <span id="stat-total">⛳ 12 campos listados</span>
+      <span>📍 Valencia · Barcelona · Alicante · Toledo</span>
       <span>📅 Actualizado mayo 2026</span>
     </div>
   </div>
@@ -63,7 +63,9 @@
       <input type="search" id="dir-search" class="dir-search" placeholder="Buscar por nombre o ciudad…" aria-label="Buscar campos" autocomplete="off">
       <select id="filter-region" class="dir-select" aria-label="Filtrar por región">
         <option value="all">🇪🇸 Toda España</option>
-        <option value="valencia">📍 Valencia &amp; Costa Blanca</option>
+        <option value="valencia">📍 Valencia &amp; Costa Blanca Norte</option>
+        <option value="alicante">📍 Alicante &amp; Costa Blanca Sur</option>
+        <option value="toledo">📍 Toledo &amp; Castilla-La Mancha</option>
         <option value="barcelona">📍 Barcelona &amp; Cataluña</option>
       </select>
       <select id="filter-holes" class="dir-select" aria-label="Filtrar por número de hoyos">
@@ -116,6 +118,9 @@
         <li><a href="/es/valencia/requena/">Requena</a></li>
         <li><a href="/es/valencia/ifach/">Ifach Golf</a></li>
         <li><a href="/es/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
+        <li><a href="/es/valencia/oliva-nova/">Oliva Nova Golf</a></li>
+        <li><a href="/es/alicante/villamartin/">Villamartín Golf</a></li>
+        <li><a href="/es/toledo/layos/">Layos Golf</a></li>
       </ul></div>
       <div class="footer__col"><h4>Info</h4><ul>
         <li><a href="/es/">Inicio</a></li>
@@ -242,6 +247,48 @@
       phone: null, website: null, websiteUrl: null,
       url: '/es/valencia/masia-estrellas/',
       highlight: '18H más baratos de Valencia · Prácticas desde €8'
+    },
+    {
+      id: 'oliva-nova',
+      name: 'Oliva Nova Golf',
+      city: 'Oliva', province: 'Valencia', region: 'valencia',
+      holes: 18, par: 72, type: 'Resort / público',
+      visitorStatus: 'open',
+      greenFeeMin: 79, greenFeeDisplay: '€79 temp. baja / €96 temp. alta',
+      membershipMin: null, membershipDisplay: 'Sin membresía — solo green fee',
+      membershipStatus: 'open',
+      phone: null,
+      website: 'open.imaster.golf', websiteUrl: 'https://open.imaster.golf/es/olivanova',
+      url: '/es/valencia/oliva-nova/',
+      highlight: '15 de 18 hoyos con agua · Diseño Seve Ballesteros · Costa Blanca Norte'
+    },
+    {
+      id: 'layos',
+      name: 'Layos Golf',
+      city: 'Layos', province: 'Toledo', region: 'toledo',
+      holes: 18, par: 72, type: 'Público',
+      visitorStatus: 'open',
+      greenFeeMin: 40, greenFeeDisplay: '€40 L-V / €60 fin de semana (18H)',
+      membershipMin: null, membershipDisplay: 'TBC',
+      membershipStatus: 'open',
+      phone: '+34 925 376 745',
+      website: 'layos-golf.com', websiteUrl: 'https://open.teeone.golf/en/layos',
+      url: '/es/toledo/layos/',
+      highlight: '⚠️ Licencia federativa obligatoria · Diseño Olazábal · Slope 135 · Rating 75.2'
+    },
+    {
+      id: 'villamartin',
+      name: 'Villamartín Golf',
+      city: 'Orihuela Costa', province: 'Alicante', region: 'alicante',
+      holes: 18, par: 72, type: 'Resort / público',
+      visitorStatus: 'open',
+      greenFeeMin: 52, greenFeeDisplay: 'Desde €52 (precio dinámico)',
+      membershipMin: null, membershipDisplay: 'Sin membresía — solo green fee',
+      membershipStatus: 'open',
+      phone: '+34 96 676 51 70',
+      website: 'villamartingolfclub.com', websiteUrl: 'https://villamartingolfclub.com/book-tee-times',
+      url: '/es/alicante/villamartin/',
+      highlight: 'La Finca Resort · Paul Putman 1972 · Slope 136 · Costa Blanca Sur'
     },
     {
       id: 'el-prat',

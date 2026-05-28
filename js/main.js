@@ -10,7 +10,8 @@
     en: [
       { href: '/en/valencia/',       label: 'Valencia',         live: true },
       { href: '/en/barcelona/',      label: 'Barcelona',        live: true },
-      { href: null,                  label: 'Alicante',         live: false },
+      { href: '/en/alicante/',       label: 'Alicante',         live: true },
+      { href: '/en/toledo/',         label: 'Toledo',           live: true },
       { href: null,                  label: 'Madrid',           live: false },
       { href: null,                  label: 'Andalucía',        live: false },
       { href: null,                  label: 'Castellón',        live: false }
@@ -18,7 +19,8 @@
     es: [
       { href: '/es/valencia/',       label: 'Valencia',         live: true },
       { href: '/es/barcelona/',      label: 'Barcelona',        live: true },
-      { href: null,                  label: 'Alicante',         live: false },
+      { href: '/es/alicante/',       label: 'Alicante',         live: true },
+      { href: '/es/toledo/',         label: 'Toledo',           live: true },
       { href: null,                  label: 'Madrid',           live: false },
       { href: null,                  label: 'Andalucía',        live: false },
       { href: null,                  label: 'Castellón',        live: false }
