@@ -126,11 +126,66 @@
     .sources { font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 20px; margin-top: 48px; line-height: 1.9; }
     .sources a { color: var(--text-muted); }
 
-    /* ── Mobile ── */
+    /* ── Mobile 600px ── */
     @media (max-width: 600px) {
-      .hero { padding: 40px 16px 36px; }
-      .blog-wrap { padding: 28px 14px 56px; }
+      /* Hero */
+      .hero { padding: 32px 16px 24px; }
+      .hero .meta { gap: 10px; }
+      /* Layout */
+      .blog-wrap { padding: 24px 16px 48px; }
+      /* Quick answer */
+      .quick-answer { padding: 16px 18px; }
+      /* Tables — tighter cells, allow price wrapping */
       .fee-table thead th, .fee-table td { padding: 9px 10px; font-size: 13px; }
+      .fee-table td.price-cell { white-space: normal; }
+      .budget-table td:first-child { white-space: normal; }
+      /* Stat strip — 2 per row */
+      .stat-item { flex: 1 1 calc(50% - 6px); }
+      /* Sources — more readable, easier to tap */
+      .sources { font-size: 13px; line-height: 2.1; }
+      .sources a { display: inline-block; padding: 4px 0; }
+      /* Author */
+      .author-block { gap: 12px; }
+      .author-block .avatar { width: 40px; height: 40px; font-size: 15px; }
+    }
+
+    /* ── Mobile 430px ── */
+    @media (max-width: 430px) {
+      /* Hero — reduce vertical bloat, stack meta items */
+      .hero { padding: 24px 16px 20px; }
+      .hero h1 { font-size: 20px; }
+      .hero .sub { font-size: 14px; margin-bottom: 16px; }
+      .hero .meta { flex-direction: column; align-items: center; gap: 6px; font-size: 12px; }
+      /* Layout */
+      .blog-wrap { padding: 20px 14px 40px; }
+      /* Quick answer */
+      .quick-answer { padding: 14px 16px; }
+      .quick-answer .qa-label { font-size: 12px; }
+      .quick-answer p { font-size: 14px; }
+      /* Section headings */
+      .article-body h2 { font-size: 19px; margin-top: 32px; }
+      .article-body h3 { font-size: 16px; }
+      /* Tables — tighter, larger tap targets on rows */
+      .fee-table { font-size: 13px; }
+      .fee-table thead th { font-size: 11px; padding: 8px; white-space: normal; }
+      .fee-table td { padding: 12px 8px; }
+      .fee-table td small { font-size: 11px; }
+      .budget-table { font-size: 13px; }
+      .budget-table thead th { font-size: 11px; padding: 8px; }
+      .budget-table td { padding: 12px 8px; }
+      /* Callout boxes */
+      .info-box { padding: 14px 16px; }
+      .info-box .ib-label { font-size: 12px; }
+      .tip-box, .warn-box, .highlight-box { padding: 14px 16px; font-size: 14px; }
+      /* Stat strip — full width, single column */
+      .stat-item { flex: 1 1 100%; padding: 12px 14px; }
+      .stat-item .si-num { font-size: 20px; }
+      /* Author block — stack vertically */
+      .author-block { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+      .author-block .avatar { width: 36px; height: 36px; font-size: 14px; }
+      .author-block .author-info p { font-size: 13px; }
+      /* Sources */
+      .sources { font-size: 13px; }
     }
   </style>
 </head>
