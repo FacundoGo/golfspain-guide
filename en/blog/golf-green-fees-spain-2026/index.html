@@ -24,36 +24,21 @@
     "url": "https://golfspain.guide/en/blog/golf-green-fees-spain-2026/"
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
+  <link rel="stylesheet" href="/css/style.css">
   <style>
+    /* Blog-post-specific overrides (nav + footer handled by global style.css) */
     :root {
-      --green-dark:  #1a3326;
-      --green-mid:   #254d38;
-      --green-light: #2e6349;
-      --gold:        #c9a84c;
-      --gold-light:  #e0c068;
-      --cream:       #f9f6ef;
-      --white:       #ffffff;
-      --text-main:   #1c1c1c;
-      --text-muted:  #5a6b5a;
-      --border:      #ddd8cc;
       --warn-bg:     #fff8e6;
       --warn-border: #e8c840;
       --info-bg:     #eff6ff;
       --info-border: #93c5fd;
-      --radius:      8px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); color: var(--text-main); font-size: 15px; line-height: 1.7; }
-
-    /* ── Nav ── */
-    .site-nav { background: var(--green-dark); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 58px; position: sticky; top: 0; z-index: 100; }
-    .site-nav .logo { color: var(--gold); font-weight: 700; font-size: 16px; text-decoration: none; }
-    .site-nav .nav-links { display: flex; gap: 20px; list-style: none; }
-    .site-nav .nav-links a { color: #cde0d4; text-decoration: none; font-size: 14px; }
-    .site-nav .nav-links a:hover { color: var(--gold-light); }
-    .nav-lang { font-size: 13px; }
-    .nav-lang a { color: #8ab09a; text-decoration: none; }
-    .nav-lang .lang-active { color: var(--gold); font-weight: 700; margin-right: 6px; }
 
     /* ── Hero ── */
     .hero {
@@ -141,13 +126,8 @@
     .sources { font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 20px; margin-top: 48px; line-height: 1.9; }
     .sources a { color: var(--text-muted); }
 
-    /* ── Footer ── */
-    .site-footer { background: var(--green-dark); color: #8ab09a; text-align: center; padding: 32px 24px; font-size: 13px; margin-top: 64px; }
-    .site-footer a { color: var(--gold); text-decoration: none; }
-
     /* ── Mobile ── */
     @media (max-width: 600px) {
-      .site-nav .nav-links { display: none; }
       .hero { padding: 40px 16px 36px; }
       .container { padding: 28px 14px 56px; }
       .fee-table thead th, .fee-table td { padding: 9px 10px; font-size: 13px; }
@@ -156,16 +136,20 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="site-nav">
-  <a class="logo" href="/en/">⛳ golfspain.guide</a>
-  <ul class="nav-links">
-    <li><a href="/en/courses/">All Courses</a></li>
-    <li><a href="/en/valencia/">Valencia</a></li>
-    <li><a href="/en/blog/">Blog</a></li>
-    <li><a href="/en/handicap-calculator/">Handicap</a></li>
-  </ul>
-  <div class="nav-lang"><span class="lang-active">EN</span><a href="/es/blog/green-fees-golf-espana-2026/">ES</a></div>
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="/en/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <ul class="nav__links">
+      <li><a href="/en/valencia/">Valencia</a></li>
+      <li><a href="/en/barcelona/">Barcelona</a></li>
+      <li><a href="/en/about/">About</a></li>
+      <li><a href="/en/handicap-calculator/">Handicap</a></li>
+      <li><a href="/en/blog/">Blog</a></li>
+      <li><a href="/en/courses/" class="nav__cta">All Courses</a></li>
+    </ul>
+    <div class="nav__lang"><span class="nav__lang-active">EN</span><a href="/es/blog/green-fees-golf-espana-2026/">ES</a></div>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -503,11 +487,33 @@
   </article>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <p>© 2026 <a href="https://golfspain.guide">golfspain.guide</a> — Independent golf directory for Spain. Not affiliated with any club or booking agency.</p>
-  <p style="margin-top:8px;">Prices verified June 2026. Always confirm current rates directly with the course before travelling.</p>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
+        <p>Independent guide to golf club membership and green fees in Spain.</p>
+      </div>
+      <div class="footer__col"><h4>Valencia clubs</h4><ul>
+        <li><a href="/en/valencia/manises/">Real Club de Golf Manises</a></li>
+        <li><a href="/en/valencia/el-saler/">El Saler</a></li>
+        <li><a href="/en/valencia/foressos/">Foressos</a></li>
+        <li><a href="/en/valencia/el-bosque/">El Bosque</a></li>
+        <li><a href="/en/valencia/la-galiana/">La Galiana</a></li>
+        <li><a href="/en/valencia/ifach/">Ifach Golf</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Info</h4><ul>
+        <li><a href="/en/">Home</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/courses/">All Courses</a></li>
+        <li><a href="/en/handicap-calculator/">Handicap Calculator</a></li>
+        <li><a href="/en/about/">About</a></li>
+        <li><a href="/en/about/#contact">Corrections</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide — Independent guide, not affiliated with any club or federation. Prices verified June 2026.</p></div>
+  </div>
 </footer>
-
+<script src="/js/main.js"></script>
 </body>
 </html>
