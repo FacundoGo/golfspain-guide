@@ -207,7 +207,7 @@
   <!-- Blog -->
   <url>
     <loc>https://golfspain.guide/en/blog/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/"/>
@@ -224,7 +224,7 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/"/>
@@ -292,6 +292,25 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+  </url>
+
+  <!-- MyGolf Spain guide -->
+  <url>
+    <loc>https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/mygolf-espana-green-fees-reservas-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/blog/mygolf-espana-green-fees-reservas-2026/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/mygolf-espana-green-fees-reservas-2026/"/>
   </url>
 
   <!-- Green fees Spain 2026 guide -->
