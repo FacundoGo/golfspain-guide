@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the green fees at El Saler in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A guest of a member pays €60 — verified by a current member. The public visitor rate is not published online; contact the club on +34 961 610 384 or book via teeone.golf for the current figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is El Saler Golf open to visitors without membership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. El Saler is a public Paradores course — no membership is required. Anyone can book a tee time online at teeone.golf or by calling the club."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need a handicap certificate to play El Saler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A valid handicap certificate is required. El Saler is a championship-level course ranked Top 5 in Europe, and the club expects all players to be competent golfers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far is El Saler from Valencia city?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 15 km south of Valencia city centre, inside the Albufera Natural Park. Drive time is approximately 20 minutes via the V-15 or CV-500."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does El Saler membership cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Saler offers annual passes rather than traditional membership. Under-30s: approximately €2,400/year. Over-30s: approximately €4,500/year. Figures confirmed by a current member — verify directly with the club before joining."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
@@ -149,6 +204,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Frequently Asked Questions — El Saler Golf</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are the green fees at El Saler in 2026?</summary>
+          <div class="faq-a"><p>A guest of a member pays €60 — verified by a current member. The public visitor rate is not published online; contact the club on +34 961 610 384 or book via teeone.golf for the current figure.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is El Saler Golf open to visitors without membership?</summary>
+          <div class="faq-a"><p>Yes. El Saler is a public Paradores course — no membership is required. Anyone can book a tee time online at teeone.golf or by calling the club.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you need a handicap certificate to play El Saler?</summary>
+          <div class="faq-a"><p>Yes. A valid handicap certificate is required. El Saler is a championship-level course ranked Top 5 in Europe, and the club expects all players to be competent golfers.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How far is El Saler from Valencia city?</summary>
+          <div class="faq-a"><p>About 15 km south of Valencia city centre, inside the Albufera Natural Park. Drive time is approximately 20 minutes via the V-15 or CV-500.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How much does El Saler membership cost?</summary>
+          <div class="faq-a"><p>El Saler offers annual passes rather than traditional membership. Under-30s: approximately €2,400/year. Over-30s: approximately €4,500/year. Figures confirmed by a current member — verify directly with the club before joining.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the green fees at Foressos Golf in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visitor green fees: €70 (weekday 18H), €80 (weekend 18H), €55 (weekday 9H), €65 (weekend 9H). Twilight (from 17:00): €35 for 9 holes. Best-value package: 2 green fees + buggy for €119 (weekday)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Foressos Golf open to visitors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Visitors are welcome without a membership. Book online at ontee.com. No handicap certificate is required for casual play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Foressos Golf offer a 10-round bono?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no formal 10-round bono listed. The best deal for repeat visitors is the 2 green fees + 1 buggy package for €119 (weekday, 18 holes). For regular play, the afternoon membership from €155/month works out considerably cheaper."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Foressos Golf membership cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Membership has no entry fee. Options start from €50/month (juniors under 18) and €155/month (adults, afternoon access from 13:00). Full 7-day access is €205/month. Under-17s are free when a parent is a member."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far is Foressos Golf from Valencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 20 km south of Valencia city centre, near Picassent. Exit the A7/N340 at Junction 358. Drive time from central Valencia: 20–25 minutes."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
@@ -177,6 +232,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Frequently Asked Questions — Foressos Golf</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are the green fees at Foressos Golf in 2026?</summary>
+          <div class="faq-a"><p>Visitor green fees: €70 (weekday 18H), €80 (weekend 18H), €55 (weekday 9H), €65 (weekend 9H). Twilight (from 17:00): €35 for 9 holes. Best-value package: 2 green fees + buggy for €119 (weekday).</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Foressos Golf open to visitors?</summary>
+          <div class="faq-a"><p>Yes. Visitors are welcome without a membership. Book online at ontee.com. No handicap certificate is required for casual play.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Does Foressos Golf offer a 10-round bono?</summary>
+          <div class="faq-a"><p>There is no formal 10-round bono listed. The best deal for repeat visitors is the 2 green fees + 1 buggy package for €119 (weekday, 18 holes). For regular play, the afternoon membership from €155/month works out considerably cheaper.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How much does Foressos Golf membership cost?</summary>
+          <div class="faq-a"><p>Membership has no entry fee. Options start from €50/month (juniors under 18) and €155/month (adults, afternoon access from 13:00). Full 7-day access is €205/month. Under-17s are free when a parent is a member.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How far is Foressos Golf from Valencia?</summary>
+          <div class="faq-a"><p>About 20 km south of Valencia city centre, near Picassent. Exit the A7/N340 at Junction 358. Drive time from central Valencia: 20–25 minutes.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

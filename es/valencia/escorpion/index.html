@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta hacerse socio del Club de Golf Escorpión en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aproximadamente €20.000 por la acción del club, más alrededor de €1.500/año de cuota anual — un total de unos €21.500 el primer año. La acción suele poder revenderse al marcharse. Contacta al club para conocer las cifras exactas actuales, ya que no están publicadas oficialmente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pueden jugar visitantes en el Club de Golf Escorpión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escorpión es un club privado de socios. Los visitantes solo suelen ser admitidos entre semana y, por lo general, necesitan ser presentados por un socio. Puedes reservar rondas entre semana a través de golfinspain.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos hoyos tiene el Club de Golf Escorpión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "27 hoyos distribuidos en tres recorridos de 9 hoyos (Pinos, Naranjos y Almendros), lo que permite a los socios elegir entre tres combinaciones diferentes de 18 hoyos. Diseñado por Ron Kirby e inaugurado en 1969."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A qué distancia está Escorpión Golf de Valencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A unos 20 km al norte de Valencia, en Bétera. Toma la V-21 dirección norte. Tiempo de conducción desde el centro de Valencia: aproximadamente 25-30 minutos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta el green fee para visitantes en Escorpión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aproximadamente €160 por 18 hoyos, habitualmente con presentación de un socio. Contacta directamente con el club para confirmar el precio actual y acordar el acceso."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
@@ -143,6 +198,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Preguntas Frecuentes — Club de Golf Escorpión</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta hacerse socio del Club de Golf Escorpión en 2026?</summary>
+          <div class="faq-a"><p>Aproximadamente €20.000 por la acción del club, más alrededor de €1.500/año de cuota anual — un total de unos €21.500 el primer año. La acción suele poder revenderse al marcharse. Contacta al club para conocer las cifras exactas actuales, ya que no están publicadas oficialmente.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Pueden jugar visitantes en el Club de Golf Escorpión?</summary>
+          <div class="faq-a"><p>Escorpión es un club privado de socios. Los visitantes solo suelen ser admitidos entre semana y, por lo general, necesitan ser presentados por un socio. Puedes reservar rondas entre semana a través de golfinspain.com.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuántos hoyos tiene el Club de Golf Escorpión?</summary>
+          <div class="faq-a"><p>27 hoyos distribuidos en tres recorridos de 9 hoyos (Pinos, Naranjos y Almendros), lo que permite a los socios elegir entre tres combinaciones diferentes de 18 hoyos. Diseñado por Ron Kirby e inaugurado en 1969.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿A qué distancia está Escorpión Golf de Valencia?</summary>
+          <div class="faq-a"><p>A unos 20 km al norte de Valencia, en Bétera. Toma la V-21 dirección norte. Tiempo de conducción desde el centro de Valencia: aproximadamente 25-30 minutos.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta el green fee para visitantes en Escorpión?</summary>
+          <div class="faq-a"><p>Aproximadamente €160 por 18 hoyos, habitualmente con presentación de un socio. Contacta directamente con el club para confirmar el precio actual y acordar el acceso.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

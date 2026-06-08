@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the green fees at Ifach Golf in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visitor green fees: €49.50 (18 holes) / €33.50 (9 holes). Juniors: €29.50 (18H) / €17.50 (9H). Guest of a member: €33.50 (18H) / €24.50 (9H). Members pay just €18 for 18 holes — a 64% saving vs the visitor rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ifach Golf open to visitors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — visitors are fully welcome with no membership or introduction required. Book a tee time at open.teeone.golf or contact the club directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far is Ifach Golf from Valencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 100 km south of Valencia along the AP-7 motorway, in Benissa on the Costa Blanca. Drive time: approximately 1 hour from Valencia, 45 minutes from Alicante."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Ifach Golf membership cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Membership requires purchasing a transferable share (título de uso y disfrute) plus a non-refundable admission fee and semester dues. Exact figures are not published online — contact the club at +34 966 497 114 or info@golfifach.com. Once a member, green fees drop to €18 for 18 holes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ifach Golf have a swimming pool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ifach Golf is a full-facility club with a swimming pool and solarium, three tennis courts, the Kosta D'Oro restaurant (Mediterranean, Italian and Japanese cuisine), a pro shop and extensive practice facilities."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Main navigation">
@@ -205,6 +260,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Frequently Asked Questions — Ifach Golf</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are the green fees at Ifach Golf in 2026?</summary>
+          <div class="faq-a"><p>Visitor green fees: €49.50 (18 holes) / €33.50 (9 holes). Juniors: €29.50 (18H) / €17.50 (9H). Guest of a member: €33.50 (18H) / €24.50 (9H). Members pay just €18 for 18 holes — a 64% saving vs the visitor rate.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Ifach Golf open to visitors?</summary>
+          <div class="faq-a"><p>Yes — visitors are fully welcome with no membership or introduction required. Book a tee time at open.teeone.golf or contact the club directly.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How far is Ifach Golf from Valencia?</summary>
+          <div class="faq-a"><p>About 100 km south of Valencia along the AP-7 motorway, in Benissa on the Costa Blanca. Drive time: approximately 1 hour from Valencia, 45 minutes from Alicante.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How much does Ifach Golf membership cost?</summary>
+          <div class="faq-a"><p>Membership requires purchasing a transferable share (título de uso y disfrute) plus a non-refundable admission fee and semester dues. Exact figures are not published online — contact the club at +34 966 497 114 or info@golfifach.com. Once a member, green fees drop to €18 for 18 holes.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Does Ifach Golf have a swimming pool?</summary>
+          <div class="faq-a"><p>Yes. Ifach Golf is a full-facility club with a swimming pool and solarium, three tennis courts, the Kosta D'Oro restaurant (Mediterranean, Italian and Japanese cuisine), a pro shop and extensive practice facilities.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

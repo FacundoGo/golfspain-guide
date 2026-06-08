@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta el green fee en Foressos Golf en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tarifas para visitantes: €70 (18H entre semana), €80 (18H fin de semana), €55 (9H entre semana), €65 (9H fin de semana). Crepuscular (desde las 17:00): €35 por 9 hoyos. Mejor paquete: 2 green fees + buggy por €119 (entre semana)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede jugar un visitante en Foressos Golf sin ser socio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los visitantes son bienvenidos sin necesidad de membresía. Reserva en línea en ontee.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Ofrece Foressos Golf un bono de 10 rondas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No existe un bono oficial de 10 rondas. La mejor opción para visitantes frecuentes es el paquete 2 green fees + buggy por €119 (entre semana, 18 hoyos). Para jugar con regularidad, el abono de tardes desde €155/mes resulta mucho más económico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta hacerse socio de Foressos Golf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La cuota de ingreso es cero. El abono parte desde €50/mes (juniors menores de 18) y €155/mes (adultos, acceso de tardes desde las 13:00). El acceso completo 7 días cuesta €205/mes. Los menores de 17 años juegan gratis si uno de los padres es socio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A qué distancia está Foressos Golf de Valencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A unos 20 km al sur del centro de Valencia, cerca de Picassent. Acceso por la A7/N340, salida 358. Tiempo en coche desde el centro de Valencia: 20-25 minutos."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
@@ -177,6 +232,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Preguntas Frecuentes — Foressos Golf</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta el green fee en Foressos Golf en 2026?</summary>
+          <div class="faq-a"><p>Tarifas para visitantes: €70 (18H entre semana), €80 (18H fin de semana), €55 (9H entre semana), €65 (9H fin de semana). Crepuscular (desde las 17:00): €35 por 9 hoyos. Mejor paquete: 2 green fees + buggy por €119 (entre semana).</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puede jugar un visitante en Foressos Golf sin ser socio?</summary>
+          <div class="faq-a"><p>Sí. Los visitantes son bienvenidos sin necesidad de membresía. Reserva en línea en ontee.com.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Ofrece Foressos Golf un bono de 10 rondas?</summary>
+          <div class="faq-a"><p>No existe un bono oficial de 10 rondas. La mejor opción para visitantes frecuentes es el paquete 2 green fees + buggy por €119 (entre semana, 18 hoyos). Para jugar con regularidad, el abono de tardes desde €155/mes resulta mucho más económico.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta hacerse socio de Foressos Golf?</summary>
+          <div class="faq-a"><p>La cuota de ingreso es cero. El abono parte desde €50/mes (juniors menores de 18) y €155/mes (adultos, acceso de tardes desde las 13:00). El acceso completo 7 días cuesta €205/mes. Los menores de 17 años juegan gratis si uno de los padres es socio.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿A qué distancia está Foressos Golf de Valencia?</summary>
+          <div class="faq-a"><p>A unos 20 km al sur del centro de Valencia, cerca de Picassent. Acceso por la A7/N340, salida 358. Tiempo en coche desde el centro de Valencia: 20-25 minutos.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">

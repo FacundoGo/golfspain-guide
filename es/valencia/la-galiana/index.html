@@ -25,6 +25,61 @@
     gtag('config', 'G-DXK0NZW1LH');
   </script>
   <link rel="stylesheet" href="/css/style.css">
+<style>
+.faq-list{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.faq-item{border:1px solid #d6e4c5;border-radius:8px;overflow:hidden;}
+.faq-item summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--green-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--gold);flex-shrink:0;}
+.faq-item[open]>summary::after{content:'−';}
+.faq-item .faq-a{padding:0 18px 16px;color:var(--text-mid);line-height:1.7;font-size:.9rem;}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta el green fee en La Galiana Golf en 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las tarifas de 18 hoyos varían según la temporada: €80 en invierno (diciembre), €85 en verano (15 jun–20 sep) y €105 en temporada media (mar–jun y sep–nov). La tarifa de 9 hoyos no está publicada — consulta directamente con el club."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede un visitante jugar en La Galiana sin ser socio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. La Galiana opera actualmente como un resort de pago por ronda (pay-and-play). No se necesita membresía. Reserva en línea en ontee.com y juega directamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Ofrece La Galiana Golf membresía o abono anual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La Galiana ha pasado de un modelo de socios a un formato completamente abierto de pago por ronda. No existe ningún tipo de membresía ni abono anual. Si buscas un club con abono, considera Foressos (desde €155/mes) o El Bosque (desde €1.692/año)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A qué distancia está La Galiana Golf de Valencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A unos 50 km al sur del centro de Valencia, cerca de Carcaixent. Toma la A-7 dirección Alzira y luego la CV-50 hasta el km 11. Tiempo de conducción: aproximadamente 45 minutos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién diseñó el campo de golf La Galiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Galiana fue diseñado por Moon Masters / Felipe Rodríguez y se inauguró en 2011. Ganó el premio al Mejor Campo de Golf de España en los World Golf Awards 2019."
+      }
+    }
+  ]
+}</script>
 </head>
 <body>
 <nav class="nav" aria-label="Navegación principal">
@@ -140,6 +195,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="info-card">
+      <h2 style="font-size:1.25rem;margin-bottom:20px;color:var(--green-dark);">Preguntas Frecuentes — La Galiana Golf Resort</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta el green fee en La Galiana Golf en 2026?</summary>
+          <div class="faq-a"><p>Las tarifas de 18 hoyos varían según la temporada: €80 en invierno (diciembre), €85 en verano (15 jun–20 sep) y €105 en temporada media (mar–jun y sep–nov). La tarifa de 9 hoyos no está publicada — consulta directamente con el club.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puede un visitante jugar en La Galiana sin ser socio?</summary>
+          <div class="faq-a"><p>Sí. La Galiana opera actualmente como un resort de pago por ronda (pay-and-play). No se necesita membresía. Reserva en línea en ontee.com y juega directamente.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Ofrece La Galiana Golf membresía o abono anual?</summary>
+          <div class="faq-a"><p>No. La Galiana ha pasado de un modelo de socios a un formato completamente abierto de pago por ronda. No existe ningún tipo de membresía ni abono anual. Si buscas un club con abono, considera Foressos (desde €155/mes) o El Bosque (desde €1.692/año).</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿A qué distancia está La Galiana Golf de Valencia?</summary>
+          <div class="faq-a"><p>A unos 50 km al sur del centro de Valencia, cerca de Carcaixent. Toma la A-7 dirección Alzira y luego la CV-50 hasta el km 11. Tiempo de conducción: aproximadamente 45 minutos.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Quién diseñó el campo de golf La Galiana?</summary>
+          <div class="faq-a"><p>La Galiana fue diseñado por Moon Masters / Felipe Rodríguez y se inauguró en 2011. Ganó el premio al Mejor Campo de Golf de España en los World Golf Awards 2019.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
