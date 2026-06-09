@@ -130,6 +130,14 @@ if (burger && links) {
   });
 }
 
+// ── Beehiiv attribution ────────────────────────────────────────────────────
+(function () {
+  var s = document.createElement('script');
+  s.src   = 'https://subscribe-forms.beehiiv.com/attribution.js';
+  s.async = true;
+  document.head.appendChild(s);
+})();
+
 // ── Newsletter exit-intent popup ───────────────────────────────────────────
 // Shows once per 7 days. Desktop: cursor leaves viewport top. Mobile: back-button trap.
 // Replace <!-- BEEHIIV_FORM_EMBED --> in the popup HTML below when the Beehiiv
