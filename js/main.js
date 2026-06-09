@@ -172,7 +172,7 @@ if (burger && links) {
 
   // ── Build banner ──
   var banner = document.createElement('div');
-  banner.id = 'cookie-banner';
+  banner.id = 'gsg-privacy-bar';
   banner.setAttribute('role', 'dialog');
   banner.setAttribute('aria-label', isEs ? 'Aviso de cookies' : 'Cookie notice');
   banner.innerHTML = [
@@ -192,7 +192,7 @@ if (burger && links) {
   // ── Styles ──
   var style = document.createElement('style');
   style.textContent = [
-    '#cookie-banner{',
+    '#gsg-privacy-bar{',
       'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
       'background:#1a3326;color:#e8f0eb;',
       'padding:14px 20px;',
@@ -200,7 +200,7 @@ if (burger && links) {
       'transform:translateY(100%);',
       'transition:transform .35s cubic-bezier(.4,0,.2,1);',
     '}',
-    '#cookie-banner.cb-visible{transform:translateY(0);}',
+    '#gsg-privacy-bar.cb-visible{transform:translateY(0);}',
     '.cb-inner{',
       'max-width:960px;margin:0 auto;',
       'display:flex;align-items:center;gap:20px;flex-wrap:wrap;',
