@@ -140,7 +140,7 @@ if (burger && links) {
 
 // ── Newsletter exit-intent popup ───────────────────────────────────────────
 // Shows once per 7 days. Desktop: cursor leaves viewport top. Mobile: back-button trap.
-// Replace <!-- BEEHIIV_FORM_EMBED --> in the popup HTML below when the Beehiiv
+// Replace <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5f86e360-0313-4edd-8574-ab07644f3912"></script> in the popup HTML below when the Beehiiv
 // account is ready.
 (function () {
   var STORAGE_KEY = 'gsg_nl_popup';
@@ -194,7 +194,7 @@ if (burger && links) {
         isEs ? 'OFERTA EXCLUSIVA' : 'FREE DOWNLOAD', '</p>',
       '<h2 style="margin:0 0 8px;font-size:1.2rem;font-weight:800;color:#1a3326;line-height:1.3;">', headline, '</h2>',
       '<p style="margin:0 0 20px;font-size:.9rem;color:#555;line-height:1.55;">', sub, '</p>',
-      '<!-- BEEHIIV_FORM_EMBED -->',
+      '<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5f86e360-0313-4edd-8574-ab07644f3912"></script>',
       '<p style="margin:12px 0 0;font-size:.72rem;color:#999;text-align:center;">',
         isEs ? 'Un correo al mes. Date de baja cuando quieras.' : 'One email per month. Unsubscribe anytime.',
       '</p>',
