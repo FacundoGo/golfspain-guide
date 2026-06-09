@@ -130,6 +130,123 @@ if (burger && links) {
   });
 }
 
+// ── Cookie consent banner ─────────────────────────────────────────────────
+(function () {
+  var CONSENT_KEY = 'gsg_cookie_consent';
+
+  function getConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function setConsent(val) {
+    try { localStorage.setItem(CONSENT_KEY, val); } catch (e) {}
+  }
+
+  // Signal to GA4 based on stored choice (Consent Mode v2)
+  function applyGtag(accepted) {
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', {
+      analytics_storage:      accepted ? 'granted' : 'denied',
+      ad_storage:             'denied',
+      ad_user_data:           'denied',
+      ad_personalization:     'denied'
+    });
+  }
+
+  // If already answered, apply immediately and bail
+  var stored = getConsent();
+  if (stored) { applyGtag(stored === 'accepted'); return; }
+
+  var lang = location.pathname.startsWith('/es/') ? 'es' : 'en';
+  var isEs = lang === 'es';
+
+  // ── Strings ──
+  var COPY = {
+    text: isEs
+      ? 'Usamos cookies analíticas (Google Analytics) para entender cómo se usa el sitio. No hay publicidad ni seguimiento de terceros.'
+      : 'We use analytics cookies (Google Analytics) to understand how the site is used. No advertising or third-party tracking.',
+    accept: isEs ? 'Aceptar' : 'Accept',
+    decline: isEs ? 'Solo esenciales' : 'Essential only',
+    policy: isEs ? 'Política de privacidad' : 'Privacy policy',
+    policyHref: isEs ? '/es/about/#privacidad' : '/en/about/#privacy'
+  };
+
+  // ── Build banner ──
+  var banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', isEs ? 'Aviso de cookies' : 'Cookie notice');
+  banner.innerHTML = [
+    '<div class="cb-inner">',
+      '<p class="cb-text">',
+        '<span class="cb-icon">🍪</span>',
+        COPY.text,
+        ' <a href="', COPY.policyHref, '" class="cb-link">', COPY.policy, '</a>',
+      '</p>',
+      '<div class="cb-actions">',
+        '<button id="cb-decline" class="cb-btn cb-btn--ghost">', COPY.decline, '</button>',
+        '<button id="cb-accept"  class="cb-btn cb-btn--primary">', COPY.accept, '</button>',
+      '</div>',
+    '</div>'
+  ].join('');
+
+  // ── Styles ──
+  var style = document.createElement('style');
+  style.textContent = [
+    '#cookie-banner{',
+      'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
+      'background:#1a3326;color:#e8f0eb;',
+      'padding:14px 20px;',
+      'box-shadow:0 -2px 20px rgba(0,0,0,.25);',
+      'transform:translateY(100%);',
+      'transition:transform .35s cubic-bezier(.4,0,.2,1);',
+    '}',
+    '#cookie-banner.cb-visible{transform:translateY(0);}',
+    '.cb-inner{',
+      'max-width:960px;margin:0 auto;',
+      'display:flex;align-items:center;gap:20px;flex-wrap:wrap;',
+    '}',
+    '.cb-text{',
+      'flex:1;min-width:220px;',
+      'font-size:13px;line-height:1.55;',
+      'font-family:inherit;margin:0;',
+    '}',
+    '.cb-icon{margin-right:6px;font-size:15px;}',
+    '.cb-link{color:#a3c4b0;text-underline-offset:2px;}',
+    '.cb-link:hover{color:#c8a84b;}',
+    '.cb-actions{display:flex;gap:10px;flex-shrink:0;}',
+    '.cb-btn{',
+      'font-family:inherit;font-size:13px;font-weight:700;',
+      'padding:8px 18px;border-radius:6px;cursor:pointer;',
+      'border:none;white-space:nowrap;transition:opacity .15s,background .15s;',
+    '}',
+    '.cb-btn--primary{background:#c8a84b;color:#1a3326;}',
+    '.cb-btn--primary:hover{background:#d4b55e;}',
+    '.cb-btn--ghost{background:transparent;color:#a3c4b0;border:1px solid #3a5c4a;}',
+    '.cb-btn--ghost:hover{background:#243d2e;}',
+    '@media(max-width:540px){',
+      '.cb-inner{flex-direction:column;align-items:stretch;gap:12px;}',
+      '.cb-actions{justify-content:flex-end;}',
+    '}'
+  ].join('');
+
+  document.head.appendChild(style);
+  document.body.appendChild(banner);
+
+  // Slide in after short delay (avoids layout-shift flash)
+  setTimeout(function () { banner.classList.add('cb-visible'); }, 300);
+
+  function dismiss(accepted) {
+    setConsent(accepted ? 'accepted' : 'declined');
+    applyGtag(accepted);
+    banner.style.transition = 'transform .25s cubic-bezier(.4,0,.2,1)';
+    banner.style.transform = 'translateY(100%)';
+    setTimeout(function () { banner.parentNode && banner.parentNode.removeChild(banner); }, 280);
+  }
+
+  document.getElementById('cb-accept').addEventListener('click', function () { dismiss(true); });
+  document.getElementById('cb-decline').addEventListener('click', function () { dismiss(false); });
+})();
+
 // ── Beehiiv attribution ────────────────────────────────────────────────────
 (function () {
   var s = document.createElement('script');
