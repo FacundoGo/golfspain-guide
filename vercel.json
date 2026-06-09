@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/valencia/:path*",
+      "destination": "/en/valencia/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "/en/about/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
