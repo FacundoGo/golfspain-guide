@@ -33,12 +33,14 @@
       { href: '/en/about/',               label: 'About' },
       { href: '/en/handicap-calculator/', label: 'Handicap' },
       { href: '/en/blog/',                label: 'Blog' },
+      { href: '/en/newsletter/',          label: 'Newsletter' },
       { href: '/en/courses/',             label: 'All Courses', cta: true }
     ],
     es: [
       { href: '/es/about/',               label: 'Sobre nosotros' },
       { href: '/es/handicap-calculator/', label: 'Hándicap' },
       { href: '/es/blog/',                label: 'Blog' },
+      { href: '/es/newsletter/',          label: 'Boletín' },
       { href: '/es/courses/',             label: 'Todos los campos', cta: true }
     ]
   };
@@ -127,3 +129,134 @@ if (burger && links) {
     burger.setAttribute('aria-expanded', links.classList.contains('is-open'));
   });
 }
+
+// ── Newsletter exit-intent popup ───────────────────────────────────────────
+// Shows once per 7 days. Desktop: cursor leaves viewport top. Mobile: back-button trap.
+// Replace <!-- BEEHIIV_FORM_EMBED --> in the popup HTML below when the Beehiiv
+// account is ready.
+(function () {
+  var STORAGE_KEY = 'gsg_nl_popup';
+  var TTL_MS      = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+  // Don't show on the newsletter page itself
+  if (location.pathname.indexOf('/newsletter/') !== -1) return;
+
+  function shouldShow() {
+    try {
+      var ts = localStorage.getItem(STORAGE_KEY);
+      return !ts || (Date.now() - parseInt(ts, 10)) > TTL_MS;
+    } catch (e) { return false; }
+  }
+
+  function markShown() {
+    try { localStorage.setItem(STORAGE_KEY, String(Date.now())); } catch (e) {}
+  }
+
+  function buildPopup(lang) {
+    var isEs    = lang === 'es';
+    var headline = isEs
+      ? 'Antes de irte — Consigue la Guía Rápida del Golf en Valencia gratis.'
+      : 'Before you go — Get the Valencia Golf Cheat Sheet free.';
+    var sub      = isEs
+      ? 'Precios verificados de 2026 para todos los campos, en una página.'
+      : 'Verified 2026 prices for every course, one page.';
+    var btn      = isEs ? 'Envíame el PDF →' : 'Send me the PDF →';
+    var close    = isEs ? 'No, gracias' : 'No thanks';
+
+    var overlay = document.createElement('div');
+    overlay.id = 'nl-popup-overlay';
+    overlay.style.cssText = [
+      'position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9998;',
+      'display:flex;align-items:center;justify-content:center;padding:16px;',
+      'animation:nlFadeIn .2s ease;'
+    ].join('');
+
+    var box = document.createElement('div');
+    box.id = 'nl-popup-box';
+    box.style.cssText = [
+      'background:#fff;border-radius:12px;max-width:480px;width:100%;',
+      'padding:32px 28px 24px;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.25);',
+      'animation:nlSlideUp .25s ease;'
+    ].join('');
+
+    box.innerHTML = [
+      '<button id="nl-popup-close" aria-label="Close" style="position:absolute;top:12px;right:14px;',
+        'background:none;border:none;font-size:20px;cursor:pointer;color:#888;line-height:1;">✕</button>',
+      '<p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#2e6349;">',
+        isEs ? 'OFERTA EXCLUSIVA' : 'FREE DOWNLOAD', '</p>',
+      '<h2 style="margin:0 0 8px;font-size:1.2rem;font-weight:800;color:#1a3326;line-height:1.3;">', headline, '</h2>',
+      '<p style="margin:0 0 20px;font-size:.9rem;color:#555;line-height:1.55;">', sub, '</p>',
+      '<!-- BEEHIIV_FORM_EMBED -->',
+      '<p style="margin:12px 0 0;font-size:.72rem;color:#999;text-align:center;">',
+        isEs ? 'Un correo al mes. Date de baja cuando quieras.' : 'One email per month. Unsubscribe anytime.',
+      '</p>',
+      '<p style="margin:10px 0 0;text-align:center;">',
+        '<button id="nl-popup-dismiss" style="background:none;border:none;font-size:.8rem;color:#aaa;cursor:pointer;text-decoration:underline;">', close, '</button>',
+      '</p>'
+    ].join('');
+
+    overlay.appendChild(box);
+
+    // Inject keyframe styles once
+    if (!document.getElementById('nl-popup-styles')) {
+      var s = document.createElement('style');
+      s.id  = 'nl-popup-styles';
+      s.textContent = '@keyframes nlFadeIn{from{opacity:0}to{opacity:1}}' +
+        '@keyframes nlSlideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}';
+      document.head.appendChild(s);
+    }
+
+    return overlay;
+  }
+
+  function showPopup() {
+    if (document.getElementById('nl-popup-overlay')) return;
+    markShown();
+
+    var lang    = location.pathname.startsWith('/es/') ? 'es' : 'en';
+    var overlay = buildPopup(lang);
+    document.body.appendChild(overlay);
+
+    function dismiss() {
+      overlay.style.opacity = '0';
+      overlay.style.transition = 'opacity .15s';
+      setTimeout(function () { overlay.parentNode && overlay.parentNode.removeChild(overlay); }, 160);
+    }
+
+    document.getElementById('nl-popup-close').addEventListener('click', dismiss);
+    document.getElementById('nl-popup-dismiss').addEventListener('click', dismiss);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });
+    document.addEventListener('keydown', function kh(e) {
+      if (e.key === 'Escape') { dismiss(); document.removeEventListener('keydown', kh); }
+    });
+  }
+
+  function init() {
+    if (!shouldShow()) return;
+
+    // Desktop — cursor exits viewport from the top
+    var desktopFired = false;
+    document.addEventListener('mouseleave', function handler(e) {
+      if (desktopFired || e.clientY > 0) return;
+      desktopFired = true;
+      document.removeEventListener('mouseleave', handler);
+      showPopup();
+    });
+
+    // Mobile — push a state, catch the back-button popstate
+    if ('history' in window && window.innerWidth < 1024) {
+      history.pushState({ nlTrap: true }, '');
+      window.addEventListener('popstate', function handler(e) {
+        window.removeEventListener('popstate', handler);
+        if (e.state && e.state.nlTrap) showPopup();
+      });
+    }
+  }
+
+  // Wait until page is interactive
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
