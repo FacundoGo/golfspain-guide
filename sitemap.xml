@@ -352,6 +352,26 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/green-fees-golf-espana-2026/"/>
   </url>
 
+  <!-- Blog: Cheapest Golf in Valencia -->
+  <url>
+    <loc>https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/golf-economico-valencia-green-fees-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/blog/golf-economico-valencia-green-fees-2026/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/golf-economico-valencia-green-fees-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
+  </url>
+
   <!-- Handicap Calculator -->
   <url>
     <loc>https://golfspain.guide/en/handicap-calculator/</loc>
