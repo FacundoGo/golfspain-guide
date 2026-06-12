@@ -390,4 +390,99 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
   </url>
 
+  <!-- Alicante region -->
+  <url>
+    <loc>https://golfspain.guide/en/alicante/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/"/>
+  </url>
+
+  <!-- Real Club de Golf Campoamor -->
+  <url>
+    <loc>https://golfspain.guide/en/alicante/campoamor-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/campoamor-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/campoamor-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/campoamor-golf/"/>
+  </url>
+
+  <!-- Altea Club de Golf -->
+  <url>
+    <loc>https://golfspain.guide/en/alicante/altea-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/altea-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/altea-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/altea-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/altea-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/altea-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/altea-golf/"/>
+  </url>
+
+  <!-- Castellón region -->
+  <url>
+    <loc>https://golfspain.guide/en/castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/"/>
+  </url>
+
+  <!-- Panorámica Club de Golf -->
+  <url>
+    <loc>https://golfspain.guide/en/castellon/panoramica-golf-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/panoramica-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/castellon/panoramica-golf-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/panoramica-golf-castellon/"/>
+  </url>
+
 </urlset>
