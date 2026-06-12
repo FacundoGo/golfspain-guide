@@ -485,4 +485,166 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/panoramica-golf-castellon/"/>
   </url>
 
+  <!-- Comunitat Valenciana courses (batch 2) -->
+  <url>
+    <loc>https://golfspain.guide/en/alicante/la-sella-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-sella-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/la-sella-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-sella-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/puig-campana-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/puig-campana-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/puig-campana-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/puig-campana-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/font-del-llop-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/font-del-llop-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/font-del-llop-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/font-del-llop-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/la-finca-golf-algorfa/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-finca-golf-algorfa/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/la-finca-golf-algorfa/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-finca-golf-algorfa/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/las-ramblas-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-ramblas-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/las-ramblas-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-ramblas-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/las-colinas-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-colinas-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/las-colinas-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-colinas-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/alicante/lo-romero-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/lo-romero-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/alicante/lo-romero-golf/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/lo-romero-golf/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/"/>
+  </url>
+
 </urlset>
