@@ -563,3 +563,16 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   .round-input--sm { font-size: .72rem; padding: 9px 2px; }
   .hcp-number { font-size: 3.5rem; }
 }
+
+/* ── Beehiiv subscribe form ──────────────────────────────────────────────────
+   Beehiiv's loader.js injects the form iframe inside a wrapper div that it sets
+   to height:0; overflow:hidden and only expands via postMessage. When that
+   message is missed the form collapses to 0px and becomes invisible. These
+   rules guarantee the wrapper always grows to fit the iframe and stays visible
+   (newsletter pages + inline .nl-midpost blocks on blog posts). */
+iframe[src*="beehiiv"] { width: 100%; min-height: 150px; border: 0; }
+div:has(> iframe[src*="beehiiv"]) {
+  height: auto !important;
+  min-height: 150px;
+  overflow: visible !important;
+}

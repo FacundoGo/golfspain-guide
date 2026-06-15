@@ -207,5 +207,35 @@
   <a href="/en/about/#contact">Contact</a>
 </footer>
 
+<script>
+// Beehiiv injects the form iframe in a wrapper it sets to height:0;overflow:hidden
+// and expands via postMessage. Apply the reported height and never leave it collapsed.
+(function () {
+  function fix() {
+    document.querySelectorAll('iframe[src*="beehiiv"]').forEach(function (f) {
+      f.style.width = '100%';
+      var w = f.parentElement;
+      if (w) {
+        w.style.overflow = 'visible';
+        if (!w.style.height || w.style.height === '0px') w.style.height = 'auto';
+        if (!w.style.minHeight) w.style.minHeight = '150px';
+      }
+    });
+  }
+  window.addEventListener('message', function (e) {
+    if (!e.origin || e.origin.indexOf('beehiiv.com') === -1) return;
+    var d = e.data || {}, h = d.height || (d.data && d.data.height);
+    document.querySelectorAll('iframe[src*="beehiiv"]').forEach(function (f) {
+      if (f.contentWindow === e.source && h) {
+        f.style.height = h + 'px';
+        if (f.parentElement) { f.parentElement.style.height = h + 'px'; f.parentElement.style.overflow = 'visible'; }
+      }
+    });
+    fix();
+  });
+  var n = 0, iv = setInterval(function () { fix(); if (++n > 20) clearInterval(iv); }, 500);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fix); else fix();
+})();
+</script>
 </body>
 </html>

@@ -255,6 +255,55 @@ if (burger && links) {
   document.head.appendChild(s);
 })();
 
+// ── Beehiiv subscribe-form resize ───────────────────────────────────────────
+// The loader injects the form iframe inside a wrapper it sets to height:0;
+// overflow:hidden, then expands it via postMessage. If that message is missed
+// the form is invisible. Apply the reported height when it arrives, and poll
+// as a fallback so the wrapper is never left collapsed. Works for the
+// newsletter page and inline .nl-midpost blocks on blog posts.
+(function () {
+  function uncollapse(frame) {
+    if (!frame) return;
+    frame.style.width = '100%';
+    var w = frame.parentElement;
+    if (w) {
+      w.style.overflow = 'visible';
+      if (!w.style.height || w.style.height === '0px') w.style.height = 'auto';
+      if (!w.style.minHeight) w.style.minHeight = '150px';
+    }
+  }
+  function fixAll() {
+    var frames = document.querySelectorAll('iframe[src*="beehiiv"]');
+    for (var i = 0; i < frames.length; i++) uncollapse(frames[i]);
+  }
+  window.addEventListener('message', function (e) {
+    if (!e.origin || e.origin.indexOf('beehiiv.com') === -1) return;
+    var d = e.data || {};
+    var h = d.height || (d.data && d.data.height);
+    var frames = document.querySelectorAll('iframe[src*="beehiiv"]');
+    for (var i = 0; i < frames.length; i++) {
+      if (frames[i].contentWindow === e.source) {
+        if (h) {
+          frames[i].style.height = h + 'px';
+          var w = frames[i].parentElement;
+          if (w) { w.style.height = h + 'px'; w.style.overflow = 'visible'; }
+        } else {
+          uncollapse(frames[i]);
+        }
+      }
+    }
+  });
+  // The iframe is injected asynchronously by the loader — keep nudging it
+  // visible for the first few seconds, then stop.
+  var tries = 0;
+  var iv = setInterval(function () { fixAll(); if (++tries > 20) clearInterval(iv); }, 500);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixAll);
+  } else {
+    fixAll();
+  }
+})();
+
 // ── Newsletter exit-intent popup ───────────────────────────────────────────
 // Shows once per 7 days. Desktop: cursor leaves viewport top. Mobile: back-button trap.
 // Replace <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5f86e360-0313-4edd-8574-ab07644f3912"></script> in the popup HTML below when the Beehiiv
