@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué tipo de golfista en España eres? | golfspain.guide</title>
+  <meta name="description" content="6 preguntas. Encuentra tu arquetipo de golf español — del El Seve al Jugador de Costa — y descubre qué campos en España encajan con tu estilo.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://golfspain.guide/es/quiz/">
+  <link rel="alternate" hreflang="en" href="https://golfspain.guide/en/quiz/">
+  <link rel="alternate" hreflang="es" href="https://golfspain.guide/es/quiz/">
+  <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/quiz/">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://golfspain.guide/es/quiz/">
+  <meta property="og:title"       content="¿Qué tipo de golfista en España eres?">
+  <meta property="og:description" content="6 preguntas. Encuentra tu arquetipo — El Seve, El Olazábal, El Sergio, El Cazador de Ofertas o El Jugador de Costa — y descubre tus campos.">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="¿Qué tipo de golfista en España eres?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Navegación principal">
+  <div class="container nav__inner">
+    <a href="/es/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <ul class="nav__links"></ul>
+    <div class="nav__lang"><a href="/en/quiz/">EN</a><span class="nav__lang-active">ES</span></div>
+    <button class="nav__burger" aria-label="Alternar menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <p style="color:#9fca6e;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">6 preguntas · 30 segundos</p>
+    <h1 style="font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;margin-bottom:10px;">¿Qué tipo de golfista en España eres?</h1>
+    <p style="color:#aec8b8;font-size:15px;max-width:500px;margin:0 auto;line-height:1.6;">Encuentra tu arquetipo y descubre los campos que encajan con tu juego.</p>
+  </div>
+</header>
+
+<main class="quiz-page">
+
+  <div class="quiz-container" id="quiz-container">
+    <div class="quiz-progress">
+      <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+    </div>
+    <div class="quiz-card" id="quiz-card">
+      <p class="quiz-q-number" id="quiz-q-number"></p>
+      <h2 class="quiz-q-text" id="quiz-q-text"></h2>
+      <div class="quiz-options" id="quiz-options"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-next-btn" id="quiz-next-btn" disabled></button>
+    </div>
+  </div>
+
+  <div class="quiz-result" id="quiz-result" hidden>
+    <div class="quiz-result-hero">
+      <span class="quiz-result-emoji" id="quiz-result-emoji"></span>
+      <p class="quiz-result-label" id="quiz-result-label"></p>
+      <h2 class="quiz-result-name" id="quiz-result-name"></h2>
+      <p class="quiz-result-tagline" id="quiz-result-tagline"></p>
+    </div>
+    <div class="quiz-result-body">
+      <p class="quiz-result-desc" id="quiz-result-desc"></p>
+      <p class="quiz-courses-label" id="quiz-courses-label"></p>
+      <div class="quiz-courses" id="quiz-courses"></div>
+      <div class="quiz-result-actions">
+        <a class="quiz-cta-btn" id="quiz-cta-link" href="/es/courses/"></a>
+        <button class="quiz-share-btn" id="quiz-share-btn"></button>
+      </div>
+      <details class="quiz-how">
+        <summary id="quiz-how-summary"></summary>
+        <p id="quiz-how-text"></p>
+      </details>
+      <button class="quiz-retry" id="quiz-retry"></button>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
+        <p>Guía independiente de membresías y green fees en campos de golf de España.</p>
+      </div>
+      <div class="footer__col"><h4>Regiones</h4><ul>
+        <li><a href="/es/valencia/">Valencia</a></li>
+        <li><a href="/es/alicante/">Alicante</a></li>
+        <li><a href="/es/barcelona/">Barcelona</a></li>
+        <li><a href="/es/toledo/">Toledo</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Herramientas</h4><ul>
+        <li><a href="/es/courses/">Todos los campos</a></li>
+        <li><a href="/es/handicap-calculator/">Calculadora de Hándicap</a></li>
+        <li><a href="/es/quiz/">Quiz de golfista</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/about/">Sobre nosotros</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide — Guía independiente, sin afiliación con ningún club ni federación.</p></div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/quiz.js"></script>
+</body>
+</html>

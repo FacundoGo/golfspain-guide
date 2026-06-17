@@ -44,6 +44,7 @@
       { href: '/en/handicap-calculator/', label: 'Handicap Calculator' },
       { href: '/en/blog/',                label: 'Blog' },
       { href: '/en/newsletter/',          label: 'Newsletter' },
+      { href: '/en/quiz/',                label: 'Quiz' },
       { href: '/en/courses/',             label: 'All Courses', cta: true }
     ],
     es: [
@@ -51,6 +52,7 @@
       { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
       { href: '/es/blog/',                label: 'Blog' },
       { href: '/es/newsletter/',          label: 'Boletín' },
+      { href: '/es/quiz/',                label: 'Quiz' },
       { href: '/es/courses/',             label: 'Todos los campos', cta: true }
     ]
   };
