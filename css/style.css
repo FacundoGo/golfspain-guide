@@ -420,6 +420,80 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   .clubs-grid { grid-template-columns: 1fr; }
   .club-hero__stats { gap: 20px; }
   .quick-facts { grid-template-columns: 1fr 1fr; }
+
+  /* ── Stacked card tables ── */
+  .price-table,
+  .fee-table,
+  .compare-table,
+  .price-table-wrap table,
+  .fee-table-wrap table,
+  .budget-table-wrap table { display: block; width: 100%; border-collapse: separate; white-space: normal; }
+
+  .price-table thead,
+  .fee-table thead,
+  .compare-table thead,
+  .price-table-wrap table thead,
+  .fee-table-wrap table thead,
+  .budget-table-wrap table thead { display: none; }
+
+  .price-table tbody,
+  .fee-table tbody,
+  .compare-table tbody,
+  .price-table-wrap table tbody,
+  .fee-table-wrap table tbody,
+  .budget-table-wrap table tbody { display: block; }
+
+  .price-table tr,
+  .fee-table tr,
+  .compare-table tr,
+  .price-table-wrap table tr,
+  .fee-table-wrap table tr,
+  .budget-table-wrap table tr {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    background: var(--white);
+  }
+
+  .price-table td,
+  .fee-table td,
+  .compare-table td,
+  .price-table-wrap table td,
+  .fee-table-wrap table td,
+  .budget-table-wrap table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border: none !important;
+    font-size: .875rem;
+    line-height: 1.4;
+    white-space: normal;
+    min-width: 0;
+    text-align: right;
+  }
+
+  .price-table td::before,
+  .fee-table td::before,
+  .compare-table td::before,
+  .price-table-wrap table td::before,
+  .fee-table-wrap table td::before,
+  .budget-table-wrap table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-right: 12px;
+    flex-shrink: 0;
+    min-width: 90px;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-align: left;
+  }
+
+  .compare-wrap { overflow-x: visible; }
 }
 
 /* ── Newsletter ── */

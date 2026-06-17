@@ -444,3 +444,30 @@ if (burger && links) {
     init();
   }
 })();
+
+// ── Mobile table: auto-set data-label from thead <th> ─────────────────────
+(function () {
+  function labelTables() {
+    var tables = document.querySelectorAll(
+      '.price-table, .fee-table, .compare-table, ' +
+      '.price-table-wrap table, .fee-table-wrap table, .budget-table-wrap table'
+    );
+    tables.forEach(function (table) {
+      var ths = table.querySelectorAll('thead th');
+      if (!ths.length) return;
+      var labels = Array.prototype.map.call(ths, function (th) {
+        return th.textContent.trim();
+      });
+      table.querySelectorAll('tbody tr').forEach(function (row) {
+        row.querySelectorAll('td').forEach(function (td, i) {
+          if (labels[i]) td.setAttribute('data-label', labels[i]);
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', labelTables);
+  } else {
+    labelTables();
+  }
+})();
