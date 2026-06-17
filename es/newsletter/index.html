@@ -138,9 +138,17 @@
       text-align: center;
     }
 
+    .nl-back-link {
+      text-align: center;
+      margin-top: 18px;
+      font-size: .8rem;
+      color: #999;
+    }
+    .nl-back-link a { color: #2e6349; text-decoration: underline; }
+
     .nl-lang-switch {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 12px;
       font-size: .82rem;
       color: #888;
     }
@@ -169,6 +177,15 @@
   </style>
 </head>
 <body>
+
+<nav class="nav" aria-label="Navegación principal">
+  <div class="container nav__inner">
+    <a href="/es/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <ul class="nav__links"></ul>
+    <div class="nav__lang"><a href="/en/newsletter/">EN</a><span class="nav__lang-active">ES</span></div>
+    <button class="nav__burger" aria-label="Alternar menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
 <main class="nl-page">
   <div class="nl-card">
@@ -201,6 +218,8 @@
         <p>Un correo al mes. Sin spam. Date de baja cuando quieras con un clic.</p>
       </div>
 
+      <p class="nl-back-link"><a href="/es/">← Volver a golfspain.guide</a></p>
+
       <div class="nl-lang-switch">
         Prefer English? <a href="/en/newsletter/">View English version →</a>
       </div>
@@ -209,14 +228,32 @@
   </div>
 </main>
 
-<footer class="nl-page-footer">
-  <a href="/es/">← Volver a golfspain.guide</a>
-  &nbsp;·&nbsp;
-  <a href="/es/about/">Sobre nosotros</a>
-  &nbsp;·&nbsp;
-  <a href="/es/about/#contact">Contacto</a>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
+        <p>Guía independiente de membresías y green fees en campos de golf de España.</p>
+      </div>
+      <div class="footer__col"><h4>Regiones</h4><ul>
+        <li><a href="/es/valencia/">Valencia</a></li>
+        <li><a href="/es/alicante/">Alicante</a></li>
+        <li><a href="/es/barcelona/">Barcelona</a></li>
+        <li><a href="/es/toledo/">Toledo</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Herramientas</h4><ul>
+        <li><a href="/es/courses/">Todos los campos</a></li>
+        <li><a href="/es/handicap-calculator/">Calculadora de Hándicap</a></li>
+        <li><a href="/es/blog/">Blog</a></li>
+        <li><a href="/es/about/">Sobre nosotros</a></li>
+        <li><a href="/es/about/#contact">Correcciones</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide — Guía independiente, sin afiliación con ningún club ni federación.</p></div>
+  </div>
 </footer>
 
+<script src="/js/main.js"></script>
 <script>
 // Beehiiv inyecta el iframe del formulario en un contenedor con height:0;overflow:hidden
 // y lo expande vía postMessage. Aplica la altura recibida y nunca lo deja colapsado.
