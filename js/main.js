@@ -41,14 +41,14 @@
   var FLAT = {
     en: [
       { href: '/en/about/',               label: 'About' },
-      { href: '/en/handicap-calculator/', label: 'Handicap' },
+      { href: '/en/handicap-calculator/', label: 'Handicap Calculator' },
       { href: '/en/blog/',                label: 'Blog' },
       { href: '/en/newsletter/',          label: 'Newsletter' },
       { href: '/en/courses/',             label: 'All Courses', cta: true }
     ],
     es: [
       { href: '/es/about/',               label: 'Sobre nosotros' },
-      { href: '/es/handicap-calculator/', label: 'Hándicap' },
+      { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
       { href: '/es/blog/',                label: 'Blog' },
       { href: '/es/newsletter/',          label: 'Boletín' },
       { href: '/es/courses/',             label: 'Todos los campos', cta: true }
