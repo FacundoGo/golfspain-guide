@@ -90,11 +90,13 @@ p  { color: var(--text-mid); }
   transition: background var(--transition), border-color var(--transition);
 }
 .nav__cta:hover { background: rgba(255,255,255,.15) !important; border-color: #fff !important; color: #fff !important; }
-.nav__burger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__burger { display: none; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.3); border-radius: 6px; cursor: pointer; padding: 9px 10px; }
 .nav__burger span {
-  display: block; width: 24px; height: 2px; background: #fff;
+  display: block; width: 26px; height: 3px; background: var(--gold);
   margin: 5px 0; border-radius: 2px; transition: var(--transition);
 }
+.nav__burger span:first-child { margin-top: 0; }
+.nav__burger span:last-child  { margin-bottom: 0; }
 
 /* ── LANGUAGE TOGGLE ── */
 .nav__lang {
