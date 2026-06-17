@@ -159,8 +159,8 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
     border-top: 1px solid rgba(255,255,255,.08);
     border-radius: 0; box-shadow: none; padding: 4px 0;
   }
-  .nav-dropdown-trigger { padding: 12px 20px; width: 100%; justify-content: flex-start; }
-  .nav-dropdown-menu .nav-region { padding-left: 36px; }
+  .nav-dropdown-trigger { padding: 16px 24px; width: 100%; justify-content: flex-start; font-size: 1rem; }
+  .nav-dropdown-menu .nav-region { padding: 14px 24px 14px 44px; font-size: .95rem; }
 }
 
 /* ── HERO ── */
@@ -403,10 +403,21 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
 @media (max-width: 768px) {
   .nav__links { display: none; flex-direction: column; gap: 0; }
   .nav__links.is-open {
-    display: flex; position: absolute; top: 64px; left: 0; right: 0;
-    background: var(--green-dark); padding: 12px 0; border-top: 1px solid rgba(255,255,255,.1);
+    display: flex; position: absolute; top: 100%; left: 0; right: 0; z-index: 300;
+    background: var(--green-dark); padding: 8px 0 16px; border-top: 1px solid rgba(255,255,255,.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
   }
-  .nav__links.is-open a { padding: 12px 20px; width: 100%; }
+  .nav__links.is-open > li { border-bottom: 1px solid rgba(255,255,255,.07); }
+  .nav__links.is-open > li:last-child { border-bottom: none; }
+  .nav__links.is-open a {
+    padding: 16px 24px; width: 100%; font-size: 1rem; display: block;
+  }
+  /* CTA "All Courses" button — full-width pill in mobile menu */
+  .nav__links.is-open .nav__cta {
+    margin: 12px 20px 0; width: calc(100% - 40px); padding: 14px 20px;
+    text-align: center; border-radius: var(--radius-sm); font-size: 1rem;
+    background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5);
+  }
   .nav__burger { display: block; }
   .nav__inner { position: relative; }
   .hero { padding: 50px 0 44px; }
