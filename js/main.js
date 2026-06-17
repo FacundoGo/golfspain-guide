@@ -15,121 +15,140 @@
   var lang = location.pathname.startsWith('/es/') ? 'es' : 'en';
   var path = location.pathname;
 
-  // Regions for the dropdown
+  // ── Regions dropdown ──────────────────────────────────────────────────────
   var REGIONS = {
     en: [
-      { href: '/en/valencia/',       label: 'Valencia',         live: true },
-      { href: '/en/barcelona/',      label: 'Barcelona',        live: true },
-      { href: '/en/alicante/',       label: 'Alicante',         live: true },
-      { href: '/en/toledo/',         label: 'Toledo',           live: true },
-      { href: null,                  label: 'Madrid',           live: false },
-      { href: null,                  label: 'Andalucía',        live: false },
-      { href: null,                  label: 'Castellón',        live: false }
+      { href: '/en/valencia/',  label: 'Valencia',  live: true },
+      { href: '/en/barcelona/', label: 'Barcelona', live: true },
+      { href: '/en/alicante/',  label: 'Alicante',  live: true },
+      { href: '/en/toledo/',    label: 'Toledo',     live: true },
+      { href: null,             label: 'Madrid',     live: false },
+      { href: null,             label: 'Andalucía',  live: false },
+      { href: null,             label: 'Castellón',  live: false }
     ],
     es: [
-      { href: '/es/valencia/',       label: 'Valencia',         live: true },
-      { href: '/es/barcelona/',      label: 'Barcelona',        live: true },
-      { href: '/es/alicante/',       label: 'Alicante',         live: true },
-      { href: '/es/toledo/',         label: 'Toledo',           live: true },
-      { href: null,                  label: 'Madrid',           live: false },
-      { href: null,                  label: 'Andalucía',        live: false },
-      { href: null,                  label: 'Castellón',        live: false }
+      { href: '/es/valencia/',  label: 'Valencia',  live: true },
+      { href: '/es/barcelona/', label: 'Barcelona', live: true },
+      { href: '/es/alicante/',  label: 'Alicante',  live: true },
+      { href: '/es/toledo/',    label: 'Toledo',     live: true },
+      { href: null,             label: 'Madrid',     live: false },
+      { href: null,             label: 'Andalucía',  live: false },
+      { href: null,             label: 'Castellón',  live: false }
     ]
   };
 
-  // Flat nav items (after the dropdown)
+  // ── Tools dropdown ────────────────────────────────────────────────────────
+  var TOOLS = {
+    en: [
+      { href: '/en/handicap-calculator/', label: 'Handicap Calculator' },
+      { href: '/en/quiz/',                label: 'Golfer Quiz' },
+      { href: '/en/about/',               label: 'About' }
+    ],
+    es: [
+      { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
+      { href: '/es/quiz/',                label: 'Quiz de golfista' },
+      { href: '/es/about/',               label: 'Sobre nosotros' }
+    ]
+  };
+
+  // ── Flat items ────────────────────────────────────────────────────────────
   var FLAT = {
     en: [
-      { href: '/en/about/',               label: 'About' },
-      { href: '/en/handicap-calculator/', label: 'Handicap Calculator' },
-      { href: '/en/blog/',                label: 'Blog' },
-      { href: '/en/newsletter/',          label: 'Newsletter' },
-      { href: '/en/quiz/',                label: 'Quiz' },
-      { href: '/en/courses/',             label: 'All Courses', cta: true }
+      { href: '/en/blog/',      label: 'Blog' },
+      { href: '/en/newsletter/', label: 'Newsletter' },
+      { href: '/en/courses/',    label: 'All Courses', cta: true }
     ],
     es: [
-      { href: '/es/about/',               label: 'Sobre nosotros' },
-      { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
-      { href: '/es/blog/',                label: 'Blog' },
-      { href: '/es/newsletter/',          label: 'Boletín' },
-      { href: '/es/quiz/',                label: 'Quiz' },
-      { href: '/es/courses/',             label: 'Todos los campos', cta: true }
+      { href: '/es/blog/',      label: 'Blog' },
+      { href: '/es/newsletter/', label: 'Boletín' },
+      { href: '/es/courses/',    label: 'Todos los campos', cta: true }
     ]
   };
 
-  var dropdownLabel = lang === 'es' ? 'Campos por zona' : 'Courses by region';
-  var soonLabel     = lang === 'es' ? 'Próximamente'    : 'Coming soon';
+  var regionLabel = lang === 'es' ? 'Campos por zona' : 'Courses by region';
+  var toolsLabel  = lang === 'es' ? 'Herramientas'    : 'Tools';
+  var soonLabel   = lang === 'es' ? 'Próximamente'    : 'Coming soon';
 
-  // Build dropdown menu items
-  var menuItems = REGIONS[lang].map(function (r) {
+  // ── Build a dropdown <li> ─────────────────────────────────────────────────
+  function buildDropdown(label, items, isActive) {
+    var activeAttr = isActive ? ' aria-current="page"' : '';
+    return '<li class="nav-dropdown">'
+      + '<button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true"' + activeAttr + '>'
+      + label + ' <span class="nav-caret" aria-hidden="true">▾</span>'
+      + '</button>'
+      + '<ul class="nav-dropdown-menu" role="menu">' + items + '</ul>'
+      + '</li>';
+  }
+
+  // Regions menu items
+  var regionItems = REGIONS[lang].map(function (r) {
     if (r.live) {
-      var active = path.startsWith(r.href) ? ' aria-current="page"' : '';
-      return '<li><a href="' + r.href + '" class="nav-region nav-region--live"' + active + '>'
-           + '<span class="nav-region-dot nav-region-dot--live">●</span>'
-           + r.label
-           + '</a></li>';
-    } else {
-      return '<li><span class="nav-region nav-region--soon">'
-           + '<span class="nav-region-dot nav-region-dot--soon">●</span>'
-           + r.label
-           + '<span class="nav-coming-soon">' + soonLabel + '</span>'
-           + '</span></li>';
+      var a = path.startsWith(r.href) ? ' aria-current="page"' : '';
+      return '<li><a href="' + r.href + '" class="nav-region nav-region--live"' + a + '>'
+           + '<span class="nav-region-dot nav-region-dot--live">●</span>' + r.label + '</a></li>';
     }
+    return '<li><span class="nav-region nav-region--soon">'
+         + '<span class="nav-region-dot nav-region-dot--soon">●</span>' + r.label
+         + '<span class="nav-coming-soon">' + soonLabel + '</span></span></li>';
   }).join('');
 
-  // Is current page inside any live region?
-  var dropdownActive = REGIONS[lang].some(function (r) {
-    return r.live && path.startsWith(r.href);
-  });
-  var triggerActive = dropdownActive ? ' aria-current="page"' : '';
+  var regionActive = REGIONS[lang].some(function (r) { return r.live && path.startsWith(r.href); });
+  var regionsDD    = buildDropdown(regionLabel, regionItems, regionActive);
 
-  var dropdown = '<li class="nav-dropdown">'
-    + '<button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true"' + triggerActive + '>'
-    + dropdownLabel + ' <span class="nav-caret" aria-hidden="true">▾</span>'
-    + '</button>'
-    + '<ul class="nav-dropdown-menu" role="menu">' + menuItems + '</ul>'
-    + '</li>';
+  // Tools menu items
+  var toolItems = TOOLS[lang].map(function (t) {
+    var a = path.startsWith(t.href) ? ' aria-current="page"' : '';
+    return '<li><a href="' + t.href + '" class="nav-region nav-region--live"' + a + '>' + t.label + '</a></li>';
+  }).join('');
 
-  // Build flat items
+  var toolsActive = TOOLS[lang].some(function (t) { return path.startsWith(t.href); });
+  var toolsDD     = buildDropdown(toolsLabel, toolItems, toolsActive);
+
+  // Flat items
   var flatItems = FLAT[lang].map(function (l) {
-    var active = path.startsWith(l.href) ? ' aria-current="page"' : '';
-    var cls    = l.cta ? ' class="nav__cta"' : '';
-    return '<li><a href="' + l.href + '"' + cls + active + '>' + l.label + '</a></li>';
+    var a   = path.startsWith(l.href) ? ' aria-current="page"' : '';
+    var cls = l.cta ? ' class="nav__cta"' : '';
+    return '<li><a href="' + l.href + '"' + cls + a + '>' + l.label + '</a></li>';
   }).join('');
 
   var navLinks = document.querySelector('.nav__links');
-  if (navLinks) {
-    navLinks.innerHTML = dropdown + flatItems;
-  }
+  if (navLinks) navLinks.innerHTML = regionsDD + toolsDD + flatItems;
 
-  // ── Dropdown toggle ──────────────────────────────────────────────────────────
-  var trigger = document.querySelector('.nav-dropdown-trigger');
-  var menu    = document.querySelector('.nav-dropdown-menu');
-
-  if (trigger && menu) {
-    trigger.addEventListener('click', function (e) {
+  // ── Dropdown toggles (works for any number of dropdowns) ─────────────────
+  document.querySelectorAll('.nav-dropdown-trigger').forEach(function (btn) {
+    var ddMenu = btn.nextElementSibling;
+    btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = menu.classList.toggle('is-open');
-      trigger.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', function () {
-      if (menu.classList.contains('is-open')) {
-        menu.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
+      var opening = !ddMenu.classList.contains('is-open');
+      // Close all first
+      document.querySelectorAll('.nav-dropdown-menu').forEach(function (m) {
+        m.classList.remove('is-open');
+        m.previousElementSibling.setAttribute('aria-expanded', 'false');
+      });
+      if (opening) {
+        ddMenu.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
+  });
 
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        menu.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.focus();
-      }
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.nav-dropdown-menu').forEach(function (m) {
+      m.classList.remove('is-open');
+      m.previousElementSibling.setAttribute('aria-expanded', 'false');
     });
-  }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown-menu.is-open').forEach(function (m) {
+        m.classList.remove('is-open');
+        var t = m.previousElementSibling;
+        t.setAttribute('aria-expanded', 'false');
+        t.focus();
+      });
+    }
+  });
 })();
 
 // ── Mobile nav toggle ──────────────────────────────────────────────────────────
