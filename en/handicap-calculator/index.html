@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golf Handicap Calculator Spain — WHS Estimate | golfspain.guide</title>
-  <meta name="description" content="Calculate your WHS Handicap Index from rounds played in Valencia, Spain. Simple, free, step-by-step explanation of every calculation. Supports 9-hole rounds.">
+  <meta name="description" content="Calculate your WHS Handicap Index from rounds played in Valencia and Alicante, Spain. Simple, free, step-by-step explanation of every calculation. Supports 9-hole rounds.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://golfspain.guide/en/handicap-calculator/">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:title" content="Golf Handicap Calculator Spain — Estimate Your WHS Index Free">
-  <meta property="og:description" content="Enter your last rounds and get your estimated handicap index with a full step-by-step breakdown. Supports 9-hole rounds. See which Valencia courses suit your level.">
+  <meta property="og:description" content="Enter your last rounds and get your estimated handicap index with a full step-by-step breakdown. Supports 9-hole rounds. See which courses suit your level on the Costa Blanca and Costa Valenciana.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Supports 9-hole rounds with correct ×2 scaling.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -487,6 +487,51 @@
       .btn-remove { margin-top: 0; }
       .row-warning { grid-column: 1 / -1; }
     }
+
+    /* ── Trip CTA ── */
+    .trip-cta {
+      background: linear-gradient(135deg, var(--green-dark), #2e6349);
+      color: var(--white);
+      border-radius: var(--calc-radius);
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .trip-cta-inner { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .trip-cta-text { flex: 1; font-size: 14px; line-height: 1.5; color: #aec8b8; }
+    .trip-cta-text strong { color: var(--gold-light); font-size: 15px; }
+    .trip-cta-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .trip-cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green-dark);
+      border-radius: 6px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .trip-cta-btn:hover { background: var(--gold-light); }
+
+    /* ── Explainer ── */
+    .explainer { margin-top: 40px; padding-top: 32px; border-top: 2px solid var(--border); }
+    .explainer h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+    }
+    .explainer p { font-size: 15px; line-height: 1.75; color: var(--text-main); margin-bottom: 16px; }
+    .explainer code {
+      font-family: 'Courier New', monospace;
+      background: #f0ede6;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
@@ -563,6 +608,14 @@
       <div class="rec-text" id="rec-text"></div>
     </div>
 
+    <!-- TRIP CTA -->
+    <div class="trip-cta" id="trip-cta" style="display:none">
+      <div class="trip-cta-inner">
+        <div class="trip-cta-text"><strong>Planning a trip?</strong><br>Check verified green fees near your course</div>
+        <div class="trip-cta-links" id="trip-cta-links"></div>
+      </div>
+    </div>
+
     <div class="disclaimer">
       This is an <strong>estimate</strong> based on the WHS formula. An official Handicap Index requires at least 54 holes played at an RFEG-affiliated club and submission through their system. <a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es →</a>
     </div>
@@ -613,6 +666,15 @@
 
   </div>
 
+  <!-- EXPLAINER -->
+  <div class="explainer">
+    <h2>Understanding Golf Handicaps in Spain</h2>
+    <p>Spain follows the <strong>World Handicap System (WHS)</strong>, which replaced the previous EGA (European Golf Association) system worldwide in 2020 and is administered in Spain by the <strong>RFEG (Real Federación Española de Golf)</strong>. Your Handicap Index is a single portable number on a 54.0 scale — the lower the better — representing your potential rather than your average: it is built from your best differentials, not all of them.</p>
+    <p>The key number behind every calculation is the <strong>Handicap Differential</strong>: <code>(Score − Course Rating) × (113 ÷ Slope)</code>. The Course Rating is the score a scratch golfer (handicap 0) is expected to shoot in normal conditions — typically a decimal like 72.4, more precise than par. The Slope (55–155, with 113 as the global average) measures how much more difficult the course is for a bogey golfer versus a scratch golfer. Together, these two numbers let a round at Campoamor be compared fairly with a round at El Saler — very different courses, same portable scale.</p>
+    <p>Once you have your Handicap Index, it converts to a <strong>Course Handicap</strong> for each specific round: <code>Course Handicap = Handicap Index × (Slope ÷ 113) + (Course Rating − Par)</code>. This is the number of extra strokes you receive in a strokeplay competition. A high-Slope course like El Bosque (Slope 148) gives you more strokes than a lower-Slope course at the same Index. In Spain, competition scorecards show which holes grant strokes based on their stroke index.</p>
+    <p>Most clubs in the <strong>Alicante and Valencia</strong> regions welcome visitors with a valid RFEG, EGA, or R&amp;A-affiliated handicap certificate — some championship courses (like Campoamor) require one to play at all. If you are playing casually without an official handicap, this calculator gives you a realistic working estimate: useful for choosing a course at your level, understanding how your score translates, and knowing what to aim for before you formalise through a club.</p>
+  </div>
+
 </div><!-- /.calc-wrap -->
 
 <footer class="footer">
@@ -650,16 +712,29 @@
   // Escorpión's rating is not publicly published — null triggers par-only fallback.
   // 9-hole rounds: differential is scaled ×2 before WHS comparison/averaging.
   const COURSES = [
-    { value: '',          label: 'Select a course…',                   rating: null,  slope: null,  par: null, holes: 18 },
-    { value: 'foressos',  label: 'Foressos Golf (18H)',                 rating: 74.1,  slope: 140,   par: 72,   holes: 18 },
-    { value: 'galiana18', label: 'La Galiana Golf Resort (18H)',        rating: 74.1,  slope: 148,   par: 72,   holes: 18 },
-    { value: 'galiana9',  label: 'La Galiana Golf Resort (9H)',         rating: 37.0,  slope: 148,   par: 36,   holes: 9  },
-    { value: 'saler',     label: 'El Saler (Parador) (18H)',            rating: 74.2,  slope: 136,   par: 72,   holes: 18 },
-    { value: 'bosque',    label: 'El Bosque Golf (18H)',                rating: 75.5,  slope: 148,   par: 71,   holes: 18 },
-    { value: 'escorpion', label: 'Escorpión — Club Med (18H)',          rating: null,  slope: 128,   par: 72,   holes: 18 },
-    { value: 'manises',   label: 'Golf Manises (18H)',                  rating: 70.0,  slope: 120,   par: 70,   holes: 18 },
-    { value: 'requena9',  label: 'Golf Requena (9H)',                   rating: 34.3,  slope: 117,   par: 35,   holes: 9  },
-    { value: 'custom',    label: 'Other course (enter manually)',       rating: null,  slope: null,  par: null, holes: 18 },
+    // ── Valencia ────────────────────────────────────────────────────────────
+    { value: 'foressos',     label: 'Foressos Golf (18H)',                rating: 74.1, slope: 140, par: 72, holes: 18, group: 'Valencia' },
+    { value: 'galiana18',    label: 'La Galiana Golf Resort (18H)',       rating: 74.1, slope: 148, par: 72, holes: 18, group: 'Valencia' },
+    { value: 'galiana9',     label: 'La Galiana Golf Resort (9H)',        rating: 37.0, slope: 148, par: 36, holes: 9,  group: 'Valencia' },
+    { value: 'saler',        label: 'El Saler (Parador) (18H)',           rating: 74.2, slope: 136, par: 72, holes: 18, group: 'Valencia' },
+    { value: 'bosque',       label: 'El Bosque Golf (18H)',               rating: 75.5, slope: 148, par: 71, holes: 18, group: 'Valencia' },
+    { value: 'escorpion',    label: 'Escorpión — Club Med (18H)',         rating: null, slope: 128, par: 72, holes: 18, group: 'Valencia' },
+    { value: 'manises',      label: 'Golf Manises (18H)',                 rating: 70.0, slope: 120, par: 70, holes: 18, group: 'Valencia' },
+    { value: 'requena9',     label: 'Golf Requena (9H)',                  rating: 34.3, slope: 117, par: 35, holes: 9,  group: 'Valencia' },
+    // ── Alicante ────────────────────────────────────────────────────────────
+    { value: 'altea9',       label: 'Altea Club de Golf (9H)',            rating: null, slope: null, par: 35, holes: 9,  group: 'Alicante', parFallback: true },
+    { value: 'campoamor',    label: 'Campoamor Golf (18H)',               rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'fontdellop',   label: 'Font del Llop Golf (18H)',           rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'lafinca',      label: 'La Finca Golf — Algorfa (18H)',      rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'lamarquesa',   label: 'La Marquesa Golf — Rojales (18H)',   rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'lasella18',    label: 'La Sella Golf Resort (18H)',         rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'lascolinas',   label: 'Las Colinas Golf (18H)',             rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'lasramblas',   label: 'Las Ramblas Golf (18H)',             rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'loromero',     label: 'Lo Romero Golf (18H)',               rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'puigcampana9', label: 'Puig Campana Golf (9H)',             rating: null, slope: null, par: 35, holes: 9,  group: 'Alicante', parFallback: true },
+    { value: 'villamartin',  label: 'Villamartín Golf (18H)',             rating: null, slope: 136, par: 72,  holes: 18, group: 'Alicante', parFallback: true },
+    // ── Custom ──────────────────────────────────────────────────────────────
+    { value: 'custom',       label: 'Other course (enter manually)',      rating: null, slope: null, par: null, holes: 18 },
   ];
 
   let roundCount = 0;
@@ -667,9 +742,21 @@
   const customHoles = {};
 
   function buildCourseOptions() {
-    return COURSES.map(c =>
-      `<option value="${c.value}">${c.label}</option>`
-    ).join('');
+    let html = '<option value="">Select a course…</option>';
+    const grouped = {}, order = [];
+    COURSES.forEach(c => {
+      if (!c.value || c.value === 'custom') return;
+      const g = c.group || 'Other';
+      if (!grouped[g]) { grouped[g] = []; order.push(g); }
+      grouped[g].push(c);
+    });
+    order.forEach(g => {
+      html += `<optgroup label="${g}">`;
+      grouped[g].forEach(c => { html += `<option value="${c.value}">${c.label}</option>`; });
+      html += '</optgroup>';
+    });
+    html += '<option value="custom">Other course (enter manually)</option>';
+    return html;
   }
 
   function addRound() {
@@ -757,6 +844,10 @@
     if (sel === 'custom') {
       strip.innerHTML = '';
       cg.style.display = 'flex';
+    } else if (course && course.parFallback) {
+      const slopeNote = course.slope ? ` · Slope ${course.slope}` : '';
+      strip.innerHTML = `<strong>Par ${course.par}${slopeNote}</strong> — <em style="color:#8a6900;font-size:11px">par-based estimate (official Rating/Slope not published)</em>`;
+      cg.style.display = 'none';
     } else if (!course || !course.rating) {
       // No Rating data (Escorpión)
       if (course && course.slope) {
@@ -801,7 +892,13 @@
     }
 
     const course = COURSES.find(c => c.value === sel);
-    if (!course || !course.rating) return null;
+    if (!course) return null;
+    if (course.parFallback) {
+      const par   = course.par || (course.holes === 9 ? 35 : 72);
+      const slope = course.slope || 113;
+      return { rating: par, slope, holes: course.holes || 18, parOnly: true, par };
+    }
+    if (!course.rating) return null;
     return { rating: course.rating, slope: course.slope, holes: course.holes || 18, parOnly: false };
   }
 
@@ -866,7 +963,7 @@
       const is9H    = rs.holes === 9;
       const rawDiff = (score - rs.rating) * (113 / rs.slope);
       const diff    = is9H ? rawDiff * 2 : rawDiff;
-      diffs.push({ id, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label, parOnly: rs.parOnly || false, par: rs.par || null });
+      diffs.push({ id, sel, score, rating: rs.rating, slope: rs.slope, rawDiff, diff, is9H, label, parOnly: rs.parOnly || false, par: rs.par || null });
     });
 
     if (diffs.length === 0) {
@@ -980,17 +1077,45 @@
     `).join('');
 
     // ── Recommendation ──
+    const ALICANTE_VALS = new Set(['altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
+    const VALENCIA_VALS  = new Set(['foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
+    const playedAlicante = diffs.some(d => ALICANTE_VALS.has(d.sel));
+    const playedValencia = diffs.some(d => VALENCIA_VALS.has(d.sel));
+    const region = (playedAlicante && !playedValencia) ? 'alicante' : 'valencia';
+
     let recHTML = '';
-    if (index <= 10) {
-      recHTML = `You're a strong player. Any Valencia course is well within your reach — <a href="/en/valencia/el-bosque/">El Bosque</a> (Slope 148, Par 71) and <a href="/en/valencia/la-galiana/">La Galiana</a> (Slope 148) will challenge you. <a href="/en/valencia/el-saler/">El Saler</a> (top 5 in Europe) is the ultimate goal.`;
-    } else if (index <= 20) {
-      recHTML = `Good handicap range. <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) is a fair test and great value at €70–€80. <a href="/en/valencia/el-saler/">El Saler</a> (Slope 136) is achievable on a good day. Save El Bosque for when you're in form.`;
-    } else if (index <= 30) {
-      recHTML = `Build confidence at <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) — one of the friendlier 18-hole tests in Valencia. Avoid El Bosque and La Galiana (both Slope 148) until you're more consistent. <a href="/en/courses/">See all Valencia courses →</a>`;
+    if (region === 'alicante') {
+      if (index <= 10) {
+        recHTML = `Strong player on the Costa Blanca. <a href="/en/alicante/las-colinas-golf/">Las Colinas</a> (top-10 Spain, Troon-managed) is the prestige challenge. <a href="/en/alicante/villamartin/">Villamartín</a> (Slope 136) and <a href="/en/alicante/campoamor-golf/">Campoamor</a> are serious championship tests. <a href="/en/alicante/">See all Alicante courses →</a>`;
+      } else if (index <= 20) {
+        recHTML = `Solid level for the Costa Blanca. <a href="/en/alicante/la-marquesa-golf-rojales/">La Marquesa</a> and <a href="/en/alicante/campoamor-golf/">Campoamor</a> are enjoyable championship tests at fair value. Save <a href="/en/alicante/las-colinas-golf/">Las Colinas</a> for when you're on form. <a href="/en/alicante/">See all Alicante courses →</a>`;
+      } else if (index <= 30) {
+        recHTML = `Build confidence at <a href="/en/alicante/la-marquesa-golf-rojales/">La Marquesa</a> (Rojales) or <a href="/en/alicante/las-ramblas-golf/">Las Ramblas</a> (Orihuela Costa) — both offer an enjoyable, manageable test on the southern Costa Blanca. <a href="/en/alicante/">See all Alicante courses →</a>`;
+      } else {
+        recHTML = `Start with the shorter options — <a href="/en/alicante/altea-golf/">Altea Club de Golf</a> (9H, scenic mountain setting) or <a href="/en/alicante/puig-campana-golf/">Puig Campana Golf</a> (9H, near Benidorm) are relaxed, affordable rounds to build your game. <a href="/en/alicante/">See all Alicante courses →</a>`;
+      }
     } else {
-      recHTML = `Start with shorter or lower-slope options — <a href="/en/valencia/requena/">Requena</a> (9H, Slope 117) is the most forgiving course in Valencia and a great place to build your game. <a href="/en/courses/">See all Valencia courses →</a>`;
+      if (index <= 10) {
+        recHTML = `You're a strong player. Any Valencia course is well within your reach — <a href="/en/valencia/el-bosque/">El Bosque</a> (Slope 148, Par 71) and <a href="/en/valencia/la-galiana/">La Galiana</a> (Slope 148) will challenge you. <a href="/en/valencia/el-saler/">El Saler</a> (top 5 in Europe) is the ultimate goal.`;
+      } else if (index <= 20) {
+        recHTML = `Good handicap range. <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) is a fair test and great value at €70–€80. <a href="/en/valencia/el-saler/">El Saler</a> (Slope 136) is achievable on a good day. Save El Bosque for when you're in form.`;
+      } else if (index <= 30) {
+        recHTML = `Build confidence at <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) — one of the friendlier 18-hole tests in Valencia. Avoid El Bosque and La Galiana (both Slope 148) until you're more consistent. <a href="/en/valencia/">See all Valencia courses →</a>`;
+      } else {
+        recHTML = `Start with shorter or lower-slope options — <a href="/en/valencia/requena/">Requena</a> (9H, Slope 117) is the most forgiving course in Valencia and a great place to build your game. <a href="/en/valencia/">See all Valencia courses →</a>`;
+      }
     }
     document.getElementById('rec-text').innerHTML = recHTML;
+
+    // ── Trip CTA ──
+    const ctaEl    = document.getElementById('trip-cta');
+    const ctaLinks = document.getElementById('trip-cta-links');
+    let ctaHTML = '';
+    if (playedAlicante) ctaHTML += `<a href="/en/alicante/" class="trip-cta-btn">Alicante courses →</a>`;
+    if (playedValencia) ctaHTML += `<a href="/en/valencia/" class="trip-cta-btn">Valencia courses →</a>`;
+    if (!ctaHTML)       ctaHTML  = `<a href="/en/courses/" class="trip-cta-btn">Browse all courses →</a>`;
+    ctaLinks.innerHTML = ctaHTML;
+    ctaEl.style.display = 'block';
 
     // ── Show result section ──
     const resultSection = document.getElementById('result-section');
