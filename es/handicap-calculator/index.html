@@ -961,7 +961,7 @@
 
     const usedDiffs = sorted.slice(0, numUsed);
     const avgDiff   = usedDiffs.reduce((s, d) => s + d.diff, 0) / numUsed;
-    const rawIndex  = avgDiff * 0.96;
+    const rawIndex  = avgDiff * 0.93;
     const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
 
     document.getElementById('result-value').textContent = index.toFixed(1);

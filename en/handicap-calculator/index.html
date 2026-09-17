@@ -651,9 +651,9 @@
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Why multiply by 0.96? <span class="arrow">▼</span></div>
+      <div class="faq-q">Why multiply by 0.93? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        The 0.96 is the WHS "playing conditions adjustment factor". It ensures that the Handicap Index reflects your potential, not your average — the assumption being that on your best rounds you played close to your true ability. Multiplying by 0.96 trims the index by about 4%, nudging it slightly lower so you're challenged to repeat your best performances.
+        The 0.93 is the WHS adjustment factor introduced in the 2024 Rules of Handicapping. It ensures that the Handicap Index reflects your potential, not your average — the assumption being that on your best rounds you played close to your true ability. Multiplying by 0.93 trims the index by about 7%, nudging it lower so you're challenged to repeat your best performances. (The old pre-2024 factor was 0.96; WHS revised it downward in the 2024 edition.)
       </div>
     </div>
 
@@ -990,7 +990,7 @@
 
     const usedDiffs = sorted.slice(0, numUsed);
     const avgDiff   = usedDiffs.reduce((s, d) => s + d.diff, 0) / numUsed;
-    const rawIndex  = avgDiff * 0.96;
+    const rawIndex  = avgDiff * 0.93;
     const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
 
     // ── Render result value ──
@@ -1065,7 +1065,7 @@
       `Calculated a <strong>Handicap Differential</strong> for each round using: <span class="mono">(Score − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `With ${n} round${n > 1 ? 's' : ''}, WHS rules say to use the <strong>${usedLabel}</strong> — highlighted in green above.`,
       `Averaged the ${usedLabel}: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
-      `Applied the WHS <strong>0.96 factor</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0.96 = ${rawIndex.toFixed(2)}</span>`,
+      `Applied the WHS <strong>0.93 factor</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0.93 = ${rawIndex.toFixed(2)}</span>`,
       `Rounded to one decimal and capped at 54.0: <strong>${index.toFixed(1)}</strong>`
     ];
 
