@@ -499,6 +499,11 @@ if (burger && links) {
     if (typeof gtag === 'function') gtag('event', name, params);
   }
 
+  // Enable GA4 DebugView when ?debug=1 is in the URL (remove before going live on ads)
+  if (location.search.includes('debug=1') && typeof gtag === 'function') {
+    gtag('set', { debug_mode: true });
+  }
+
   var locale = location.pathname.startsWith('/es/') ? 'es' : 'en';
 
   // book_now_click / phone_click / outbound_click — single delegated handler
