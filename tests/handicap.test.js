@@ -13,38 +13,38 @@ function applyWhsFactor(avgDiff) {
   return avgDiff * 0.93; // WHS 2024 Rules of Handicapping — was 0.96 pre-2024
 }
 
+// 2024 WHS round-count → differentials-used table
+function numDifferentialsUsed(n) {
+  if      (n <= 5)   return 1;
+  else if (n <= 8)   return 2;
+  else if (n <= 11)  return 3;
+  else if (n <= 14)  return 4;
+  else if (n <= 16)  return 5;
+  else if (n <= 18)  return 6;
+  else if (n === 19) return 7;
+  else               return 8;
+}
+
 function handicapIndex(rounds) {
-  // rounds: [{score, rating, slope}]
   const n = rounds.length;
   const diffs = rounds
     .map(r => handicapDifferential(r.score, r.rating, r.slope))
     .sort((a, b) => a - b);
 
-  const numUsed =
-    n === 1  ? 1 :
-    n === 2  ? 1 :
-    n === 3  ? 1 :
-    n === 4  ? 1 :
-    n === 5  ? 1 :
-    n === 6  ? 2 :
-    n === 7  ? 2 :
-    n === 8  ? 2 :
-    n === 9  ? 3 :
-    n === 10 ? 3 :
-    n === 11 ? 3 :
-    n === 12 ? 3 :
-    n === 13 ? 4 :
-    n === 14 ? 4 :
-    n === 15 ? 4 :
-    n === 16 ? 5 :
-    n === 17 ? 5 :
-    n === 18 ? 6 :
-    n === 19 ? 7 :
-               8;
-
+  const numUsed = numDifferentialsUsed(n);
   const avgDiff = diffs.slice(0, numUsed).reduce((s, d) => s + d, 0) / numUsed;
   const raw = applyWhsFactor(avgDiff);
   return Math.min(54, Math.round(raw * 10) / 10);
+}
+
+// Helper: build N rounds with ascending differentials so slice(0, k) is predictable.
+// Round i has differential = baseScore + i, rating 72, slope 113.
+function makeRounds(n, baseScore = 75) {
+  return Array.from({ length: n }, (_, i) => ({
+    score: baseScore + i,
+    rating: 72,
+    slope: 113,
+  }));
 }
 
 // --- Tests ---
@@ -64,10 +64,11 @@ function test(name, fn) {
   }
 }
 
+// ── WHS factor ──────────────────────────────────────────────────────────────
+
 console.log('\nWHS factor');
 
 test('applyWhsFactor constant is 0.93, not 0.96', () => {
-  // 0.96 would give 12.6048; 0.93 gives 12.2090
   const result = applyWhsFactor(13.13);
   assert.ok(
     Math.abs(result - 12.2109) < 0.001,
@@ -85,9 +86,64 @@ test('applyWhsFactor is NOT 0.96 (regression guard)', () => {
   );
 });
 
-console.log('\nAcceptance criteria test case (El Saler 90 + Foressos 95, 2 rounds)');
+// ── 2024 WHS round-count table ───────────────────────────────────────────────
 
-test('returns 12.2 for El Saler score 90 (Rating 74.2, Slope 136) + Foressos score 95 (Rating 74.1, Slope 140)', () => {
+console.log('\n2024 WHS round-count → differentials-used table');
+
+const whs2024Table = [
+  // [rounds, expectedNumUsed]
+  [1,  1], [2,  1], [3,  1], [4,  1], [5,  1],
+  [6,  2], [7,  2], [8,  2],
+  [9,  3], [10, 3], [11, 3],
+  [12, 4], [13, 4], [14, 4],
+  [15, 5], [16, 5],
+  [17, 6], [18, 6],
+  [19, 7],
+  [20, 8],
+];
+
+for (const [n, expected] of whs2024Table) {
+  test(`n=${n} rounds → use lowest ${expected} differential(s)`, () => {
+    assert.strictEqual(
+      numDifferentialsUsed(n),
+      expected,
+      `n=${n}: expected ${expected}, got ${numDifferentialsUsed(n)}`
+    );
+  });
+}
+
+// ── No additive correction (only × 0.93 applied) ────────────────────────────
+
+console.log('\nNo additive adjustment — only × 0.93');
+
+test('result equals avgDiff × 0.93, no additive term, for n=1', () => {
+  const rounds = [{ score: 85, rating: 72, slope: 113 }];
+  const diff = handicapDifferential(85, 72, 113);
+  const expected = Math.min(54, Math.round(diff * 0.93 * 10) / 10);
+  assert.strictEqual(handicapIndex(rounds), expected);
+});
+
+test('result equals avgDiff × 0.93, no additive term, for n=6 (uses 2 diffs)', () => {
+  const rounds = makeRounds(6);
+  const diffs = rounds.map(r => handicapDifferential(r.score, r.rating, r.slope)).sort((a, b) => a - b);
+  const avg = (diffs[0] + diffs[1]) / 2;
+  const expected = Math.min(54, Math.round(avg * 0.93 * 10) / 10);
+  assert.strictEqual(handicapIndex(rounds), expected);
+});
+
+test('result equals avgDiff × 0.93, no additive term, for n=20 (uses 8 diffs)', () => {
+  const rounds = makeRounds(20);
+  const diffs = rounds.map(r => handicapDifferential(r.score, r.rating, r.slope)).sort((a, b) => a - b);
+  const avg = diffs.slice(0, 8).reduce((s, d) => s + d, 0) / 8;
+  const expected = Math.min(54, Math.round(avg * 0.93 * 10) / 10);
+  assert.strictEqual(handicapIndex(rounds), expected);
+});
+
+// ── Acceptance criteria test case ───────────────────────────────────────────
+
+console.log('\nAcceptance criteria (El Saler 90 + Foressos 95, 2 rounds → 12.2)');
+
+test('El Saler score 90 (Rating 74.2, Slope 136) + Foressos score 95 (Rating 74.1, Slope 140) = 12.2', () => {
   const result = handicapIndex([
     { score: 90, rating: 74.2, slope: 136 },
     { score: 95, rating: 74.1, slope: 140 },
@@ -95,21 +151,15 @@ test('returns 12.2 for El Saler score 90 (Rating 74.2, Slope 136) + Foressos sco
   assert.strictEqual(result, 12.2, `Expected 12.2, got ${result}`);
 });
 
+// ── Edge cases ───────────────────────────────────────────────────────────────
+
 console.log('\nEdge cases');
 
-test('single round', () => {
-  const diff = handicapDifferential(85, 72, 113);
-  const expected = Math.min(54, Math.round(applyWhsFactor(diff) * 10) / 10);
-  const result = handicapIndex([{ score: 85, rating: 72, slope: 113 }]);
-  assert.strictEqual(result, expected);
-});
-
 test('capped at 54.0', () => {
-  const rounds = [{ score: 130, rating: 72, slope: 113 }];
-  const result = handicapIndex(rounds);
+  const result = handicapIndex([{ score: 200, rating: 72, slope: 113 }]);
   assert.ok(result <= 54, `Expected ≤54, got ${result}`);
 });
 
-// --- Summary ---
+// ── Summary ──────────────────────────────────────────────────────────────────
 console.log(`\n${passed + failed} tests: ${passed} passed, ${failed} failed\n`);
 if (failed > 0) process.exit(1);

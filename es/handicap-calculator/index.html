@@ -949,7 +949,7 @@
     const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
     const n      = diffs.length;
     let numUsed;
-    if      (n <= 4)   numUsed = 1;
+    if      (n <= 5)   numUsed = 1;
     else if (n <= 6)   numUsed = 2;
     else if (n <= 8)   numUsed = 2;
     else if (n <= 11)  numUsed = 3;
