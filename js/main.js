@@ -499,9 +499,11 @@ if (burger && links) {
     if (typeof gtag === 'function') gtag('event', name, params);
   }
 
-  // Enable GA4 DebugView when ?debug=1 is in the URL (remove before going live on ads)
+  // Enable GA4 DebugView when ?debug=1 is in the URL
+  // Must re-call gtag('config') so the device is registered in DebugView —
+  // gtag('set') alone fires too late (after the initial config/page_view).
   if (location.search.includes('debug=1') && typeof gtag === 'function') {
-    gtag('set', { debug_mode: true });
+    gtag('config', 'G-DXK0NZW1LH', { debug_mode: true });
   }
 
   var locale = location.pathname.startsWith('/es/') ? 'es' : 'en';
