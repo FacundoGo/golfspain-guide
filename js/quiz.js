@@ -381,6 +381,13 @@
 
     history.replaceState(null, '', '#result-' + r.key);
     resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'quiz_complete', {
+        archetype_key: winner,
+        locale:        lang,
+      });
+    }
   }
 
   /* ── Reset ───────────────────────────────────────────────────────────── */

@@ -614,6 +614,9 @@
     state[key] = val;
     pushURL();
     render();
+    if (key !== 'q' && typeof gtag === 'function') {
+      gtag('event', 'course_filter_used', { filter_name: key, filter_value: val, locale: 'es' });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {

@@ -492,3 +492,60 @@ if (burger && links) {
     labelTables();
   }
 })();
+
+// ── GA4 event tracking ────────────────────────────────────────────────────────
+(function () {
+  function fire(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params);
+  }
+
+  var locale = location.pathname.startsWith('/es/') ? 'es' : 'en';
+
+  // book_now_click / phone_click / outbound_click — single delegated handler
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+
+    if (href.startsWith('tel:')) {
+      fire('phone_click', {
+        phone_number: href.replace('tel:', ''),
+        locale:       locale,
+        page_path:    location.pathname,
+      });
+      return;
+    }
+
+    var isExternal = a.hostname && a.hostname !== location.hostname;
+    if (!isExternal) return;
+
+    var isBooking = a.classList.contains('btn--primary') ||
+                    /book|reserve|reserv|ontee|golfnow/i.test(href + a.textContent);
+
+    if (isBooking) {
+      fire('book_now_click', {
+        destination:  href,
+        locale:       locale,
+        page_path:    location.pathname,
+      });
+    } else {
+      fire('outbound_click', {
+        destination:  href,
+        locale:       locale,
+        page_path:    location.pathname,
+      });
+    }
+  });
+
+  // newsletter_signup — Beehiiv fires a postMessage from its iframe on success
+  var newsletterFired = false;
+  window.addEventListener('message', function (e) {
+    if (newsletterFired) return;
+    if (typeof e.origin !== 'string' || !e.origin.includes('beehiiv.com')) return;
+    newsletterFired = true;
+    fire('newsletter_signup', {
+      locale:    locale,
+      page_path: location.pathname,
+    });
+  });
+})();
