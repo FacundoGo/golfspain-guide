@@ -40,11 +40,13 @@
   // ── Tools dropdown ────────────────────────────────────────────────────────
   var TOOLS = {
     en: [
+      { href: '/en/find-my-course/',      label: 'Find My Course' },
       { href: '/en/handicap-calculator/', label: 'Handicap Calculator' },
       { href: '/en/quiz/',                label: 'Golfer Quiz' },
       { href: '/en/about/',               label: 'About' }
     ],
     es: [
+      { href: '/en/find-my-course/',      label: 'Find My Course' },
       { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
       { href: '/es/quiz/',                label: 'Quiz de golfista' },
       { href: '/es/about/',               label: 'Sobre nosotros' }
