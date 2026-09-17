@@ -966,6 +966,15 @@
 
     document.getElementById('result-value').textContent = index.toFixed(1);
 
+    // ── GA4 custom event ──
+    if (typeof gtag === 'function') {
+      gtag('event', 'calculate_handicap', {
+        num_rounds:   n,
+        locale:       'es',
+        result_index: index,
+      });
+    }
+
     const tbody   = document.getElementById('breakdown-tbody');
     tbody.innerHTML = '';
     const usedIds = new Set(usedDiffs.map(d => d.id));
