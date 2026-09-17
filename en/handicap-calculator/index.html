@@ -418,6 +418,53 @@
     .recommendation .rec-text a { color: var(--green-light); text-decoration: underline; }
 
     /* ── Disclaimer ── */
+    /* ── Email capture ── */
+    .email-capture {
+      background: var(--green-pale);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin: 18px 0 6px;
+    }
+    .email-capture__title {
+      font-size: 15px; font-weight: 700; color: var(--green-dark);
+      margin: 0 0 4px;
+    }
+    .email-capture__sub {
+      font-size: 13px; color: var(--text-mid); margin: 0 0 14px; line-height: 1.5;
+    }
+    .email-capture__row {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .email-capture__input {
+      flex: 1; min-width: 180px;
+      padding: 9px 12px; border-radius: 6px;
+      border: 1px solid var(--border); font-size: 14px;
+      font-family: inherit; background: #fff;
+      color: var(--text-dark);
+    }
+    .email-capture__input:focus { outline: 2px solid var(--green-dark); border-color: transparent; }
+    .email-capture__btn {
+      padding: 9px 18px; border-radius: 6px; border: none; cursor: pointer;
+      background: var(--green-dark); color: #fff;
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      white-space: nowrap; transition: background .15s;
+    }
+    .email-capture__btn:hover { background: var(--green-mid, #2d5a42); }
+    .email-capture__btn:disabled { opacity: .6; cursor: not-allowed; }
+    .email-capture__dismiss {
+      display: block; margin-top: 10px;
+      font-size: 12px; color: var(--text-muted);
+      cursor: pointer; background: none; border: none;
+      padding: 0; font-family: inherit; text-decoration: underline;
+    }
+    .email-capture__dismiss:hover { color: var(--text-mid); }
+    .email-capture__msg {
+      margin-top: 10px; font-size: 13px; font-weight: 600;
+    }
+    .email-capture__msg--ok  { color: #2a6e3f; }
+    .email-capture__msg--err { color: #a33; }
+
     .disclaimer {
       font-size: 12px;
       color: var(--text-muted);
@@ -614,6 +661,19 @@
         <div class="trip-cta-text"><strong>Planning a trip?</strong><br>Check verified green fees near your course</div>
         <div class="trip-cta-links" id="trip-cta-links"></div>
       </div>
+    </div>
+
+    <!-- EMAIL CAPTURE -->
+    <div class="email-capture" id="email-capture">
+      <div class="email-capture__title">📬 Email me this result</div>
+      <div class="email-capture__sub">Track your index over time — plus monthly green fee updates for Spain.</div>
+      <div class="email-capture__row">
+        <input class="email-capture__input" id="capture-email" type="email"
+               placeholder="you@example.com" autocomplete="email">
+        <button class="email-capture__btn" id="capture-btn" onclick="submitEmailCapture()">Send it →</button>
+      </div>
+      <div class="email-capture__msg" id="capture-msg" style="display:none"></div>
+      <button class="email-capture__dismiss" onclick="document.getElementById('email-capture').style.display='none'">No thanks</button>
     </div>
 
     <div class="disclaimer">
@@ -945,6 +1005,8 @@
     }
   }
 
+  var lastCalcResult = null; // { index, numRounds } — used by email capture
+
   function calculate() {
     const rows = document.querySelectorAll('.round-row');
     const diffs = [];
@@ -995,6 +1057,15 @@
 
     // ── Render result value ──
     document.getElementById('result-value').textContent = index.toFixed(1);
+
+    // ── Store for email capture + reset form state ──
+    lastCalcResult = { index, numRounds: n };
+    var cap = document.getElementById('email-capture');
+    if (cap) {
+      cap.style.display = '';
+      document.getElementById('capture-msg').style.display = 'none';
+      document.getElementById('capture-btn').disabled = false;
+    }
 
     // ── GA4 custom event ──
     if (typeof gtag === 'function') {
@@ -1139,6 +1210,55 @@
   // Init with 2 blank rounds
   addRound();
   addRound();
+
+  async function submitEmailCapture() {
+    var email = (document.getElementById('capture-email').value || '').trim();
+    var btn   = document.getElementById('capture-btn');
+    var msg   = document.getElementById('capture-msg');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.className   = 'email-capture__msg email-capture__msg--err';
+      msg.style.display = '';
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Sending…';
+    msg.style.display = 'none';
+
+    try {
+      var res = await fetch('/api/subscribe', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          handicap_index: lastCalcResult ? lastCalcResult.index    : null,
+          num_rounds:     lastCalcResult ? lastCalcResult.numRounds : null,
+          locale:         'en',
+        }),
+      });
+
+      if (res.ok) {
+        msg.textContent   = '✓ Check your inbox!';
+        msg.className     = 'email-capture__msg email-capture__msg--ok';
+        msg.style.display = '';
+        btn.textContent   = 'Sent ✓';
+        document.getElementById('capture-email').disabled = true;
+        if (typeof gtag === 'function') {
+          gtag('event', 'newsletter_signup', { locale: 'en', page_path: location.pathname, source: 'calculator_result' });
+        }
+      } else {
+        throw new Error('non-ok');
+      }
+    } catch (_) {
+      btn.disabled    = false;
+      btn.textContent = 'Send it →';
+      msg.textContent   = 'Something went wrong — please try again.';
+      msg.className     = 'email-capture__msg email-capture__msg--err';
+      msg.style.display = '';
+    }
+  }
 </script>
 </body>
 </html>
