@@ -269,6 +269,12 @@ if (burger && links) {
   function dismiss(accepted) {
     setConsent(accepted ? 'accepted' : 'declined');
     applyGtag(accepted);
+    // Re-send config after consent so GA4 processes it with analytics_storage granted.
+    // Also re-applies debug_mode so DebugView registers the device after the consent gate.
+    if (accepted && typeof gtag === 'function') {
+      var debugCfg = location.search.includes('debug=1') ? { debug_mode: true } : {};
+      gtag('config', 'G-DXK0NZW1LH', debugCfg);
+    }
     banner.style.transition = 'transform .25s cubic-bezier(.4,0,.2,1)';
     banner.style.transform = 'translateY(100%)';
     setTimeout(function () { banner.parentNode && banner.parentNode.removeChild(banner); }, 280);
