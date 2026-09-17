@@ -573,3 +573,56 @@ if (burger && links) {
     });
   });
 })();
+
+// ── Inline subscribe form (course & blog pages) ───────────────────────────────
+async function submitTableForm(btn) {
+  var form    = btn.closest('.nl-table-hook, .nl-midpost');
+  var input   = form.querySelector('.nl-form__input');
+  var consent = form.querySelector('.nl-form__consent input[type="checkbox"]');
+  var msg     = form.querySelector('.nl-form__msg');
+  var isEs    = document.documentElement.lang === 'es';
+  var email   = (input.value || '').trim();
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent   = isEs ? 'Por favor, introduce un email válido.' : 'Please enter a valid email.';
+    msg.className     = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+    return;
+  }
+  if (!consent.checked) {
+    msg.textContent   = isEs ? 'Marca la casilla para aceptar la Política de Privacidad.' : 'Please tick the checkbox to agree to the Privacy Policy.';
+    msg.className     = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+    return;
+  }
+
+  btn.disabled      = true;
+  btn.textContent   = isEs ? 'Suscribiendo…' : 'Subscribing…';
+  msg.style.display = 'none';
+
+  try {
+    var res = await fetch('/api/subscribe', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, locale: isEs ? 'es' : 'en', utm_source: 'course_page' }),
+    });
+    if (res.ok) {
+      msg.textContent   = isEs ? '✓ ¡Ya estás suscrito! Revisa tu bandeja de entrada.' : '✓ Subscribed! Check your inbox.';
+      msg.className     = 'nl-form__msg nl-form__msg--ok';
+      msg.style.display = '';
+      btn.textContent   = isEs ? 'Suscrito ✓' : 'Subscribed ✓';
+      input.disabled    = true;
+      if (typeof gtag === 'function') {
+        gtag('event', 'newsletter_signup', { locale: isEs ? 'es' : 'en', page_path: location.pathname, source: 'course_page' });
+      }
+    } else {
+      throw new Error('non-ok');
+    }
+  } catch (_) {
+    btn.disabled      = false;
+    btn.textContent   = isEs ? 'Suscribirse →' : 'Subscribe →';
+    msg.textContent   = isEs ? 'Algo salió mal — inténtalo de nuevo.' : 'Something went wrong — please try again.';
+    msg.className     = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+  }
+}
