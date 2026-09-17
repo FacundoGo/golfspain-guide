@@ -459,6 +459,15 @@
       padding: 0; font-family: inherit; text-decoration: underline;
     }
     .email-capture__dismiss:hover { color: var(--text-mid); }
+    .email-capture__consent {
+      display: flex; align-items: flex-start; gap: 8px;
+      margin: 12px 0 0; font-size: 12px; color: var(--text-mid); line-height: 1.5;
+    }
+    .email-capture__consent input[type="checkbox"] {
+      margin-top: 2px; flex-shrink: 0; accent-color: var(--green-dark);
+      width: 15px; height: 15px; cursor: pointer;
+    }
+    .email-capture__consent a { color: var(--green-dark); text-decoration: underline; }
     .email-capture__msg {
       margin-top: 10px; font-size: 13px; font-weight: 600;
     }
@@ -672,6 +681,10 @@
                placeholder="you@example.com" autocomplete="email">
         <button class="email-capture__btn" id="capture-btn" onclick="submitEmailCapture()">Send it →</button>
       </div>
+      <label class="email-capture__consent">
+        <input type="checkbox" id="capture-consent">
+        I agree to the <a href="/en/privacy/" target="_blank">Privacy Policy</a> and consent to receiving emails from golfspain.guide.
+      </label>
       <div class="email-capture__msg" id="capture-msg" style="display:none"></div>
       <button class="email-capture__dismiss" onclick="document.getElementById('email-capture').style.display='none'">No thanks</button>
     </div>
@@ -1218,6 +1231,12 @@
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       msg.textContent = 'Please enter a valid email address.';
+      msg.className   = 'email-capture__msg email-capture__msg--err';
+      msg.style.display = '';
+      return;
+    }
+    if (!document.getElementById('capture-consent').checked) {
+      msg.textContent = 'Please tick the checkbox to agree to the Privacy Policy.';
       msg.className   = 'email-capture__msg email-capture__msg--err';
       msg.style.display = '';
       return;

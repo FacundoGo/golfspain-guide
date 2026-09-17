@@ -9,7 +9,7 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { email, handicap_index, num_rounds, locale } = req.body || {};
+  const { email, handicap_index, num_rounds, locale, utm_source } = req.body || {};
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Invalid email' });
@@ -34,9 +34,9 @@ module.exports = async function handler(req, res) {
         },
         body: JSON.stringify({
           email,
-          utm_source:          'calculator',
+          utm_source:          utm_source || 'calculator',
           utm_medium:          'web',
-          utm_campaign:        'handicap_result',
+          utm_campaign:        utm_source === 'newsletter_page' ? 'newsletter' : 'handicap_result',
           reactivate_existing: true,
           send_welcome_email:  false,
           custom_fields: [

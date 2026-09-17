@@ -138,6 +138,40 @@
       text-align: center;
     }
 
+    .nl-form__row {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .nl-form__input {
+      flex: 1; min-width: 180px;
+      padding: 10px 13px; border-radius: 7px;
+      border: 1px solid #c4d9c8; font-size: .92rem;
+      font-family: inherit; background: #fff;
+      color: #1a3326;
+    }
+    .nl-form__input:focus { outline: 2px solid #2e6349; border-color: transparent; }
+    .nl-form__btn {
+      padding: 10px 20px; border-radius: 7px; border: none; cursor: pointer;
+      background: #1a3326; color: #fff;
+      font-size: .92rem; font-weight: 700; font-family: inherit;
+      white-space: nowrap; transition: background .15s;
+    }
+    .nl-form__btn:hover { background: #2e6349; }
+    .nl-form__btn:disabled { opacity: .6; cursor: not-allowed; }
+    .nl-form__consent {
+      display: flex; align-items: flex-start; gap: 8px;
+      margin: 12px 0 0; font-size: .78rem; color: #555; line-height: 1.5;
+    }
+    .nl-form__consent input[type="checkbox"] {
+      margin-top: 2px; flex-shrink: 0; accent-color: #2e6349;
+      width: 14px; height: 14px; cursor: pointer;
+    }
+    .nl-form__consent a { color: #2e6349; text-decoration: underline; }
+    .nl-form__msg {
+      margin-top: 10px; font-size: .82rem; font-weight: 600; text-align: center;
+    }
+    .nl-form__msg--ok  { color: #2a6e3f; }
+    .nl-form__msg--err { color: #a33; }
+
     .nl-back-link {
       text-align: center;
       margin-top: 18px;
@@ -214,7 +248,15 @@
       </ul>
 
       <div class="nl-form-area">
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="5f86e360-0313-4edd-8574-ab07644f3912"></script>
+        <div class="nl-form__row">
+          <input class="nl-form__input" id="nl-email" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+          <button class="nl-form__btn" id="nl-btn" onclick="submitNlForm()">Suscribirse gratis →</button>
+        </div>
+        <label class="nl-form__consent">
+          <input type="checkbox" id="nl-consent">
+          Acepto la <a href="/es/privacidad/" target="_blank">Política de Privacidad</a> y consiento recibir emails de golfspain.guide.
+        </label>
+        <div class="nl-form__msg" id="nl-msg" style="display:none"></div>
         <p>Un correo al mes. Sin spam. Date de baja cuando quieras con un clic.</p>
       </div>
 
@@ -255,34 +297,54 @@
 
 <script src="/js/main.js"></script>
 <script>
-// Beehiiv inyecta el iframe del formulario en un contenedor con height:0;overflow:hidden
-// y lo expande vía postMessage. Aplica la altura recibida y nunca lo deja colapsado.
-(function () {
-  function fix() {
-    document.querySelectorAll('iframe[src*="beehiiv"]').forEach(function (f) {
-      f.style.width = '100%';
-      var w = f.parentElement;
-      if (w) {
-        w.style.overflow = 'visible';
-        if (!w.style.height || w.style.height === '0px') w.style.height = 'auto';
-        if (!w.style.minHeight) w.style.minHeight = '150px';
-      }
-    });
+async function submitNlForm() {
+  var email = (document.getElementById('nl-email').value || '').trim();
+  var btn   = document.getElementById('nl-btn');
+  var msg   = document.getElementById('nl-msg');
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = 'Por favor, introduce un email válido.';
+    msg.className   = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+    return;
   }
-  window.addEventListener('message', function (e) {
-    if (!e.origin || e.origin.indexOf('beehiiv.com') === -1) return;
-    var d = e.data || {}, h = d.height || (d.data && d.data.height);
-    document.querySelectorAll('iframe[src*="beehiiv"]').forEach(function (f) {
-      if (f.contentWindow === e.source && h) {
-        f.style.height = h + 'px';
-        if (f.parentElement) { f.parentElement.style.height = h + 'px'; f.parentElement.style.overflow = 'visible'; }
-      }
+  if (!document.getElementById('nl-consent').checked) {
+    msg.textContent = 'Marca la casilla para aceptar la Política de Privacidad.';
+    msg.className   = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+    return;
+  }
+
+  btn.disabled    = true;
+  btn.textContent = 'Suscribiendo…';
+  msg.style.display = 'none';
+
+  try {
+    var res = await fetch('/api/subscribe', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, locale: 'es', utm_source: 'newsletter_page' }),
     });
-    fix();
-  });
-  var n = 0, iv = setInterval(function () { fix(); if (++n > 20) clearInterval(iv); }, 500);
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fix); else fix();
-})();
+    if (res.ok) {
+      msg.textContent   = '✓ ¡Ya estás suscrito! Revisa tu bandeja de entrada.';
+      msg.className     = 'nl-form__msg nl-form__msg--ok';
+      msg.style.display = '';
+      btn.textContent   = 'Suscrito ✓';
+      document.getElementById('nl-email').disabled = true;
+      if (typeof gtag === 'function') {
+        gtag('event', 'newsletter_signup', { locale: 'es', page_path: location.pathname, source: 'newsletter_page' });
+      }
+    } else {
+      throw new Error('non-ok');
+    }
+  } catch (_) {
+    btn.disabled    = false;
+    btn.textContent = 'Suscribirse gratis →';
+    msg.textContent   = 'Algo salió mal — inténtalo de nuevo.';
+    msg.className     = 'nl-form__msg nl-form__msg--err';
+    msg.style.display = '';
+  }
+}
 </script>
 </body>
 </html>
