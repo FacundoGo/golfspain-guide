@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find My Golf Course in Spain — 5-Question Matcher | golfspain.guide</title>
+  <meta name="description" content="5 quick questions. We match you with the right golf course in Spain — based on your budget, where you want to play, and what you're looking for.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://golfspain.guide/en/find-my-course/">
+  <link rel="alternate" hreflang="en" href="https://golfspain.guide/en/find-my-course/">
+  <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/find-my-course/">
+  <meta property="og:title" content="Find My Golf Course in Spain">
+  <meta property="og:description" content="5 questions. We match you with the right course — visitor green fee or membership, any budget.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://golfspain.guide/en/find-my-course/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Course Finder Spain","url":"https://golfspain.guide/en/find-my-course/","description":"5-question quiz matching golfers to the right golf course in Spain based on budget, region and intent.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXK0NZW1LH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Course finder result cards */
+    .cf-results { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .cf-card {
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; background: var(--white);
+    }
+    .cf-card--top { border-color: var(--green-dark); }
+    .cf-card__badge {
+      background: var(--green-dark); color: var(--white);
+      font-size: 11px; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; padding: 5px 16px;
+    }
+    .cf-card__body { padding: 16px 20px 20px; }
+    .cf-card__name {
+      font-size: 17px; font-weight: 800; color: var(--text-dark); margin-bottom: 4px;
+    }
+    .cf-card__why {
+      font-size: 12px; color: var(--green-mid); font-weight: 700;
+      margin-bottom: 10px; line-height: 1.5;
+    }
+    .cf-card__blurb {
+      font-size: 13px; color: var(--text-mid); line-height: 1.55; margin-bottom: 14px;
+    }
+    .cf-card__meta {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+    }
+    .cf-card__tag {
+      background: var(--green-pale); color: var(--green-dark);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 3px 11px; font-size: 12px; font-weight: 600;
+    }
+    .cf-card__cta {
+      display: inline-block; background: var(--green-dark); color: var(--white);
+      text-decoration: none; padding: 10px 18px; border-radius: 8px;
+      font-size: 13px; font-weight: 700; transition: opacity .15s;
+    }
+    .cf-card__cta:hover { opacity: .88; color: var(--white); }
+    .cf-card__note {
+      font-size: 11px; color: var(--text-light); margin-top: 8px; line-height: 1.4;
+    }
+
+    .cf-no-results {
+      text-align: center; padding: 32px 20px;
+      border: 1px dashed var(--border); border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    .cf-no-results p { color: var(--text-mid); font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
+
+    .cf-result-header {
+      background: var(--green-dark); border-radius: 14px;
+      padding: 28px 24px; text-align: center; margin-bottom: 20px; color: var(--white);
+    }
+    .cf-result-header__eyebrow {
+      font-size: 11px; color: #9fca6e; text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 6px;
+    }
+    .cf-result-header h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .cf-result-header p { font-size: 14px; color: #b8d9a0; line-height: 1.5; }
+
+    .cf-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+    .cf-actions a {
+      flex: 1; min-width: 130px; background: var(--green-dark); color: var(--white);
+      text-align: center; padding: 13px; border-radius: 10px; font-size: 14px;
+      font-weight: 700; text-decoration: none; display: block; transition: opacity .15s;
+    }
+    .cf-actions a:hover { opacity: .88; color: var(--white); }
+    .cf-retry {
+      width: 100%; padding: 10px; background: transparent; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 13px; font-family: var(--font-main);
+      color: var(--text-light); cursor: pointer; transition: background .15s; margin-top: 12px;
+    }
+    .cf-retry:hover { background: var(--warm-bg); }
+
+    /* Back button */
+    .quiz-back-btn {
+      background: transparent; border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 18px; font-size: 14px; font-family: var(--font-main);
+      color: var(--text-mid); cursor: pointer; transition: background .15s;
+    }
+    .quiz-back-btn:hover { background: var(--warm-bg); }
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .quiz-nav--right { justify-content: flex-end; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav__inner">
+    <a href="/en/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <ul class="nav__links">
+      <li><a href="/en/courses/">All Courses</a></li>
+      <li><a href="/en/handicap-calculator/">Handicap</a></li>
+      <li><a href="/en/quiz/">Golfer Quiz</a></li>
+    </ul>
+    <div class="nav__lang"><span class="nav__lang-active">EN</span><a href="/es/">ES</a></div>
+    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <p class="quiz-eyebrow" style="color:#9fca6e;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">5 questions · 60 seconds</p>
+    <h1 style="font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;margin-bottom:10px;">Find my golf course in Spain</h1>
+    <p style="color:#aec8b8;font-size:15px;max-width:500px;margin:0 auto;line-height:1.6;">Visitor round or membership? Budget? Where? We'll match you to the right course.</p>
+  </div>
+</header>
+
+<main class="quiz-page">
+  <div class="quiz-container" id="quiz-container">
+    <div class="quiz-progress">
+      <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+    </div>
+    <div class="quiz-card" id="quiz-card">
+      <p class="quiz-q-number" id="quiz-q-number"></p>
+      <h2 class="quiz-q-text" id="quiz-q-text"></h2>
+      <div class="quiz-options" id="quiz-options"></div>
+    </div>
+    <div class="quiz-nav" id="quiz-nav">
+      <button class="quiz-back-btn" id="quiz-back-btn" style="display:none" onclick="stepBack()">← Back</button>
+      <button class="quiz-next-btn" id="quiz-next-btn" disabled>Next →</button>
+    </div>
+  </div>
+
+  <div id="cf-results-panel" hidden></div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
+        <p>Independent guide to golf club membership and green fees in Spain.</p>
+      </div>
+      <div class="footer__col"><h4>Regions</h4><ul>
+        <li><a href="/en/valencia/">Valencia</a></li>
+        <li><a href="/en/alicante/">Alicante</a></li>
+        <li><a href="/en/barcelona/">Barcelona</a></li>
+        <li><a href="/en/toledo/">Toledo</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Tools</h4><ul>
+        <li><a href="/en/courses/">All Courses</a></li>
+        <li><a href="/en/handicap-calculator/">Handicap Calculator</a></li>
+        <li><a href="/en/quiz/">Golfer Quiz</a></li>
+        <li><a href="/en/find-my-course/">Course Finder</a></li>
+        <li><a href="/en/blog/">Blog</a></li>
+        <li><a href="/en/about/">About</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide — Independent guide, not affiliated with any club or federation.</p></div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+// ── Course data ────────────────────────────────────────────────────────────────
+var COURSES = [
+  {
+    id: 'foressos',
+    name: 'Foressos Golf',
+    region: ['valencia'],
+    holes: 18, holeLabel: '18 holes',
+    type: ['standard', 'championship'],
+    visitorFee: 70, visitorFeeLabel: '€70 WD / €80 WE',
+    visitorNote: null,
+    membershipFrom: 600, membershipLabel: 'From €600/yr',
+    membershipFeeKnown: true,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['value', 'family', 'open', 'no-entry-fee'],
+    url: '/en/valencia/foressos-golf/',
+    blurb: 'Open to all visitors. Weekday €70, weekend €80. Membership starts at €600/yr with no entry fee — best value in Valencia for regular golfers.',
+  },
+  {
+    id: 'el-saler',
+    name: 'El Saler (Parador)',
+    region: ['valencia'],
+    holes: 18, holeLabel: '18 holes',
+    type: ['championship'],
+    visitorFee: 60, visitorFeeLabel: '€60 (guest rate)',
+    visitorNote: 'Current access is primarily as a guest of a member. Public tee-time availability is limited — call ahead.',
+    membershipFrom: 2400, membershipLabel: 'From ~€2,400/yr',
+    membershipFeeKnown: true,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['prestige', 'championship', 'top-rated'],
+    url: '/en/valencia/el-saler/',
+    blurb: 'Considered one of the top 5 courses in Europe. Designed by Javier Arana (1968). Membership from ~€2,400/yr (under-30) or ~€4,500/yr.',
+  },
+  {
+    id: 'el-bosque',
+    name: 'El Bosque Golf',
+    region: ['valencia'],
+    holes: 18, holeLabel: '18 holes',
+    type: ['standard', 'championship'],
+    visitorFee: 73, visitorFeeLabel: 'From €73 (WD, 9H)',
+    visitorNote: null,
+    membershipFrom: 1692, membershipLabel: 'From €1,692/yr',
+    membershipFeeKnown: true,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['premium', 'open'],
+    url: '/en/valencia/el-bosque-golf/',
+    blurb: 'Open to visitors. Green fees from €73 (WD 9H) up to €125 (WE 18H). Membership €1,692–2,712/yr.',
+  },
+  {
+    id: 'ifach',
+    name: 'Ifach Golf',
+    region: ['costa-blanca'],
+    holes: 9, holeLabel: '9 holes (Par 30)',
+    type: ['compact'],
+    visitorFee: 49.50, visitorFeeLabel: '€49.50 (18H equiv.)',
+    visitorNote: null,
+    membershipFrom: null, membershipLabel: 'Via transferable share',
+    membershipFeeKnown: false,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['budget', 'compact', 'open'],
+    url: '/en/alicante/ifach-golf/',
+    blurb: 'Arana-designed 9-hole Par 30 in Benissa. Great value at €49.50. Membership available via a transferable share (contact club for price).',
+  },
+  {
+    id: 'campoamor',
+    name: 'Campoamor Golf',
+    region: ['alicante', 'costa-blanca'],
+    holes: 18, holeLabel: '18 holes',
+    type: ['resort', 'standard'],
+    visitorFee: null, visitorFeeLabel: 'See website',
+    visitorNote: 'Green fee rates vary by season — check current rates on their website.',
+    membershipFrom: null, membershipLabel: 'Contact club',
+    membershipFeeKnown: false,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['resort', 'sea-views'],
+    url: '/en/alicante/campoamor-golf/',
+    blurb: 'Popular resort course near Orihuela Costa with sea views. 18 holes. Rates vary seasonally.',
+  },
+  {
+    id: 'villamartin',
+    name: 'Villamartín Golf',
+    region: ['alicante', 'costa-blanca'],
+    holes: 18, holeLabel: '18 holes',
+    type: ['resort', 'standard'],
+    visitorFee: null, visitorFeeLabel: 'See website',
+    visitorNote: 'Green fee rates vary by season — check current rates on their website.',
+    membershipFrom: null, membershipLabel: 'Contact club',
+    membershipFeeKnown: false,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['resort'],
+    url: '/en/alicante/villamartin/',
+    blurb: 'Classic Alicante resort course. Established club popular with residents and tourists alike.',
+  },
+  {
+    id: 'masia-estrellas',
+    name: 'Masia de las Estrellas',
+    region: ['costa-blanca'],
+    holes: 9, holeLabel: 'Pitch & putt (9H)',
+    type: ['pitch-putt', 'beginner'],
+    visitorFee: 24, visitorFeeLabel: '~€24 (18H)',
+    visitorNote: null,
+    membershipFrom: 800, membershipLabel: '~€800/yr',
+    membershipFeeKnown: true,
+    federationRequired: false,
+    visitor: true, membership: true,
+    tags: ['beginner', 'budget', 'casual'],
+    url: '/en/alicante/masia-de-las-estrellas/',
+    blurb: 'Pitch & putt in Benissa. Perfect for beginners or a casual round. ~€24 for 18 holes.',
+  },
+  {
+    id: 'escorpion',
+    name: 'Club de Golf Escorpión',
+    region: ['valencia'],
+    holes: 27, holeLabel: '27 holes',
+    type: ['championship'],
+    visitorFee: 160, visitorFeeLabel: '~€160 (guests only)',
+    visitorNote: 'Federated golfers with a handicap of 28 or better only. Access as guest of a member.',
+    membershipFrom: 20000, membershipLabel: '~€20k share + ~€1,500/yr',
+    membershipFeeKnown: true,
+    federationRequired: true,
+    visitor: true, membership: true,
+    tags: ['private', 'exclusive', 'prestige', 'championship'],
+    url: '/en/courses/',
+    blurb: 'Private 27-hole club in Valencia. Guests require RFEG federation + handicap ≤28. Membership involves purchasing a share.',
+  },
+];
+
+// ── Question definitions ───────────────────────────────────────────────────────
+var STEPS = [
+  {
+    id: 'intent',
+    label: 'Question 1 of 5',
+    question: 'Are you looking to play a round or explore membership?',
+    options: [
+      { value: 'visitor', letter: 'A', text: 'Play a visitor round', sub: 'I want to book a tee time' },
+      { value: 'membership', letter: 'B', text: 'Explore joining a club', sub: "I'm thinking about becoming a member" },
+    ],
+  },
+  {
+    id: 'region',
+    label: 'Question 2 of 5',
+    question: 'Where are you looking to play?',
+    options: [
+      { value: 'valencia', letter: 'A', text: 'Valencia area', sub: 'City, coast & inland' },
+      { value: 'costa-blanca', letter: 'B', text: 'Costa Blanca / Alicante', sub: 'Benissa, Orihuela, Alicante' },
+      { value: 'anywhere', letter: 'C', text: 'Anywhere in Spain', sub: 'Show me the best options regardless of region' },
+    ],
+  },
+  {
+    id: 'federated',
+    label: 'Question 3 of 5',
+    question: 'Do you have an official RFEG handicap card?',
+    options: [
+      { value: 'yes', letter: 'A', text: "Yes, I'm RFEG-federated" },
+      { value: 'no', letter: 'B', text: "No" },
+      { value: 'no', letter: 'C', text: "What's RFEG?", sub: "The Spanish golf federation — we'll treat this as No" },
+    ],
+  },
+  {
+    id: 'budget_visitor',
+    label: 'Question 4 of 5',
+    question: "What's your budget per round?",
+    condition: function(a) { return a.intent === 'visitor'; },
+    options: [
+      { value: 'under50', letter: 'A', text: 'Under €50', sub: 'Budget-friendly' },
+      { value: '50-80', letter: 'B', text: '€50–80 per round', sub: 'Mid-range' },
+      { value: '80-120', letter: 'C', text: '€80–120 per round', sub: 'Premium' },
+      { value: 'nolimit', letter: 'D', text: 'No limit', sub: 'Show me the best regardless of price' },
+    ],
+  },
+  {
+    id: 'budget_membership',
+    label: 'Question 4 of 5',
+    question: "What's your annual membership budget?",
+    condition: function(a) { return a.intent === 'membership'; },
+    options: [
+      { value: 'under1k', letter: 'A', text: 'Under €1,000/yr' },
+      { value: '1k-2.5k', letter: 'B', text: '€1,000–2,500/yr' },
+      { value: '2.5k-5k', letter: 'C', text: '€2,500–5,000/yr' },
+      { value: '5kplus', letter: 'D', text: '€5,000+/yr', sub: 'Top-tier / exclusive' },
+    ],
+  },
+  {
+    id: 'type_visitor',
+    label: 'Question 5 of 5',
+    question: "What kind of course are you looking for?",
+    condition: function(a) { return a.intent === 'visitor'; },
+    options: [
+      { value: 'championship', letter: 'A', text: '18-hole course', sub: 'Full round on a proper course' },
+      { value: 'compact', letter: 'B', text: '9 holes is fine', sub: 'Shorter round, equally good fun' },
+      { value: 'beginner', letter: 'C', text: 'Pitch & putt / beginner', sub: "Just starting out, want something easy" },
+      { value: 'any', letter: 'D', text: 'Surprise me', sub: 'Best match, whatever the format' },
+    ],
+  },
+  {
+    id: 'priority_membership',
+    label: 'Question 5 of 5',
+    question: "What matters most to you in a club?",
+    condition: function(a) { return a.intent === 'membership'; },
+    options: [
+      { value: 'value', letter: 'A', text: 'Best value for money', sub: 'Most golf for the fee' },
+      { value: 'prestige', letter: 'B', text: 'Prestige & reputation', sub: "I want a club I'm proud of" },
+      { value: 'family', letter: 'C', text: 'Family-friendly', sub: 'Good for kids and partners too' },
+      { value: 'any', letter: 'D', text: "Don't mind", sub: 'Show me the best overall match' },
+    ],
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────────────────
+var answers     = {};
+var stepHistory = []; // indices into activeSteps
+var started     = false;
+
+function getActiveSteps() {
+  return STEPS.filter(function(s) {
+    return !s.condition || s.condition(answers);
+  });
+}
+
+function currentStepIndex() {
+  return stepHistory.length > 0 ? stepHistory[stepHistory.length - 1] : 0;
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────────
+function renderStep() {
+  var activeSteps = getActiveSteps();
+  var idx         = currentStepIndex();
+  var step        = activeSteps[idx];
+
+  document.getElementById('quiz-progress-fill').style.width =
+    ((idx + 1) / 5 * 100) + '%';
+
+  document.getElementById('quiz-q-number').textContent = step.label;
+  document.getElementById('quiz-q-text').textContent   = step.question;
+
+  var opts = document.getElementById('quiz-options');
+  opts.innerHTML = '';
+  var selectedVal = answers[step.id] || null;
+
+  step.options.forEach(function(opt) {
+    var btn = document.createElement('button');
+    btn.className = 'quiz-opt' + (selectedVal === opt.value && opt.letter === (step.options.find(function(o){ return o.value === selectedVal; }) || {}).letter ? ' selected' : '');
+
+    // check if this specific option is selected (handle duplicate values like "no" for federated Q)
+    var isSelected = selectedVal !== null && opt.value === selectedVal &&
+      step.options.indexOf(opt) === step.options.findIndex(function(o) { return o.value === selectedVal; });
+
+    btn.className = 'quiz-opt' + (isSelected ? ' selected' : '');
+    btn.innerHTML =
+      '<span class="quiz-opt-letter">' + opt.letter + '</span>' +
+      '<span class="quiz-opt-text">' +
+        '<strong>' + opt.text + '</strong>' +
+        (opt.sub ? '<br><span style="font-size:12px;font-weight:400;color:var(--text-mid)">' + opt.sub + '</span>' : '') +
+      '</span>';
+
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#quiz-options .quiz-opt').forEach(function(b) {
+        b.classList.remove('selected');
+      });
+      btn.classList.add('selected');
+      answers[step.id] = opt.value;
+      document.getElementById('quiz-next-btn').disabled = false;
+    });
+    opts.appendChild(btn);
+  });
+
+  // Re-select if answer already exists
+  if (answers[step.id] !== undefined) {
+    var matchingOpt = step.options.find(function(o) { return o.value === answers[step.id]; });
+    if (matchingOpt) {
+      var btns = opts.querySelectorAll('.quiz-opt');
+      btns[step.options.indexOf(matchingOpt)].classList.add('selected');
+      document.getElementById('quiz-next-btn').disabled = false;
+    }
+  } else {
+    document.getElementById('quiz-next-btn').disabled = true;
+  }
+
+  var backBtn = document.getElementById('quiz-back-btn');
+  if (stepHistory.length > 1) {
+    backBtn.style.display = '';
+    document.getElementById('quiz-nav').classList.remove('quiz-nav--right');
+  } else {
+    backBtn.style.display = 'none';
+    document.getElementById('quiz-nav').classList.add('quiz-nav--right');
+  }
+
+  document.getElementById('quiz-next-btn').textContent =
+    (idx < activeSteps.length - 1) ? 'Next →' : 'Show my courses →';
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────────
+document.getElementById('quiz-next-btn').addEventListener('click', function() {
+  var activeSteps = getActiveSteps();
+  var idx         = currentStepIndex();
+  var step        = activeSteps[idx];
+
+  if (!started) {
+    started = true;
+    if (typeof gtag === 'function') gtag('event', 'course_finder_start', { locale: 'en' });
+  }
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'course_finder_step', {
+      step_number: idx + 1,
+      step_id:     step.id,
+      answer:      answers[step.id],
+      locale:      'en',
+    });
+  }
+
+  if (idx < activeSteps.length - 1) {
+    stepHistory.push(idx + 1);
+    renderStep();
+  } else {
+    showResults();
+  }
+});
+
+function stepBack() {
+  if (stepHistory.length > 1) {
+    stepHistory.pop();
+    renderStep();
+  }
+}
+
+// ── Matching ───────────────────────────────────────────────────────────────────
+var VISITOR_BUDGET_MAX = { 'under50': 50, '50-80': 80, '80-120': 120, 'nolimit': Infinity };
+var MEMBER_BUDGET_MAX  = { 'under1k': 1000, '1k-2.5k': 2500, '2.5k-5k': 5000, '5kplus': Infinity };
+
+function scoreCoiurse(course) {
+  var s = 0;
+  var intent = answers.intent;
+
+  // Region hard filter
+  var region = answers.region;
+  if (region !== 'anywhere' && !course.region.includes(region)) return -1;
+
+  // Federation hard filter
+  if (course.federationRequired && answers.federated !== 'yes') return -1;
+
+  if (intent === 'visitor') {
+    if (!course.visitor) return -1;
+    var budgetMax = VISITOR_BUDGET_MAX[answers.budget_visitor] || Infinity;
+    if (course.visitorFee !== null && course.visitorFee > budgetMax) return -1;
+    // Budget score: reward courses closer to (but under) the budget ceiling
+    if (course.visitorFee !== null) {
+      s += 2; // fee known
+      if (course.visitorFee <= budgetMax * 0.8) s += 1; // well under budget
+    } else {
+      s += 0; // unknown fee — neutral
+    }
+    // Type score
+    var typeAns = answers.type_visitor || 'any';
+    if (typeAns === 'any') {
+      s += 1;
+    } else if (typeAns === 'championship' && course.type.includes('championship')) {
+      s += 3;
+    } else if (typeAns === 'championship' && course.holes === 18) {
+      s += 1;
+    } else if (typeAns === 'compact' && (course.holes <= 9 || course.type.includes('compact'))) {
+      s += 3;
+    } else if (typeAns === 'beginner' && (course.type.includes('pitch-putt') || course.type.includes('beginner'))) {
+      s += 4;
+    } else if (typeAns === 'beginner' && course.visitorFee !== null && course.visitorFee < 50) {
+      s += 1; // at least affordable
+    }
+    // Prestige bonus when budget is high
+    if ((answers.budget_visitor === '80-120' || answers.budget_visitor === 'nolimit') && course.tags.includes('prestige')) s += 2;
+
+  } else if (intent === 'membership') {
+    if (!course.membership) return -1;
+    var memberMax = MEMBER_BUDGET_MAX[answers.budget_membership] || Infinity;
+    if (course.membershipFeeKnown && course.membershipFrom > memberMax) return -1;
+    if (course.membershipFeeKnown) {
+      s += 2;
+      if (course.membershipFrom <= memberMax * 0.7) s += 1;
+    }
+    // Priority score
+    var priority = answers.priority_membership || 'any';
+    if (priority === 'any') {
+      s += 1;
+    } else if (priority === 'value' && course.tags.includes('value')) {
+      s += 4;
+    } else if (priority === 'value' && course.tags.includes('no-entry-fee')) {
+      s += 2;
+    } else if (priority === 'prestige' && course.tags.includes('prestige')) {
+      s += 4;
+    } else if (priority === 'family' && course.tags.includes('family')) {
+      s += 4;
+    } else if (priority === 'family' && !course.tags.includes('private')) {
+      s += 1; // at least open/accessible
+    }
+  }
+
+  return s;
+}
+
+function match() {
+  return COURSES
+    .map(function(c) { return { course: c, score: scoreCoiurse(c) }; })
+    .filter(function(x) { return x.score >= 0; })
+    .sort(function(a, b) { return b.score - a.score; })
+    .slice(0, 3)
+    .map(function(x) { return x.course; });
+}
+
+// ── Why-match blurb ────────────────────────────────────────────────────────────
+function buildWhyTags(course) {
+  var tags = [];
+  var intent = answers.intent;
+
+  if (intent === 'visitor') {
+    if (course.visitorFeeLabel) tags.push(course.visitorFeeLabel);
+    tags.push(course.holeLabel);
+    if (course.tags.includes('prestige'))    tags.push('Top-rated course');
+    if (course.tags.includes('value'))       tags.push('Best value');
+    if (course.tags.includes('family'))      tags.push('Family-friendly');
+    if (course.tags.includes('no-entry-fee')) tags.push('No joining fee');
+    if (course.region.includes('costa-blanca')) tags.push('Costa Blanca');
+    if (course.region.includes('valencia'))     tags.push('Valencia');
+  } else {
+    if (course.membershipLabel) tags.push(course.membershipLabel);
+    tags.push(course.holeLabel);
+    if (course.tags.includes('prestige'))    tags.push('Prestigious club');
+    if (course.tags.includes('value'))       tags.push('Great value');
+    if (course.tags.includes('family'))      tags.push('Family-friendly');
+    if (course.tags.includes('no-entry-fee')) tags.push('No entry fee');
+    if (course.tags.includes('open'))        tags.push('Open membership');
+    if (course.region.includes('costa-blanca')) tags.push('Costa Blanca');
+    if (course.region.includes('valencia'))     tags.push('Valencia');
+  }
+  return tags.slice(0, 4);
+}
+
+// ── Render results ─────────────────────────────────────────────────────────────
+function showResults() {
+  document.getElementById('quiz-container').hidden = true;
+  var panel  = document.getElementById('cf-results-panel');
+  panel.hidden = false;
+
+  var results = match();
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'course_finder_complete', {
+      intent:        answers.intent,
+      region:        answers.region,
+      federated:     answers.federated,
+      results_count: results.length,
+      locale:        'en',
+    });
+  }
+
+  var regionLabel = { 'valencia': 'Valencia', 'costa-blanca': 'Costa Blanca', 'anywhere': 'Spain' }[answers.region] || 'Spain';
+  var intentLabel = answers.intent === 'visitor' ? 'for a visitor round' : 'for membership';
+
+  var html = '<div class="cf-result-header">' +
+    '<p class="cf-result-header__eyebrow">Your matches</p>' +
+    '<h2>' + (results.length > 0 ? results.length + ' course' + (results.length > 1 ? 's' : '') + ' matched' : 'No exact matches') + '</h2>' +
+    '<p>Based on your answers — ' + intentLabel + ' in ' + regionLabel + '</p>' +
+  '</div>';
+
+  if (results.length === 0) {
+    html += '<div class="cf-no-results">' +
+      '<p>No courses in our database match all your criteria exactly. Try selecting "Anywhere in Spain" for region, or broadening your budget.</p>' +
+      '<a href="/en/courses/" style="color:var(--green-dark);font-weight:700;text-decoration:underline">Browse all courses →</a>' +
+    '</div>';
+  } else {
+    html += '<div class="cf-results">';
+    results.forEach(function(course, i) {
+      var tags = buildWhyTags(course);
+      html += '<div class="cf-card' + (i === 0 ? ' cf-card--top' : '') + '">' +
+        (i === 0 ? '<div class="cf-card__badge">Best match</div>' : '') +
+        '<div class="cf-card__body">' +
+          '<h3 class="cf-card__name">' + course.name + '</h3>' +
+          '<p class="cf-card__why">' + tags.join(' · ') + '</p>' +
+          '<p class="cf-card__blurb">' + course.blurb + '</p>' +
+          '<div class="cf-card__meta">' +
+            tags.map(function(t) { return '<span class="cf-card__tag">' + t + '</span>'; }).join('') +
+          '</div>' +
+          '<a class="cf-card__cta" href="' + course.url + '" onclick="trackResultClick(\'' + course.id + '\',\'' + course.name.replace(/'/g,'') + '\',' + i + ')">' +
+            'See green fees &amp; details →' +
+          '</a>' +
+          (course.visitorNote ? '<p class="cf-card__note">ℹ️ ' + course.visitorNote + '</p>' : '') +
+        '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+  }
+
+  html += '<div class="cf-actions">' +
+    '<a href="/en/courses/">Browse all courses →</a>' +
+  '</div>' +
+  '<button class="cf-retry" onclick="restartFinder()">← Start over</button>';
+
+  panel.innerHTML = html;
+}
+
+function trackResultClick(courseId, courseName, position) {
+  if (typeof gtag === 'function') {
+    gtag('event', 'course_finder_result_click', {
+      course_id:   courseId,
+      course_name: courseName,
+      position:    position + 1,
+      locale:      'en',
+    });
+  }
+}
+
+function restartFinder() {
+  answers     = {};
+  stepHistory = [0];
+  started     = false;
+  document.getElementById('cf-results-panel').hidden = true;
+  document.getElementById('quiz-container').hidden   = false;
+  renderStep();
+}
+
+// ── Boot ───────────────────────────────────────────────────────────────────────
+stepHistory.push(0);
+renderStep();
+</script>
+</body>
+</html>
