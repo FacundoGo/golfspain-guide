@@ -631,9 +631,9 @@
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Por qué se multiplica por 0,96? <span class="arrow">▼</span></div>
+      <div class="faq-q">¿Por qué se multiplica por 0,93? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El 0,96 es el "factor de ajuste de condiciones de juego" del WHS. Garantiza que el Índice de Hándicap refleje tu potencial, no tu promedio — la idea es que en tus mejores rondas jugaste cerca de tu verdadero nivel. Multiplicar por 0,96 recorta el índice aproximadamente un 4%, empujándolo ligeramente hacia abajo.
+        El factor 0,93 proviene de la revisión de 2024 de las Reglas de Hándicap del WHS. Ajusta tu índice ligeramente por debajo de la media bruta de tus mejores rondas, ya que tu Índice de Hándicap representa tu potencial demostrado — no tu promedio — bajo la premisa de que en tus mejores rondas jugaste más cerca de tu verdadero nivel. (Nota: esto es distinto del Cálculo de Condiciones de Juego del WHS, que es un ajuste diferente, aplicado por ronda, para condiciones climáticas o de puntuación del campo.)
       </div>
     </div>
 
@@ -1033,7 +1033,7 @@
       `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `Con ${n} ronda${n > 1 ? 's' : ''}, las reglas WHS indican usar <strong>${usedLabel}</strong> — marcados en verde arriba.`,
       `Se promediaron los diferenciales: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
-      `Se aplicó el <strong>factor 0,96 del WHS</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0,96 = ${rawIndex.toFixed(2)}</span>`,
+      `Se aplicó el <strong>factor 0,93 del WHS</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0,93 = ${rawIndex.toFixed(2)}</span>`,
       `Redondeado a un decimal y limitado a 54,0: <strong>${index.toFixed(1)}</strong>`
     ];
 
