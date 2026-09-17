@@ -46,7 +46,7 @@
       { href: '/en/about/',               label: 'About' }
     ],
     es: [
-      { href: '/en/find-my-course/',      label: 'Find My Course' },
+      { href: '/es/find-my-course/',      label: 'Encontrar mi campo' },
       { href: '/es/handicap-calculator/', label: 'Calculadora de Hándicap' },
       { href: '/es/quiz/',                label: 'Quiz de golfista' },
       { href: '/es/about/',               label: 'Sobre nosotros' }
