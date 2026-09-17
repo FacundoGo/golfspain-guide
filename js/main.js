@@ -185,7 +185,16 @@ if (burger && links) {
 
   // If already answered, apply immediately and bail
   var stored = getConsent();
-  if (stored) { applyGtag(stored === 'accepted'); return; }
+  if (stored) {
+    applyGtag(stored === 'accepted');
+    // Re-send config so GA4 fires a page_view with consent granted (not before it).
+    // Also re-applies debug_mode for DebugView testing.
+    if (stored === 'accepted' && typeof gtag === 'function') {
+      var debugCfg = location.search.includes('debug=1') ? { debug_mode: true } : {};
+      gtag('config', 'G-DXK0NZW1LH', debugCfg);
+    }
+    return;
+  }
 
   var lang = location.pathname.startsWith('/es/') ? 'es' : 'en';
   var isEs = lang === 'es';
