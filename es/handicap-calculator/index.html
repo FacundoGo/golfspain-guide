@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://golfspain.guide/es/handicap-calculator/">
   <meta property="og:title" content="Calculadora de Hándicap de Golf España (WHS 2024) — Valencia y Alicante">
   <meta property="og:description" content="Calculadora de hándicap golf gratis (WHS 2024) para campos en España. Introduce hasta 20 rondas y obtén tu Índice de Hándicap estimado con explicación paso a paso.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Hándicap de Golf España","url":"https://golfspain.guide/es/handicap-calculator/","description":"Calculadora de hándicap de golf gratis usando metodología WHS. Compatible con rondas de 9 hoyos con escala ×2 correcta.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de Hándicap","item":"https://golfspain.guide/es/handicap-calculator/"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Hándicap de Golf España","url":"https://golfspain.guide/es/handicap-calculator/","description":"Calculadora de hándicap de golf gratis usando metodología WHS. Admite rondas de 9 hoyos como estimación orientativa (×2).","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de Hándicap","item":"https://golfspain.guide/es/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -251,6 +251,25 @@
     }
     .btn-calc:hover { background: var(--gold-light); }
     .btn-calc:active { transform: scale(0.99); }
+
+
+    /* ── Quick entry + live result ── */
+    .quick-entry { display: flex; flex-direction: column; gap: 12px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .quick-row { display: flex; gap: 8px; }
+    .quick-row input { flex: 1; min-width: 0; }
+    .btn-quick { background: var(--green-mid); color: var(--white); border: none; border-radius: 6px; padding: 0 20px; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer; }
+    .btn-quick:hover { background: var(--green-dark); }
+    .quick-hint { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+    .quick-msg { display: none; font-size: 13px; color: #7a5a00; background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 6px; padding: 8px 12px; }
+    .rounds-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--text-muted); }
+    .btn-clear { background: none; border: none; color: var(--text-muted); font-size: 12px; text-decoration: underline; cursor: pointer; font-family: inherit; padding: 0; text-transform: none; letter-spacing: 0; }
+    .saved-note { display: none; font-size: 13px; background: #eaf4ed; color: var(--green-dark); border-radius: 6px; padding: 8px 12px; margin-bottom: 10px; }
+    .rounds-empty { font-size: 13px; color: var(--text-muted); text-align: center; padding: 14px; border: 1px dashed var(--border); border-radius: 6px; margin-bottom: 16px; }
+    .live-result { display: none; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; background: var(--green-dark); color: var(--white); border-radius: var(--calc-radius); padding: 14px 18px; margin-bottom: 14px; }
+    .live-result__label { font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: #aec8b8; font-weight: 700; }
+    .live-result__value { font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .live-result__sub { flex-basis: 100%; font-size: 12px; color: #aec8b8; }
+    .device-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
 
     #result-section {
       display: none;
@@ -569,6 +588,7 @@
       font-size: 13px;
     }
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es un Diferencial de Hándicap?", "acceptedAnswer": {"@type": "Answer", "text": "El Diferencial de Hándicap mide cómo se compara tu puntuación con la esperada para un golfista de scratch en ese campo específico. La fórmula WHS es: Diferencial = (Golpes − Course Rating) × (113 ÷ Slope) El \"113\" es el Slope estándar de un campo promedio. Si el Slope es mayor que 113 (como La Galiana con 148), la fórmula reduce tu diferencial — los campos difíciles se recompensan."}}, {"@type": "Question", "name": "¿Cuál es la diferencia entre Course Rating y Par?", "acceptedAnswer": {"@type": "Answer", "text": "El Par es el número de golpes esperados para un jugador experto — es un número redondo (p.ej. 72) que se usa para la puntuación del día. El Course Rating es la puntuación que haría un golfista de scratch (hándicap 0) en condiciones normales — es más preciso (p.ej. 74.1) y tiene en cuenta el diseño del campo, obstáculos y condiciones. El Par no se usa en la fórmula WHS — solo se usan el Rating y el Slope."}}, {"@type": "Question", "name": "¿Qué significa el Slope?", "acceptedAnswer": {"@type": "Answer", "text": "El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo \"promedio\". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio."}}, {"@type": "Question", "name": "¿La fórmula lleva algún multiplicador o ajuste?", "acceptedAnswer": {"@type": "Answer", "text": "Ningún multiplicador. Con el Sistema Mundial de Hándicap (2020, incluida la revisión de 2024) tu Índice de Hándicap es simplemente la media de tus 8 mejores diferenciales de tus últimas 20 rondas. El antiguo factor 0,96 desapareció en 2020. Los únicos ajustes son para quien tiene pocas rondas: −2,0 con 3 rondas, −1,0 con 4 rondas y −1,0 con 6 rondas. (Aparte, el WHS puede corregir el diferencial de cada ronda según el clima y el estado del campo — el Cálculo de Condiciones de Juego — algo que solo puede aplicar el sistema de tu club.)"}}, {"@type": "Question", "name": "¿Puedo usar resultados de 9 hoyos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, como estimación orientativa. La calculadora duplica el diferencial de cada ronda de 9 hoyos para estimar una de 18. El método oficial del WHS es distinto: suma un resultado esperado para los 9 hoyos que no jugaste, calculado a partir de tu índice actual, así que tu cifra oficial puede variar. Para un índice oficial, registra tus rondas en un club federado RFEG."}}, {"@type": "Question", "name": "¿Cuántas rondas necesito para un hándicap oficial?", "acceptedAnswer": {"@type": "Answer", "text": "Bajo las reglas WHS, necesitas un mínimo de 54 hoyos (normalmente 3 rondas de 18 hoyos, o equivalente) registrados a través de un club federado RFEG para un Índice de Hándicap oficial. Esta calculadora te da una estimación con fines de planificación — para obtener un índice oficial, únete a un club afiliado a la Real Federación Española de Golf (rfeg.es)."}}]}</script>
 </head>
 <body>
 
@@ -601,9 +621,30 @@
   <div class="calc-card">
     <div class="calc-card-header">Tus rondas</div>
     <div class="calc-card-body">
+      <div class="quick-entry">
+        <div class="field-group">
+          <label for="default-course">1 · ¿Dónde juegas normalmente?</label>
+          <select id="default-course" onchange="onDefaultCourseChange()"></select>
+        </div>
+        <div class="field-group">
+          <label for="quick-scores">2 · Escribe tus últimos resultados</label>
+          <div class="quick-row">
+            <input id="quick-scores" type="text" inputmode="numeric" autocomplete="off" placeholder="ej. 92, 88, 95"
+                   onkeydown="if (event.key === 'Enter') { event.preventDefault(); quickAdd(); }">
+            <button type="button" class="btn-quick" onclick="quickAdd()">Añadir</button>
+          </div>
+        </div>
+        <div class="quick-hint">Golpes totales de cada ronda, separados por comas o espacios. ¿Jugaste 9 hoyos? Elige un campo de 9 hoyos, u “Otro campo” para esa ronda. Puedes cambiar el campo de cualquier ronda más abajo.</div>
+        <div class="quick-msg" id="quick-msg" role="alert"></div>
+      </div>
+      <div class="rounds-head"><span id="rounds-count"></span><button type="button" class="btn-clear" id="btn-clear" onclick="clearRounds()">Borrar todo</button></div>
+      <div class="saved-note" id="saved-note"></div>
+      <div class="rounds-empty" id="rounds-empty"></div>
       <div class="rounds-list" id="rounds-list"></div>
-      <button class="btn-add" id="btn-add" onclick="addRound()">+ Añadir otra ronda</button>
-      <button class="btn-calc" onclick="calculate()">Calcular mi hándicap →</button>
+      <div class="live-result" id="live-result" aria-live="polite"></div>
+      <button class="btn-add" id="btn-add" onclick="addRound(defaultCourse()); updateRoundCount();">+ Añadir una ronda a mano</button>
+      <button class="btn-calc" onclick="calculate()">Ver el cálculo completo →</button>
+      <div class="device-note">🔒 Tus rondas se guardan solo en este dispositivo.</div>
     </div>
   </div>
 
@@ -670,7 +711,7 @@
     </div>
 
     <div class="disclaimer">
-      Esto es una <strong>estimación</strong> basada en la fórmula WHS. Un Índice de Hándicap oficial requiere al menos 54 hoyos jugados en un club federado RFEG y registro a través de su sistema. <a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es →</a>
+      Esto es una <strong>estimación</strong> basada en la fórmula WHS. Un Índice de Hándicap oficial requiere al menos 54 hoyos jugados en un club federado RFEG y registro a través de su sistema. <a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es →</a> <a href="/es/blog/como-sacar-handicap-golf-espana/">Cómo sacar el hándicap oficial en España →</a>
     </div>
 
   </div>
@@ -704,9 +745,16 @@
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Por qué se multiplica por 0,93? <span class="arrow">▼</span></div>
+      <div class="faq-q">¿La fórmula lleva algún multiplicador o ajuste? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El factor 0,93 proviene de la revisión de 2024 de las Reglas de Hándicap del WHS. Ajusta tu índice ligeramente por debajo de la media bruta de tus mejores rondas, ya que tu Índice de Hándicap representa tu potencial demostrado — no tu promedio — bajo la premisa de que en tus mejores rondas jugaste más cerca de tu verdadero nivel. (Nota: esto es distinto del Cálculo de Condiciones de Juego del WHS, que es un ajuste diferente, aplicado por ronda, para condiciones climáticas o de puntuación del campo.)
+        Ningún multiplicador. Con el Sistema Mundial de Hándicap (2020, incluida la revisión de 2024) tu Índice de Hándicap es simplemente la <strong>media de tus 8 mejores diferenciales de tus últimas 20 rondas</strong>. El antiguo factor 0,96 desapareció en 2020. Los únicos ajustes son para quien tiene pocas rondas: <strong>−2,0 con 3 rondas, −1,0 con 4 rondas y −1,0 con 6 rondas</strong>. (Aparte, el WHS puede corregir el diferencial de cada ronda según el clima y el estado del campo — el Cálculo de Condiciones de Juego — algo que solo puede aplicar el sistema de tu club.)
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Puedo usar resultados de 9 hoyos? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        Sí, como estimación orientativa. La calculadora duplica el diferencial de cada ronda de 9 hoyos para estimar una de 18. El método oficial del WHS es distinto: suma un resultado esperado para los 9 hoyos que no jugaste, calculado a partir de tu índice actual, así que tu cifra oficial puede variar. Para un índice oficial, registra tus rondas en un club federado RFEG.
       </div>
     </div>
 
@@ -786,6 +834,14 @@
     { value: 'loromero',     label: 'Lo Romero Golf (18H)',               rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
     { value: 'puigcampana9', label: 'Puig Campana Golf (9H)',             rating: null, slope: null, par: 35, holes: 9,  group: 'Alicante', parFallback: true },
     { value: 'villamartin',  label: 'Villamartín Golf (18H)',             rating: null, slope: 136, par: 72,  holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'olivanova',    label: 'Oliva Nova Golf (18H)',              rating: null, slope: 129, par: 72, holes: 18, group: 'Valencia', parFallback: true },
+    { value: 'ifach9',       label: 'Ifach Golf — Benissa (9H)',          rating: null, slope: null, par: 30, holes: 9,  group: 'Alicante', parFallback: true },
+    // ── Castellón ───────────────────────────────────────────────────────────
+    { value: 'mediterraneo', label: 'Mediterráneo Golf (18H)',            rating: null, slope: null, par: 72, holes: 18, group: 'Castellón', parFallback: true },
+    { value: 'panoramica',   label: 'Panorámica Golf (18H)',              rating: null, slope: null, par: 72, holes: 18, group: 'Castellón', parFallback: true },
+    // ── Barcelona / Toledo ──────────────────────────────────────────────────
+    { value: 'elprat',       label: 'Real Club de Golf El Prat (18H)',    rating: null, slope: null, par: 72, holes: 18, group: 'Barcelona', parFallback: true },
+    { value: 'layos',        label: 'Layos Golf (18H)',                   rating: 75.2, slope: 135, par: 72, holes: 18, group: 'Toledo' },
     // ── Personalizado ────────────────────────────────────────────────────────
     { value: 'custom',       label: 'Otro campo (introducir manualmente)', rating: null, slope: null, par: null, holes: 18 },
   ];
@@ -811,7 +867,7 @@
     return html;
   }
 
-  function addRound() {
+  function addRound(course, score) {
     roundCount++;
     const id = roundCount;
     customHoles[id] = 18;
@@ -860,11 +916,15 @@
       <div class="row-warning" id="warn-${id}"></div>
     `;
     document.getElementById('rounds-list').appendChild(row);
+    if (course) { document.getElementById(`course-${id}`).value = course; onCourseChange(id); }
+    if (score !== undefined && score !== null && score !== '') { document.getElementById(`score-${id}`).value = score; checkWarning(id); }
+    return id;
   }
 
   function removeRound(id) {
     const row = document.querySelector(`.round-row[data-id="${id}"]`);
     if (row) row.remove();
+    scheduleUpdate();
     delete customHoles[id];
   }
 
@@ -878,6 +938,7 @@
     const parEl = document.getElementById(`custom-par-${id}`);
     if (parEl && !parEl.value) parEl.placeholder = h === 9 ? '36' : '72';
     checkWarning(id);
+    scheduleUpdate();
   }
 
   function toggleAdvancedRS(id) {
@@ -993,7 +1054,7 @@
 
   var lastCalcResult = null; // { index, numRounds } — used by email capture
 
-  function calculate() {
+  function calculate(live) {
     const rows = document.querySelectorAll('.round-row');
     const diffs = [];
     let hasIncomplete = false;
@@ -1014,18 +1075,29 @@
     });
 
     if (diffs.length === 0) {
+      if (live) {
+        updateLiveResult(null);
+        document.getElementById('result-section').style.display = 'none';
+        return;
+      }
       alert('Añade al menos una ronda completa (golpes + campo seleccionado).');
       return;
     }
-    if (hasIncomplete) {
+    if (hasIncomplete && !live) {
       if (!confirm('Algunas rondas están incompletas y se omitirán. ¿Continuar con ' + diffs.length + ' ronda(s) válida(s)?')) return;
     }
 
     const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
     const n      = diffs.length;
     let numUsed;
-    if      (n <= 5)   numUsed = 1;
-    else if (n <= 6)   numUsed = 2;
+    // WHS Rule 5.2a: how many differentials to use, plus an adjustment for 3, 4 and 6 rounds.
+    // WHS needs at least 3 rounds; with 1–2 we still show a rough indication from the best one.
+    let adjustment = 0;
+    if      (n <= 2)   numUsed = 1;
+    else if (n === 3)  { numUsed = 1; adjustment = -2.0; }
+    else if (n === 4)  { numUsed = 1; adjustment = -1.0; }
+    else if (n === 5)  numUsed = 1;
+    else if (n === 6)  { numUsed = 2; adjustment = -1.0; }
     else if (n <= 8)   numUsed = 2;
     else if (n <= 11)  numUsed = 3;
     else if (n <= 14)  numUsed = 4;
@@ -1036,22 +1108,29 @@
 
     const usedDiffs = sorted.slice(0, numUsed);
     const avgDiff   = usedDiffs.reduce((s, d) => s + d.diff, 0) / numUsed;
-    const rawIndex  = avgDiff * 0.93;
+    const rawIndex  = avgDiff + adjustment;
     const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
 
     document.getElementById('result-value').textContent = index.toFixed(1);
+    updateLiveResult(index, n, n < 3 || diffs.some(d => d.is9H));
+    const subEl = document.querySelector('.result-sublabel');
+    if (subEl) subEl.textContent = n < 3 ? 'Estimación orientativa · el WHS exige al menos 3 rondas (54 hoyos)'
+      : diffs.some(d => d.is9H) ? 'Estimación orientativa · incluye rondas de 9 hoyos (cada una duplicada para estimar 18)'
+      : 'Estimación WHS · para inscripción oficial únete a un club federado RFEG';
 
     // ── Store for email capture + reset form state ──
     lastCalcResult = { index, numRounds: n };
     var cap = document.getElementById('email-capture');
-    if (cap) {
+    if (cap && (!live || !captureShown)) {
+      captureShown = true;
       cap.style.display = '';
       document.getElementById('capture-msg').style.display = 'none';
       document.getElementById('capture-btn').disabled = false;
     }
 
     // ── GA4 custom event ──
-    if (typeof gtag === 'function') {
+    if (typeof gtag === 'function' && (!live || !liveTracked)) {
+      liveTracked = true;
       gtag('event', 'calculate_handicap', {
         num_rounds:   n,
         locale:       'es',
@@ -1126,7 +1205,9 @@
       `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `Con ${n} ronda${n > 1 ? 's' : ''}, las reglas WHS indican usar <strong>${usedLabel}</strong> — marcados en verde arriba.`,
       `Se promediaron los diferenciales: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
-      `Se aplicó el <strong>factor 0,93 del WHS</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0,93 = ${rawIndex.toFixed(2)}</span>`,
+      adjustment
+        ? `Con solo ${n} rondas, el WHS aplica un <strong>ajuste de −${Math.abs(adjustment).toFixed(1).replace('.', ',')}</strong>: <span class="mono">${avgDiff.toFixed(2)} − ${Math.abs(adjustment).toFixed(1)} = ${rawIndex.toFixed(2)}</span>`
+        : `Con ${n} ronda${n > 1 ? 's' : ''} no se aplica ningún multiplicador ni ajuste — tu índice es simplemente esta media.`,
       `Redondeado a un decimal y limitado a 54,0: <strong>${index.toFixed(1)}</strong>`
     ];
 
@@ -1137,8 +1218,8 @@
       </div>
     `).join('');
 
-    const ALICANTE_VALS = new Set(['altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
-    const VALENCIA_VALS  = new Set(['foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
+    const ALICANTE_VALS = new Set(['ifach9','altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
+    const VALENCIA_VALS  = new Set(['olivanova','foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
     const playedAlicante = diffs.some(d => ALICANTE_VALS.has(d.sel));
     const playedValencia = diffs.some(d => VALENCIA_VALS.has(d.sel));
     const region = (playedAlicante && !playedValencia) ? 'alicante' : 'valencia';
@@ -1179,15 +1260,170 @@
 
     const resultSection = document.getElementById('result-section');
     resultSection.style.display = 'block';
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!live) resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function toggleFaq(item) {
     item.classList.toggle('open');
   }
 
-  addRound();
-  addRound();
+  // ── Quick entry, live result and rounds saved on this device ──
+  const STORE_KEY = 'gsg_hcp_rounds_v1';
+  const T = {
+    pick: 'Elige tu campo habitual…',
+    needCourse: 'Primero elige tu campo habitual (paso 1).',
+    needScores: 'Escribe al menos un resultado, p. ej. 92.',
+    count: n => n === 1 ? '1 ronda' : `${n} rondas`,
+    confirmClear: '¿Borrar todas tus rondas?',
+    restored: n => `👋 Bienvenido de nuevo: ${n === 1 ? 'tu ronda sigue' : 'tus ' + n + ' rondas siguen'} aquí.`,
+    empty: 'Aún no hay rondas: añade tus resultados arriba.',
+    liveLabel: 'Tu índice estimado',
+    liveSub: (n, rough) => `${n === 1 ? '1 ronda' : n + ' rondas'} · ${rough ? 'estimación orientativa' : 'estimación WHS'}`,
+  };
+  let updateTimer = null, liveTracked = false, captureShown = false, restoring = false;
+
+  function defaultCourse() {
+    const el = document.getElementById('default-course');
+    return el ? el.value : '';
+  }
+
+  function buildDefaultOptions() {
+    return buildCourseOptions()
+      .replace(/<option value="">[^<]*<\/option>/, `<option value="">${T.pick}</option>`)
+      .replace(/<option value="custom">[^<]*<\/option>/, '');
+  }
+
+  function onDefaultCourseChange() {
+    // Rounds without a course pick up the usual course
+    document.querySelectorAll('.round-row').forEach(row => {
+      const sel = document.getElementById(`course-${row.dataset.id}`);
+      if (sel && !sel.value && defaultCourse()) { sel.value = defaultCourse(); onCourseChange(row.dataset.id); }
+    });
+    document.getElementById('quick-msg').style.display = 'none';
+    scheduleUpdate();
+  }
+
+  function quickAdd() {
+    const input  = document.getElementById('quick-scores');
+    const msg    = document.getElementById('quick-msg');
+    const scores = (input.value.match(/\d+/g) || []).map(Number).filter(s => s >= 20 && s <= 200);
+    if (!defaultCourse()) {
+      msg.textContent = T.needCourse; msg.style.display = 'block';
+      document.getElementById('default-course').focus();
+      return;
+    }
+    if (!scores.length) {
+      msg.textContent = T.needScores; msg.style.display = 'block';
+      input.focus();
+      return;
+    }
+    msg.style.display = 'none';
+    // Fill blank rounds first, then add new ones
+    const blank = [...document.querySelectorAll('.round-row')]
+      .filter(r => !document.getElementById(`score-${r.dataset.id}`).value);
+    scores.forEach(s => {
+      const row = blank.shift();
+      if (!row) { addRound(defaultCourse(), s); return; }
+      const id  = row.dataset.id;
+      const sel = document.getElementById(`course-${id}`);
+      if (!sel.value) { sel.value = defaultCourse(); onCourseChange(id); }
+      document.getElementById(`score-${id}`).value = s;
+      checkWarning(id);
+    });
+    input.value = '';
+    scheduleUpdate();
+  }
+
+  function validRoundCount() {
+    return [...document.querySelectorAll('.round-row')].filter(r => {
+      const id = r.dataset.id;
+      return document.getElementById(`course-${id}`).value && document.getElementById(`score-${id}`).value;
+    }).length;
+  }
+
+  function updateRoundCount() {
+    const total = document.querySelectorAll('.round-row').length;
+    document.getElementById('rounds-count').textContent = T.count(validRoundCount());
+    document.getElementById('btn-clear').style.display = total ? '' : 'none';
+    document.getElementById('rounds-empty').style.display = total ? 'none' : 'block';
+  }
+
+  function scheduleUpdate() {
+    clearTimeout(updateTimer);
+    updateTimer = setTimeout(() => {
+      saveRounds();
+      updateRoundCount();
+      calculate(true);
+    }, 300);
+  }
+
+  function updateLiveResult(index, n, rough) {
+    const el = document.getElementById('live-result');
+    if (index === null) { el.style.display = 'none'; return; }
+    el.innerHTML = `<span class="live-result__label">${T.liveLabel}</span>`
+      + `<span class="live-result__value">${index.toFixed(1)}</span>`
+      + `<span class="live-result__sub">${T.liveSub(n, rough)}</span>`;
+    el.style.display = 'flex';
+  }
+
+  function saveRounds() {
+    if (restoring) return;
+    const rounds = [...document.querySelectorAll('.round-row')].map(row => {
+      const id    = row.dataset.id;
+      const rsDiv = document.getElementById(`advanced-rs-${id}`);
+      return {
+        course: document.getElementById(`course-${id}`).value,
+        score:  document.getElementById(`score-${id}`).value,
+        holes:  customHoles[id] || 18,
+        par:    document.getElementById(`custom-par-${id}`)?.value || '',
+        rs:     rsDiv && rsDiv.style.display !== 'none' ? (document.getElementById(`custom-rs-${id}`)?.value || '') : '',
+      };
+    }).filter(r => r.course || r.score);
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ v: 1, defaultCourse: defaultCourse(), rounds })); } catch (_) {}
+  }
+
+  function loadRounds() {
+    let data = null;
+    try { data = JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch (_) {}
+    if (!data || !Array.isArray(data.rounds)) return false;
+    restoring = true;
+    const dc = document.getElementById('default-course');
+    if (data.defaultCourse && COURSES.some(c => c.value === data.defaultCourse)) dc.value = data.defaultCourse;
+    data.rounds.slice(0, 40).forEach(r => {
+      const id = addRound(r.course, r.score);
+      if (r.course === 'custom') {
+        setCustomHoles(id, r.holes === 9 ? 9 : 18);
+        if (r.par) document.getElementById(`custom-par-${id}`).value = r.par;
+        if (r.rs) { toggleAdvancedRS(id); document.getElementById(`custom-rs-${id}`).value = r.rs; }
+        checkWarning(id);
+      }
+    });
+    restoring = false;
+    const n = validRoundCount();
+    if (n) {
+      const note = document.getElementById('saved-note');
+      note.textContent = T.restored(n);
+      note.style.display = 'block';
+      calculate(true);
+      if (typeof gtag === 'function') gtag('event', 'rounds_restored', { num_rounds: n, locale: 'es' });
+    }
+    return data.rounds.length > 0;
+  }
+
+  function clearRounds() {
+    if (!confirm(T.confirmClear)) return;
+    document.querySelectorAll('.round-row').forEach(r => r.remove());
+    Object.keys(customHoles).forEach(k => delete customHoles[k]);
+    document.getElementById('saved-note').style.display = 'none';
+    scheduleUpdate();
+  }
+
+  document.getElementById('default-course').innerHTML = buildDefaultOptions();
+  document.getElementById('rounds-list').addEventListener('input', scheduleUpdate);
+  document.getElementById('rounds-list').addEventListener('change', scheduleUpdate);
+  document.getElementById('rounds-empty').textContent = T.empty;
+  if (!loadRounds()) addRound();
+  updateRoundCount();
 
   async function submitEmailCapture() {
     var email = (document.getElementById('capture-email').value || '').trim();

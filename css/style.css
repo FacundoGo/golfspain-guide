@@ -822,3 +822,26 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   text-decoration: none; transition: opacity .15s;
 }
 .hp-quiz-cta:hover { opacity: .9; color: var(--green-dark); }
+
+/* ── Course page: embedded Google Map ── */
+.club-map {
+  position: relative; width: 100%; aspect-ratio: 16 / 10;
+  margin-top: 16px; border-radius: var(--radius-sm); overflow: hidden;
+  background: #e8efe3; border: 1px solid #d6e4c5;
+}
+.club-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ── Course page: stack main column + sidebar on small screens ── */
+@media (max-width: 900px) {
+  [style*="grid-template-columns:1fr 340px"],
+  [style*="grid-template-columns:1fr 320px"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 340px"] > *,
+  [style*="grid-template-columns:1fr 320px"] > * { min-width: 0; }
+  [style*="position:sticky"] { position: static !important; }
+  .club-map { aspect-ratio: 4 / 3; }
+}
+/* Long emails / URLs in contact cards wrap on phones instead of widening the page */
+@media (max-width: 600px) {
+  .contact-item > div { min-width: 0; }
+  .contact-item a, .contact-item span { overflow-wrap: anywhere; }
+}
