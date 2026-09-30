@@ -727,4 +727,20 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/layos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/toledo/layos/"/>
   </url>
+  <url>
+    <loc>https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/"/>
+  </url>
 </urlset>
