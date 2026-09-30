@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:title" content="Golf Handicap Calculator for Spain (WHS 2024) — Valencia &amp; Alicante">
   <meta property="og:description" content="Free WHS 2024 handicap calculator for Spanish courses. Enter up to 20 rounds and get your estimated Handicap Index with a full step-by-step breakdown. Covers Valencia, Alicante and beyond.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Supports 9-hole rounds with correct ×2 scaling.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Golf Handicap Calculator Spain","url":"https://golfspain.guide/en/handicap-calculator/","description":"Free golf handicap estimator using WHS methodology. Accepts 9-hole rounds as a rough ×2 estimate.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfspain.guide/en/"},{"@type":"ListItem","position":2,"name":"Handicap Calculator","item":"https://golfspain.guide/en/handicap-calculator/"}]}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -589,6 +589,7 @@
       font-size: 13px;
     }
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a Handicap Differential?", "acceptedAnswer": {"@type": "Answer", "text": "A Handicap Differential measures how your score compares to the expected score for a scratch golfer on that specific course and day. The WHS formula is: Differential = (Score − Course Rating) × (113 ÷ Slope) The \"113\" is the standard Slope for an average course. If the Slope is higher than 113 (like La Galiana at 148), the formula shrinks your differential — harder courses are rewarded."}}, {"@type": "Question", "name": "What's the difference between Course Rating and Par?", "acceptedAnswer": {"@type": "Answer", "text": "Par is the number of strokes expected for an expert player — it's a round number (e.g. 72) used for scoring on the day. Course Rating is the score a scratch golfer (handicap 0) would realistically shoot in normal conditions — it's more precise (e.g. 74.1) and accounts for course layout, hazards, and conditions. Par is not used in the WHS handicap formula — only Rating and Slope are."}}, {"@type": "Question", "name": "What does the Slope rating mean?", "acceptedAnswer": {"@type": "Answer", "text": "Slope measures how much harder a course plays for a bogey golfer (around handicap 20) compared to a scratch golfer. The baseline is 113 — an \"average\" course. A Slope of 148 (like La Galiana or El Bosque) means the course punishes inconsistency significantly more than an average course. A Slope of 113 means the difficulty gap between experts and amateurs is typical."}}, {"@type": "Question", "name": "Is there a multiplier or adjustment in the formula?", "acceptedAnswer": {"@type": "Answer", "text": "No multiplier. Under the World Handicap System (2020, including the 2024 revision) your Handicap Index is simply the average of your best 8 differentials from your last 20 rounds. The old 0.96 “bonus for excellence” was dropped in 2020. The only adjustments are for new golfers with few rounds: −2.0 with 3 rounds, −1.0 with 4 rounds and −1.0 with 6 rounds. (Separately, WHS can adjust each round's differential for weather and course conditions — the Playing Conditions Calculation — which only your club's system can apply.)"}}, {"@type": "Question", "name": "Can I use 9-hole scores?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, as a rough indication. The calculator doubles each 9-hole differential to estimate an 18-hole round. The official WHS method is different: it adds an expected score for the 9 holes you didn't play, based on your existing index, so your official number may differ. For an official index, submit your rounds through an RFEG-affiliated club."}}, {"@type": "Question", "name": "How many rounds do I need for an official handicap?", "acceptedAnswer": {"@type": "Answer", "text": "Under WHS rules, you need a minimum of 54 holes (typically 3 × 18-hole rounds, or equivalent) submitted through an RFEG-affiliated club for an official Handicap Index. This calculator gives you an estimate for planning purposes — to get an official index, join a club affiliated with the Royal Spanish Golf Federation (rfeg.es)."}}]}</script>
 </head>
 <body>
 
@@ -724,9 +725,16 @@
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Why multiply by 0.93? <span class="arrow">▼</span></div>
+      <div class="faq-q">Is there a multiplier or adjustment in the formula? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        The 0.93 factor comes from the 2024 WHS Rules of Handicapping revision. It nudges your index slightly below the raw average of your best rounds, since your Handicap Index represents your demonstrated potential — not your average — the assumption being that on your best rounds you were playing closer to your true ability. (Note: this is separate from the WHS Playing Conditions Calculation, which is a different, per-round adjustment for weather and scoring conditions.)
+        No multiplier. Under the World Handicap System (2020, including the 2024 revision) your Handicap Index is simply the <strong>average of your best 8 differentials from your last 20 rounds</strong>. The old 0.96 “bonus for excellence” was dropped in 2020. The only adjustments are for new golfers with few rounds: <strong>−2.0 with 3 rounds, −1.0 with 4 rounds and −1.0 with 6 rounds</strong>. (Separately, WHS can adjust each round's differential for weather and course conditions — the Playing Conditions Calculation — which only your club's system can apply.)
+      </div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I use 9-hole scores? <span class="arrow">▼</span></div>
+      <div class="faq-a">
+        Yes, as a rough indication. The calculator doubles each 9-hole differential to estimate an 18-hole round. The official WHS method is different: it adds an expected score for the 9 holes you didn't play, based on your existing index, so your official number may differ. For an official index, submit your rounds through an RFEG-affiliated club.
       </div>
     </div>
 
@@ -1053,8 +1061,14 @@
     const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
     const n      = diffs.length;
     let numUsed;
-    if      (n <= 5)   numUsed = 1;
-    else if (n <= 6)   numUsed = 2;
+    // WHS Rule 5.2a: how many differentials to use, plus an adjustment for 3, 4 and 6 rounds.
+    // WHS needs at least 3 rounds; with 1–2 we still show a rough indication from the best one.
+    let adjustment = 0;
+    if      (n <= 2)   numUsed = 1;
+    else if (n === 3)  { numUsed = 1; adjustment = -2.0; }
+    else if (n === 4)  { numUsed = 1; adjustment = -1.0; }
+    else if (n === 5)  numUsed = 1;
+    else if (n === 6)  { numUsed = 2; adjustment = -1.0; }
     else if (n <= 8)   numUsed = 2;
     else if (n <= 11)  numUsed = 3;
     else if (n <= 14)  numUsed = 4;
@@ -1065,11 +1079,15 @@
 
     const usedDiffs = sorted.slice(0, numUsed);
     const avgDiff   = usedDiffs.reduce((s, d) => s + d.diff, 0) / numUsed;
-    const rawIndex  = avgDiff * 0.93;
+    const rawIndex  = avgDiff + adjustment;
     const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
 
     // ── Render result value ──
     document.getElementById('result-value').textContent = index.toFixed(1);
+    const subEl = document.querySelector('.result-sublabel');
+    if (subEl) subEl.textContent = n < 3 ? 'Rough indication · WHS needs at least 3 rounds (54 holes)'
+      : diffs.some(d => d.is9H) ? 'Rough indication · includes 9-hole rounds (each doubled to an 18-hole estimate)'
+      : 'WHS estimate · for official registration join an RFEG-affiliated club';
 
     // ── Store for email capture + reset form state ──
     lastCalcResult = { index, numRounds: n };
@@ -1158,7 +1176,9 @@
       `Calculated a <strong>Handicap Differential</strong> for each round using: <span class="mono">(Score − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
       `With ${n} round${n > 1 ? 's' : ''}, WHS rules say to use the <strong>${usedLabel}</strong> — highlighted in green above.`,
       `Averaged the ${usedLabel}: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
-      `Applied the WHS <strong>0.93 factor</strong>: <span class="mono">${avgDiff.toFixed(2)} × 0.93 = ${rawIndex.toFixed(2)}</span>`,
+      adjustment
+        ? `With only ${n} rounds, WHS applies a <strong>−${Math.abs(adjustment).toFixed(1)} adjustment</strong>: <span class="mono">${avgDiff.toFixed(2)} − ${Math.abs(adjustment).toFixed(1)} = ${rawIndex.toFixed(2)}</span>`
+        : `No multiplier or adjustment applies with ${n} round${n > 1 ? 's' : ''} — your index is simply this average.`,
       `Rounded to one decimal and capped at 54.0: <strong>${index.toFixed(1)}</strong>`
     ];
 
