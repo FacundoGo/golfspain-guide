@@ -266,6 +266,25 @@
     .btn-calc:active { transform: scale(0.99); }
 
     /* ── Result section ── */
+
+    /* ── Quick entry + live result ── */
+    .quick-entry { display: flex; flex-direction: column; gap: 12px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .quick-row { display: flex; gap: 8px; }
+    .quick-row input { flex: 1; min-width: 0; }
+    .btn-quick { background: var(--green-mid); color: var(--white); border: none; border-radius: 6px; padding: 0 20px; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer; }
+    .btn-quick:hover { background: var(--green-dark); }
+    .quick-hint { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+    .quick-msg { display: none; font-size: 13px; color: #7a5a00; background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 6px; padding: 8px 12px; }
+    .rounds-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--text-muted); }
+    .btn-clear { background: none; border: none; color: var(--text-muted); font-size: 12px; text-decoration: underline; cursor: pointer; font-family: inherit; padding: 0; text-transform: none; letter-spacing: 0; }
+    .saved-note { display: none; font-size: 13px; background: #eaf4ed; color: var(--green-dark); border-radius: 6px; padding: 8px 12px; margin-bottom: 10px; }
+    .rounds-empty { font-size: 13px; color: var(--text-muted); text-align: center; padding: 14px; border: 1px dashed var(--border); border-radius: 6px; margin-bottom: 16px; }
+    .live-result { display: none; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; background: var(--green-dark); color: var(--white); border-radius: var(--calc-radius); padding: 14px 18px; margin-bottom: 14px; }
+    .live-result__label { font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: #aec8b8; font-weight: 700; }
+    .live-result__value { font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .live-result__sub { flex-basis: 100%; font-size: 12px; color: #aec8b8; }
+    .device-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
+
     #result-section {
       display: none;
       margin-top: 28px;
@@ -622,9 +641,30 @@
   <div class="calc-card">
     <div class="calc-card-header">Your rounds</div>
     <div class="calc-card-body">
+      <div class="quick-entry">
+        <div class="field-group">
+          <label for="default-course">1 · Where do you usually play?</label>
+          <select id="default-course" onchange="onDefaultCourseChange()"></select>
+        </div>
+        <div class="field-group">
+          <label for="quick-scores">2 · Type your recent scores</label>
+          <div class="quick-row">
+            <input id="quick-scores" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 92, 88, 95"
+                   onkeydown="if (event.key === 'Enter') { event.preventDefault(); quickAdd(); }">
+            <button type="button" class="btn-quick" onclick="quickAdd()">Add</button>
+          </div>
+        </div>
+        <div class="quick-hint">Total strokes per round, separated by commas or spaces. Played 9 holes? Pick a 9-hole course, or “Other course” for that round. You can change the course of any round below.</div>
+        <div class="quick-msg" id="quick-msg" role="alert"></div>
+      </div>
+      <div class="rounds-head"><span id="rounds-count"></span><button type="button" class="btn-clear" id="btn-clear" onclick="clearRounds()">Clear all</button></div>
+      <div class="saved-note" id="saved-note"></div>
+      <div class="rounds-empty" id="rounds-empty"></div>
       <div class="rounds-list" id="rounds-list"></div>
-      <button class="btn-add" id="btn-add" onclick="addRound()">+ Add another round</button>
-      <button class="btn-calc" onclick="calculate()">Calculate my handicap →</button>
+      <div class="live-result" id="live-result" aria-live="polite"></div>
+      <button class="btn-add" id="btn-add" onclick="addRound(defaultCourse()); updateRoundCount();">+ Add a round manually</button>
+      <button class="btn-calc" onclick="calculate()">See the full breakdown →</button>
+      <div class="device-note">🔒 Your rounds are saved on this device only.</div>
     </div>
   </div>
 
@@ -814,6 +854,14 @@
     { value: 'loromero',     label: 'Lo Romero Golf (18H)',               rating: null, slope: null, par: 72, holes: 18, group: 'Alicante', parFallback: true },
     { value: 'puigcampana9', label: 'Puig Campana Golf (9H)',             rating: null, slope: null, par: 35, holes: 9,  group: 'Alicante', parFallback: true },
     { value: 'villamartin',  label: 'Villamartín Golf (18H)',             rating: null, slope: 136, par: 72,  holes: 18, group: 'Alicante', parFallback: true },
+    { value: 'olivanova',    label: 'Oliva Nova Golf (18H)',              rating: null, slope: 129, par: 72, holes: 18, group: 'Valencia', parFallback: true },
+    { value: 'ifach9',       label: 'Ifach Golf — Benissa (9H)',          rating: null, slope: null, par: 30, holes: 9,  group: 'Alicante', parFallback: true },
+    // ── Castellón ───────────────────────────────────────────────────────────
+    { value: 'mediterraneo', label: 'Mediterráneo Golf (18H)',            rating: null, slope: null, par: 72, holes: 18, group: 'Castellón', parFallback: true },
+    { value: 'panoramica',   label: 'Panorámica Golf (18H)',              rating: null, slope: null, par: 72, holes: 18, group: 'Castellón', parFallback: true },
+    // ── Barcelona / Toledo ──────────────────────────────────────────────────
+    { value: 'elprat',       label: 'Real Club de Golf El Prat (18H)',    rating: null, slope: null, par: 72, holes: 18, group: 'Barcelona', parFallback: true },
+    { value: 'layos',        label: 'Layos Golf (18H)',                   rating: 75.2, slope: 135, par: 72, holes: 18, group: 'Toledo' },
     // ── Custom ──────────────────────────────────────────────────────────────
     { value: 'custom',       label: 'Other course (enter manually)',      rating: null, slope: null, par: null, holes: 18 },
   ];
@@ -840,7 +888,7 @@
     return html;
   }
 
-  function addRound() {
+  function addRound(course, score) {
     roundCount++;
     const id = roundCount;
     customHoles[id] = 18; // default
@@ -889,11 +937,15 @@
       <div class="row-warning" id="warn-${id}"></div>
     `;
     document.getElementById('rounds-list').appendChild(row);
+    if (course) { document.getElementById(`course-${id}`).value = course; onCourseChange(id); }
+    if (score !== undefined && score !== null && score !== '') { document.getElementById(`score-${id}`).value = score; checkWarning(id); }
+    return id;
   }
 
   function removeRound(id) {
     const row = document.querySelector(`.round-row[data-id="${id}"]`);
     if (row) row.remove();
+    scheduleUpdate();
     delete customHoles[id];
   }
 
@@ -908,6 +960,7 @@
     const parEl = document.getElementById(`custom-par-${id}`);
     if (parEl && !parEl.value) parEl.placeholder = h === 9 ? '36' : '72';
     checkWarning(id);
+    scheduleUpdate();
   }
 
   function toggleAdvancedRS(id) {
@@ -1028,7 +1081,7 @@
 
   var lastCalcResult = null; // { index, numRounds } — used by email capture
 
-  function calculate() {
+  function calculate(live) {
     const rows = document.querySelectorAll('.round-row');
     const diffs = [];
     let hasIncomplete = false;
@@ -1050,10 +1103,15 @@
     });
 
     if (diffs.length === 0) {
+      if (live) {
+        updateLiveResult(null);
+        document.getElementById('result-section').style.display = 'none';
+        return;
+      }
       alert('Please add at least one complete round (score + course selected).');
       return;
     }
-    if (hasIncomplete) {
+    if (hasIncomplete && !live) {
       if (!confirm('Some rounds are incomplete and will be skipped. Continue with ' + diffs.length + ' valid round(s)?')) return;
     }
 
@@ -1084,6 +1142,7 @@
 
     // ── Render result value ──
     document.getElementById('result-value').textContent = index.toFixed(1);
+    updateLiveResult(index, n, n < 3 || diffs.some(d => d.is9H));
     const subEl = document.querySelector('.result-sublabel');
     if (subEl) subEl.textContent = n < 3 ? 'Rough indication · WHS needs at least 3 rounds (54 holes)'
       : diffs.some(d => d.is9H) ? 'Rough indication · includes 9-hole rounds (each doubled to an 18-hole estimate)'
@@ -1092,14 +1151,16 @@
     // ── Store for email capture + reset form state ──
     lastCalcResult = { index, numRounds: n };
     var cap = document.getElementById('email-capture');
-    if (cap) {
+    if (cap && (!live || !captureShown)) {
+      captureShown = true;
       cap.style.display = '';
       document.getElementById('capture-msg').style.display = 'none';
       document.getElementById('capture-btn').disabled = false;
     }
 
     // ── GA4 custom event ──
-    if (typeof gtag === 'function') {
+    if (typeof gtag === 'function' && (!live || !liveTracked)) {
+      liveTracked = true;
       gtag('event', 'calculate_handicap', {
         num_rounds:   n,
         locale:       'en',
@@ -1190,8 +1251,8 @@
     `).join('');
 
     // ── Recommendation ──
-    const ALICANTE_VALS = new Set(['altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
-    const VALENCIA_VALS  = new Set(['foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
+    const ALICANTE_VALS = new Set(['ifach9','altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
+    const VALENCIA_VALS  = new Set(['olivanova','foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
     const playedAlicante = diffs.some(d => ALICANTE_VALS.has(d.sel));
     const playedValencia = diffs.some(d => VALENCIA_VALS.has(d.sel));
     const region = (playedAlicante && !playedValencia) ? 'alicante' : 'valencia';
@@ -1233,16 +1294,170 @@
     // ── Show result section ──
     const resultSection = document.getElementById('result-section');
     resultSection.style.display = 'block';
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!live) resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function toggleFaq(item) {
     item.classList.toggle('open');
   }
 
-  // Init with 2 blank rounds
-  addRound();
-  addRound();
+  // ── Quick entry, live result and rounds saved on this device ──
+  const STORE_KEY = 'gsg_hcp_rounds_v1';
+  const T = {
+    pick: 'Choose your usual course…',
+    needCourse: 'Pick your usual course first (step 1).',
+    needScores: 'Type at least one score, e.g. 92.',
+    count: n => n === 1 ? '1 round' : `${n} rounds`,
+    confirmClear: 'Remove all your rounds?',
+    restored: n => `👋 Welcome back — your ${n === 1 ? 'round is' : n + ' rounds are'} still here.`,
+    empty: 'No rounds yet — add your scores above.',
+    liveLabel: 'Your estimated index',
+    liveSub: (n, rough) => `${n === 1 ? '1 round' : n + ' rounds'} · ${rough ? 'rough indication' : 'WHS estimate'}`,
+  };
+  let updateTimer = null, liveTracked = false, captureShown = false, restoring = false;
+
+  function defaultCourse() {
+    const el = document.getElementById('default-course');
+    return el ? el.value : '';
+  }
+
+  function buildDefaultOptions() {
+    return buildCourseOptions()
+      .replace(/<option value="">[^<]*<\/option>/, `<option value="">${T.pick}</option>`)
+      .replace(/<option value="custom">[^<]*<\/option>/, '');
+  }
+
+  function onDefaultCourseChange() {
+    // Rounds without a course pick up the usual course
+    document.querySelectorAll('.round-row').forEach(row => {
+      const sel = document.getElementById(`course-${row.dataset.id}`);
+      if (sel && !sel.value && defaultCourse()) { sel.value = defaultCourse(); onCourseChange(row.dataset.id); }
+    });
+    document.getElementById('quick-msg').style.display = 'none';
+    scheduleUpdate();
+  }
+
+  function quickAdd() {
+    const input  = document.getElementById('quick-scores');
+    const msg    = document.getElementById('quick-msg');
+    const scores = (input.value.match(/\d+/g) || []).map(Number).filter(s => s >= 20 && s <= 200);
+    if (!defaultCourse()) {
+      msg.textContent = T.needCourse; msg.style.display = 'block';
+      document.getElementById('default-course').focus();
+      return;
+    }
+    if (!scores.length) {
+      msg.textContent = T.needScores; msg.style.display = 'block';
+      input.focus();
+      return;
+    }
+    msg.style.display = 'none';
+    // Fill blank rounds first, then add new ones
+    const blank = [...document.querySelectorAll('.round-row')]
+      .filter(r => !document.getElementById(`score-${r.dataset.id}`).value);
+    scores.forEach(s => {
+      const row = blank.shift();
+      if (!row) { addRound(defaultCourse(), s); return; }
+      const id  = row.dataset.id;
+      const sel = document.getElementById(`course-${id}`);
+      if (!sel.value) { sel.value = defaultCourse(); onCourseChange(id); }
+      document.getElementById(`score-${id}`).value = s;
+      checkWarning(id);
+    });
+    input.value = '';
+    scheduleUpdate();
+  }
+
+  function validRoundCount() {
+    return [...document.querySelectorAll('.round-row')].filter(r => {
+      const id = r.dataset.id;
+      return document.getElementById(`course-${id}`).value && document.getElementById(`score-${id}`).value;
+    }).length;
+  }
+
+  function updateRoundCount() {
+    const total = document.querySelectorAll('.round-row').length;
+    document.getElementById('rounds-count').textContent = T.count(validRoundCount());
+    document.getElementById('btn-clear').style.display = total ? '' : 'none';
+    document.getElementById('rounds-empty').style.display = total ? 'none' : 'block';
+  }
+
+  function scheduleUpdate() {
+    clearTimeout(updateTimer);
+    updateTimer = setTimeout(() => {
+      saveRounds();
+      updateRoundCount();
+      calculate(true);
+    }, 300);
+  }
+
+  function updateLiveResult(index, n, rough) {
+    const el = document.getElementById('live-result');
+    if (index === null) { el.style.display = 'none'; return; }
+    el.innerHTML = `<span class="live-result__label">${T.liveLabel}</span>`
+      + `<span class="live-result__value">${index.toFixed(1)}</span>`
+      + `<span class="live-result__sub">${T.liveSub(n, rough)}</span>`;
+    el.style.display = 'flex';
+  }
+
+  function saveRounds() {
+    if (restoring) return;
+    const rounds = [...document.querySelectorAll('.round-row')].map(row => {
+      const id    = row.dataset.id;
+      const rsDiv = document.getElementById(`advanced-rs-${id}`);
+      return {
+        course: document.getElementById(`course-${id}`).value,
+        score:  document.getElementById(`score-${id}`).value,
+        holes:  customHoles[id] || 18,
+        par:    document.getElementById(`custom-par-${id}`)?.value || '',
+        rs:     rsDiv && rsDiv.style.display !== 'none' ? (document.getElementById(`custom-rs-${id}`)?.value || '') : '',
+      };
+    }).filter(r => r.course || r.score);
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ v: 1, defaultCourse: defaultCourse(), rounds })); } catch (_) {}
+  }
+
+  function loadRounds() {
+    let data = null;
+    try { data = JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch (_) {}
+    if (!data || !Array.isArray(data.rounds)) return false;
+    restoring = true;
+    const dc = document.getElementById('default-course');
+    if (data.defaultCourse && COURSES.some(c => c.value === data.defaultCourse)) dc.value = data.defaultCourse;
+    data.rounds.slice(0, 40).forEach(r => {
+      const id = addRound(r.course, r.score);
+      if (r.course === 'custom') {
+        setCustomHoles(id, r.holes === 9 ? 9 : 18);
+        if (r.par) document.getElementById(`custom-par-${id}`).value = r.par;
+        if (r.rs) { toggleAdvancedRS(id); document.getElementById(`custom-rs-${id}`).value = r.rs; }
+        checkWarning(id);
+      }
+    });
+    restoring = false;
+    const n = validRoundCount();
+    if (n) {
+      const note = document.getElementById('saved-note');
+      note.textContent = T.restored(n);
+      note.style.display = 'block';
+      calculate(true);
+      if (typeof gtag === 'function') gtag('event', 'rounds_restored', { num_rounds: n, locale: 'en' });
+    }
+    return data.rounds.length > 0;
+  }
+
+  function clearRounds() {
+    if (!confirm(T.confirmClear)) return;
+    document.querySelectorAll('.round-row').forEach(r => r.remove());
+    Object.keys(customHoles).forEach(k => delete customHoles[k]);
+    document.getElementById('saved-note').style.display = 'none';
+    scheduleUpdate();
+  }
+
+  document.getElementById('default-course').innerHTML = buildDefaultOptions();
+  document.getElementById('rounds-list').addEventListener('input', scheduleUpdate);
+  document.getElementById('rounds-list').addEventListener('change', scheduleUpdate);
+  document.getElementById('rounds-empty').textContent = T.empty;
+  if (!loadRounds()) addRound();
+  updateRoundCount();
 
   async function submitEmailCapture() {
     var email = (document.getElementById('capture-email').value || '').trim();
