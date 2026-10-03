@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://golfspain.guide/en/handicap-calculator/">
   <link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/">
   <link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/">
+  <link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/">
   <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfspain.guide/en/handicap-calculator/">
@@ -284,6 +285,18 @@
     .live-result__value { font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1; }
     .live-result__sub { flex-basis: 100%; font-size: 12px; color: #aec8b8; }
     .device-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
+
+
+    /* ── Course handicap table ── */
+    .ch-card { margin-top: 16px; }
+    .ch-sub { font-size: 13px; color: var(--text-muted); padding: 12px 18px 0; }
+    .ch-table td.ch-strokes { font-weight: 800; color: var(--green-dark); font-size: 16px; text-align: right; width: 90px; }
+    .ch-table th:last-child { text-align: right; }
+    .ch-table a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
+    .ch-table a:hover { text-decoration: underline; }
+    .ch-tag { display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 700; color: var(--green-light); text-transform: uppercase; letter-spacing: .5px; }
+    .ch-approx { color: #8a6900; font-size: 11px; margin-left: 4px; }
+    .ch-note { font-size: 12px; color: var(--text-muted); padding: 10px 18px 14px; line-height: 1.55; }
 
     #result-section {
       display: none;
@@ -625,6 +638,7 @@
     <div class="nav__lang">
       <span class="nav__lang-active">EN</span>
       <a href="/es/handicap-calculator/">ES</a>
+      <a href="/de/handicap-rechner/">DE</a>
     </div>
     <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -675,6 +689,16 @@
       <div class="result-label">Estimated Handicap Index</div>
       <div class="result-value" id="result-value">—</div>
       <div class="result-sublabel">WHS estimate · for official registration join an RFEG-affiliated club</div>
+    </div>
+
+    <div class="breakdown-card ch-card" id="ch-card" style="display:none">
+      <div class="breakdown-header">Your course handicap</div>
+      <div class="ch-sub">Strokes you receive from the white tees at each course, based on your index.</div>
+      <table class="breakdown-table ch-table">
+        <thead><tr><th>Course</th><th>Strokes</th></tr></thead>
+        <tbody id="ch-tbody"></tbody>
+      </table>
+      <div class="ch-note">Course Handicap = Index × (Slope ÷ 113) + (Rating − Par). 9-hole courses use half your index. Competitions usually apply a 95% allowance. <span class="ch-approx">≈</span> rating not published, estimated from par.</div>
     </div>
 
     <!-- BREAKDOWN TABLE -->
@@ -1150,6 +1174,7 @@
     // ── Render result value ──
     document.getElementById('result-value').textContent = index.toFixed(1);
     updateLiveResult(index, n, n < 3 || diffs.some(d => d.is9H));
+    renderCourseHandicaps(index, diffs);
     const subEl = document.querySelector('.result-sublabel');
     if (subEl) subEl.textContent = n < 3 ? 'Rough indication · WHS needs at least 3 rounds (54 holes)'
       : diffs.some(d => d.is9H) ? 'Rough indication · includes 9-hole rounds (each doubled to an 18-hole estimate)'
@@ -1459,12 +1484,60 @@
     scheduleUpdate();
   }
 
+  // ── Course handicap per course (WHS Rule 6.1) ──
+  const COURSE_URLS = {
+    foressos: 'valencia/foressos', galiana18: 'valencia/la-galiana', galiana9: 'valencia/la-galiana',
+    saler: 'valencia/el-saler', bosque: 'valencia/el-bosque', escorpion: 'valencia/escorpion',
+    manises: 'valencia/manises', requena9: 'valencia/requena', olivanova: 'valencia/oliva-nova',
+    ifach9: 'valencia/ifach', altea9: 'alicante/altea-golf', campoamor: 'alicante/campoamor-golf',
+    fontdellop: 'alicante/font-del-llop-golf', lafinca: 'alicante/la-finca-golf-algorfa',
+    lamarquesa: 'alicante/la-marquesa-golf-rojales', lasella18: 'alicante/la-sella-golf',
+    lascolinas: 'alicante/las-colinas-golf', lasramblas: 'alicante/las-ramblas-golf',
+    loromero: 'alicante/lo-romero-golf', puigcampana9: 'alicante/puig-campana-golf',
+    villamartin: 'alicante/villamartin', mediterraneo: 'castellon/mediterraneo-golf-castellon',
+    panoramica: 'castellon/panoramica-golf-castellon', elprat: 'barcelona/el-prat', layos: 'toledo/layos',
+  };
+  const CH_T = { played: 'played', approx: '≈ rating not published, estimated from par', linkLang: 'en' };
+
+  // 18 holes: Index × Slope/113 + (Rating − Par). 9 holes: half the index.
+  function courseHandicap(index, c) {
+    const rating = c.rating ?? c.par;
+    const idx    = c.holes === 9 ? index / 2 : index;
+    return Math.round(idx * (c.slope / 113) + (rating - c.par));
+  }
+
+  function renderCourseHandicaps(index, diffs) {
+    const card = document.getElementById('ch-card');
+    if (!card) return;
+    const played = new Set(diffs.map(d => d.sel));
+    const rows = COURSES.filter(c => c.slope && c.par && c.value !== 'custom').map(c => {
+      const ch   = courseHandicap(index, c);
+      const url  = COURSE_URLS[c.value] ? `/${CH_T.linkLang}/${COURSE_URLS[c.value]}/` : null;
+      const name = url ? `<a href="${url}">${c.label}</a>` : c.label;
+      const tag  = played.has(c.value) ? `<span class="ch-tag">✓ ${CH_T.played}</span>` : '';
+      const approx = c.rating ? '' : `<span class="ch-approx" title="${CH_T.approx}">≈</span>`;
+      return `<tr><td>${name}${tag}</td><td class="ch-strokes">${ch < 0 ? '+' + Math.abs(ch) : ch}${approx}</td></tr>`;
+    });
+    document.getElementById('ch-tbody').innerHTML = rows.join('');
+    card.style.display = rows.length ? '' : 'none';
+  }
+
+  // ── Deep link: ?course=foressos preselects the usual course ──
+  function applyCourseParam() {
+    let param = '';
+    try { param = new URLSearchParams(location.search).get('course') || ''; } catch (_) {}
+    if (!param || param === 'custom' || !COURSES.some(c => c.value === param)) return;
+    document.getElementById('default-course').value = param;
+    onDefaultCourseChange();
+  }
+
   document.getElementById('default-course').innerHTML = buildDefaultOptions();
   document.getElementById('rounds-list').addEventListener('input', scheduleUpdate);
   document.getElementById('rounds-list').addEventListener('change', scheduleUpdate);
   document.getElementById('rounds-empty').textContent = T.empty;
   if (!loadRounds()) addRound();
   updateRoundCount();
+  applyCourseParam();
 
   async function submitEmailCapture() {
     var email = (document.getElementById('capture-email').value || '').trim();

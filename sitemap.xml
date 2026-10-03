@@ -380,6 +380,7 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/handicap-calculator/</loc>
@@ -388,6 +389,7 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
   </url>
 
   <!-- Alicante region -->
@@ -742,5 +744,14 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/de/handicap-rechner/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
   </url>
 </urlset>

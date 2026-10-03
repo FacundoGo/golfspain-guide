@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Hándicap de Golf Gratis — Calcula tu Hándicap (WHS) | golfspain.guide</title>
-  <meta name="description" content="Calcula tu hándicap de golf gratis con la fórmula oficial WHS. Mete tus resultados de 9 o 18 hoyos y mira tu índice al instante, con cada paso explicado.">
+  <title>Golf Handicap Rechner (WHS) – kostenlos berechnen, mit Plätzen in Spanien | golfspain.guide</title>
+  <meta name="description" content="Kostenloser Golf-Handicap-Rechner nach der offiziellen WHS-Formel: 9- oder 18-Loch-Ergebnisse eingeben, Handicap-Index sofort sehen – plus Course Handicap für 25 Golfplätze in Spanien.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://golfspain.guide/es/handicap-calculator/">
+  <link rel="canonical" href="https://golfspain.guide/de/handicap-rechner/">
   <link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/">
   <link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/">
   <link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/">
   <link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://golfspain.guide/es/handicap-calculator/">
-  <meta property="og:title" content="Calculadora de Hándicap de Golf Gratis — Calcula tu Hándicap (WHS)">
-  <meta property="og:description" content="Calcula tu hándicap de golf gratis con la fórmula oficial WHS. Mete tus resultados de 9 o 18 hoyos y mira tu índice al instante.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de Hándicap de Golf España","url":"https://golfspain.guide/es/handicap-calculator/","description":"Calculadora de hándicap de golf gratis usando metodología WHS. Admite rondas de 9 hoyos como estimación orientativa (×2).","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://golfspain.guide/es/"},{"@type":"ListItem","position":2,"name":"Calculadora de Hándicap","item":"https://golfspain.guide/es/handicap-calculator/"}]}}</script>
+  <meta property="og:url" content="https://golfspain.guide/de/handicap-rechner/">
+  <meta property="og:title" content="Golf Handicap Rechner (WHS) – kostenlos berechnen, mit Plätzen in Spanien">
+  <meta property="og:description" content="Kostenloser Golf-Handicap-Rechner nach der offiziellen WHS-Formel: 9- oder 18-Loch-Ergebnisse eingeben, Handicap-Index sofort sehen – plus Course Handicap für 25 Golfplätze in Spanien.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Golf Handicap Rechner (Spanien)", "url": "https://golfspain.guide/de/handicap-rechner/", "description": "Kostenloser Golf-Handicap-Rechner nach der WHS-Methode. 9-Loch-Runden werden als grobe ×2-Schätzung berücksichtigt.", "applicationCategory": "SportsApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://golfspain.guide/en/"}, {"@type": "ListItem", "position": 2, "name": "Handicap Rechner", "item": "https://golfspain.guide/de/handicap-rechner/"}]}, "inLanguage": "de"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -26,6 +26,7 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-DXK0NZW1LH');</script>
   <link rel="stylesheet" href="/css/style.css">
   <style>
+    /* ── Extra tokens for the calculator page ── */
     :root {
       --gold:        #c9a84c;
       --gold-light:  #e0c068;
@@ -38,6 +39,7 @@
 
     body { background: var(--cream); }
 
+    /* ── Page header ── */
     .page-header {
       background: var(--green-dark);
       color: var(--white);
@@ -57,12 +59,14 @@
       line-height: 1.6;
     }
 
+    /* ── Narrow container for calc content ── */
     .calc-wrap {
       max-width: 700px;
       margin: 0 auto;
       padding: 32px 20px 64px;
     }
 
+    /* ── Calculator card ── */
     .calc-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -81,6 +85,7 @@
     }
     .calc-card-body { padding: 24px; }
 
+    /* ── Round rows ── */
     .rounds-list {
       display: flex;
       flex-direction: column;
@@ -129,6 +134,7 @@
     .field-group input:focus,
     .field-group select:focus { border-color: var(--green-light); }
 
+    /* ── Course info strip ── */
     .course-info-strip {
       font-size: 12px;
       color: var(--text-muted);
@@ -138,6 +144,7 @@
     }
     .course-info-strip strong { color: var(--green-mid); }
 
+    /* ── Custom course group ── */
     .custom-group {
       display: none;
       flex-direction: column;
@@ -165,6 +172,7 @@
     }
     .custom-group input:focus { border-color: var(--green-light); }
 
+    /* Holes toggle buttons */
     .holes-toggle { display: flex; gap: 6px; }
     .holes-btn {
       flex: 1;
@@ -185,6 +193,7 @@
       font-weight: 700;
     }
 
+    /* Advanced RS toggle link */
     .rs-toggle-link {
       background: none;
       border: none;
@@ -197,6 +206,7 @@
       text-align: left;
     }
 
+    /* ── Remove button ── */
     .btn-remove {
       background: none;
       border: 1px solid var(--border);
@@ -211,6 +221,7 @@
     }
     .btn-remove:hover { background: #fdf2f2; border-color: #e8b4b4; color: #a33; }
 
+    /* ── Add round ── */
     .btn-add {
       background: none;
       border: 1px dashed var(--green-light);
@@ -226,6 +237,7 @@
     }
     .btn-add:hover { background: #eaf4ed; }
 
+    /* ── Row warning ── */
     .row-warning {
       grid-column: 1 / -1;
       background: var(--warn-bg);
@@ -238,6 +250,7 @@
     }
     .row-warning.visible { display: block; }
 
+    /* ── Calculate button ── */
     .btn-calc {
       background: var(--gold);
       color: var(--green-dark);
@@ -253,6 +266,7 @@
     .btn-calc:hover { background: var(--gold-light); }
     .btn-calc:active { transform: scale(0.99); }
 
+    /* ── Result section ── */
 
     /* ── Quick entry + live result ── */
     .quick-entry { display: flex; flex-direction: column; gap: 12px; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
@@ -316,6 +330,7 @@
       color: #7aab8a;
     }
 
+    /* ── Breakdown table ── */
     .breakdown-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -371,6 +386,7 @@
       font-size: 11px;
     }
 
+    /* ── Step-by-step ── */
     .step-summary {
       background: var(--white);
       border: 1px solid var(--border);
@@ -410,6 +426,7 @@
       font-size: 12px;
     }
 
+    /* ── Recommendation ── */
     .recommendation {
       background: var(--cream);
       border: 1px solid var(--border);
@@ -432,6 +449,7 @@
     }
     .recommendation .rec-text a { color: var(--green-light); text-decoration: underline; }
 
+    /* ── Disclaimer ── */
     /* ── Email capture ── */
     .email-capture {
       background: var(--green-pale);
@@ -497,6 +515,7 @@
       margin-top: 8px;
     }
 
+    /* ── 9H badge ── */
     .nine-tag {
       display: inline-block;
       background: #fff3cd;
@@ -509,6 +528,7 @@
       margin-left: 2px;
     }
 
+    /* ── FAQ ── */
     .faq { margin-top: 40px; }
     .faq h2 {
       font-size: 20px;
@@ -601,198 +621,195 @@
       font-size: 13px;
     }
   </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo saber mi hándicap?", "acceptedAnswer": {"@type": "Answer", "text": "Si estás federado en España, tu Índice de Hándicap oficial aparece en la app gratuita RFEGolf. Si no lo estás, mete arriba tus últimos resultados: la calculadora estima tu índice con la fórmula oficial WHS. Para conseguir uno oficial, mira cómo sacar el hándicap de golf en España."}}, {"@type": "Question", "name": "¿Qué es un Diferencial de Hándicap?", "acceptedAnswer": {"@type": "Answer", "text": "El Diferencial de Hándicap mide cómo se compara tu puntuación con la esperada para un golfista de scratch en ese campo específico. La fórmula WHS es: Diferencial = (Golpes − Course Rating) × (113 ÷ Slope) El \"113\" es el Slope estándar de un campo promedio. Si el Slope es mayor que 113 (como La Galiana con 148), la fórmula reduce tu diferencial — los campos difíciles se recompensan."}}, {"@type": "Question", "name": "¿Cuál es la diferencia entre Course Rating y Par?", "acceptedAnswer": {"@type": "Answer", "text": "El Par es el número de golpes esperados para un jugador experto — es un número redondo (p.ej. 72) que se usa para la puntuación del día. El Course Rating es la puntuación que haría un golfista de scratch (hándicap 0) en condiciones normales — es más preciso (p.ej. 74.1) y tiene en cuenta el diseño del campo, obstáculos y condiciones. El Par no se usa en la fórmula WHS — solo se usan el Rating y el Slope."}}, {"@type": "Question", "name": "¿Qué significa el Slope?", "acceptedAnswer": {"@type": "Answer", "text": "El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo \"promedio\". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio."}}, {"@type": "Question", "name": "¿La fórmula lleva algún multiplicador o ajuste?", "acceptedAnswer": {"@type": "Answer", "text": "Ningún multiplicador. Con el Sistema Mundial de Hándicap (2020, incluida la revisión de 2024) tu Índice de Hándicap es simplemente la media de tus 8 mejores diferenciales de tus últimas 20 rondas. El antiguo factor 0,96 desapareció en 2020. Los únicos ajustes son para quien tiene pocas rondas: −2,0 con 3 rondas, −1,0 con 4 rondas y −1,0 con 6 rondas. (Aparte, el WHS puede corregir el diferencial de cada ronda según el clima y el estado del campo — el Cálculo de Condiciones de Juego — algo que solo puede aplicar el sistema de tu club.)"}}, {"@type": "Question", "name": "¿Puedo usar resultados de 9 hoyos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, como estimación orientativa. La calculadora duplica el diferencial de cada ronda de 9 hoyos para estimar una de 18. El método oficial del WHS es distinto: suma un resultado esperado para los 9 hoyos que no jugaste, calculado a partir de tu índice actual, así que tu cifra oficial puede variar. Para un índice oficial, registra tus rondas en un club federado RFEG."}}, {"@type": "Question", "name": "¿Cuántas rondas necesito para un hándicap oficial?", "acceptedAnswer": {"@type": "Answer", "text": "Bajo las reglas WHS, necesitas un mínimo de 54 hoyos (normalmente 3 rondas de 18 hoyos, o equivalente) registrados a través de un club federado RFEG para un Índice de Hándicap oficial. Esta calculadora te da una estimación con fines de planificación — para obtener un índice oficial, únete a un club afiliado a la Real Federación Española de Golf (rfeg.es)."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie finde ich mein Handicap heraus?", "acceptedAnswer": {"@type": "Answer", "text": "Wenn du in einem Club registriert bist, steht dein offizieller Handicap-Index in der App deines Verbands – in Deutschland im DGV-Ausweis bzw. der DGV-App, in Spanien in der RFEGolf-App. Ohne Club: Gib oben deine letzten Ergebnisse ein, der Rechner schätzt deinen Index mit der offiziellen WHS-Formel."}}, {"@type": "Question", "name": "Was ist ein Score Differential?", "acceptedAnswer": {"@type": "Answer", "text": "Das Score Differential zeigt, wie dein Ergebnis im Vergleich zum erwarteten Ergebnis eines Scratch-Golfers auf genau diesem Platz ausfällt. Die WHS-Formel lautet:Differential = (Ergebnis − Course Rating) × (113 ÷ Slope)113 ist der Slope eines durchschnittlichen Platzes. Ist der Slope höher (etwa La Galiana mit 148), wird dein Differential kleiner – schwere Plätze werden also berücksichtigt."}}, {"@type": "Question", "name": "Was ist der Unterschied zwischen Course Rating und Par?", "acceptedAnswer": {"@type": "Answer", "text": "Par ist die Schlagzahl, die ein sehr guter Spieler braucht – eine runde Zahl wie 72. Course Rating ist das Ergebnis, das ein Scratch-Golfer (Handicap 0) unter normalen Bedingungen realistisch spielt – genauer, etwa 74,1. In der WHS-Formel zählt nicht das Par, sondern nur Course Rating und Slope."}}, {"@type": "Question", "name": "Was bedeutet der Slope?", "acceptedAnswer": {"@type": "Answer", "text": "Der Slope misst, wie viel schwerer ein Platz für einen Bogey-Golfer (etwa Handicap 20) ist als für einen Scratch-Golfer. Der Durchschnitt liegt bei 113. Ein Slope von 148 (La Galiana, El Bosque) bestraft unbeständiges Spiel deutlich stärker."}}, {"@type": "Question", "name": "Gibt es einen Faktor oder Abzug in der Formel?", "acceptedAnswer": {"@type": "Answer", "text": "Keinen Faktor. Im World Handicap System (seit 2020, auch nach der Revision 2024) ist dein Handicap-Index einfach der Durchschnitt deiner 8 besten Differentials aus den letzten 20 Runden. Den alten Faktor 0,96 gibt es seit 2020 nicht mehr. Abzüge gibt es nur bei wenigen Runden: −2,0 bei 3 Runden, −1,0 bei 4 Runden und −1,0 bei 6 Runden. (Zusätzlich kann das WHS jede Runde an Wetter und Platzbedingungen anpassen – das kann nur das System deines Clubs.)"}}, {"@type": "Question", "name": "Kann ich 9-Loch-Ergebnisse verwenden?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, als grobe Schätzung. Der Rechner verdoppelt das Differential jeder 9-Loch-Runde, um eine 18-Loch-Runde zu schätzen. Das offizielle WHS rechnet anders: Es ergänzt ein erwartetes Ergebnis für die nicht gespielten 9 Löcher auf Basis deines bisherigen Index. Dein offizieller Wert kann daher abweichen."}}, {"@type": "Question", "name": "Wie viele Runden brauche ich für ein offizielles Handicap?", "acceptedAnswer": {"@type": "Answer", "text": "Nach WHS mindestens 54 Löcher (meist 3 Runden à 18 Löcher), eingereicht über einen Golfclub. Dieser Rechner liefert eine Schätzung zur Orientierung, zum Beispiel bevor du einen Platz in Spanien buchst."}}]}</script>
 </head>
 <body>
 
-<nav class="nav" aria-label="Navegación principal">
+<nav class="nav" aria-label="Hauptnavigation">
   <div class="container nav__inner">
-    <a href="/es/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
+    <a href="/en/" class="nav__logo">⛳ golf<span>spain</span>.guide</a>
     <ul class="nav__links">
-      <li><a href="/es/valencia/">Valencia</a></li>
-      <li><a href="/es/about/">Sobre nosotros</a></li>
-      <li><a href="/es/handicap-calculator/" aria-current="page">Hándicap</a></li>
-      <li><a href="/es/blog/">Blog</a></li>
-      <li><a href="/es/courses/" class="nav__cta">Todos los campos</a></li>
+      <li><a href="/en/valencia/">Valencia</a></li>
+      <li><a href="/en/about/">About</a></li>
+      <li><a href="/de/handicap-rechner/" aria-current="page">Handicap</a></li>
+      <li><a href="/en/blog/">Blog</a></li>
+      <li><a href="/en/courses/" class="nav__cta">All Courses</a></li>
     </ul>
     <div class="nav__lang">
       <a href="/en/handicap-calculator/">EN</a>
-      <span class="nav__lang-active">ES</span>
-      <a href="/de/handicap-rechner/">DE</a>
+      <a href="/es/handicap-calculator/">ES</a>
+      <span class="nav__lang-active">DE</span>
     </div>
-    <button class="nav__burger" aria-label="Alternar menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <header class="page-header">
-  <h1>Calculadora de Hándicap de Golf (WHS)</h1>
-  <p>Introduce tus rondas recientes y obtén un Índice de Hándicap estimado — con una explicación completa de cada paso del cálculo.</p>
+  <h1>Golf Handicap Rechner (WHS)</h1>
+  <p>Gib deine letzten Runden ein und erhalte einen geschätzten Handicap-Index – mit Erklärung jedes Rechenschritts und deinem Course Handicap für Golfplätze in Spanien.</p>
 </header>
 
 <div class="calc-wrap">
 
-  <!-- TARJETA DE LA CALCULADORA -->
+  <!-- CALCULATOR CARD -->
   <div class="calc-card">
-    <div class="calc-card-header">Tus rondas</div>
+    <div class="calc-card-header">Deine Runden</div>
     <div class="calc-card-body">
       <div class="quick-entry">
         <div class="field-group">
-          <label for="default-course">1 · ¿Dónde juegas normalmente?</label>
+          <label for="default-course">1 · Wo spielst du meistens?</label>
           <select id="default-course" onchange="onDefaultCourseChange()"></select>
         </div>
         <div class="field-group">
-          <label for="quick-scores">2 · Escribe tus últimos resultados</label>
+          <label for="quick-scores">2 · Gib deine letzten Ergebnisse ein</label>
           <div class="quick-row">
-            <input id="quick-scores" type="text" inputmode="numeric" autocomplete="off" placeholder="ej. 92, 88, 95"
+            <input id="quick-scores" type="text" inputmode="numeric" autocomplete="off" placeholder="z. B. 92, 88, 95"
                    onkeydown="if (event.key === 'Enter') { event.preventDefault(); quickAdd(); }">
-            <button type="button" class="btn-quick" onclick="quickAdd()">Añadir</button>
+            <button type="button" class="btn-quick" onclick="quickAdd()">OK</button>
           </div>
         </div>
-        <div class="quick-hint">Golpes totales de cada ronda, separados por comas o espacios. ¿Jugaste 9 hoyos? Elige un campo de 9 hoyos, u “Otro campo” para esa ronda. Puedes cambiar el campo de cualquier ronda más abajo.</div>
+        <div class="quick-hint">Gesamtschläge pro Runde, getrennt durch Komma oder Leerzeichen. Nur 9 Löcher gespielt? Wähle einen 9-Loch-Platz oder „Anderer Platz“ für diese Runde. Den Platz jeder Runde kannst du unten ändern.</div>
         <div class="quick-msg" id="quick-msg" role="alert"></div>
       </div>
-      <div class="rounds-head"><span id="rounds-count"></span><button type="button" class="btn-clear" id="btn-clear" onclick="clearRounds()">Borrar todo</button></div>
+      <div class="rounds-head"><span id="rounds-count"></span><button type="button" class="btn-clear" id="btn-clear" onclick="clearRounds()">Alle löschen</button></div>
       <div class="saved-note" id="saved-note"></div>
       <div class="rounds-empty" id="rounds-empty"></div>
       <div class="rounds-list" id="rounds-list"></div>
       <div class="live-result" id="live-result" aria-live="polite"></div>
-      <button class="btn-add" id="btn-add" onclick="addRound(defaultCourse()); updateRoundCount();">+ Añadir una ronda a mano</button>
-      <button class="btn-calc" onclick="calculate()">Ver el cálculo completo →</button>
-      <div class="device-note">🔒 Tus rondas se guardan solo en este dispositivo.</div>
+      <button class="btn-add" id="btn-add" onclick="addRound(defaultCourse()); updateRoundCount();">+ Runde manuell hinzufügen</button>
+      <button class="btn-calc" onclick="calculate()">Ganze Berechnung ansehen →</button>
+      <div class="device-note">🔒 Deine Runden werden nur auf diesem Gerät gespeichert.</div>
     </div>
   </div>
 
-  <!-- SECCIÓN DE RESULTADOS -->
+  <!-- RESULT SECTION -->
   <div id="result-section">
 
     <div class="result-headline">
-      <div class="result-label">Índice de Hándicap Estimado</div>
+      <div class="result-label">Geschätzter Handicap-Index</div>
       <div class="result-value" id="result-value">—</div>
-      <div class="result-sublabel">Estimación WHS · para inscripción oficial únete a un club federado RFEG</div>
+      <div class="result-sublabel">WHS-Schätzung · offiziell nur über deinen Golfclub</div>
     </div>
 
-    <!-- TABLA DESGLOSE -->
     <div class="breakdown-card ch-card" id="ch-card" style="display:none">
-      <div class="breakdown-header">Tu hándicap de juego por campo</div>
-      <div class="ch-sub">Golpes que recibes desde barras blancas en cada campo, según tu índice.</div>
+      <div class="breakdown-header">Dein Course Handicap</div>
+      <div class="ch-sub">Schläge, die du von den weißen Abschlägen auf jedem Platz bekommst – berechnet aus deinem Index.</div>
       <table class="breakdown-table ch-table">
-        <thead><tr><th>Campo</th><th>Golpes</th></tr></thead>
+        <thead><tr><th>Platz</th><th>Schläge</th></tr></thead>
         <tbody id="ch-tbody"></tbody>
       </table>
-      <div class="ch-note">Hándicap de campo = Índice × (Slope ÷ 113) + (Rating − Par). En campos de 9 hoyos se usa la mitad del índice. En competición se suele aplicar un 95 %. <span class="ch-approx">≈</span> rating no publicado, estimado a partir del par.</div>
+      <div class="ch-note">Course Handicap = Index × (Slope ÷ 113) + (Course Rating − Par). Auf 9-Loch-Plätzen zählt der halbe Index. Im Turnier gilt meist ein Handicap-Faktor von 95 %. <span class="ch-approx">≈</span> Course Rating nicht veröffentlicht, aus dem Par geschätzt.</div>
     </div>
 
+    <!-- BREAKDOWN TABLE -->
     <div class="breakdown-card">
-      <div class="breakdown-header">Desglose ronda a ronda</div>
+      <div class="breakdown-header">Berechnung pro Runde</div>
       <table class="breakdown-table">
         <thead>
           <tr>
-            <th>Campo</th>
-            <th>Golpes</th>
-            <th>Diferencial</th>
-            <th>Cómo se calcula</th>
+            <th>Platz</th>
+            <th>Ergebnis</th>
+            <th>Differential</th>
+            <th>So wird gerechnet</th>
           </tr>
         </thead>
         <tbody id="breakdown-tbody"></tbody>
       </table>
     </div>
 
-    <!-- PASO A PASO -->
+    <!-- STEP-BY-STEP -->
     <div class="step-summary">
-      <h4>Cómo se calculó tu índice</h4>
+      <h4>So wurde dein Index berechnet</h4>
       <div class="step-list" id="step-list"></div>
     </div>
 
-    <!-- RECOMENDACIÓN -->
+    <!-- RECOMMENDATION -->
     <div class="recommendation" id="rec-box">
-      <div class="rec-label">Campos para tu nivel</div>
+      <div class="rec-label">Plätze für dein Niveau</div>
       <div class="rec-text" id="rec-text"></div>
     </div>
 
     <!-- TRIP CTA -->
     <div class="trip-cta" id="trip-cta" style="display:none">
       <div class="trip-cta-inner">
-        <div class="trip-cta-text"><strong>¿Planeas un viaje?</strong><br>Consulta los green fees verificados cerca de tu campo</div>
+        <div class="trip-cta-text"><strong>Golfreise nach Spanien?</strong><br>Geprüfte Greenfees in der Nähe deines Platzes</div>
         <div class="trip-cta-links" id="trip-cta-links"></div>
       </div>
     </div>
 
     <!-- EMAIL CAPTURE -->
     <div class="email-capture" id="email-capture">
-      <div class="email-capture__title">📬 Recibe tu resultado por email</div>
-      <div class="email-capture__sub">Sigue la evolución de tu índice — más actualizaciones mensuales de green fees en España.</div>
+      <div class="email-capture__title">📬 Golf-Updates aus Spanien</div>
+      <div class="email-capture__sub">Einmal im Monat: neue Greenfees, neue Plätze und Angebote in Spanien. Der Newsletter ist auf Englisch.</div>
       <div class="email-capture__row">
         <input class="email-capture__input" id="capture-email" type="email"
-               placeholder="jonram@ejemplo.com" autocomplete="email">
-        <button class="email-capture__btn" id="capture-btn" onclick="submitEmailCapture()">Enviar →</button>
+               placeholder="bernhardlanger@example.com" autocomplete="email">
+        <button class="email-capture__btn" id="capture-btn" onclick="submitEmailCapture()">Abonnieren →</button>
       </div>
       <label class="email-capture__consent">
         <input type="checkbox" id="capture-consent">
-        Acepto la <a href="/es/privacidad/" target="_blank">Política de Privacidad</a> y consiento recibir emails de golfspain.guide.
+        Ich stimme der <a href="/en/privacy/" target="_blank">Datenschutzerklärung</a> zu und möchte E-Mails von golfspain.guide erhalten.
       </label>
       <div class="email-capture__msg" id="capture-msg" style="display:none"></div>
-      <button class="email-capture__dismiss" onclick="document.getElementById('email-capture').style.display='none'">No, gracias</button>
+      <button class="email-capture__dismiss" onclick="document.getElementById('email-capture').style.display='none'">Nein danke</button>
     </div>
 
     <div class="disclaimer">
-      Esto es una <strong>estimación</strong> basada en la fórmula WHS. Un Índice de Hándicap oficial requiere al menos 54 hoyos jugados en un club federado RFEG y registro a través de su sistema. <a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es →</a> <a href="/es/blog/como-sacar-handicap-golf-espana/">Cómo sacar el hándicap oficial en España →</a>
+      Das ist eine <strong>Schätzung</strong> nach der WHS-Formel. Ein offizieller Handicap-Index braucht mindestens 54 gespielte Löcher, eingereicht über einen Golfclub – in Spanien über einen RFEG-Club, in Deutschland über einen DGV-Club. <a href="/en/blog/how-to-get-golf-handicap-spain/">So bekommst du ein Handicap in Spanien (auf Englisch) →</a>
     </div>
 
   </div>
 
   <!-- FAQ -->
   <div class="faq">
-    <h2>¿Cómo funciona?</h2>
+    <h2>Wie funktioniert das?</h2>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Cómo saber mi hándicap? <span class="arrow">▼</span></div>
+      <div class="faq-q">Wie finde ich mein Handicap heraus? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        Si estás federado en España, tu Índice de Hándicap oficial aparece en la app gratuita RFEGolf. Si no lo estás, mete arriba tus últimos resultados: la calculadora estima tu índice con la fórmula oficial WHS. Para conseguir uno oficial, mira <a href="/es/blog/como-sacar-handicap-golf-espana/">cómo sacar el hándicap de golf en España</a>.
+        Wenn du in einem Club registriert bist, steht dein offizieller Handicap-Index in der App deines Verbands – in Deutschland im DGV-Ausweis bzw. der DGV-App, in Spanien in der RFEGolf-App. Ohne Club: Gib oben deine letzten Ergebnisse ein, der Rechner schätzt deinen Index mit der offiziellen WHS-Formel.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Qué es un Diferencial de Hándicap? <span class="arrow">▼</span></div>
+      <div class="faq-q">Was ist ein Score Differential? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El Diferencial de Hándicap mide cómo se compara tu puntuación con la esperada para un golfista de scratch en ese campo específico. La fórmula WHS es:<br><br>
-        <strong>Diferencial = (Golpes − Course Rating) × (113 ÷ Slope)</strong><br><br>
-        El "113" es el Slope estándar de un campo promedio. Si el Slope es mayor que 113 (como La Galiana con 148), la fórmula reduce tu diferencial — los campos difíciles se recompensan.
+        Das Score Differential zeigt, wie dein Ergebnis im Vergleich zum erwarteten Ergebnis eines Scratch-Golfers auf genau diesem Platz ausfällt. Die WHS-Formel lautet:<br><br><code>Differential = (Ergebnis − Course Rating) × (113 ÷ Slope)</code><br><br>113 ist der Slope eines durchschnittlichen Platzes. Ist der Slope höher (etwa La Galiana mit 148), wird dein Differential kleiner – schwere Plätze werden also berücksichtigt.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Cuál es la diferencia entre Course Rating y Par? <span class="arrow">▼</span></div>
+      <div class="faq-q">Was ist der Unterschied zwischen Course Rating und Par? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        <strong>El Par</strong> es el número de golpes esperados para un jugador experto — es un número redondo (p.ej. 72) que se usa para la puntuación del día.<br><br>
-        <strong>El Course Rating</strong> es la puntuación que haría un golfista de scratch (hándicap 0) en condiciones normales — es más preciso (p.ej. 74.1) y tiene en cuenta el diseño del campo, obstáculos y condiciones. <strong>El Par no se usa en la fórmula WHS</strong> — solo se usan el Rating y el Slope.
+        <strong>Par</strong> ist die Schlagzahl, die ein sehr guter Spieler braucht – eine runde Zahl wie 72. <strong>Course Rating</strong> ist das Ergebnis, das ein Scratch-Golfer (Handicap 0) unter normalen Bedingungen realistisch spielt – genauer, etwa 74,1. <strong>In der WHS-Formel zählt nicht das Par</strong>, sondern nur Course Rating und Slope.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Qué significa el Slope? <span class="arrow">▼</span></div>
+      <div class="faq-q">Was bedeutet der Slope? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        El Slope mide cuánto más difícil resulta un campo para un golfista de bogey (hándicap ~20) comparado con uno de scratch. La base es 113 — un campo "promedio". Un Slope de 148 (como La Galiana o El Bosque) significa que el campo penaliza la inconsistencia mucho más que un campo promedio.
+        Der Slope misst, wie viel schwerer ein Platz für einen Bogey-Golfer (etwa Handicap 20) ist als für einen Scratch-Golfer. Der Durchschnitt liegt bei 113. Ein Slope von 148 (La Galiana, El Bosque) bestraft unbeständiges Spiel deutlich stärker.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿La fórmula lleva algún multiplicador o ajuste? <span class="arrow">▼</span></div>
+      <div class="faq-q">Gibt es einen Faktor oder Abzug in der Formel? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        Ningún multiplicador. Con el Sistema Mundial de Hándicap (2020, incluida la revisión de 2024) tu Índice de Hándicap es simplemente la <strong>media de tus 8 mejores diferenciales de tus últimas 20 rondas</strong>. El antiguo factor 0,96 desapareció en 2020. Los únicos ajustes son para quien tiene pocas rondas: <strong>−2,0 con 3 rondas, −1,0 con 4 rondas y −1,0 con 6 rondas</strong>. (Aparte, el WHS puede corregir el diferencial de cada ronda según el clima y el estado del campo — el Cálculo de Condiciones de Juego — algo que solo puede aplicar el sistema de tu club.)
+        Keinen Faktor. Im World Handicap System (seit 2020, auch nach der Revision 2024) ist dein Handicap-Index einfach der <strong>Durchschnitt deiner 8 besten Differentials aus den letzten 20 Runden</strong>. Den alten Faktor 0,96 gibt es seit 2020 nicht mehr. Abzüge gibt es nur bei wenigen Runden: <strong>−2,0 bei 3 Runden, −1,0 bei 4 Runden und −1,0 bei 6 Runden</strong>. (Zusätzlich kann das WHS jede Runde an Wetter und Platzbedingungen anpassen – das kann nur das System deines Clubs.)
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Puedo usar resultados de 9 hoyos? <span class="arrow">▼</span></div>
+      <div class="faq-q">Kann ich 9-Loch-Ergebnisse verwenden? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        Sí, como estimación orientativa. La calculadora duplica el diferencial de cada ronda de 9 hoyos para estimar una de 18. El método oficial del WHS es distinto: suma un resultado esperado para los 9 hoyos que no jugaste, calculado a partir de tu índice actual, así que tu cifra oficial puede variar. Para un índice oficial, registra tus rondas en un club federado RFEG.
+        Ja, als grobe Schätzung. Der Rechner verdoppelt das Differential jeder 9-Loch-Runde, um eine 18-Loch-Runde zu schätzen. Das offizielle WHS rechnet anders: Es ergänzt ein erwartetes Ergebnis für die nicht gespielten 9 Löcher auf Basis deines bisherigen Index. Dein offizieller Wert kann daher abweichen.
       </div>
     </div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">¿Cuántas rondas necesito para un hándicap oficial? <span class="arrow">▼</span></div>
+      <div class="faq-q">Wie viele Runden brauche ich für ein offizielles Handicap? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        Bajo las reglas WHS, necesitas un mínimo de <strong>54 hoyos</strong> (normalmente 3 rondas de 18 hoyos, o equivalente) registrados a través de un club federado RFEG para un Índice de Hándicap oficial. Esta calculadora te da una estimación con fines de planificación — para obtener un índice oficial, únete a un club afiliado a la Real Federación Española de Golf (<a href="https://www.rfeg.es/" rel="nofollow noopener" target="_blank">rfeg.es</a>).
+        Nach WHS mindestens <strong>54 Löcher</strong> (meist 3 Runden à 18 Löcher), eingereicht über einen Golfclub. Dieser Rechner liefert eine Schätzung zur Orientierung, zum Beispiel bevor du einen Platz in Spanien buchst.
       </div>
     </div>
 
@@ -800,11 +817,11 @@
 
   <!-- EXPLAINER -->
   <div class="explainer">
-    <h2>Entender el Hándicap de Golf en España</h2>
-    <p>España sigue el <strong>Sistema Mundial de Hándicap (WHS)</strong>, que sustituyó al anterior sistema de la EGA (European Golf Association) en todo el mundo en 2020 y está administrado en España por la <strong>RFEG (Real Federación Española de Golf)</strong>. Tu Índice de Hándicap es un número único en una escala de 54,0 — cuanto más bajo, mejor — que refleja tu potencial en lugar de tu promedio: se calcula a partir de tus mejores diferenciales, no de todos ellos.</p>
-    <p>El número clave detrás de cada cálculo es el <strong>Diferencial de Hándicap</strong>: <code>(Golpes − Course Rating) × (113 ÷ Slope)</code>. El Course Rating es la puntuación que un golfista de scratch (hándicap 0) haría en condiciones normales — normalmente un decimal como 72,4, más preciso que el par. El Slope (de 55 a 155, con 113 como promedio mundial) mide cuánto más difícil resulta el campo para un golfista de bogey que para uno de scratch. Juntos, estos dos números permiten comparar una ronda en Campoamor con una en El Saler de forma justa, aunque sean campos muy distintos.</p>
-    <p>Una vez que tienes tu Índice de Hándicap, se convierte en un <strong>Hándicap de Campo</strong> para cada recorrido concreto: <code>Hándicap de Campo = Índice × (Slope ÷ 113) + (Course Rating − Par)</code>. Este es el número de golpes adicionales que recibes en una competición de strokeplay ese día. Un campo con Slope alto como El Bosque (Slope 148) te otorga más golpes que uno de menor Slope con el mismo índice. En la práctica, las tarjetas de competición en España muestran en qué hoyos recibes golpes según el índice de hándicap de hoyo.</p>
-    <p>La mayoría de los clubes de las regiones de <strong>Alicante y Valencia</strong> aceptan visitantes con un certificado de hándicap válido de la RFEG, EGA o de una federación afiliada a la R&amp;A. Algunos campos de campeonato (como Campoamor) lo exigen para jugar. Si juegas de forma casual sin hándicap oficial, esta calculadora te da una estimación realista — útil para elegir un campo acorde a tu nivel, entender cómo se traduce tu puntuación y saber qué objetivo marcarte antes de federarte.</p>
+    <h2>Golf-Handicap in Spanien – was deutsche Golfer wissen sollten</h2>
+    <p>Spanien nutzt wie Deutschland das <strong>World Handicap System (WHS)</strong>. In Spanien verwaltet es die <strong>RFEG (Real Federación Española de Golf)</strong>. Dein Handicap-Index ist deshalb international gültig: Mit deinem DGV-Handicap kannst du in Spanien spielen, ohne eine spanische Lizenz zu brauchen.</p>
+    <p>Die meisten Plätze an der <strong>Costa Blanca und in Valencia</strong> verlangen von Gästen einen Handicap-Nachweis – den DGV-Ausweis oder die DGV-App bitte mitnehmen. Manche Clubs schlagen eine kleine Tageslizenz (vor allem Versicherung) auf das Greenfee auf.</p>
+    <p>Aus deinem Index wird für jeden Platz ein <strong>Course Handicap</strong>: <code>Course Handicap = Handicap-Index × (Slope ÷ 113) + (Course Rating − Par)</code>. Ein schwerer Platz wie El Bosque (Slope 148) gibt dir mehr Schläge als ein leichterer Platz bei gleichem Index. Die Tabelle oben zeigt dir das für jeden Platz.</p>
+    <p>Die Plätze verlinken auf unseren Platz-Guide (auf Englisch) mit geprüften Greenfees, Anfahrt und Buchungslinks.</p>
   </div>
 
 </div><!-- /.calc-wrap -->
@@ -814,35 +831,30 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="nav__logo">⛳ golf<span>spain</span>.guide</div>
-        <p>Guía independiente de membresías y green fees en campos de golf de España.</p>
+        <p>Unabhängiger Guide zu Greenfees und Mitgliedschaften auf Golfplätzen in Spanien.</p>
       </div>
-      <div class="footer__col"><h4>Campos de Valencia</h4><ul>
-        <li><a href="/es/valencia/el-saler/">El Saler</a></li>
-        <li><a href="/es/valencia/foressos/">Foressos</a></li>
-        <li><a href="/es/valencia/el-bosque/">El Bosque</a></li>
-        <li><a href="/es/valencia/la-galiana/">La Galiana</a></li>
-        <li><a href="/es/valencia/ifach/">Ifach Golf</a></li>
-        <li><a href="/es/valencia/masia-estrellas/">Masia de las Estrellas</a></li>
-        <li><a href="/es/valencia/requena/">Requena</a></li>
+      <div class="footer__col"><h4>Plätze (Englisch)</h4><ul>
+        <li><a href="/en/valencia/">Valencia</a></li>
+        <li><a href="/en/alicante/">Alicante</a></li>
+        <li><a href="/en/castellon/">Castellón</a></li>
+        <li><a href="/en/courses/">Alle Plätze</a></li>
       </ul></div>
-      <div class="footer__col"><h4>Herramientas</h4><ul>
-        <li><a href="/es/courses/">Todos los campos</a></li>
-        <li><a href="/es/handicap-calculator/">Calculadora de Hándicap</a></li>
-        <li><a href="/es/blog/">Blog</a></li>
-        <li><a href="/es/about/">Sobre nosotros</a></li>
-        <li><a href="/es/about/#contact">Correcciones</a></li>
+      <div class="footer__col"><h4>Infos</h4><ul>
+        <li><a href="/de/handicap-rechner/">Handicap Rechner</a></li>
+        <li><a href="/en/about/">Über uns (Englisch)</a></li>
+        <li><a href="/en/about/#contact">Korrekturen</a></li>
       </ul></div>
     </div>
-    <div class="footer__bottom"><p>© 2026 golfspain.guide — Guía independiente, sin afiliación con ningún club ni federación.</p></div>
+    <div class="footer__bottom"><p>© 2026 golfspain.guide – unabhängig, keinem Club und keinem Verband verbunden.</p></div>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
 <script>
-  // ── Datos de campos (Valencia + personalizado) ──
-  // Rating/Slope del master de datos de clubes (tees blancos).
-  // El Rating de Escorpión no es público — null activa el modo par.
-  // Rondas de 9 hoyos: el diferencial se escala ×2 antes de promediar (WHS).
+  // ── Course data (Valencia + custom) ──
+  // Rating/Slope from master club data (whites tees).
+  // Escorpión's rating is not publicly published — null triggers par-only fallback.
+  // 9-hole rounds: differential is scaled ×2 before WHS comparison/averaging.
   const COURSES = [
     // ── Valencia ────────────────────────────────────────────────────────────
     { value: 'foressos',     label: 'Foressos Golf (18H)',                rating: 74.1, slope: 140, par: 72, holes: 18, group: 'Valencia' },
@@ -873,19 +885,20 @@
     // ── Barcelona / Toledo ──────────────────────────────────────────────────
     { value: 'elprat',       label: 'Real Club de Golf El Prat (18H)',    rating: null, slope: null, par: 72, holes: 18, group: 'Barcelona', parFallback: true },
     { value: 'layos',        label: 'Layos Golf (18H)',                   rating: 75.2, slope: 135, par: 72, holes: 18, group: 'Toledo' },
-    // ── Personalizado ────────────────────────────────────────────────────────
-    { value: 'custom',       label: 'Otro campo (introducir manualmente)', rating: null, slope: null, par: null, holes: 18 },
+    // ── Custom ──────────────────────────────────────────────────────────────
+    { value: 'custom',       label: 'Anderer Platz (manuell eingeben)',      rating: null, slope: null, par: null, holes: 18 },
   ];
 
   let roundCount = 0;
+  // Track chosen holes for each custom-course row (default 18)
   const customHoles = {};
 
   function buildCourseOptions() {
-    let html = '<option value="">Selecciona un campo…</option>';
+    let html = '<option value="">Platz wählen…</option>';
     const grouped = {}, order = [];
     COURSES.forEach(c => {
       if (!c.value || c.value === 'custom') return;
-      const g = c.group || 'Otro';
+      const g = c.group || 'Other';
       if (!grouped[g]) { grouped[g] = []; order.push(g); }
       grouped[g].push(c);
     });
@@ -894,56 +907,56 @@
       grouped[g].forEach(c => { html += `<option value="${c.value}">${c.label}</option>`; });
       html += '</optgroup>';
     });
-    html += '<option value="custom">Otro campo (introducir manualmente)</option>';
+    html += '<option value="custom">Anderer Platz (manuell eingeben)</option>';
     return html;
   }
 
   function addRound(course, score) {
     roundCount++;
     const id = roundCount;
-    customHoles[id] = 18;
+    customHoles[id] = 18; // default
 
     const row = document.createElement('div');
     row.className = 'round-row';
     row.dataset.id = id;
     row.innerHTML = `
       <div class="field-group">
-        <label>Golpes</label>
-        <input type="number" min="20" max="200" placeholder="ej. 85"
+        <label>Ergebnis</label>
+        <input type="number" min="20" max="200" placeholder="z. B. 85"
                id="score-${id}" oninput="checkWarning(${id})">
       </div>
       <div class="field-group">
-        <label>Campo</label>
+        <label>Platz</label>
         <select id="course-${id}" onchange="onCourseChange(${id})">
           ${buildCourseOptions()}
         </select>
         <div class="course-info-strip" id="strip-${id}"></div>
 
-        <!-- Campos para campo personalizado -->
+        <!-- Custom course fields — shown only when "Other course" is selected -->
         <div class="custom-group" id="custom-group-${id}">
-          <label>Hoyos jugados</label>
+          <label>Gespielte Löcher</label>
           <div class="holes-toggle">
             <button type="button" id="h18-${id}" class="holes-btn active"
-                    onclick="setCustomHoles(${id}, 18)">18 hoyos</button>
+                    onclick="setCustomHoles(${id}, 18)">18 Löcher</button>
             <button type="button" id="h9-${id}"  class="holes-btn"
-                    onclick="setCustomHoles(${id}, 9)">9 hoyos</button>
+                    onclick="setCustomHoles(${id}, 9)">9 Löcher</button>
           </div>
           <label>Par</label>
           <input type="number" min="18" max="80" placeholder="72" id="custom-par-${id}"
                  oninput="checkWarning(${id})">
           <div style="margin-top:2px">
             <button type="button" class="rs-toggle-link" onclick="toggleAdvancedRS(${id})">
-              Conozco Rating y Slope (opcional, más preciso)
+              Ich kenne Course Rating &amp; Slope (optional, genauer)
             </button>
           </div>
           <div id="advanced-rs-${id}" style="display:none;margin-top:4px">
             <label>Rating / Slope</label>
-            <input type="text" placeholder="ej. 74.1 / 148" id="custom-rs-${id}"
+            <input type="text" placeholder="z. B. 74.1 / 148" id="custom-rs-${id}"
                    style="font-size:13px" oninput="checkWarning(${id})">
           </div>
         </div>
       </div>
-      <button class="btn-remove" onclick="removeRound(${id})" aria-label="Eliminar ronda">✕</button>
+      <button class="btn-remove" onclick="removeRound(${id})" aria-label="Runde entfernen">✕</button>
       <div class="row-warning" id="warn-${id}"></div>
     `;
     document.getElementById('rounds-list').appendChild(row);
@@ -966,6 +979,7 @@
     if (!btn18 || !btn9) return;
     btn18.classList.toggle('active', h === 18);
     btn9.classList.toggle('active',  h === 9);
+    // Update par placeholder
     const parEl = document.getElementById(`custom-par-${id}`);
     if (parEl && !parEl.value) parEl.placeholder = h === 9 ? '36' : '72';
     checkWarning(id);
@@ -989,11 +1003,12 @@
       cg.style.display = 'flex';
     } else if (course && course.parFallback) {
       const slopeNote = course.slope ? ` · Slope ${course.slope}` : '';
-      strip.innerHTML = `<strong>Par ${course.par}${slopeNote}</strong> — <em style="color:#8a6900;font-size:11px">estimación por par (Rating/Slope oficial no publicado)</em>`;
+      strip.innerHTML = `<strong>Par ${course.par}${slopeNote}</strong> — <em style="color:#8a6900;font-size:11px">Schätzung auf Par-Basis (offizielles Rating/Slope nicht veröffentlicht)</em>`;
       cg.style.display = 'none';
     } else if (!course || !course.rating) {
+      // No Rating data (Escorpión)
       if (course && course.slope) {
-        strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Rating no disponible públicamente`;
+        strip.innerHTML = `<strong>Slope ${course.slope} · Par ${course.par}</strong> — Course Rating nicht veröffentlicht`;
       } else {
         strip.innerHTML = '';
       }
@@ -1011,19 +1026,23 @@
     if (!sel) return null;
 
     if (sel === 'custom') {
-      const holes  = customHoles[id] || 18;
-      const rsDiv  = document.getElementById(`advanced-rs-${id}`);
-      const rsRaw  = (rsDiv && rsDiv.style.display !== 'none')
+      const holes = customHoles[id] || 18;
+      // Did they reveal and fill the Rating/Slope section?
+      const rsDiv = document.getElementById(`advanced-rs-${id}`);
+      const rsRaw = (rsDiv && rsDiv.style.display !== 'none')
         ? (document.getElementById(`custom-rs-${id}`)?.value || '').trim()
         : '';
       if (rsRaw) {
         const parts = rsRaw.split(/[\s\/,]+/);
         if (parts.length >= 2) {
           const r = parseFloat(parts[0]), s = parseFloat(parts[1]);
-          if (!isNaN(r) && !isNaN(s)) return { rating: r, slope: s, holes, parOnly: false };
+          if (!isNaN(r) && !isNaN(s)) {
+            return { rating: r, slope: s, holes, parOnly: false };
+          }
         }
       }
-      // Solo par: Rating = Par, Slope = 113 (promedio mundial)
+      // Par-only fallback: Rating = Par, Slope = 113 (world average)
+      // → differential simplifies to Score − Par
       const parVal = parseFloat(document.getElementById(`custom-par-${id}`)?.value);
       const par    = isNaN(parVal) ? (holes === 9 ? 36 : 72) : parVal;
       return { rating: par, slope: 113, holes, parOnly: true, par };
@@ -1045,7 +1064,7 @@
     if (sel === 'custom') {
       const h      = customHoles[id] || 18;
       const parVal = document.getElementById(`custom-par-${id}`)?.value;
-      return parVal ? `Otro campo (${h}H, par ${parVal})` : `Otro campo (${h}H)`;
+      return parVal ? `Anderer Platz (${h}H, Par ${parVal})` : `Anderer Platz (${h}H)`;
     }
     const c = COURSES.find(x => x.value === sel);
     return c ? c.label : '—';
@@ -1061,16 +1080,16 @@
 
     if (!isNaN(score)) {
       if (is9H) {
-        if (score < 25) msg = '⚠️ Puntuación muy baja para 9 hoyos — comprueba que has introducido el total de golpes.';
-        else if (score > 80) msg = '⚠️ Puntuación alta para 9 hoyos — ¿has jugado 18 y elegido el campo incorrecto?';
+        if (score < 25) msg = '⚠️ Sehr niedrig für 9 Löcher – hast du die Gesamtschläge eingegeben?';
+        else if (score > 80) msg = '⚠️ Hoch für 9 Löcher – 18 gespielt und den falschen Platz gewählt?';
       } else {
-        if (score < 50) msg = '⚠️ Puntuación muy baja — ¿estás seguro de que es el total de golpes de la ronda?';
-        else if (score > 150) msg = '⚠️ Puntuación muy alta — comprueba que has introducido el total de golpes.';
+        if (score < 50) msg = '⚠️ Sehr niedrig – sind das wirklich die Gesamtschläge der Runde?';
+        else if (score > 150) msg = '⚠️ Sehr hoch – bitte die Gesamtschläge prüfen.';
       }
       if (rs && !msg) {
         const rawDiff = (score - rs.rating) * (113 / rs.slope);
-        if (rawDiff > 54) msg = '⚠️ Diferencial inusualmente alto — revisa los golpes, el rating y el slope.';
-        if (rawDiff < -5) msg = '⚠️ Diferencial negativo — ¿has introducido el total de golpes (p.ej. 85) en vez del resultado respecto al par (p.ej. +3)?';
+        if (rawDiff > 54) msg = '⚠️ Ungewöhnlich hohes Differential – Ergebnis, Rating und Slope prüfen.';
+        if (rawDiff < -5) msg = '⚠️ Negatives Differential – hast du Gesamtschläge (z. B. 85) statt Schläge über Par (z. B. +3) eingegeben?';
       }
     }
 
@@ -1097,7 +1116,8 @@
       const sel   = document.getElementById(`course-${id}`).value;
       const label = getCourseLabel(id);
 
-      if (!sel || isNaN(score) || !rs) { hasIncomplete = true; return; }
+      if (!sel || isNaN(score)) { hasIncomplete = true; return; }
+      if (!rs) { hasIncomplete = true; return; }
 
       const is9H    = rs.holes === 9;
       const rawDiff = (score - rs.rating) * (113 / rs.slope);
@@ -1111,13 +1131,14 @@
         document.getElementById('result-section').style.display = 'none';
         return;
       }
-      alert('Añade al menos una ronda completa (golpes + campo seleccionado).');
+      alert('Bitte mindestens eine vollständige Runde eingeben (Ergebnis + Platz).');
       return;
     }
     if (hasIncomplete && !live) {
-      if (!confirm('Algunas rondas están incompletas y se omitirán. ¿Continuar con ' + diffs.length + ' ronda(s) válida(s)?')) return;
+      if (!confirm('Einige Runden sind unvollständig und werden übersprungen. Mit ' + diffs.length + ' gültigen Runde(n) weiter?')) return;
     }
 
+    // WHS: sort ascending, take best differentials per round count
     const sorted = [...diffs].sort((a, b) => a.diff - b.diff);
     const n      = diffs.length;
     let numUsed;
@@ -1142,13 +1163,14 @@
     const rawIndex  = avgDiff + adjustment;
     const index     = Math.min(54, Math.round(rawIndex * 10) / 10);
 
+    // ── Render result value ──
     document.getElementById('result-value').textContent = index.toFixed(1);
     updateLiveResult(index, n, n < 3 || diffs.some(d => d.is9H));
     renderCourseHandicaps(index, diffs);
     const subEl = document.querySelector('.result-sublabel');
-    if (subEl) subEl.textContent = n < 3 ? 'Estimación orientativa · el WHS exige al menos 3 rondas (54 hoyos)'
-      : diffs.some(d => d.is9H) ? 'Estimación orientativa · incluye rondas de 9 hoyos (cada una duplicada para estimar 18)'
-      : 'Estimación WHS · para inscripción oficial únete a un club federado RFEG';
+    if (subEl) subEl.textContent = n < 3 ? 'Grobe Schätzung · das WHS braucht mindestens 3 Runden (54 Löcher)'
+      : diffs.some(d => d.is9H) ? 'Grobe Schätzung · mit 9-Loch-Runden (jeweils auf 18 Löcher verdoppelt)'
+      : 'WHS-Schätzung · offiziell nur über deinen Golfclub';
 
     // ── Store for email capture + reset form state ──
     lastCalcResult = { index, numRounds: n };
@@ -1165,11 +1187,12 @@
       liveTracked = true;
       gtag('event', 'calculate_handicap', {
         num_rounds:   n,
-        locale:       'es',
+        locale:       'de',
         result_index: index,
       });
     }
 
+    // ── Breakdown table ──
     const tbody   = document.getElementById('breakdown-tbody');
     tbody.innerHTML = '';
     const usedIds = new Set(usedDiffs.map(d => d.id));
@@ -1186,13 +1209,13 @@
           = <span class="eq">${d.rawDiff.toFixed(2)}</span>
           <span style="color:#b45309;font-size:11px;font-weight:700"> × 2 (9H→18H)</span><br>
           = <strong>${d.diff.toFixed(2)}</strong><br>
-          <span style="color:var(--text-muted);font-size:11px;font-style:italic">estimación por par (Slope 113)</span>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">Schätzung auf Par-Basis (Slope 113)</span>
         `;
       } else if (d.parOnly) {
         formulaHTML = `
           <span class="eq">${d.score} − par ${d.par}</span><br>
           = <strong>${d.diff.toFixed(2)}</strong><br>
-          <span style="color:var(--text-muted);font-size:11px;font-style:italic">estimación por par (Slope 113)</span>
+          <span style="color:var(--text-muted);font-size:11px;font-style:italic">Schätzung auf Par-Basis (Slope 113)</span>
         `;
       } else if (d.is9H) {
         formulaHTML = `
@@ -1210,7 +1233,7 @@
       }
 
       const nineTag  = d.is9H ? ` <span class="nine-tag">9H</span>` : '';
-      const usedMark = used   ? ` <span style="color:var(--green-light);font-size:11px;font-weight:700">✓ usada</span>` : '';
+      const usedMark = used   ? ` <span style="color:var(--green-light);font-size:11px;font-weight:700">✓ gewertet</span>` : '';
 
       tr.innerHTML = `
         <td>${d.label}${nineTag}${usedMark}</td>
@@ -1221,26 +1244,27 @@
       tbody.appendChild(tr);
     });
 
+    // ── Step-by-step explanation ──
     const has9H      = diffs.some(d => d.is9H);
     const hasParOnly = diffs.some(d => d.parOnly);
-    const usedLabel  = numUsed === 1 ? 'el mejor diferencial' : `los ${numUsed} mejores diferenciales`;
+    const usedLabel  = numUsed === 1 ? 'das beste Differential' : `die besten ${numUsed} Differentials`;
     const usedVals   = usedDiffs.map(d => d.diff.toFixed(1)).join(' + ');
 
     const step1Extra   = has9H
-      ? ` Para las rondas de 9 hoyos, el diferencial se <strong>multiplica por 2</strong> para convertirlo al equivalente de 18 hoyos — un diferencial de 9H de 4,5 se convierte en 9,0.`
+      ? ` Bei 9-Loch-Runden wird das Differential anschließend <strong>mit 2 multipliziert</strong>, um eine 18-Loch-Runde zu schätzen – aus 4,5 wird also 9,0.`
       : '';
     const step1ParNote = hasParOnly
-      ? ` <em style="color:var(--text-muted)">Para campos donde solo se conoce el par, el Rating se trata como el Par y el Slope como 113 (promedio mundial) — diferencial ≈ Golpes − Par.</em>`
+      ? ` <em style="color:var(--text-muted)">Bei Plätzen, von denen nur das Par bekannt ist, gilt Rating = Par und Slope = 113 (weltweiter Durchschnitt) – Differential ≈ Ergebnis − Par.</em>`
       : '';
 
     const steps = [
-      `Se calculó un <strong>Diferencial de Hándicap</strong> para cada ronda usando: <span class="mono">(Golpes − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
-      `Con ${n} ronda${n > 1 ? 's' : ''}, las reglas WHS indican usar <strong>${usedLabel}</strong> — marcados en verde arriba.`,
-      `Se promediaron los diferenciales: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
+      `Für jede Runde wurde ein <strong>Score Differential</strong> berechnet: <span class="mono">(Ergebnis − Rating) × (113 ÷ Slope)</span>.${step1Extra}${step1ParNote}`,
+      `Bei ${n} Runde${n > 1 ? 'n' : ''} verwendet das WHS <strong>${usedLabel}</strong> – oben grün markiert.`,
+      `Durchschnitt: <span class="mono">(${usedVals}) ÷ ${numUsed} = ${avgDiff.toFixed(2)}</span>`,
       adjustment
-        ? `Con solo ${n} rondas, el WHS aplica un <strong>ajuste de −${Math.abs(adjustment).toFixed(1).replace('.', ',')}</strong>: <span class="mono">${avgDiff.toFixed(2)} − ${Math.abs(adjustment).toFixed(1)} = ${rawIndex.toFixed(2)}</span>`
-        : `Con ${n} ronda${n > 1 ? 's' : ''} no se aplica ningún multiplicador ni ajuste — tu índice es simplemente esta media.`,
-      `Redondeado a un decimal y limitado a 54,0: <strong>${index.toFixed(1)}</strong>`
+        ? `Bei nur ${n} Runden zieht das WHS <strong>${Math.abs(adjustment).toFixed(1).replace('.', ',')} ab</strong>: <span class="mono">${avgDiff.toFixed(2)} − ${Math.abs(adjustment).toFixed(1)} = ${rawIndex.toFixed(2)}</span>`
+        : `Bei ${n} Runde${n > 1 ? 'n' : ''} gibt es weder Faktor noch Abzug – dein Index ist einfach dieser Durchschnitt.`,
+      `Auf eine Nachkommastelle gerundet, maximal 54,0: <strong>${index.toFixed(1)}</strong>`
     ];
 
     document.getElementById('step-list').innerHTML = steps.map((s, i) => `
@@ -1250,6 +1274,7 @@
       </div>
     `).join('');
 
+    // ── Recommendation ──
     const ALICANTE_VALS = new Set(['ifach9','altea9','campoamor','fontdellop','lafinca','lamarquesa','lasella18','lascolinas','lasramblas','loromero','puigcampana9','villamartin']);
     const VALENCIA_VALS  = new Set(['olivanova','foressos','galiana18','galiana9','saler','bosque','escorpion','manises','requena9']);
     const playedAlicante = diffs.some(d => ALICANTE_VALS.has(d.sel));
@@ -1259,23 +1284,23 @@
     let recHTML = '';
     if (region === 'alicante') {
       if (index <= 10) {
-        recHTML = `Nivel alto en la Costa Blanca. <a href="/es/alicante/las-colinas-golf/">Las Colinas</a> (top-10 España, gestión Troon) es el reto más exigente. <a href="/es/alicante/villamartin/">Villamartín</a> (Slope 136) y <a href="/es/alicante/campoamor-golf/">Campoamor</a> son pruebas de campeonato serias. <a href="/es/alicante/">Ver todos los campos de Alicante →</a>`;
+        recHTML = `Starkes Niveau für die Costa Blanca. <a href="/en/alicante/las-colinas-golf/">Las Colinas</a> (Top 10 in Spanien, von Troon geführt) ist die Prestige-Herausforderung. <a href="/en/alicante/villamartin/">Villamartín</a> (Slope 136) und <a href="/en/alicante/campoamor-golf/">Campoamor</a> sind echte Meisterschaftsplätze. <a href="/en/alicante/">Alle Plätze in Alicante →</a>`;
       } else if (index <= 20) {
-        recHTML = `Buen nivel para la Costa Blanca. <a href="/es/alicante/la-marquesa-golf-rojales/">La Marquesa</a> y <a href="/es/alicante/campoamor-golf/">Campoamor</a> son retos asequibles con buena relación calidad-precio. Guarda <a href="/es/alicante/las-colinas-golf/">Las Colinas</a> para cuando estés en forma. <a href="/es/alicante/">Ver todos los campos de Alicante →</a>`;
+        recHTML = `Solides Niveau für die Costa Blanca. <a href="/en/alicante/la-marquesa-golf-rojales/">La Marquesa</a> und <a href="/en/alicante/campoamor-golf/">Campoamor</a> sind schöne Meisterschaftsplätze zu fairen Preisen. <a href="/en/alicante/las-colinas-golf/">Las Colinas</a> hebst du dir für einen guten Tag auf. <a href="/en/alicante/">Alle Plätze in Alicante →</a>`;
       } else if (index <= 30) {
-        recHTML = `Gana confianza en <a href="/es/alicante/la-marquesa-golf-rojales/">La Marquesa</a> (Rojales) o <a href="/es/alicante/las-ramblas-golf/">Las Ramblas</a> (Orihuela Costa) — ambos son recorridos accesibles y agradables en el sur de la Costa Blanca. <a href="/es/alicante/">Ver todos los campos de Alicante →</a>`;
+        recHTML = `Sammle Selbstvertrauen in <a href="/en/alicante/la-marquesa-golf-rojales/">La Marquesa</a> (Rojales) oder <a href="/en/alicante/las-ramblas-golf/">Las Ramblas</a> (Orihuela Costa) – beide sind an der südlichen Costa Blanca angenehm spielbar. <a href="/en/alicante/">Alle Plätze in Alicante →</a>`;
       } else {
-        recHTML = `Empieza con las opciones más cortas — <a href="/es/alicante/altea-golf/">Altea Club de Golf</a> (9H, entorno montañoso, norte de la Costa Blanca) o <a href="/es/alicante/puig-campana-golf/">Puig Campana Golf</a> (9H, cerca de Benidorm) son rondas relajadas y asequibles para desarrollar tu juego. <a href="/es/alicante/">Ver todos los campos de Alicante →</a>`;
+        recHTML = `Starte mit kürzeren Plätzen – <a href="/en/alicante/altea-golf/">Altea Club de Golf</a> (9 Löcher, schöne Berglage) oder <a href="/en/alicante/puig-campana-golf/">Puig Campana Golf</a> (9 Löcher, bei Benidorm) sind entspannte, günstige Runden zum Üben. <a href="/en/alicante/">Alle Plätze in Alicante →</a>`;
       }
     } else {
       if (index <= 10) {
-        recHTML = `Eres un jugador sólido. Cualquier campo de Valencia está a tu alcance — <a href="/es/valencia/el-bosque/">El Bosque</a> (Slope 148, Par 71) y <a href="/es/valencia/la-galiana/">La Galiana</a> (Slope 148) te pondrán a prueba. <a href="/es/valencia/el-saler/">El Saler</a> (top 5 de Europa) es el objetivo definitivo.`;
+        recHTML = `Du spielst stark. Jeder Platz in Valencia ist für dich machbar – <a href="/en/valencia/el-bosque/">El Bosque</a> (Slope 148, Par 71) und <a href="/en/valencia/la-galiana/">La Galiana</a> (Slope 148) fordern dich. <a href="/en/valencia/el-saler/">El Saler</a> (Top 5 in Europa) ist das große Ziel.`;
       } else if (index <= 20) {
-        recHTML = `Buen rango de hándicap. <a href="/es/valencia/foressos/">Foressos</a> (Slope 140) es un reto justo y muy buena relación calidad-precio (70–80 €). <a href="/es/valencia/el-saler/">El Saler</a> (Slope 136) es alcanzable en un buen día. Guarda El Bosque para cuando estés en forma.`;
+        recHTML = `Gutes Handicap-Niveau. <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) ist fair und mit 70–80 € preiswert. <a href="/en/valencia/el-saler/">El Saler</a> (Slope 136) ist an einem guten Tag machbar. El Bosque lieber für Tage in Form aufheben.`;
       } else if (index <= 30) {
-        recHTML = `Gana confianza en <a href="/es/valencia/foressos/">Foressos</a> (Slope 140) — uno de los recorridos de 18 hoyos más accesibles de Valencia. Evita El Bosque y La Galiana (ambos Slope 148) hasta ser más consistente. <a href="/es/valencia/">Ver todos los campos de Valencia →</a>`;
+        recHTML = `Sammle Selbstvertrauen in <a href="/en/valencia/foressos/">Foressos</a> (Slope 140) – einem der freundlicheren 18-Loch-Plätze in Valencia. El Bosque und La Galiana (beide Slope 148) erst, wenn du konstanter spielst. <a href="/en/valencia/">Alle Plätze in Valencia →</a>`;
       } else {
-        recHTML = `Empieza con opciones más cortas o de menor Slope — <a href="/es/valencia/requena/">Requena</a> (9H, Slope 117) es el campo más asequible de Valencia y un lugar ideal para desarrollar tu juego. <a href="/es/valencia/">Ver todos los campos de Valencia →</a>`;
+        recHTML = `Starte mit kürzeren oder leichteren Plätzen – <a href="/en/valencia/requena/">Requena</a> (9 Löcher, Slope 117) ist der verzeihendste Platz in Valencia. <a href="/en/valencia/">Alle Plätze in Valencia →</a>`;
       }
     }
     document.getElementById('rec-text').innerHTML = recHTML;
@@ -1284,12 +1309,13 @@
     const ctaEl    = document.getElementById('trip-cta');
     const ctaLinks = document.getElementById('trip-cta-links');
     let ctaHTML = '';
-    if (playedAlicante) ctaHTML += `<a href="/es/alicante/" class="trip-cta-btn">Campos de Alicante →</a>`;
-    if (playedValencia) ctaHTML += `<a href="/es/valencia/" class="trip-cta-btn">Campos de Valencia →</a>`;
-    if (!ctaHTML)       ctaHTML  = `<a href="/es/courses/" class="trip-cta-btn">Ver todos los campos →</a>`;
+    if (playedAlicante) ctaHTML += `<a href="/en/alicante/" class="trip-cta-btn">Plätze in Alicante →</a>`;
+    if (playedValencia) ctaHTML += `<a href="/en/valencia/" class="trip-cta-btn">Plätze in Valencia →</a>`;
+    if (!ctaHTML)       ctaHTML  = `<a href="/en/courses/" class="trip-cta-btn">Alle Plätze ansehen →</a>`;
     ctaLinks.innerHTML = ctaHTML;
     ctaEl.style.display = 'block';
 
+    // ── Show result section ──
     const resultSection = document.getElementById('result-section');
     resultSection.style.display = 'block';
     if (!live) resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1302,15 +1328,15 @@
   // ── Quick entry, live result and rounds saved on this device ──
   const STORE_KEY = 'gsg_hcp_rounds_v1';
   const T = {
-    pick: 'Elige tu campo habitual…',
-    needCourse: 'Primero elige tu campo habitual (paso 1).',
-    needScores: 'Escribe al menos un resultado, p. ej. 92.',
-    count: n => n === 1 ? '1 ronda' : `${n} rondas`,
-    confirmClear: '¿Borrar todas tus rondas?',
-    restored: n => `👋 Bienvenido de nuevo: ${n === 1 ? 'tu ronda sigue' : 'tus ' + n + ' rondas siguen'} aquí.`,
-    empty: 'Aún no hay rondas: añade tus resultados arriba.',
-    liveLabel: 'Tu índice estimado',
-    liveSub: (n, rough) => `${n === 1 ? '1 ronda' : n + ' rondas'} · ${rough ? 'estimación orientativa' : 'estimación WHS'}`,
+    pick: 'Wähle deinen Stammplatz…',
+    needCourse: 'Wähle zuerst deinen Platz (Schritt 1).',
+    needScores: 'Gib mindestens ein Ergebnis ein, z. B. 92.',
+    count: n => n === 1 ? '1 Runde' : `${n} Runden`,
+    confirmClear: 'Alle Runden löschen?',
+    restored: n => `👋 Willkommen zurück – ${n === 1 ? 'deine Runde ist' : 'deine ' + n + ' Runden sind'} noch da.`,
+    empty: 'Noch keine Runden – gib oben deine Ergebnisse ein.',
+    liveLabel: 'Dein geschätzter Index',
+    liveSub: (n, rough) => `${n === 1 ? '1 Runde' : n + ' Runden'} · ${rough ? 'grobe Schätzung' : 'WHS-Schätzung'}`,
   };
   let updateTimer = null, liveTracked = false, captureShown = false, restoring = false;
 
@@ -1437,7 +1463,7 @@
       note.textContent = T.restored(n);
       note.style.display = 'block';
       calculate(true);
-      if (typeof gtag === 'function') gtag('event', 'rounds_restored', { num_rounds: n, locale: 'es' });
+      if (typeof gtag === 'function') gtag('event', 'rounds_restored', { num_rounds: n, locale: 'de' });
     }
     return data.rounds.length > 0;
   }
@@ -1463,7 +1489,7 @@
     villamartin: 'alicante/villamartin', mediterraneo: 'castellon/mediterraneo-golf-castellon',
     panoramica: 'castellon/panoramica-golf-castellon', elprat: 'barcelona/el-prat', layos: 'toledo/layos',
   };
-  const CH_T = { played: 'jugado', approx: '≈ rating no publicado, estimado a partir del par', linkLang: 'es' };
+  const CH_T = { played: 'gespielt', approx: '≈ Course Rating nicht veröffentlicht, aus dem Par geschätzt', linkLang: 'en' };
 
   // 18 holes: Index × Slope/113 + (Rating − Par). 9 holes: half the index.
   function courseHandicap(index, c) {
@@ -1511,20 +1537,20 @@
     var msg   = document.getElementById('capture-msg');
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.textContent = 'Por favor, introduce un email válido.';
+      msg.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
       msg.className   = 'email-capture__msg email-capture__msg--err';
       msg.style.display = '';
       return;
     }
     if (!document.getElementById('capture-consent').checked) {
-      msg.textContent = 'Marca la casilla para aceptar la Política de Privacidad.';
+      msg.textContent = 'Bitte setze das Häkchen, um der Datenschutzerklärung zuzustimmen.';
       msg.className   = 'email-capture__msg email-capture__msg--err';
       msg.style.display = '';
       return;
     }
 
     btn.disabled    = true;
-    btn.textContent = 'Enviando…';
+    btn.textContent = 'Wird gesendet…';
     msg.style.display = 'none';
 
     try {
@@ -1535,26 +1561,26 @@
           email,
           handicap_index: lastCalcResult ? lastCalcResult.index    : null,
           num_rounds:     lastCalcResult ? lastCalcResult.numRounds : null,
-          locale:         'es',
+          locale:         'de',
         }),
       });
 
       if (res.ok) {
-        msg.textContent   = '✓ ¡Revisa tu bandeja de entrada!';
+        msg.textContent   = '✓ Du bist eingetragen!';
         msg.className     = 'email-capture__msg email-capture__msg--ok';
         msg.style.display = '';
-        btn.textContent   = 'Enviado ✓';
+        btn.textContent   = 'Eingetragen ✓';
         document.getElementById('capture-email').disabled = true;
         if (typeof gtag === 'function') {
-          gtag('event', 'newsletter_signup', { locale: 'es', page_path: location.pathname, source: 'calculator_result' });
+          gtag('event', 'newsletter_signup', { locale: 'de', page_path: location.pathname, source: 'calculator_result' });
         }
       } else {
         throw new Error('non-ok');
       }
     } catch (_) {
       btn.disabled    = false;
-      btn.textContent = 'Enviar →';
-      msg.textContent   = 'Algo salió mal — inténtalo de nuevo.';
+      btn.textContent = 'Abonnieren →';
+      msg.textContent   = 'Etwas ist schiefgelaufen – bitte versuch es noch einmal.';
       msg.className     = 'email-capture__msg email-capture__msg--err';
       msg.style.display = '';
     }

@@ -147,8 +147,8 @@ test('capped at 54.0', () => {
 
 console.log('\nCalculator pages');
 
-for (const lang of ['en', 'es']) {
-  const html = fs.readFileSync(path.join(__dirname, '..', lang, 'handicap-calculator', 'index.html'), 'utf8');
+for (const [lang, dir] of [['en', 'handicap-calculator'], ['es', 'handicap-calculator'], ['de', 'handicap-rechner']]) {
+  const html = fs.readFileSync(path.join(__dirname, '..', lang, dir, 'index.html'), 'utf8');
   test(`${lang}: no 0.93 / 0.96 multiplier in the page`, () => {
     assert.ok(!/avgDiff \* 0\.9[36]/.test(html), 'multiplier found');
   });

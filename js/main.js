@@ -202,7 +202,13 @@ if (burger && links) {
   var isEs = lang === 'es';
 
   // ── Strings ──
-  var COPY = {
+  var COPY = location.pathname.startsWith('/de/') ? {
+    text: 'Wir nutzen Analyse-Cookies (Google Analytics), um zu verstehen, wie die Seite genutzt wird. Keine Werbung, kein Tracking durch Dritte.',
+    accept: 'Akzeptieren',
+    decline: 'Nur notwendige',
+    policy: 'Datenschutz',
+    policyHref: '/en/about/#privacy'
+  } : {
     text: isEs
       ? 'Usamos cookies analíticas (Google Analytics) para entender cómo se usa el sitio. No hay publicidad ni seguimiento de terceros.'
       : 'We use analytics cookies (Google Analytics) to understand how the site is used. No advertising or third-party tracking.',
@@ -360,8 +366,9 @@ if (burger && links) {
   var STORAGE_KEY = 'gsg_nl_popup';
   var TTL_MS      = 7 * 24 * 60 * 60 * 1000; // 7 days
 
-  // Don't show on the newsletter page itself
+  // Don't show on the newsletter page itself, or on the German calculator (popup is EN/ES only)
   if (location.pathname.indexOf('/newsletter/') !== -1) return;
+  if (location.pathname.startsWith('/de/')) return;
 
   function shouldShow() {
     try {
