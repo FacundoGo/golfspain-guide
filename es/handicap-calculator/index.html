@@ -271,6 +271,18 @@
     .live-result__sub { flex-basis: 100%; font-size: 12px; color: #aec8b8; }
     .device-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
 
+
+    /* ── Course handicap table ── */
+    .ch-card { margin-top: 16px; }
+    .ch-sub { font-size: 13px; color: var(--text-muted); padding: 12px 18px 0; }
+    .ch-table td.ch-strokes { font-weight: 800; color: var(--green-dark); font-size: 16px; text-align: right; width: 90px; }
+    .ch-table th:last-child { text-align: right; }
+    .ch-table a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
+    .ch-table a:hover { text-decoration: underline; }
+    .ch-tag { display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 700; color: var(--green-light); text-transform: uppercase; letter-spacing: .5px; }
+    .ch-approx { color: #8a6900; font-size: 11px; margin-left: 4px; }
+    .ch-note { font-size: 12px; color: var(--text-muted); padding: 10px 18px 14px; line-height: 1.55; }
+
     #result-section {
       display: none;
       margin-top: 28px;
@@ -658,6 +670,16 @@
     </div>
 
     <!-- TABLA DESGLOSE -->
+    <div class="breakdown-card ch-card" id="ch-card" style="display:none">
+      <div class="breakdown-header">Tu hándicap de juego por campo</div>
+      <div class="ch-sub">Golpes que recibes desde barras blancas en cada campo, según tu índice.</div>
+      <table class="breakdown-table ch-table">
+        <thead><tr><th>Campo</th><th>Golpes</th></tr></thead>
+        <tbody id="ch-tbody"></tbody>
+      </table>
+      <div class="ch-note">Hándicap de campo = Índice × (Slope ÷ 113) + (Rating − Par). En campos de 9 hoyos se usa la mitad del índice. En competición se suele aplicar un 95 %. <span class="ch-approx">≈</span> ≈ rating no publicado, estimado a partir del par.</div>
+    </div>
+
     <div class="breakdown-card">
       <div class="breakdown-header">Desglose ronda a ronda</div>
       <table class="breakdown-table">
@@ -1120,6 +1142,7 @@
 
     document.getElementById('result-value').textContent = index.toFixed(1);
     updateLiveResult(index, n, n < 3 || diffs.some(d => d.is9H));
+    renderCourseHandicaps(index, diffs);
     const subEl = document.querySelector('.result-sublabel');
     if (subEl) subEl.textContent = n < 3 ? 'Estimación orientativa · el WHS exige al menos 3 rondas (54 hoyos)'
       : diffs.some(d => d.is9H) ? 'Estimación orientativa · incluye rondas de 9 hoyos (cada una duplicada para estimar 18)'
@@ -1425,12 +1448,60 @@
     scheduleUpdate();
   }
 
+  // ── Course handicap per course (WHS Rule 6.1) ──
+  const COURSE_URLS = {
+    foressos: 'valencia/foressos', galiana18: 'valencia/la-galiana', galiana9: 'valencia/la-galiana',
+    saler: 'valencia/el-saler', bosque: 'valencia/el-bosque', escorpion: 'valencia/escorpion',
+    manises: 'valencia/manises', requena9: 'valencia/requena', olivanova: 'valencia/oliva-nova',
+    ifach9: 'valencia/ifach', altea9: 'alicante/altea-golf', campoamor: 'alicante/campoamor-golf',
+    fontdellop: 'alicante/font-del-llop-golf', lafinca: 'alicante/la-finca-golf-algorfa',
+    lamarquesa: 'alicante/la-marquesa-golf-rojales', lasella18: 'alicante/la-sella-golf',
+    lascolinas: 'alicante/las-colinas-golf', lasramblas: 'alicante/las-ramblas-golf',
+    loromero: 'alicante/lo-romero-golf', puigcampana9: 'alicante/puig-campana-golf',
+    villamartin: 'alicante/villamartin', mediterraneo: 'castellon/mediterraneo-golf-castellon',
+    panoramica: 'castellon/panoramica-golf-castellon', elprat: 'barcelona/el-prat', layos: 'toledo/layos',
+  };
+  const CH_T = { played: 'jugado', approx: '≈ rating no publicado, estimado a partir del par', linkLang: 'es' };
+
+  // 18 holes: Index × Slope/113 + (Rating − Par). 9 holes: half the index.
+  function courseHandicap(index, c) {
+    const rating = c.rating ?? c.par;
+    const idx    = c.holes === 9 ? index / 2 : index;
+    return Math.round(idx * (c.slope / 113) + (rating - c.par));
+  }
+
+  function renderCourseHandicaps(index, diffs) {
+    const card = document.getElementById('ch-card');
+    if (!card) return;
+    const played = new Set(diffs.map(d => d.sel));
+    const rows = COURSES.filter(c => c.slope && c.par && c.value !== 'custom').map(c => {
+      const ch   = courseHandicap(index, c);
+      const url  = COURSE_URLS[c.value] ? `/${CH_T.linkLang}/${COURSE_URLS[c.value]}/` : null;
+      const name = url ? `<a href="${url}">${c.label}</a>` : c.label;
+      const tag  = played.has(c.value) ? `<span class="ch-tag">✓ ${CH_T.played}</span>` : '';
+      const approx = c.rating ? '' : `<span class="ch-approx" title="${CH_T.approx}">≈</span>`;
+      return `<tr><td>${name}${tag}</td><td class="ch-strokes">${ch < 0 ? '+' + Math.abs(ch) : ch}${approx}</td></tr>`;
+    });
+    document.getElementById('ch-tbody').innerHTML = rows.join('');
+    card.style.display = rows.length ? '' : 'none';
+  }
+
+  // ── Deep link: ?course=foressos preselects the usual course ──
+  function applyCourseParam() {
+    let param = '';
+    try { param = new URLSearchParams(location.search).get('course') || ''; } catch (_) {}
+    if (!param || param === 'custom' || !COURSES.some(c => c.value === param)) return;
+    document.getElementById('default-course').value = param;
+    onDefaultCourseChange();
+  }
+
   document.getElementById('default-course').innerHTML = buildDefaultOptions();
   document.getElementById('rounds-list').addEventListener('input', scheduleUpdate);
   document.getElementById('rounds-list').addEventListener('change', scheduleUpdate);
   document.getElementById('rounds-empty').textContent = T.empty;
   if (!loadRounds()) addRound();
   updateRoundCount();
+  applyCourseParam();
 
   async function submitEmailCapture() {
     var email = (document.getElementById('capture-email').value || '').trim();
