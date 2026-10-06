@@ -22,18 +22,18 @@
       { href: '/en/barcelona/', label: 'Barcelona', live: true },
       { href: '/en/alicante/',  label: 'Alicante',  live: true },
       { href: '/en/toledo/',    label: 'Toledo',     live: true },
+      { href: '/en/castellon/', label: 'Castellón',  live: true },
       { href: null,             label: 'Madrid',     live: false },
-      { href: null,             label: 'Andalucía',  live: false },
-      { href: null,             label: 'Castellón',  live: false }
+      { href: null,             label: 'Andalucía',  live: false }
     ],
     es: [
       { href: '/es/valencia/',  label: 'Valencia',  live: true },
       { href: '/es/barcelona/', label: 'Barcelona', live: true },
       { href: '/es/alicante/',  label: 'Alicante',  live: true },
       { href: '/es/toledo/',    label: 'Toledo',     live: true },
+      { href: '/es/castellon/', label: 'Castellón',  live: true },
       { href: null,             label: 'Madrid',     live: false },
-      { href: null,             label: 'Andalucía',  live: false },
-      { href: null,             label: 'Castellón',  live: false }
+      { href: null,             label: 'Andalucía',  live: false }
     ]
   };
 
@@ -254,7 +254,7 @@ if (burger && links) {
       'display:flex;align-items:center;gap:20px;flex-wrap:wrap;',
     '}',
     '.cb-text{',
-      'flex:1;min-width:220px;',
+      'flex:1;min-width:220px;color:#e8f0eb;',
       'font-size:13px;line-height:1.55;',
       'font-family:inherit;margin:0;',
     '}',
@@ -264,7 +264,7 @@ if (burger && links) {
     '.cb-actions{display:flex;gap:10px;flex-shrink:0;}',
     '.cb-btn{',
       'font-family:inherit;font-size:13px;font-weight:700;',
-      'padding:8px 18px;border-radius:6px;cursor:pointer;',
+      'padding:8px 18px;min-height:44px;border-radius:6px;cursor:pointer;',
       'border:none;white-space:nowrap;transition:opacity .15s,background .15s;',
     '}',
     '.cb-btn--primary{background:#c8a84b;color:#1a3326;}',
@@ -272,8 +272,12 @@ if (burger && links) {
     '.cb-btn--ghost{background:transparent;color:#a3c4b0;border:1px solid #3a5c4a;}',
     '.cb-btn--ghost:hover{background:#243d2e;}',
     '@media(max-width:540px){',
-      '.cb-inner{flex-direction:column;align-items:stretch;gap:12px;}',
-      '.cb-actions{justify-content:flex-end;}',
+      '#gsg-privacy-bar{padding:10px 14px;}',
+      '.cb-inner{flex-direction:column;align-items:stretch;gap:8px;}',
+      '.cb-text{font-size:12.5px;line-height:1.45;}',
+      '.cb-icon{display:none;}',
+      '.cb-actions{justify-content:stretch;}',
+      '.cb-btn{flex:1;}',
     '}'
   ].join('');
 

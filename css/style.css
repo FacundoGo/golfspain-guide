@@ -845,3 +845,27 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   .contact-item > div { min-width: 0; }
   .contact-item a, .contact-item span { overflow-wrap: anywhere; }
 }
+
+/* ── Mobile audit fixes ─────────────────────────────────────────────────── */
+/* Consent line: one flowing sentence, not three flex columns */
+.nl-form__consent, .email-capture__consent { display: block !important; }
+.nl-form__consent input[type="checkbox"], .email-capture__consent input[type="checkbox"] {
+  width: 20px !important; height: 20px !important; vertical-align: -5px; margin: 0 8px 0 0 !important;
+}
+@media (max-width: 768px) {
+  /* iPhone zooms in on inputs under 16px */
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 16px !important; }
+  /* Tap targets: at least 44px tall */
+  .nl-form__btn, .book-link, .btn, .email-capture__btn, .btn-quick { min-height: 44px; }
+  .book-link { display: inline-flex !important; align-items: center; padding-top: 0; padding-bottom: 0; }
+  .btn-clear { padding: 12px 0 !important; }
+  /* Course directory: don't pin the filter bar under the nav on phones */
+  .dir-toolbar { position: static; box-shadow: none; }
+  /* Comparison cards: let the club cell wrap so notes under the name don't overflow */
+  .compare-table td { flex-wrap: wrap; }
+  .compare-table td > div { flex-basis: 100%; }
+  /* Minimum readable text */
+  .nl-disclaimer, .book-link, .qa-label, .hp-rb-stat__lbl, .hp-hero__badge,
+  .hp-label, .hp-rb-live, .hp-region__tag, .hp-bc-tag, .hp-region__status, .hp-cc__price-lbl,
+  .source-note, .course-badge, .ch-tag, small, caption { font-size: 12px !important; }
+}
