@@ -1,12 +1,16 @@
 // ── Hotjar ────────────────────────────────────────────────────────────────────
-(function(h,o,t,j,a,r){
-  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-  h._hjSettings={hjid:6732317,hjsv:6};
-  a=o.getElementsByTagName('head')[0];
-  r=o.createElement('script');r.async=1;
-  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-  a.appendChild(r);
-})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+// Loaded only after the visitor accepts analytics cookies (see consent banner below).
+function gsgLoadHotjar() {
+  if (window._hjSettings) return;
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:6732317,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+}
 
 // ── Nav component ─────────────────────────────────────────────────────────────
 // Single source of truth for navigation links.
@@ -191,6 +195,7 @@ if (burger && links) {
     applyGtag(stored === 'accepted');
     // Re-send config so GA4 fires a page_view with consent granted (not before it).
     // Also re-applies debug_mode for DebugView testing.
+    if (stored === 'accepted') gsgLoadHotjar();
     if (stored === 'accepted' && typeof gtag === 'function') {
       var debugCfg = location.search.includes('debug=1') ? { debug_mode: true } : {};
       gtag('config', 'G-DXK0NZW1LH', debugCfg);
@@ -203,19 +208,19 @@ if (burger && links) {
 
   // ── Strings ──
   var COPY = location.pathname.startsWith('/de/') ? {
-    text: 'Wir nutzen Analyse-Cookies (Google Analytics), um zu verstehen, wie die Seite genutzt wird. Keine Werbung, kein Tracking durch Dritte.',
+    text: 'Mit deiner Zustimmung nutzen wir Analyse-Cookies (Google Analytics und Hotjar), um zu verstehen, wie die Seite genutzt wird. Keine Werbung.',
     accept: 'Akzeptieren',
     decline: 'Nur notwendige',
     policy: 'Datenschutz',
-    policyHref: '/en/about/#privacy'
+    policyHref: '/en/privacy/'
   } : {
     text: isEs
-      ? 'Usamos cookies analíticas (Google Analytics) para entender cómo se usa el sitio. No hay publicidad ni seguimiento de terceros.'
-      : 'We use analytics cookies (Google Analytics) to understand how the site is used. No advertising or third-party tracking.',
+      ? 'Con tu permiso usamos cookies analíticas (Google Analytics y Hotjar) para entender cómo se usa el sitio. Sin publicidad.'
+      : 'With your permission we use analytics cookies (Google Analytics and Hotjar) to understand how the site is used. No advertising.',
     accept: isEs ? 'Aceptar' : 'Accept',
     decline: isEs ? 'Solo esenciales' : 'Essential only',
     policy: isEs ? 'Política de privacidad' : 'Privacy policy',
-    policyHref: isEs ? '/es/about/#privacidad' : '/en/about/#privacy'
+    policyHref: isEs ? '/es/privacidad/' : '/en/privacy/'
   };
 
   // ── Build banner ──
@@ -290,6 +295,7 @@ if (burger && links) {
   function dismiss(accepted) {
     setConsent(accepted ? 'accepted' : 'declined');
     applyGtag(accepted);
+    if (accepted) gsgLoadHotjar();
     // Re-send config after consent so GA4 processes it with analytics_storage granted.
     // Also re-applies debug_mode so DebugView registers the device after the consent gate.
     if (accepted && typeof gtag === 'function') {
