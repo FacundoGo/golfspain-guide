@@ -1,213 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- EN pages -->
   <url>
     <loc>https://golfspain.guide/en/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/el-saler/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-saler/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/el-saler/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/el-saler/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/escorpion/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/escorpion/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/escorpion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/escorpion/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/foressos/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/foressos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/foressos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/foressos/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/el-bosque/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-bosque/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/el-bosque/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/el-bosque/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/la-galiana/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/la-galiana/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/la-galiana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/la-galiana/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/requena/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/requena/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/requena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/requena/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/about/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/about/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/about/"/>
   </url>
-
-  <!-- ES pages -->
   <url>
     <loc>https://golfspain.guide/es/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/el-saler/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-saler/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/el-saler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-saler/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/el-saler/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/escorpion/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/escorpion/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/escorpion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/escorpion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/escorpion/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/foressos/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/foressos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/foressos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/foressos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/foressos/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/el-bosque/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-bosque/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/el-bosque/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/el-bosque/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/el-bosque/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/la-galiana/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/la-galiana/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/la-galiana/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/la-galiana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/la-galiana/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/requena/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/requena/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/requena/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/requena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/requena/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/about/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/about/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/about/"/>
   </url>
-
-  <!-- Ifach Golf -->
   <url>
     <loc>https://golfspain.guide/en/valencia/ifach/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/ifach/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/ifach/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/ifach/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/ifach/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/ifach/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/ifach/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/ifach/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/ifach/"/>
   </url>
-
-  <!-- Masia de las Estrellas Golf -->
   <url>
     <loc>https://golfspain.guide/en/valencia/masia-estrellas/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/masia-estrellas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/masia-estrellas/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/masia-estrellas/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/masia-estrellas/"/>
   </url>
-
   <url>
     <loc>https://golfspain.guide/en/courses/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/courses/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/courses/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/courses/"/>
   </url>
-
   <url>
     <loc>https://golfspain.guide/es/courses/</loc>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/courses/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/courses/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/courses/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/courses/"/>
   </url>
-
-  <!-- Blog -->
   <url>
     <loc>https://golfspain.guide/en/blog/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/"/>
@@ -216,33 +228,34 @@
   </url>
   <url>
     <loc>https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/el-bosque-golf-dana-recovery-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/el-bosque-golf-dana-recovery-2026/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/el-bosque-golf-dana-recovery-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/el-bosque-golf-dana-recovery-2026/"/>
   </url>
-
-  <!-- Barcelona region -->
   <url>
     <loc>https://golfspain.guide/en/barcelona/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/"/>
@@ -251,15 +264,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/barcelona/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/barcelona/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/barcelona/el-prat/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/el-prat/"/>
@@ -268,17 +282,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/barcelona/el-prat/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/el-prat/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/barcelona/el-prat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/barcelona/el-prat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/barcelona/el-prat/"/>
   </url>
-
-  <!-- El Prat blog posts -->
   <url>
     <loc>https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
@@ -287,17 +300,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/real-club-de-golf-el-prat-green-fees-membership-2026/"/>
   </url>
-
-  <!-- How to join a golf club in Spain -->
   <url>
     <loc>https://golfspain.guide/en/blog/how-to-join-a-golf-club-in-spain/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-join-a-golf-club-in-spain/"/>
@@ -306,18 +318,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/como-hacerse-socio-club-golf-espana/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-join-a-golf-club-in-spain/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-hacerse-socio-club-golf-espana/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/how-to-join-a-golf-club-in-spain/"/>
   </url>
-
-  <!-- MyGolf Spain guide -->
   <url>
     <loc>https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
@@ -326,17 +336,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/mygolf-espana-green-fees-reservas-2026/</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/mygolf-espana-green-fees-reservas-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/mygolf-spain-green-fees-booking-2026/"/>
   </url>
-
-  <!-- Green fees Spain 2026 guide -->
   <url>
     <loc>https://golfspain.guide/en/blog/golf-green-fees-spain-2026/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/golf-green-fees-spain-2026/"/>
@@ -345,17 +354,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/green-fees-golf-espana-2026/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/golf-green-fees-spain-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/green-fees-golf-espana-2026/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/golf-green-fees-spain-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/golf-green-fees-spain-2026/"/>
   </url>
-
-  <!-- Blog: Cheapest Golf in Valencia -->
   <url>
     <loc>https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
@@ -364,38 +372,36 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/golf-economico-valencia-green-fees-2026/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/golf-economico-valencia-green-fees-2026/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/cheapest-golf-courses-valencia-green-fees-2026/"/>
   </url>
-
-  <!-- Handicap Calculator -->
   <url>
     <loc>https://golfspain.guide/en/handicap-calculator/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/handicap-calculator/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/"/>
   </url>
-
-  <!-- Alicante region -->
   <url>
     <loc>https://golfspain.guide/en/alicante/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/"/>
@@ -404,17 +410,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/"/>
   </url>
-
-  <!-- Real Club de Golf Campoamor -->
   <url>
     <loc>https://golfspain.guide/en/alicante/campoamor-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
@@ -423,17 +428,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/campoamor-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/campoamor-golf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/campoamor-golf/"/>
   </url>
-
-  <!-- Altea Club de Golf -->
   <url>
     <loc>https://golfspain.guide/en/alicante/altea-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/altea-golf/"/>
@@ -442,17 +446,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/altea-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/altea-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/altea-golf/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/altea-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/altea-golf/"/>
   </url>
-
-  <!-- Castellón region -->
   <url>
     <loc>https://golfspain.guide/en/castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/"/>
@@ -461,17 +464,16 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/"/>
   </url>
-
-  <!-- Panorámica Club de Golf -->
   <url>
     <loc>https://golfspain.guide/en/castellon/panoramica-golf-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
@@ -480,175 +482,193 @@
   </url>
   <url>
     <loc>https://golfspain.guide/es/castellon/panoramica-golf-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/panoramica-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/panoramica-golf-castellon/"/>
   </url>
-
-  <!-- Comunitat Valenciana courses (batch 2) -->
   <url>
     <loc>https://golfspain.guide/en/alicante/la-sella-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-sella-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/la-sella-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-sella-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-sella-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/puig-campana-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/puig-campana-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/puig-campana-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/puig-campana-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/puig-campana-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/font-del-llop-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/font-del-llop-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/font-del-llop-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/font-del-llop-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/font-del-llop-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/la-finca-golf-algorfa/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-finca-golf-algorfa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/la-finca-golf-algorfa/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-finca-golf-algorfa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-finca-golf-algorfa/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/las-ramblas-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-ramblas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/las-ramblas-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-ramblas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/las-ramblas-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/las-colinas-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-colinas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/las-colinas-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/las-colinas-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/las-colinas-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/la-marquesa-golf-rojales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/la-marquesa-golf-rojales/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/lo-romero-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/lo-romero-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/lo-romero-golf/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/lo-romero-golf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/lo-romero-golf/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/mediterraneo-golf-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/mediterraneo-golf-castellon/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/castellon/golf-costa-azahar-castellon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/castellon/golf-costa-azahar-castellon/"/>
   </url>
-
   <url>
     <loc>https://golfspain.guide/en/valencia/cofrentes/</loc>
     <lastmod>2026-09-30</lastmod>
@@ -656,38 +676,43 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/cofrentes/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/cofrentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/cofrentes/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/manises/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/manises/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/manises/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/manises/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/valencia/oliva-nova/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/oliva-nova/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/oliva-nova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/oliva-nova/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/alicante/villamartin/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/villamartin/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/villamartin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/villamartin/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/toledo/layos/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/layos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/toledo/layos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/toledo/layos/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/cofrentes/</loc>
@@ -696,38 +721,43 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/cofrentes/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/cofrentes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/cofrentes/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/manises/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/manises/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/manises/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/manises/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/manises/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/valencia/oliva-nova/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/oliva-nova/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/valencia/oliva-nova/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/valencia/oliva-nova/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/valencia/oliva-nova/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/alicante/villamartin/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/villamartin/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/alicante/villamartin/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/alicante/villamartin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/alicante/villamartin/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/toledo/layos/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/layos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/toledo/layos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/layos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/toledo/layos/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/</loc>
@@ -736,6 +766,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/</loc>
@@ -744,6 +775,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/blog/como-sacar-handicap-golf-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/blog/how-to-get-golf-handicap-spain/"/>
   </url>
   <url>
     <loc>https://golfspain.guide/de/handicap-rechner/</loc>
@@ -753,5 +785,78 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/handicap-calculator/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://golfspain.guide/de/handicap-rechner/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/handicap-calculator/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/find-my-course/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/find-my-course/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/find-my-course/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/find-my-course/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/newsletter/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/newsletter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/newsletter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/newsletter/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/quiz/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/quiz/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/en/toledo/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/toledo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/toledo/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/find-my-course/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/find-my-course/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/find-my-course/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/find-my-course/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/newsletter/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/newsletter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/newsletter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/newsletter/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/quiz/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/quiz/"/>
+  </url>
+  <url>
+    <loc>https://golfspain.guide/es/toledo/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://golfspain.guide/es/toledo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://golfspain.guide/en/toledo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://golfspain.guide/en/toledo/"/>
   </url>
 </urlset>
