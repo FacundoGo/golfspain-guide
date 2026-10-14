@@ -17,11 +17,15 @@ to a Google Sheet. No emails are sent.
    - Name: `TRIP_LEADS_WEBHOOK`
    - Value: `<Web app URL>?key=<your random string>`
    - Environments: Production and Preview
+   - Mark it **Sensitive**: the `?key=` part is a secret. Never commit it or paste it in chat.
 6. Redeploy (or merge the next PR) so the function picks up the variable.
 7. Test: submit the form on a preview URL and check that a row appears in the **Leads** tab.
 
 If you change the script later, use **Deploy → Manage deployments → Edit → New version**
 so the URL stays the same.
+
+**Rotating the key** (if it ever leaks): change `KEY` in the script → New version (as above) →
+update `TRIP_LEADS_WEBHOOK` in Vercel with the new `?key=` → redeploy.
 
 ## Apps Script
 
