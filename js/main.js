@@ -643,3 +643,123 @@ async function submitTableForm(btn) {
     msg.style.display = '';
   }
 }
+
+// ── Course pages: "On this page" section nav ─────────────────────────────────
+// Built from the cards' headings. Desktop: list at the top of the sticky sidebar.
+// Phones/tablets (≤900px): sticky chip bar under the header. Highlights the section in view.
+(function () {
+  var isEs = (document.documentElement.lang || '').indexOf('es') === 0;
+  var RULES = [
+    [/green fee/, 'Green fees', 'Green fees'],
+    [/^(about|sobre|acerca)/, 'About', 'El club'],
+    [/^(course facts|course details|datos)/, 'Facts', 'Datos'],
+    [/^(the three courses|los tres campos)/, 'Courses', 'Campos'],
+    [/(member|membres|abono|bono|cuota|socio)/, 'Membership', 'Cuotas'],
+    [/(facilities|instalaciones)/, 'Facilities', 'Instalaciones'],
+    [/(contact|contacto|ubicaci)/, 'Location', 'Ubicación'],
+    [/(handicap|hándicap)/, 'Handicap', 'Hándicap'],
+    [/(how to get|getting there|cómo llegar)/, 'Getting there', 'Cómo llegar'],
+    [/(frequently|preguntas|faq)/, 'FAQ', 'FAQ'],
+    [/(compare|comparar|see also|ver también)/, 'Compare', 'Comparar']
+  ];
+
+  function labelFor(card) {
+    if (card.classList.contains('trip-card')) return isEs ? 'Plan de viaje' : 'Trip plan';
+    var h = card.querySelector('h2, h3');
+    if (!h) return null;
+    var t = h.textContent.trim().toLowerCase();
+    for (var i = 0; i < RULES.length; i++) {
+      if (RULES[i][0].test(t)) return isEs ? RULES[i][2] : RULES[i][1];
+    }
+    return null;
+  }
+
+  function slug(s) {
+    return 'sec-' + s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
+  }
+
+  function init() {
+    if (!document.querySelector('.club-hero')) return;
+    var grid = document.querySelector('[style*="grid-template-columns:1fr 340px"], [style*="grid-template-columns:1fr 320px"]');
+    if (!grid || !grid.children[1]) return;
+    var aside = grid.children[1];
+
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.club-hero ~ .section .info-card'))
+      .filter(function (c) { return !aside.contains(c); });
+    var items = [], seen = {};
+    cards.forEach(function (card) {
+      var label = labelFor(card);
+      if (!label || seen[label]) return;
+      seen[label] = true;
+      if (!card.id) card.id = slug(label);
+      items.push({ label: label, el: card });
+    });
+    var summary = aside.querySelector('.info-card');
+    if (items.length < 3) return;
+
+    function links(withSummary) {
+      var list = items.slice();
+      if (withSummary && summary) {
+        if (!summary.id) summary.id = 'sec-summary';
+        var canBook = /book|reserv/i.test(aside.textContent);
+        list.push({ label: canBook ? (isEs ? 'Reservar' : 'Book') : (isEs ? 'Resumen' : 'Summary'), el: summary });
+      }
+      return list.map(function (it) {
+        return '<a href="#' + it.el.id + '" data-target="' + it.el.id + '">' + it.label + '</a>';
+      }).join('');
+    }
+
+    var side = document.createElement('nav');
+    side.className = 'toc-side';
+    side.setAttribute('aria-label', isEs ? 'En esta página' : 'On this page');
+    side.innerHTML = '<div class="toc-side__title">' + (isEs ? 'En esta página' : 'On this page') + '</div>' + links(false);
+    // Wide screens: own left column (CSS turns the 2-column grid into 3 from 1280px)
+    var col = document.createElement('div');
+    col.className = 'toc-col';
+    col.appendChild(side);
+    grid.insertBefore(col, grid.firstChild);
+    grid.classList.add('has-toc');
+    document.body.classList.add('course-page');
+
+    var bar = document.createElement('nav');
+    bar.className = 'toc-bar';
+    bar.setAttribute('aria-label', isEs ? 'En esta página' : 'On this page');
+    bar.innerHTML = '<div class="container toc-bar__inner">' + links(true) + '</div>';
+    var section = grid.closest('.section');
+    section.parentNode.insertBefore(bar, section);
+
+    var all = Array.prototype.slice.call(document.querySelectorAll('.toc-side a, .toc-bar a'));
+    all.forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (typeof gtag === 'function') gtag('event', 'section_nav_click', { section: a.textContent, page_path: location.pathname });
+      });
+    });
+
+    function setActive(id) {
+      all.forEach(function (a) {
+        var on = a.getAttribute('data-target') === id;
+        a.classList.toggle('is-active', on);
+        if (on && a.parentNode.classList.contains('toc-bar__inner')) {
+          var box = a.parentNode;
+          var left = a.offsetLeft - (box.clientWidth - a.offsetWidth) / 2;
+          box.scrollTo ? box.scrollTo({ left: left, behavior: 'smooth' }) : (box.scrollLeft = left);
+        }
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var targets = items.map(function (it) { return it.el; });
+    if (summary && summary.id) targets.push(summary);
+    var visible = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      for (var i = 0; i < targets.length; i++) {
+        if (visible[targets[i].id]) { setActive(targets[i].id); return; }
+      }
+    }, { rootMargin: '-130px 0px -55% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
