@@ -48,11 +48,16 @@ module.exports = async function handler(req, res) {
     return res.status(503).json({ error: 'Lead storage not configured' });
   }
 
+  // The secret also travels in the body: Apps Script reads it from either place.
+  let key = '';
+  try { key = new URL(url).searchParams.get('key') || ''; } catch (_) {}
+  if (!key) console.error('TRIP_LEADS_WEBHOOK has no ?key= part');
+
   try {
     const r = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(lead),
+      body: JSON.stringify({ ...lead, key }),
       redirect: 'follow',
     });
     // Apps Script answers 200 even when it rejects the request (e.g. 'forbidden' on a key

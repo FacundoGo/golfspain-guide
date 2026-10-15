@@ -42,10 +42,12 @@ function safe(v) {
 }
 
 function doPost(e) {
-  if (!e || !e.parameter || e.parameter.key !== KEY) {
+  const d = JSON.parse((e && e.postData && e.postData.contents) || '{}');
+  // The key arrives in the body (and in the URL's ?key=); accept either.
+  const got = d.key || (e && e.parameter && e.parameter.key) || '';
+  if (got !== KEY) {
     return ContentService.createTextOutput('forbidden');
   }
-  const d = JSON.parse(e.postData.contents);
   const book = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = book.getSheetByName('Leads') || book.insertSheet('Leads');
   if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
