@@ -713,7 +713,13 @@ async function submitTableForm(btn) {
     side.className = 'toc-side';
     side.setAttribute('aria-label', isEs ? 'En esta página' : 'On this page');
     side.innerHTML = '<div class="toc-side__title">' + (isEs ? 'En esta página' : 'On this page') + '</div>' + links(false);
-    aside.insertBefore(side, aside.firstChild);
+    // Wide screens: own left column (CSS turns the 2-column grid into 3 from 1280px)
+    var col = document.createElement('div');
+    col.className = 'toc-col';
+    col.appendChild(side);
+    grid.insertBefore(col, grid.firstChild);
+    grid.classList.add('has-toc');
+    document.body.classList.add('course-page');
 
     var bar = document.createElement('nav');
     bar.className = 'toc-bar';

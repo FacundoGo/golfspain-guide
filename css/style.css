@@ -908,27 +908,34 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   .trip-clubs td { display: table-cell !important; }
 }
 
-/* ── Course pages: "On this page" section nav (built in main.js) ── */
+/* ── Course pages: "On this page" section nav (built in main.js) ──
+   ≥1280px: vertical list in a left column (page widens so content keeps its width).
+   ≤1279px: sticky chip bar under the header. */
 .club-hero ~ .section .info-card[id] { scroll-margin-top: 84px; }
-.toc-side {
-  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 12px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px;
-}
-.toc-side__title {
-  flex-basis: 100%; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
-  color: var(--text-light); margin-bottom: 2px;
-}
-.toc-side a {
-  display: inline-block; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--green-light);
-  background: var(--green-pale); color: var(--green-dark); font-size: .82rem; font-weight: 600;
-  text-decoration: none; line-height: 1.4;
-}
-.toc-side a:hover { background: #d6eedf; }
-.toc-side a.is-active { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+.toc-col { display: none; }
 .toc-bar { display: none; }
 
-@media (max-width: 900px) {
-  .toc-side { display: none; }
+@media (min-width: 1280px) {
+  .course-page .club-hero .container,
+  .course-page .club-hero ~ .container,
+  .course-page .club-hero ~ .section .container { max-width: 1300px; }
+  .has-toc[style*="1fr 340px"] { grid-template-columns: 170px 1fr 340px !important; }
+  .has-toc[style*="1fr 320px"] { grid-template-columns: 170px 1fr 320px !important; }
+  .toc-col { display: block; position: sticky; top: 84px; align-self: start; }
+  .toc-side { display: flex; flex-direction: column; border-left: 2px solid var(--border); }
+  .toc-side__title {
+    font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--text-light); padding: 0 0 8px 14px;
+  }
+  .toc-side a {
+    display: block; margin-left: -2px; padding: 6px 0 6px 14px; border-left: 2px solid transparent;
+    color: var(--text-mid); text-decoration: none; font-size: .9rem; line-height: 1.35;
+  }
+  .toc-side a:hover { color: var(--green-dark); border-left-color: var(--green-light); }
+  .toc-side a.is-active { color: var(--green-dark); font-weight: 700; border-left-color: var(--green-dark); }
+}
+
+@media (max-width: 1279px) {
   .toc-bar {
     display: block; position: sticky; top: 64px; z-index: 90;
     background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,.06);
@@ -945,4 +952,8 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   }
   .toc-bar a.is-active { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
   .club-hero ~ .section .info-card[id], .club-hero ~ .section [id="sec-summary"] { scroll-margin-top: 124px; }
+}
+/* Mid-size screens: keep the sticky sidebar below the chip bar */
+@media (min-width: 901px) and (max-width: 1279px) {
+  .has-toc > [style*="position:sticky"] { top: 132px !important; }
 }
