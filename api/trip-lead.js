@@ -55,8 +55,13 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify(lead),
       redirect: 'follow',
     });
-    if (!r.ok) {
-      console.error('Lead webhook error:', r.status);
+    // Apps Script answers 200 even when it rejects the request (e.g. 'forbidden' on a key
+    // mismatch), so only a JSON {ok:true} body counts as stored.
+    const text = await r.text();
+    let stored = false;
+    try { stored = JSON.parse(text).ok === true; } catch (_) {}
+    if (!r.ok || !stored) {
+      console.error('Lead webhook error:', r.status, text.slice(0, 80));
       return res.status(502).json({ error: 'Lead storage failed' });
     }
     return res.status(200).json({ ok: true });
