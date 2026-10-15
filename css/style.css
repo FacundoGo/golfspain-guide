@@ -907,3 +907,42 @@ a.nav-region--live[aria-current="page"] { color: #fff; font-weight: 700; }
   .trip-clubs { display: table; }
   .trip-clubs td { display: table-cell !important; }
 }
+
+/* ── Course pages: "On this page" section nav (built in main.js) ── */
+.club-hero ~ .section .info-card[id] { scroll-margin-top: 84px; }
+.toc-side {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 12px; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 6px;
+}
+.toc-side__title {
+  flex-basis: 100%; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--text-light); margin-bottom: 2px;
+}
+.toc-side a {
+  display: inline-block; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--green-light);
+  background: var(--green-pale); color: var(--green-dark); font-size: .82rem; font-weight: 600;
+  text-decoration: none; line-height: 1.4;
+}
+.toc-side a:hover { background: #d6eedf; }
+.toc-side a.is-active { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+.toc-bar { display: none; }
+
+@media (max-width: 900px) {
+  .toc-side { display: none; }
+  .toc-bar {
+    display: block; position: sticky; top: 64px; z-index: 90;
+    background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  }
+  .toc-bar__inner {
+    display: flex; gap: 8px; overflow-x: auto; padding-top: 8px; padding-bottom: 8px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .toc-bar__inner::-webkit-scrollbar { display: none; }
+  .toc-bar a {
+    flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px;
+    border-radius: 999px; border: 1px solid var(--green-light); background: var(--green-pale);
+    color: var(--green-dark); font-size: .88rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+  }
+  .toc-bar a.is-active { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+  .club-hero ~ .section .info-card[id], .club-hero ~ .section [id="sec-summary"] { scroll-margin-top: 124px; }
+}
